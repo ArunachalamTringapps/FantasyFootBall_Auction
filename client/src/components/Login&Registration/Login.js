@@ -13,12 +13,13 @@ function Login() {
         <div className='header'>
           Login
         <form className='form'>
-          <input type="text" placeholder='enter username'></input>
-          <input type="text" placeholder='enter email id'></input>
-          <input type="text" placeholder='enter password'></input>
-          <button className='signin'>Sign in</button>
+          <input type="text" placeholder='enter email id' className='email'></input>
+          <input type="text" placeholder='enter password' className='password'></input>
+         <div> <button className='signin'>Sign in</button></div>
         </form>
+        <div className='createaccount'>Dont have an Account? Register</div>
         </div>
+        
 
       </div>
     </div>
