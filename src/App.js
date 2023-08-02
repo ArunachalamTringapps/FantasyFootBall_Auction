@@ -4,7 +4,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      Hello World
+      Welcome to React JS
+      
     </div>
   );
 }
