@@ -14,12 +14,10 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
 }
 .HomepageTopPlayersContainer{
     overflow: hidden;
     position: relative;
-    /* border: 1px solid blue; */
     display: flex;
     align-items: center;
     justify-content: space-evenly;
