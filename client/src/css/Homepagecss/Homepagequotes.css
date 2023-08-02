@@ -9,13 +9,21 @@
 .Homepagequotes img {
     width: 140px; 
     height: 90px; 
-    border:1px solid black;
+    outline: none;
+    /* border:1px solid black; */
     border-radius:20px;
   }
   .Homepagequotes h1{
-    font-size: 98px;
-    margin-right: 20px;
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 5rem;
+    /* margin-right: 20px; */
+    width: 50vw;
+    height: 20vh;
     word-spacing:10px;
+    letter-spacing: 5px;
   }
   
   
