@@ -51,6 +51,7 @@ header{
 }
 .Homepageheadertop div button:hover::after{
     width: 100%;
+    
 }
 .Homepageheadertop div button:hover{
     cursor: pointer;
