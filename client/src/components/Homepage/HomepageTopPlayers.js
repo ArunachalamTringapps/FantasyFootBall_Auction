@@ -3,7 +3,6 @@ import '../../css/Homepagecss/HomepageTopPlayers.css'
 import messi from '../../lionel-messi.jpg'
 import ronaldo from '../../ronaldo.jpg'
 import neymar from '../../neymarr.jpg'
-// import { ImgOverlay } from 'image-overlay-react'
 
 function HomepageTopPlayers() { 
     const image=[
