@@ -1,0 +1,84 @@
+header{
+    width: 80vw;
+    height: 90vh;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+
+}
+.Homepageheadertop{
+    flex-grow: 0.3;
+    font-size: 100%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content:space-between;
+    padding: 10px;
+    letter-spacing: 2px;
+}
+.Homepageheadertop h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Homepageheadertop div{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+}
+.Homepageheadertop div button{
+    letter-spacing: 2px;
+    font-size: 100%;
+    font-weight: 900;
+    padding: 10px;
+    /* border-radius: 35%; */
+    outline: none;
+    border: none;
+    background-color: white;
+    /* display: inline-block; */
+    /* color: #000; */
+    /* text-decoration: none; */
+}
+
+.Homepageheadertop div button::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width .3s;
+
+}
+.Homepageheadertop div button:hover::after{
+    width: 100%;
+}
+.Homepageheaderbottom{
+    padding: 10px;
+    /* border: 1px solid black; */
+    flex-grow: 2;
+    font-size: larger;
+    /* background-color: cyan; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vw;
+
+}
+.Homepageheaderbottom div{
+    font-size: 5vw;
+    color: white;
+    background-image: url(../../../Homepageimage.jpg);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center
+    /* flex-grow: 4;
+    color: aliceblue;
+    font-size: xx-large; */
+    /* width: 100%; */
+
+
+}
