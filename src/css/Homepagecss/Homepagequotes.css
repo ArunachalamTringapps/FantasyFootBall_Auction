@@ -1,0 +1,22 @@
+ .Homepagequotes{
+    width: 90vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Homepagequotes img {
+    width: 140px; 
+    height: 90px; 
+    border:1px solid black;
+    border-radius:20px;
+  }
+  .Homepagequotes h1{
+    font-size: 98px;
+    margin-right: 20px;
+    word-spacing:10px;
+  }
+  
+  
+  
