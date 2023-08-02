@@ -50,7 +50,6 @@ header{
     background-image: linear-gradient(to right, #f0f0f0, #848282, #121212);
 }
 .Homepageheadertop div button:hover::after{
-    
     width: 100%;
 }
 .Homepageheadertop div button:hover{
