@@ -7,33 +7,72 @@
     align-items: center;
 }
 .container{
-    background-color: #D8D9DA;
-    border: 1px solid rgb(241, 234, 234);
+    background-color: #AAC8A7;
     border-radius: 10px;
-    box-shadow:10px 10px 10px 10px rgb(179, 178, 178);
-    width:30vw;
-    height:50vh;
-    justify-content: center;
-    align-items: center;
+    box-shadow:7px 5px 7px 5px rgb(179, 178, 178);
+    width:60vw;
+    height:70vh;
+    /* justify-content: center;
+    align-items: center; */
     display: flex;
     flex-direction:row;
+   border:none;
     gap:20px;
 }
 .left{
     width:70%;
+    height:70vh;
+    background-image: url("../../LoginFootBall.jpg");
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
 }
 .header{
-    font-size: 30px;
-
+    height: 70vh;
+    width:35%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    font-size: 50px;
+    gap:30px;
 }
 .form{
 display: flex;
 flex-direction: column;
 align-items: center;
-gap:20px;
+gap:50px;
+}
+.email{
+outline:none;
+    border:none;
+    background-color:#AAC8A7;
+    font-size: 20px;
+}
+.email:focus{
+    outline:none;
+    border-bottom: 2px solid rgb(234, 237, 232);
+}
+.password{
+    outline:none;
+    border:none;
+    background-color:#AAC8A7;
+    font-size: 20px;
+}
+.password:focus{
+    outline:none;
+    border-bottom: 2px solid rgb(234, 237, 232);
 }
 .signin{
-    width:50px;
+    width:80px;
+    height:30px;
     border-radius: 20px;
-
+    background-color: #e6e9e6;
+    align-items: center;
+    border:none;
+}
+.createaccount{
+    font-size: 20px;
 }
