@@ -9,14 +9,12 @@
 .Homepagequotes img {
     width: 140px; 
     height: 90px; 
-    border:1px solid black;
     border-radius:20px;
   }
   .Homepagequotes h1{
-    font-size: 98px;
+    font-size: 6rem;
     margin-right: 20px;
-    word-spacing:10px;
-
+    word-spacing:20px;
   }
   
   
