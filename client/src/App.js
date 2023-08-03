@@ -7,6 +7,7 @@ import Cursor from "react-cursor-follow";
 import { BiFootball } from "react-icons/bi";
 import Admin from './components/Dashboard/Admin';
 import Loading from './loading/LoadingPage'
+import ErrorPage from './errorpage/ErrorPageComponents'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/register" element={<Register/>}></Route>
       <Route path="/dashboard" element={<Admin/>}></Route>
       <Route path='/loading' element={<Loading/>}/>
+      <Route path='/error' element={<ErrorPage/>}/>
       </Routes>
     </div>
   );
