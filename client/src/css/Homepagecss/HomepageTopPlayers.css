@@ -56,11 +56,12 @@
 .HomepageTopPlayersItemsText h1{
     /* background: linear-gradient(to right, #FDFBFB, #EBEDEE 70%); */
     /* background: linear-gradient(to right, #f0f0f0, #848282, #121212); */
-    letter-spacing: 2px;
+    letter-spacing:2px;
     flex-grow: 1;
     font-weight: 900;
     /* border: 1px solid green; */
     width: 100%;
+    /* font-size: 1.6em; */
     display: flex;
     flex-direction: column;
     justify-content: center;
