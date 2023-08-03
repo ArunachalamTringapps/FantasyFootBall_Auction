@@ -16,19 +16,20 @@ function HompagePlayersThoughts() {
       image:imageTwo,
       naming:'Ethan',
       position:'center',
-      text:'hello'
+      text:'Really good and i like it a lot they are legit and yea...'
     },
     {
       image:imageThree,
       naming:'David',
       position:'end',
-      text:"welcome"
+      text:"The best there is in the auction business. Honest, dependable and some high-quality memorabilia. My favorite auction site"
     }
   ]
   return (
     <div className='HomepagePlayersThoughts'>
     <div className='straightline'></div>
     <div className='boxContainer'>
+      
       {
         icons.map((val)=>{
           return(

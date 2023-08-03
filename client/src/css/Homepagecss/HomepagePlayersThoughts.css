@@ -37,7 +37,7 @@
     border-radius: 2em;
     width: 22vw;
     /* height: 100vh; */
-    height: 100vh;
+    height: 80vh;
     /* flex-grow: 1; */
 }
 .HomepagePlayersThoughts .boxContainer .boxItems{
@@ -46,18 +46,31 @@
     flex-direction: column;
     align-items: center;
     /* justify-content: center; */
-    padding: 20px
+    padding: 20px;
 }
 .HomepagePlayersThoughts .boxContainer .boxItems .imagefitting{
     background-image: url(../../humanimg1.jpg);
     background-size: cover;
     height: 10%;
+    /* img { */
+        
+      /* } */
+      /* img:hover { */
+      /* } */
+      
     width: 80%;
     flex-grow: 1;
+    transform: perspective(400px) rotate3d(1, -1, 0, 8deg);
+    transition: 3s;
+}
+
+.HomepagePlayersThoughts .boxContainer .boxItems:hover .imagefitting{
+    transform: perspective(500px) rotate3d(1, -1, 0, -8deg);
+
 }
 
 .HomepagePlayersThoughts .boxContainer .boxItems  h1{
-    flex-grow: 1;
+    /* flex-grow: 1; */
     /* border: 3px solid blue; */
     display: flex;
     /* align-items: center; */
@@ -68,5 +81,11 @@
 
 .HomepagePlayersThoughts .boxContainer .boxItems  p{
     flex-grow: 1;
+    display: flex;
+    align-items: center;
     /* border: 2px solid green; */
+    word-spacing: 1px;
+    font-weight: 800;
+    text-align: justify;
+    font-size: 1.1rem;
 }
