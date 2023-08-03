@@ -12,8 +12,7 @@ function App() {
   return (
     <div className="App">
       <div className='cursor'><Cursor color="rgba(240, 248, 255, 0);" duration={0.8} size={40}><BiFootball></BiFootball></Cursor>
-      </div>
-      
+      </div>      
       <Routes>
       <Route path='/' element={<Homepage/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
