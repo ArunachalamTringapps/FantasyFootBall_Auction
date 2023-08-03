@@ -1,0 +1,59 @@
+.HomepageComplaints{
+    width: 80vw;
+    height: 90vh;
+    border:1px solid blue;
+}
+.HomepageComplaints .items{
+    display:flex;
+    flex-direction:row;
+    gap: 10px;
+    height:100%;
+    width:100%;
+}
+.HomepageComplaints .items .item-one{
+    height:60%;
+    width:50%;
+    border:1px solid blue;
+}
+.HomepageComplaints .items .item-one img{
+    height:100%;
+    width:100%;
+}
+.HomepageComplaints .items .item-two{
+    height:60%;
+    width:50%;
+    border:1px solid blue;
+}
+.HomepageComplaints .items .item-two form{
+    height:90%;
+    width:100%;
+    margin-top:5%;
+    flex-basis: calc(50% - 20px);
+    border: 1px solid white;
+    background-color:whitesmoke;
+}
+.HomepageComplaints .items .item-two form input{
+    height:15%;
+    width:48%;
+    margin-left:2%;
+    margin-top:5%;
+    border:1px solid white;
+    text-align: center;
+}
+.HomepageComplaints .items .item-two form #message{
+    height:30%;
+    width:98%;
+}
+.HomepageComplaints .items .item-two form button{
+    display:block;
+    height:10%;
+    width:30%;
+    margin-left:2%;
+    margin-top:2%;
+    border:none;
+    font-size:0.9rem;
+    background-color: orange;
+}
+
+
+
