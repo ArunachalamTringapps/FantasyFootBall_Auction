@@ -1,0 +1,15 @@
+.LoadingPage{
+    /* background-color: red; */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.LoadingPage .image{
+    background-color: red;
+    width: 50%;
+    height: 50%;
+    background-image: url(../loading-icon.jpg);
+    background-position: right center;
+}

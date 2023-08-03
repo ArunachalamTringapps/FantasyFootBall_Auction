@@ -7,9 +7,10 @@ header{
 
 }
 .Homepageheadertop{
-    flex-grow: 0.3;
+    flex-grow: 0.2;
     font-size: 100%;
-    /* background-color: blue; */
+    background-color: rgba(0, 0, 0, 0.514);
+    color: white;
     display: flex;
     justify-content:space-between;
     padding: 10px;
@@ -34,7 +35,8 @@ header{
     /* border-radius: 35%; */
     outline: none;
     border: none;
-    background-color: white;
+    color: #f0f0f0;
+    background-color: rgba(0, 0, 0, 0);
     /* display: inline-block; */
     /* color: #000; */
     /* text-decoration: none; */
