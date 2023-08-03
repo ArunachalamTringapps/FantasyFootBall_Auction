@@ -1,0 +1,92 @@
+.HomepageTopPlayers{
+    /* background-color: aqua; */
+    width: 90vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* overflow-x: scroll; */
+}
+.temp{
+    /* background-color: rgba(255, 0, 0, 0.326); */
+    width: 90vw;
+    height: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.HomepageTopPlayersContainer{
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 25%;
+    height: 75%;
+}
+
+.HomepageTopPlayersItems{
+    position: relative;
+    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
+}
+.HomepageTopPlayersItemsText{
+    display: flex;
+    flex-direction: column;
+    bottom: -100%;
+    left: 0;
+    /* align-items: center; */
+    justify-content: space-between;
+    color: white;
+    border-radius: 2rem;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.26);
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 1s ease
+
+}
+.HomepageTopPlayersContainer:hover .HomepageTopPlayersItemsText{
+    bottom: 0;
+    opacity: 1;
+}
+
+.HomepageTopPlayersItemsText h1{
+    /* background: linear-gradient(to right, #FDFBFB, #EBEDEE 70%); */
+    /* background: linear-gradient(to right, #f0f0f0, #848282, #121212); */
+    letter-spacing:2px;
+    flex-grow: 1;
+    font-weight: 900;
+    /* border: 1px solid green; */
+    width: 100%;
+    /* font-size: 1.6em; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    /* word-spacing: 60px; */
+}
+.HomepageTopPlayersItemsText h1 button{
+    padding: 7px;
+    /* letter-spacing: 2px; */
+    font-size: 0.6em;
+    font-weight: 900;
+    outline: none;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.97);
+    border: none;
+    border-radius: 5px;
+    transition: 2s ;
+    /* transition: 1s  background-color; */
+    /* text-shadow: 1px 1px black; */
+    /* border:3px solid rgba(0, 0, 0, 0.527); */
+}
+.HomepageTopPlayersItemsText h1 button:hover{
+    cursor: pointer;
+    font-size: 0.8em;
+    background-color: rgba(0, 0, 0, 0.306);
+    color: rgb(240, 248, 255);
+}

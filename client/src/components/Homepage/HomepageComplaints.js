@@ -1,8 +1,8 @@
 import React from 'react'
-
 function HomepageComplaints() {
   return (
-    <div>HomepageComplaints</div>
+    <div className='HomepageComplaints'> 
+    </div>
   )
 }
 

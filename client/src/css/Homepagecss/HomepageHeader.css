@@ -51,6 +51,7 @@ header{
 }
 .Homepageheadertop div button:hover::after{
     width: 100%;
+    
 }
 .Homepageheadertop div button:hover{
     cursor: pointer;
@@ -71,7 +72,7 @@ header{
 .Homepageheaderbottom div{
     font-size: 5vw;
     color: white;
-    background-image: url(../../../Homepageimage.jpg);
+    background-image: url(../../Homepageimage.jpg);
     background-size: cover;
     height: 100%;
     width: 100%;

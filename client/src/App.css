@@ -7,7 +7,7 @@
 }
 
 *::selection{
-  background-color: rgba(171, 107, 230, 0.413);
+  background-color: rgba(91, 91, 91, 0.413);
 }
 .root{
   /* background-color: red; */
@@ -21,3 +21,10 @@
   align-items: center;
 }
 
+.cursor{
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
