@@ -37,9 +37,6 @@ header{
     border: none;
     color: #f0f0f0;
     background-color: rgba(0, 0, 0, 0);
-    /* display: inline-block; */
-    /* color: #000; */
-    /* text-decoration: none; */
 }
 
 .Homepageheadertop div button::after{
