@@ -1,0 +1,19 @@
+.HomepagePlayersThoughts{
+    padding: 10px;
+    width: 98vw;
+    height: 150vh;
+    background-color: #DED9D7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 10px; */
+    justify-content:space-evenly;
+}
+.HomepagePlayersThoughts .straightline{
+    background-color: #59504C;
+    width: 98vw;
+    height: 30vh;
+}
+.HomepagePlayersThoughts .boxContainer {
+    border: 1px solid red;
+}
