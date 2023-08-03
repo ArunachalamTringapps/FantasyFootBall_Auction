@@ -17,7 +17,7 @@
     display: flex;
     flex-direction:row;
    border:none;
-    gap:20px;
+    gap:10px;
 }
 .left{
     width:70%;
@@ -37,13 +37,13 @@
     /* justify-content: center;
     align-items: center; */
     font-size: 50px;
-    gap:30px;
+    gap:45px;
 }
 .form{
 display: flex;
 flex-direction: column;
 align-items: center;
-gap:50px;
+gap:45px;
 }
 .email{
 outline:none;
@@ -75,4 +75,16 @@ outline:none;
 }
 .createaccount{
     font-size: 20px;
+    text-decoration: none;
+    gap:30px;
+}
+.error{
+    font-size: 15px;
+    gap:10px;
+    background-color: rgb(176, 116, 116);
+    border-radius: 3px;
+    color:#e6e9e6;
+}
+.link{
+    text-decoration: none;
 }

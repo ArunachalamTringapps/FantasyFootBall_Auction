@@ -6,7 +6,7 @@ import Register from "./components/Login&Registration/Registration"
 import Cursor from "react-cursor-follow";
 import { BiFootball } from "react-icons/bi";
 import { AiFillApple } from "react-icons/ai";
-
+import Admin from './components/Dashboard/Admin';
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
       <Route path='/' element={<Homepage/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/register" element={<Register/>}></Route>
+      <Route path="/dashboard" element={<Admin/>}></Route>
       </Routes>
     </div>
   );
