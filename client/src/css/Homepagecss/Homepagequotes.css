@@ -10,13 +10,11 @@
     width: 140px; 
     height: 90px; 
     outline: none;
-    /* border:1px solid black; */
     border-radius:20px;
     transition: 1s;
   }
   .Homepagequotes img:hover{
     width: 150px;
-    /* height: 110px; */
   }
   .Homepagequotes h1{
     font-size: 98px;
