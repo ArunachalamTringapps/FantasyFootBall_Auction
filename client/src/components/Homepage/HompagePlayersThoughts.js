@@ -16,13 +16,13 @@ function HompagePlayersThoughts() {
       image:imageTwo,
       naming:'Ethan',
       position:'center',
-      text:'hello'
+      text:'Really good and i like it a lot they are legit and yea..'
     },
     {
       image:imageThree,
       naming:'David',
       position:'end',
-      text:"welcome"
+      text:"The best there is in the auction business. Honest, dependable and some high-quality memorabilia. My favorite auction site"
     }
   ]
   return (
@@ -41,13 +41,6 @@ function HompagePlayersThoughts() {
           )
         })
       }
-      {/* <div className='boxItemsOne'>
-        <div className='imagefittingOne'></div>
-        <h1>Kumar</h1>
-        <p>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
-      </div>
-      <div className='boxItemsTwo'>hjk</div>
-      <div className='boxItemsThree'>ghjk</div> */}
     </div>
     </div>
   )
