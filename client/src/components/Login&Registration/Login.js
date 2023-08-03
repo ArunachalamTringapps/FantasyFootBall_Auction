@@ -38,8 +38,9 @@ function Login() {
 
       if (response.ok) {
         setError('login successfully');
+        setTimeout(() =>navigate('/dashboard'), 1000);
         console.log(data.message);
-        navigate('/dashboard')
+        
       }
 
       else {
@@ -57,6 +58,7 @@ function Login() {
 
   return (
     <div className='Login'>
+      <div className='error'>{error && <p>{error}</p>}</div>
       <div className='container'>
         <div className='left'>
         </div>
@@ -65,12 +67,12 @@ function Login() {
           <form className='form' onSubmit={handleLogin}>
             <input type="text" placeholder='email id...' value={email_id} className='email' onChange={(e) => setEmail_id(e.target.value)}></input>
             <input type="password" placeholder='password...' value={password_user} className='password' onChange={(e) => setPassword_user(e.target.value)}></input>
-            <div className='error'>{error && <p>{error}</p>}</div>
             <div><button className='signin'>Sign in</button></div>
           </form>
           <div className='createaccount'>Dont have an Account? <Link to="/register" className='link'>Register</Link></div>
         </div>
       </div>
+      
     </div>
   )
 }
