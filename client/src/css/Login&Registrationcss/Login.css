@@ -19,7 +19,7 @@
 .left{
     width:70%;
     height:70vh;
-    background-image: url("https://cdn.dribbble.com/users/4967226/screenshots/18168511/media/09f8c99321b8fc9adcf5bce8c3e9d519.png?resize=400x0");
+    background-image: url("../../login.png");
     background-size:cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -30,10 +30,11 @@
     width:35%;
     text-align: center;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     font-size: 50px;
     gap:25px;
-    padding: 3px;
+    
 }
 .form{
 display: flex;
@@ -43,6 +44,7 @@ padding:20px;
 gap:40px;
 overflow: hidden;
 }
+
 .input-box{
     font-size: 16px;
     width:80%;
@@ -56,15 +58,17 @@ overflow: hidden;
     left:0px;
     transition: all 0.3s ease;
 }
-.email{
+.all-fields{
     border:none;
 outline: none;
 width:100%;
 height:100%;
 background-color:#70786c00;
 padding-top: 20px;
+font-size: 17px;
+letter-spacing: 1px;
 }
-.form .email:focus + .label-name .content-name{
+.form .all-fields:focus + .label-name .content-name{
 transform: translateY(-50%);
 font-size: 15px;
 color:#0d0d0e;
@@ -88,68 +92,28 @@ color:#0d0d0e;
     transform:translateX(-160%);
     transition: transform 0.3s ease;
 }
-.form .email:focus + .label-name::after{
+.form .all-fields:focus + .label-name::after{
 transform: translateX(0%);
 }
-
-/* .email{
-    outline:none;
-    border:none;
-    background-color:#70786c00;
-    font-size: 20px;
-    transition: border-bottom 0.3s ease;
-} 
-
-.email::after{
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #000;
-    transition: width .3s;
-    background-image: linear-gradient(to right, #f0f0f0, #848282, #121212);
-}
-.email:hover::after{
-      
-    width:100%;
-    
-}
-.password{
-    outline:none;
-    border:none;
-    background-color:#70786c00;
-    font-size: 20px;
-}
-.password:focus{
-    outline:none;
-    border-bottom: 2px solid rgb(130, 130, 124);
-} */
 .signin{
     width:80px;
     height:30px;
     border-radius: 20px;
     background-color: #58585834;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     border:none;
     font-weight: 900;
     word-spacing: 1.5px;
- 
 }
 .signin:hover{
     cursor: pointer;
-   
 }
 .createaccount{
     font-size: 20px;
     text-decoration: none;
-    gap:30px;
-}
-.error{
-    
-   
-   
-   pointer-events: none;
-
 }
 .link{
     text-decoration: none;
