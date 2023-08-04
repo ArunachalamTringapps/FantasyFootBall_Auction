@@ -1,0 +1,120 @@
+.Registration{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-registration{
+    background-color: #adabab38;
+    border-radius: 10px;
+    box-shadow:7px 5px 7px 5px rgba(131, 114, 114, 0.189),-4px -4px 7px 5px  rgba(131, 114, 114, 0.189);
+    width:60vw;
+    height:70vh;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+   border:none;
+    gap:10px;
+}
+.register-container{
+    height: 70vh;
+    width:35%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 50px;
+    gap:22px;
+}
+.header-register{
+    width:70%;
+    height:70vh;
+    background-image: url("../../login.png");
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+.form-register{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding:20px;
+gap:15px;
+overflow: hidden;
+}
+
+.input-fields{
+    font-size: 16px;
+    width:80%;
+    position: relative;
+    height:40px;
+}
+.content-fields{
+    padding-right: 200px;
+    position: absolute;
+    bottom:23px;
+    left:0px;
+    transition: all 0.3s ease;
+}
+.all-input{
+    border:none;
+outline: none;
+width:100%;
+height:100%;
+background-color:#70786c00;
+padding-top: 20px;
+font-size: 17px;
+gap:25px;
+}
+.form-register .all-input:focus + .label-fields .content-fields{
+transform: translateY(-50%);
+font-size: 15px;
+color:#0d0d0e;
+}
+.form-register .input-fields label{
+    position: absolute;
+    bottom:0px;
+    left:0%;
+   width:100%;
+   height:100%;
+   pointer-events: none;
+}
+.form-register  label::after{
+    content:"";
+    position: absolute;
+    left:0px;
+    bottom:0px;
+    width:100%;
+    height:100%;
+    border-bottom: 3px solid #0d0d0e8a;
+    transform:translateX(-160%);
+    transition: transform 0.3s ease;
+}
+.form-register .all-input:focus + .label-fields::after{
+transform: translateX(0%);
+}
+.signup{
+    width:80px;
+    height:30px;
+    border-radius: 20px;
+    background-color: #58585834;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:none;
+    font-weight: 900;
+    word-spacing: 1.5px;
+}
+.signup:hover{
+    cursor: pointer;
+}
+.exist-account{
+    font-size: 20px;
+    text-decoration: none;
+}
+.link{
+    text-decoration: none;
+}

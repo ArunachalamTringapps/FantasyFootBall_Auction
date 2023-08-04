@@ -1,28 +1,23 @@
-import { React, useEffect } from 'react'
+import { React } from 'react'
 import "../../css/Login&Registrationcss/Login.css"
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 function Login() {
   const navigate = useNavigate();
   const [email_id, setEmail_id] = useState('')
   const [password_user, setPassword_user] = useState('')
   const [error, setError] = useState('');
-  const [showError, setShowError] = useState(false);
   const handleLogin = async (e) => {
     e.preventDefault()
     if(!email_id){
       toast.error("Email is required")
-      setTimeout(() => setError(''),
-       3000);
       return
     }
     if (!password_user){
       toast.error('Password is required')
-      setTimeout(() => setError(''), 3000);
       return
     }
 
@@ -39,20 +34,19 @@ function Login() {
 
       if (response.ok) {
         setError('login successfully');
-        setTimeout(() =>navigate('/dashboard'), 1000);
+        navigate('/dashboard')
         console.log(data.message);
         
       }
-
       else {
-        toast.error(data.error);
-        setTimeout(() => setError(''), 3000);
+          toast.error(data.error); 
       }
     } 
     catch (error) {
       console.error('Error:', error);
-      toast('Invalid Credentials');
-      setTimeout(() => setError(''), 3000);
+    
+      toast.error('Invalid Credentials');
+     
     }
     e.target.reset();
   }
@@ -60,31 +54,31 @@ function Login() {
 
   return (
     <div className='Login'>
-    
       <div className='container'>
         <div className='left'>
         </div>
         <div className='header'>
-          Login
-          <form className='form' onSubmit={handleLogin} autoComplete='off'>
+          <h4>Login</h4>
+            <form className='form' onSubmit={handleLogin} autoComplete='off'>
             <div className='input-box'>
-            <input type="text" name="email"value={email_id} className='email' onChange={(e) => setEmail_id(e.target.value)}></input>
+            <input type="text" name="email"value={email_id} className='all-fields' onChange={(e) => setEmail_id(e.target.value)}></input>
             <label for="email" class="label-name">
               <span className='content-name'>Email_id...</span>
             </label>
             </div>
             <div className='input-box'>
-            <input type="password" name="password"  value={password_user} className='email' onChange={(e) => setPassword_user(e.target.value)}></input>
+            <input type="password" name="password"  value={password_user} className='all-fields' onChange={(e) => setPassword_user(e.target.value)}></input>
             <label for="password" class="label-name">
               <span className='content-name'>Password...</span>
             </label>
             </div>
-            <div><button className='signin'>Sign in</button></div>
+            <div className='signinbutton'><button className='signin'>Sign in</button></div>
           </form>
           <div className='createaccount'>Dont have an Account? <Link to="/register" className='link'>Register</Link></div>
         </div>
       </div>
-      <div className='error'><ToastContainer position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false}/></div>
+      <div className='error'><ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false}/></div>
+      
     </div>
   )
 }
