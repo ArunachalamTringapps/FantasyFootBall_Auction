@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../css/Login&Registrationcss/Login.css"
+import "../../css/Login&Registrationcss/Registration.css"
 import {Link, useNavigate} from 'react-router-dom'
 import { useState } from 'react';
 
@@ -101,12 +101,12 @@ function Registration() {
   };
 
   return (
-    <div className='Login'>
-    <div className='container'>
-      <div className='left'>
+    <div className='Registration'>
+    <div className='container-registration'>
+      <div className='left-container'>
       
       </div>
-      <div className='header'>
+      <div className='header-register'>
         Registration
       <form className='form' onSubmit={handleRegister}>
         <input type="text" placeholder='email...' value={email_id} className='email' onChange={(e)=>setEmail_id(e.target.value)}></input>

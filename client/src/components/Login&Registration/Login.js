@@ -2,7 +2,8 @@ import { React, useEffect } from 'react'
 import "../../css/Login&Registrationcss/Login.css"
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Login() {
@@ -14,13 +15,13 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault()
     if(!email_id){
-      setError("Email is required")
+      toast.error("Email is required")
       setTimeout(() => setError(''),
        3000);
       return
     }
     if (!password_user){
-      setError('Password is required')
+      toast.error('Password is required')
       setTimeout(() => setError(''), 3000);
       return
     }
@@ -44,35 +45,46 @@ function Login() {
       }
 
       else {
-        setError(data.error);
+        toast.error(data.error);
         setTimeout(() => setError(''), 3000);
       }
     } 
     catch (error) {
       console.error('Error:', error);
-      setError('Invalid Credentials');
+      toast('Invalid Credentials');
       setTimeout(() => setError(''), 3000);
     }
     e.target.reset();
   }
 
+
   return (
     <div className='Login'>
-      <div className='error'>{error && <p>{error}</p>}</div>
+    
       <div className='container'>
         <div className='left'>
         </div>
         <div className='header'>
           Login
-          <form className='form' onSubmit={handleLogin}>
-            <input type="text" placeholder='email id...' value={email_id} className='email' onChange={(e) => setEmail_id(e.target.value)}></input>
-            <input type="password" placeholder='password...' value={password_user} className='password' onChange={(e) => setPassword_user(e.target.value)}></input>
+          <form className='form' onSubmit={handleLogin} autoComplete='off'>
+            <div className='input-box'>
+            <input type="text" name="email"value={email_id} className='email' onChange={(e) => setEmail_id(e.target.value)}></input>
+            <label for="email" class="label-name">
+              <span className='content-name'>Email_id...</span>
+            </label>
+            </div>
+            <div className='input-box'>
+            <input type="password" name="password"  value={password_user} className='email' onChange={(e) => setPassword_user(e.target.value)}></input>
+            <label for="password" class="label-name">
+              <span className='content-name'>Password...</span>
+            </label>
+            </div>
             <div><button className='signin'>Sign in</button></div>
           </form>
           <div className='createaccount'>Dont have an Account? <Link to="/register" className='link'>Register</Link></div>
         </div>
       </div>
-      
+      <div className='error'><ToastContainer position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false}/></div>
     </div>
   )
 }
