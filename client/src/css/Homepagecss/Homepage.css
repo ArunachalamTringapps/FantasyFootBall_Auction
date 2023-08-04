@@ -1,27 +1,19 @@
 .Homepage{
-    /* background-color: black; */
-    /* margin: 0; */
-    /* background-color: rgb(255, 255, 255); */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 50px;
-    /* text-align: center; */
-    /* height: 100%;
-    width: 100%; */
     width: 100%;
     height: 100%;
 }
-
 .box{
-    padding: 0 20px;
+    /* border: 2px solid green; */
+    /* padding: 0 20px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid black; */
-    /* background-color: rgba(90, 231, 175, 0.498); */
     width: 90vw;
     height: 100vh;
 }

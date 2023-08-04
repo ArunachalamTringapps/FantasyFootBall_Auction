@@ -2,11 +2,9 @@
     padding: 10px;
     width: 98vw;
     height: 140vh;
-    /* background-color: #DED9D7; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* gap: 10px; */
     justify-content:space-evenly;
     position: relative;
 }
@@ -16,7 +14,6 @@
     height: 30vh;
 }
 .HomepagePlayersThoughts .boxContainer {
-    /* border: 1px solid red; */
     position: absolute;
     width: 98vw;
     height: 140vh;
@@ -27,25 +24,16 @@
 }
 
 .HomepagePlayersThoughts .boxContainer div{
-    /* color: aliceblue; */
-    /* border: 2px solid blue; */
-    /* box-shadow: 3px 3px 5px black; */
-    /* box-shadow: 1px 1px 5px -3px  black,
-    -1px -1px 5px black; */
-    /* box-shadow: -3px -3px 5px black; */
     background-color: #6d6b6b1c;
     border-radius: 2em;
     width: 22vw;
-    /* height: 100vh; */
     height: 80vh;
-    /* flex-grow: 1; */
 }
 .HomepagePlayersThoughts .boxContainer .boxItems{
     align-self: start;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     padding: 20px;
 }
 .HomepagePlayersThoughts .boxContainer .boxItems .imagefitting{
@@ -64,10 +52,7 @@
 }
 
 .HomepagePlayersThoughts .boxContainer .boxItems  h1{
-    /* flex-grow: 1; */
-    /* border: 3px solid blue; */
     display: flex;
-    /* align-items: center; */
     padding-top: 20px;
     letter-spacing: 3px;
     font-weight: 800;
@@ -81,5 +66,4 @@
     font-weight: 800;
     text-align: justify;
     font-size: 1.1rem;
-    /* border: 2px solid green; */
 }

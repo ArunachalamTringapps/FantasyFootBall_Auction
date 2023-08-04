@@ -9,10 +9,10 @@ function HomepageComplaints() {
       </div>
       <div className='item-two'>
       <form>
-      <input type="text" id="name" name="name" placeholder="Name" required />
-      <input type="text" id="name" name="email" placeholder="Email" required />
-      <input type="text" id="name" name="phone" placeholder="Phone Number" required />
-      <input type="text" id="name" name="sub" placeholder="Subject" required />
+      <input type="text"  name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="text"  name="phone" placeholder="Phone Number" required />
+      <input type="text"  name="sub" placeholder="Subject" required />
       <input type="text" id="message" name="Message" placeholder="Message" required />
       <button>Send Message</button>
       </form>

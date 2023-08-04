@@ -21,11 +21,3 @@
   align-items: center;
  
 }
-
-.cursor{
-  z-index: 5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-}
