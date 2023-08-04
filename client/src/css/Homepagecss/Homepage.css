@@ -9,7 +9,8 @@
 }
 
 .box{
-    padding: 0 20px;
+    /* border: 2px solid green; */
+    /* padding: 0 20px; */
     display: flex;
     flex-direction: column;
     justify-content: center;

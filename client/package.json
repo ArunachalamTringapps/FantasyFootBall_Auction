@@ -10,7 +10,7 @@
     "framer-motion": "^10.15.0",
     "image-gallery-overlay": "^1.4.1",
     "react": "^18.2.0",
-    "react-cursor-follow": "^2.0.0",
+    "react-creative-cursor": "^1.2.7",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-intersection-observer": "^9.5.2",
