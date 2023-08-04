@@ -1,5 +1,6 @@
 import React from 'react'
-import { IoFootball,IoArrowRedoOutline } from "react-icons/io5";
+import { IoArrowRedoOutline } from "react-icons/io5";
+import { GiThreeBurningBalls } from "react-icons/gi";
 import '../../css/Homepagecss/HomepageHeader.css'
 import { Link } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ function HomepageHeader() {
   return (
     <header>
         <div className='Homepageheadertop'>
-        <h1><span>A</span>UCTI<span><IoFootball /></span>N</h1>
+        <h1><span>A</span>UCTI<span><GiThreeBurningBalls /></span>N</h1>
         <div><Link to='/login' ><button>Login<IoArrowRedoOutline /></button></Link></div>
         </div>
 
