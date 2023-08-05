@@ -133,7 +133,10 @@ function Registration() {
             </div>
             <div><button className='signup'>Sign up</button></div>
           </form>
-          <div className='exist-account'>Already have an Account? <Link to="/login" className='link'>Login</Link></div>
+          <div className='loginpageRoute'>
+          <div className='exist-account'>Already have an Account?</div>
+          <Link to="/login" className='link'>Login</Link>
+          </div>
         </div>
         <div className='header-register'>
         </div>

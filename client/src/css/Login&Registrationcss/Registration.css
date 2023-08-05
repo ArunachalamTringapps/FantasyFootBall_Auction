@@ -111,8 +111,16 @@ transform: translateX(0%);
 .signup:hover{
     cursor: pointer;
 }
+.loginpageRoute{
+    font-size: 1.2rem;
+    /* border: 3px solid cyan; */
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+}
+
 .exist-account{
-    font-size: 20px;
+    
     text-decoration: none;
 }
 .link{

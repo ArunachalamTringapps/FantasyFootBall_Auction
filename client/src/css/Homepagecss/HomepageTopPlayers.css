@@ -30,11 +30,12 @@
     height: 100%;
 }
 .HomepageTopPlayersItemsText{
+    border: 3px solid black;
     display: flex;
     flex-direction: column;
     bottom: -100%;
     left: 0;
-    justify-content: space-between;
+    justify-content: space-evenly;
     color: white;
     border-radius: 2rem;
     position: absolute;
@@ -51,8 +52,9 @@
 }
 
 .HomepageTopPlayersItemsText h1{
+    /* border: 2px solid cyan; */
     letter-spacing:2px;
-    flex-grow: 1;
+    flex-grow: 0.5;
     font-weight: 900;
     width: 100%;
     display: flex;
@@ -77,4 +79,8 @@
     font-size: 0.8em;
     background-color: rgba(0, 0, 0, 0.306);
     color: rgb(240, 248, 255);
+}
+.HomepageTopPlayersItemsText div h1{
+    /* background-color: gainsboro; */
+    flex-grow: 0.5;
 }

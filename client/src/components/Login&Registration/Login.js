@@ -1,4 +1,4 @@
-import { React } from 'react'
+import { React,useEffect } from 'react'
 import "../../css/Login&Registrationcss/Login.css"
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
@@ -6,10 +6,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
+
   const navigate = useNavigate();
   const [email_id, setEmail_id] = useState('')
   const [password_user, setPassword_user] = useState('')
   const [error, setError] = useState('');
+
   const handleLogin = async (e) => {
     e.preventDefault()
     if(!email_id){
@@ -33,8 +35,9 @@ function Login() {
       const data = await response.json();
 
       if (response.ok) {
+        localStorage.setItem("authentication","true")
         setError('login successfully');
-        navigate('/dashboard')
+        navigate('/user/dashboard')
         console.log(data.message);
         
       }
@@ -50,7 +53,6 @@ function Login() {
     }
     e.target.reset();
   }
-
 
   return (
     <div className='Login'>
@@ -74,7 +76,10 @@ function Login() {
             </div>
             <div className='signinbutton'><button className='signin'>Sign in</button></div>
           </form>
-          <div className='createaccount'>Dont have an Account? <Link to="/register" className='link'>Register</Link></div>
+          <div className='registerpageRoute'>
+          <div className='createaccount'>Dont have an Account?</div> 
+          <Link to="/register" className='link'>Register</Link>
+          </div>
         </div>
       </div>
       <div className='error'><ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false}/></div>
