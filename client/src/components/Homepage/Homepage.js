@@ -9,14 +9,14 @@ import HomepageHeader from './HomepageHeader';
 import HomepageTopPlayers from './HomepageTopPlayers';
 import Homepagequotes from './Homepagequotes';
 import HompagePlayersThoughts from './HompagePlayersThoughts';
-import HomepageAbout from './HomepageAbout';
+// import HomepageAbout from './HomepageAbout';
 // import footballimg from '../../football.jpg'
 
 
 
 
 function Homepage() {
-  const arrTags=[<HomepageHeader/>,<HomepageTopPlayers/>,<Homepagequotes/>,<HompagePlayersThoughts/>,<HomepageAbout/>,<HomepageComplaints/>,<HomepageFooter/>]
+  const arrTags=[<HomepageHeader/>,<HomepageTopPlayers/>,<Homepagequotes/>,<HompagePlayersThoughts/>,<HomepageComplaints/>,<HomepageFooter/>]
     const boxVariant = {
         visible: { opacity: 1, scale: 1,x:0,transition: { duration: 1 } },
         hidden: { opacity: 0, scale: 0,x:150},
@@ -49,7 +49,6 @@ function Homepage() {
     <HomepageBox  nums={3}/>
     <HomepageBox  nums={4}/>
     <HomepageBox  nums={5}/>
-    <HomepageBox  nums={6}/>
     </div>
   )
 }
