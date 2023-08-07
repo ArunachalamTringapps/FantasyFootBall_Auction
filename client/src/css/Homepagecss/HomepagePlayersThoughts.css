@@ -16,7 +16,7 @@
 .HomepagePlayersThoughts .boxContainer {
     position: absolute;
     width: 98vw;
-    height: 140vh;
+    height: 130vh;
     display: flex;
     justify-content: center;
     column-gap: 20px;

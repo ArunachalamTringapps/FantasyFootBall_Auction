@@ -1,0 +1,52 @@
+.Dashboard{
+    width: 100vw;
+    height: 100vh;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.DashboardMenu{
+    width: 18vw;
+    height: 90vh;
+    background-color: lightgreen;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    border-radius: 10% 0 0 10%;
+}
+
+.DashboardMenuHeader{
+    border: 3px solid green;
+    flex-grow: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.DashboardMenuItems{
+    border: 2px solid blue;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+
+}
+.DashboardMenuItemsList{
+    border: 1px solid gold;
+    background-color: red;
+    height: 5vh;
+    list-style-type: none;
+}
+.DashboardMenuItemsList:hover{
+    cursor: pointer;
+}
+
+.DashboardContainer{
+    width: 73vw;
+    height: 90vh;
+    background-color: gray;
+    row-gap: 10px;
+    border-radius: 0 10% 10% 0;
+}
