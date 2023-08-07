@@ -141,7 +141,7 @@
     color:#93ECF3;
     gap:4px;
     /* flex-grow:1; */
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
 }
 /* .Facebook-icon{
     color:#93ECF3;

@@ -1,58 +1,101 @@
 .HomepageComplaints{
     width: 80vw;
     height: 90vh;
-    border:1px solid blue;
+    /* border:1px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:1px;
+}
+.HomepageComplaints .header{
+    width:100%;
+    display:flex;
+    gap:5px;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+.HomepageComplaints .header div{
+    width:7vh;
+    height:6vh;
+    font-size:2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:bold;
+    color:white;
+    border-radius:7px;
+    background-color:#262626;
 }
 .HomepageComplaints .items{
     display:flex;
     flex-direction:row;
+    justify-content: center;
+    align-items:space-between;
     gap: 10px;
-    height:100%;
+    height:70%;
     width:100%;
 }
 .HomepageComplaints .items .item-one{
-    height:60%;
+    height:80%;
     width:50%;
-    border:1px solid blue;
+    /* border:1px solid blue; */
 }
 .HomepageComplaints .items .item-one img{
     height:100%;
     width:100%;
 }
 .HomepageComplaints .items .item-two{
-    height:60%;
+    height:80%;
     width:50%;
-    border:1px solid blue;
+    /* border:1px solid rgb(0, 0, 0); */
+    background-color: #e8e4e410;
+    border-radius:10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.226);
 }
 .HomepageComplaints .items .item-two form{
-    height:90%;
+    height:100%;
     width:100%;
-    margin-top:5%;
-    flex-basis: calc(50% - 20px);
-    border: 1px solid white;
-    background-color:whitesmoke;
+    /* flex-basis: calc(50% - 20px); */
+    /* border: 1px solid white; */
+
+    /* background-color:whitesmoke; */
 }
 .HomepageComplaints .items .item-two form input{
     height:13%;
-    width:48%;
+    width:45%;
     margin-left:2%;
-    margin-top:5%;
-    border:1px solid white;
-    text-align: center;
+    margin-top:4%;
+    border:none; 
+    outline: none;
+    background-color:#cdcdcd00;
+    transition: border-bottom 0.5s ease-in-out;
+    text-align:start;
+}
+.HomepageComplaints .items .item-two form input::placeholder{
+    color:black;
+}
+.HomepageComplaints .items .item-two form input:focus{
+    border-bottom: 1px solid #0d0d0e8a;
+    color:black;
+
+    transition: border-bottom 0.3s ease-in-out;
 }
 .HomepageComplaints .items .item-two form #message{
     height:30%;
-    width:98%;
+    width:96%;
 }
 .HomepageComplaints .items .item-two form button{
     display:block;
-    height:10%;
+    height:12%;
     width:30%;
+    letter-spacing: 1px;
     margin-left:2%;
     margin-top:2%;
     border:none;
     font-size:0.9rem;
-    background-color: orange;
+    color:rgb(255, 255, 255);
+    border-radius:10px;
+    background-color:rgb(0, 0, 0);
 }
 
 

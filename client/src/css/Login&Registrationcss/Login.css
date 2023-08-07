@@ -90,7 +90,7 @@ color:#0d0d0e;
     height:100%;
     border-bottom: 3px solid #0d0d0e8a;
     transform:translateX(-160%);
-    transition: transform 0.3s ease;
+    transition: transform 1.9s ease;
 }
 .form .all-fields:focus + .label-name::after{
 transform: translateX(0%);
