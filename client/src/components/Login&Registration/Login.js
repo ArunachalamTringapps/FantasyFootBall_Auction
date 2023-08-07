@@ -11,6 +11,11 @@ function Login() {
   const [email_id, setEmail_id] = useState('')
   const [password_user, setPassword_user] = useState('')
   const [error, setError] = useState('');
+  const userdata=()=>{
+    
+  }
+
+
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -36,6 +41,7 @@ function Login() {
 
       if (response.ok) {
         localStorage.setItem("authentication","true")
+        userdata();
         setError('login successfully');
         navigate('/user/dashboard')
         console.log(data.message);
