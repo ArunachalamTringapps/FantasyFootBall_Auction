@@ -10,7 +10,7 @@ function Registration() {
   const [email_id, setEmail_id] = useState('')
   const [password_user, setPassword_user] = useState('')
   const [error, setError] = useState(null);
-  const [phone_no, setPhone_no] = useState('');
+  const [username, setusername] = useState('');
   const [retypePassword, setRetypePassword] = useState('');
 
   const handleRegister = async (e) => {
@@ -27,19 +27,6 @@ function Registration() {
       return;
     }
 
-    const phonePattern = /^\d{10}$/;
-    if (!phone_no) {
-      toast.error("Phone number is required");
-      setTimeout(() => setError(''), 3000);
-      return;
-    }
-    if (!phonePattern.test(phone_no)) {
-      toast.error('Phone number should be exactly 10 digits.');
-      setTimeout(() => setError(''), 3000);
-      return;
-    }
-
-    // Validate password format using regular expression
     if (!password_user) {
       toast.error('Password is required')
       setTimeout(() => setError(''), 3000);
@@ -78,7 +65,7 @@ function Registration() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email_id, password_user }),
+        body: JSON.stringify({ email_id, password_user,username }),
       });
 
       const data = await response.json();
@@ -89,13 +76,13 @@ function Registration() {
         console.log(data.message);
         navigate("/login")
       } else {
-        setError(data.error);
+        toast.error(data.error);
         setTimeout(() => setError(''), 5000);
       }
     }
     catch (error) {
       console.error('Error:', error);
-      setError('An error occurred during registration.');
+      toast.error('An error occurred during registration.');
       setTimeout(() => setError(''), 5000);
     }
     e.target.reset();
@@ -114,9 +101,9 @@ function Registration() {
               </label>
             </div>
             <div className='input-fields'>
-            <input type="text"  className='all-input' onChange={(e) => setPhone_no(e.target.value)}></input>
+            <input type="text"  className='all-input' onChange={(e) => setusername(e.target.value)}></input>
             <label for="fields" className="label-fields">
-                <span className='content-fields'>Phone_no...</span>
+                <span className='content-fields'>Username...</span>
               </label>
             </div>
             <div className='input-fields'>
