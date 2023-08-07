@@ -7,7 +7,8 @@ import History from './History'
 import Setting from './Setting'
 import { AiOutlinePlus,AiOutlineFolderOpen,AiOutlineHistory,AiOutlineSetting } from "react-icons/ai";
 
-function Dashboard() {
+function Dashboard(email_id) {
+    console.log(email_id)
     const [changeComponents,setChangeComponent]=useState(1);
     const menuBarItems=[
         {
@@ -67,10 +68,11 @@ function Dashboard() {
             </div>
         </div>
         <div className='DashboardContainer'>
+            
         <Routes>
             <Route path='/' element={<MyAuction />}></Route>
             <Route path='/createauction' element={<CreateAuction />} />
-            <Route path='/history' element={<History />} />
+            <Route path='/history' element={<History email_id={email_id} />} />
             <Route path='/setting' element={<Setting />} />
         </Routes>
         </div>
