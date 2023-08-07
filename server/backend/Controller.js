@@ -1,25 +1,26 @@
-const express = require('express');
-const router = express.Router();
 const pool = require('../db/database')
-const register = router.post('/register', async (req, res) => {
-    const { email_id, password_user } = req.body;
+const {insertRegisterDetails,checkLoginDetails} =require("./query")
+
+const register=async (req, res) => {
+    const { email_id, password_user,username} = req.body;
 
     try {
         await pool.query(
-            'INSERT INTO users (email_id, password_user) VALUES ($1, $2)',
-            [email_id, password_user]
+            insertRegisterDetails,
+            [email_id, password_user,username]
         );
         res.status(201).json({ message: 'User registered successfully!' });
     } catch (err) {
         res.status(500).json({ error: 'An error occurred while registering the user.' });
     }
-});
-const login = router.post('/login', async (req, res) => {
-    const { email_id, password_user } = req.body;
+}
+
+const login= async (req, res) => {
+    const { email_id, password_user} = req.body;
 
     try {
         const result = await pool.query(
-            'SELECT * FROM users WHERE email_id = $1',
+            checkLoginDetails,
             [email_id]
         );
 
@@ -35,5 +36,13 @@ const login = router.post('/login', async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: 'An error occurred while logging in.' });
     }
-});
-module.exports = { register, login }
+}
+const createAuction=async(req,res)=>{
+
+}
+
+module.exports={
+    register,
+    login,
+    createAuction
+}
