@@ -11,6 +11,7 @@ import ErrorPage from './errorpage/ErrorPageComponents'
 import PrivateRoute from './components/PrivateRouting/PrivateRoute';
 import { Cursor } from 'react-creative-cursor';
 import 'react-creative-cursor/dist/styles.css';
+import MyAuction from './components/Dashboard/MyAuction';
 
 function App() {
   const isAuthenticated=localStorage.getItem("authentication");
@@ -25,8 +26,10 @@ function App() {
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/register" element={<Register/>}></Route>
       <Route path='/user' element={<PrivateRoute />}>
-        <Route path="dashboard" element={<Dashboard/>}></Route>
-      </Route>
+        <Route path="dashboard/*" element={<Dashboard/>}></Route>
+        
+        </Route>
+        <Route path='/myauction' element={<MyAuction />}></Route>
       <Route path='/loading' element={<Loading/>}/>
       <Route path='/error' element={<ErrorPage/>}/>
       </Routes>
