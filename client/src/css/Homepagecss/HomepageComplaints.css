@@ -55,10 +55,6 @@
 .HomepageComplaints .items .item-two form{
     height:100%;
     width:100%;
-    /* flex-basis: calc(50% - 20px); */
-    /* border: 1px solid white; */
-
-    /* background-color:whitesmoke; */
 }
 .HomepageComplaints .items .item-two form input{
     height:13%;
@@ -68,21 +64,36 @@
     border:none; 
     outline: none;
     background-color:#cdcdcd00;
-    transition: border-bottom 0.5s ease-in-out;
     text-align:start;
+    letter-spacing:0.1rem;
 }
 .HomepageComplaints .items .item-two form input::placeholder{
     color:black;
 }
+.HomepageComplaints .items .item-two form textarea::placeholder{
+    color:black;   
+}
 .HomepageComplaints .items .item-two form input:focus{
     border-bottom: 1px solid #0d0d0e8a;
     color:black;
+    letter-spacing:0.1rem;
 
-    transition: border-bottom 0.3s ease-in-out;
 }
 .HomepageComplaints .items .item-two form #message{
     height:30%;
     width:96%;
+    margin-top:2%;
+    margin-left:2%;
+    letter-spacing:0.1rem;
+    background-color:#cdcdcd00;
+    border:none; 
+    outline: none;
+    overflow: hidden;
+}
+.HomepageComplaints .items .item-two form #message:focus{
+    /* border-bottom: 1px solid #0d0d0e8a; */
+    color:black;
+    letter-spacing:0.1rem;
 }
 .HomepageComplaints .items .item-two form button{
     display:block;
