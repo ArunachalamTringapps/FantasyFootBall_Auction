@@ -8,6 +8,6 @@
 .LoadingPage .image{
     width: 50%;
     height: 50%;
-    background-image: url(../loading-icon.jpg);
+    background-image: url(../Image/loading-icon.jpg);
     background-position: right center;
 }

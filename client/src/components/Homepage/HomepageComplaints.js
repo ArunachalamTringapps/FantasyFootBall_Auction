@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../css/Homepagecss/HomepageComplaints.css'
-import img from '../../HomeComplaintsimage.jpg'
+import img from '../../Image/HomeComplaintsimage.jpg'
 function HomepageComplaints() {
   return (
     <div className='HomepageComplaints'>
