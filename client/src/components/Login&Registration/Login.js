@@ -5,15 +5,12 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Login() {
+function Login(props) {
+  const {email_id,setEmail_id}=props
 
   const navigate = useNavigate();
-  const [email_id, setEmail_id] = useState('')
   const [password_user, setPassword_user] = useState('')
   const [error, setError] = useState('');
-  const userdata=()=>{
-    
-  }
 
 
 
@@ -38,10 +35,10 @@ function Login() {
       });
 
       const data = await response.json();
-
+      
       if (response.ok) {
         localStorage.setItem("authentication","true")
-        userdata();
+        localStorage.setItem("useremail",email_id)
         setError('login successfully');
         navigate('/user/dashboard')
         console.log(data.message);
@@ -50,6 +47,7 @@ function Login() {
       else {
           toast.error(data.error); 
       }
+     
     } 
     catch (error) {
       console.error('Error:', error);
@@ -69,14 +67,14 @@ function Login() {
           <h4>Login</h4>
             <form className='form' onSubmit={handleLogin} autoComplete='off'>
             <div className='input-box'>
-            <input type="text" name="email"value={email_id} className='all-fields' onChange={(e) => setEmail_id(e.target.value)}></input>
-            <label for="email" class="label-name">
+            <input type="text" name="email"value={email_id} className='all-fields' onChange={(e) => {setEmail_id(e.target.value)}}></input>
+            <label htmlFor="email" className="label-name">
               <span className='content-name'>Email_id...</span>
             </label>
             </div>
             <div className='input-box'>
             <input type="password" name="password"  value={password_user} className='all-fields' onChange={(e) => setPassword_user(e.target.value)}></input>
-            <label for="password" class="label-name">
+            <label htmlFor="password" className="label-name">
               <span className='content-name'>Password...</span>
             </label>
             </div>

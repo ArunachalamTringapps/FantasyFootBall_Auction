@@ -1,5 +1,7 @@
-import {React,useState,useEffect} from 'react'
+/* eslint-disable no-template-curly-in-string */
+import {React,useState,useEffect,useRef} from 'react'
 import { useNavigate,Link,Routes,Route } from 'react-router-dom'
+import axios from 'axios'
 import '../../css/Dashboardcss/Dashboard.css'
 import MyAuction from './MyAuction'
 import CreateAuction from './CreateAuction'
@@ -7,7 +9,10 @@ import History from './History'
 import Setting from './Setting'
 import { AiOutlinePlus,AiOutlineFolderOpen,AiOutlineHistory,AiOutlineSetting } from "react-icons/ai";
 
-function Dashboard() {
+
+function Dashboard(email_id) {
+    const email=localStorage.getItem("useremail")
+    console.log(email_id)
     const [changeComponents,setChangeComponent]=useState(1);
     const menuBarItems=[
         {
@@ -39,23 +44,32 @@ function Dashboard() {
             logo: <AiOutlineSetting />
         }
     ]
-    // const dashboardList=[<MyAuction />,<CreateAuction />,<History />,<Setting />]
     const navigate=useNavigate();
     const logout=()=>{
         localStorage.setItem("authentication","false");
+        localStorage.setItem("useremail","")
         navigate("/login")
     }
-
+    const [userDetails,setuserDetails]=useState([])
     useEffect(()=>{
-        console.log(changeComponents);
-    })
+        navigate("/user/dashboard/");
+        axios.get(`http://localhost:5000/api/userdetails/${email}`)
+        .then((response)=>{
+            setuserDetails(response.data)
+        })
+        .catch((err)=>{
+            console.error("Error fetching user data:",err);
+        })
+        
+    },[])
+    console.log(userDetails);
   return (
     <div className='Dashboard'>
         <div className='DashboardMenu'>
             <div className='DashboardMenuHeader'>
                 <div></div>
-                <h4>Arunachalam M</h4>
-                <h5>arunachalam@gmail.com</h5>
+                <h4>{userDetails.username}</h4>
+                <h5>{userDetails.email_id}</h5>
                 <button onClick={logout}>Log Out</button>
                 </div>
             <div className='DashboardMenuItems'>
@@ -67,10 +81,11 @@ function Dashboard() {
             </div>
         </div>
         <div className='DashboardContainer'>
+            
         <Routes>
             <Route path='/' element={<MyAuction />}></Route>
             <Route path='/createauction' element={<CreateAuction />} />
-            <Route path='/history' element={<History />} />
+            <Route path='/history' element={<History email_id={email_id} />} />
             <Route path='/setting' element={<Setting />} />
         </Routes>
         </div>

@@ -1,8 +1,8 @@
 import React from 'react'
 import '../../css/Homepagecss/HomepageTopPlayers.css'
-import messi from '../../lionel-messi.jpg'
-import ronaldo from '../../ronaldo.jpg'
-import neymar from '../../neymarr.jpg'
+import messi from '../../Image/lionel-messi.jpg'
+import ronaldo from '../../Image/ronaldo.jpg'
+import neymar from '../../Image/neymarr.jpg'
 
 function HomepageTopPlayers() { 
     const image=[
@@ -38,7 +38,7 @@ function HomepageTopPlayers() {
                 <div style={{backgroundImage:`url(${val.img})`,backgroundPosition:'center top',backgroundSize:'cover'}} className='HomepageTopPlayersItems'>
                 </div>
                 <div className='HomepageTopPlayersItemsText'>
-                <h1>{val.name}
+                <h1 className='name'>{val.name}
                 <button onClick={()=>{window.location.href=`${val.details}`}}>Known More</button></h1>
                 <div>
                 <h1>{`Games ${val.totalGames}`}</h1>
