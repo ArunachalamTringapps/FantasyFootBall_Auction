@@ -5,7 +5,7 @@
     display: flex;
 }
 .MyAuctionLeft{
-    flex-grow: 2.1;
+    flex-grow: 4.5;
     /* border: 1px solid blue; */
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@
 }
 .MyAuctionLeftBoxText{
     /* border: 1px solid black; */
-    background-color:rgba(60, 172, 60, 0.845);
+    background-color:rgba(92, 165, 92, 0.845);
     border-radius: 10px;
     border: none;
     width: 90%;
@@ -60,13 +60,13 @@
 .MyAuctionLeftAuctionContainer{
     padding: 25px;
     flex-grow: 1;
-    /* border: 1px solid violet; */
+    border: 1px solid violet;
     display: flex;
     flex-direction: column;
 }
 .MyAuctionLeftAuctionContainer .chooseauction{
     /* flex-grow: 1; */
-    /* border: 1px solid yellowgreen; */
+    border: 1px solid yellowgreen;
     background-color: rgba(155, 155, 155, 0.16);
     display: flex;
     gap: 5px;
@@ -78,7 +78,7 @@
     border-right: 2px solid rgba(0, 0, 0, 0.119);
     border-radius: 0 10% 10% 0;
     font-size: 1em;
-    background-color: rgba(240, 248, 255, 0);
+    background-color: rgba(89, 89, 89, 0.041);
 }
 .MyAuctionLeftAuctionContainer .chooseauction button:hover{
     cursor: pointer;
@@ -86,12 +86,62 @@
     /* font-size: 1em; */
 }
 
-.MyAuctionLeftAuctionContainer .showauction{
+.MyAuctionLeftAuctionContainer .showauctionContainer{
     flex-grow: 1;
     border: 1px solid red;
+}
+.showauctionitems{
+    background-color: aquamarine;
 }
 
 .MyAuctionRight{
     flex-grow: 1;
+    /* border: 2px solid green; */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.MyAuctionRight h5{
     /* border: 1px solid red; */
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+.MyAuctionRight .playerlist{
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.playersitemscontainer{
+    width: 100%;
+    padding: 10px;
+    height: 9vh;
+    background-color: rgb(255, 255, 255);
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-around;
+    border-radius: 0 10% 10% 0;
+    border-left: 4px solid green;
+    box-shadow: 3px 2px 5px black;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 800;
+    align-items: center;
+}
+.playersitemscontainer .image{
+    background-image: url(../../Image/no-profile-img.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid rgb(146, 146, 146);
+    width: 18%;
+    height: 90%;
+    border-radius: 52%;
 }

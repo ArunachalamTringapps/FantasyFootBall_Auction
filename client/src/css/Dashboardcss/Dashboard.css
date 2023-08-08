@@ -118,7 +118,7 @@
 .DashboardContainer{
     width: 73vw;
     height: 90vh;
-    background-color: rgba(157, 155, 155, 0.071);
+    background-color: rgba(166, 166, 166, 0.171);
     row-gap: 10px;
     border-radius: 0 10% 10% 0;
 }

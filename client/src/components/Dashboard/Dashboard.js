@@ -1,4 +1,4 @@
-/* eslint-disable no-template-curly-in-string */
+/* eslint-disable react-hooks/exhaustive-deps */
 import {React,useState,useEffect,useRef} from 'react'
 import { useNavigate,Link,Routes,Route } from 'react-router-dom'
 import axios from 'axios'
