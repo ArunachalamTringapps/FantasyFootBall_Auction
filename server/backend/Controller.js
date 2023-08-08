@@ -60,22 +60,15 @@ const userdata=async(req,res)=>{
     }
 }
 
-function formatDate(date) {
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear().toString();  
-    return `${day}/${month}/${year}`;
-}
 
 const currentauction=async(req,res)=>{
     const currentDate = new Date();
-    const formattedDate = formatDate(currentDate);
-    console.log(formattedDate);
+
     try{
         const emailId=req.params.email_id;
         console.log(emailId);
         const query=`Select * from auctions where email_id=$1 and auction_date=$2`
-        const result=await pool.query(query,[emailId,formattedDate]);
+        const result=await pool.query(query,[emailId,currentDate]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Email does not exist' });
 
@@ -92,13 +85,13 @@ const currentauction=async(req,res)=>{
 
 const upcomingauction=async(req,res)=>{
     const currentDate = new Date();
-    const formattedDate = formatDate(currentDate);
-    console.log(formattedDate);
+    console.log(currentDate);
+
     try{
         const emailId=req.params.email_id;
         console.log(emailId);
         const query=`Select * from auctions where email_id=$1 and auction_date>$2`
-        const result=await pool.query(query,[emailId,formattedDate]);
+        const result=await pool.query(query,[emailId,currentDate]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Email does not exist' });
 
@@ -115,13 +108,12 @@ const upcomingauction=async(req,res)=>{
 
 const historyauction=async(req,res)=>{
     const currentDate = new Date();
-    const formattedDate = formatDate(currentDate);
-    console.log(formattedDate);
+
     try{
         const emailId=req.params.email_id;
         console.log(emailId);
         const query=`Select * from auctions where email_id=$1 and auction_date<$2`
-        const result=await pool.query(query,[emailId,formattedDate]);
+        const result=await pool.query(query,[emailId,currentDate]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Email does not exist' });
 
