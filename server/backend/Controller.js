@@ -124,6 +124,21 @@ const historyauction=async(req,res)=>{
         res.status(500).json({error:"An error occured while user details is not found"})
     }
 }
+const teamauction=async(req,res)=>{
+    try{
+        const auctionId=req.params.auction_id
+        const query='select team_image,team_name,team_owner_name,team_owner_email_id,auction_id from teams where auction_id=$1'
+        const result=await pool.query(query,[auctionId])
+        if (result.rows.length === 0) {
+            res.status(404).json({ error: 'Team not found' });
+            return;
+          }
+         res.send(result.rows[0]);
+    }
+    catch(error){
+        res.status(500).json({ error: 'Error retrieving team data' });
+    }
+}
 
 const completeAuction=async(req,res)=>{
     try{
@@ -151,5 +166,6 @@ module.exports={
     currentauction,
     upcomingauction,
     historyauction,
-    completeAuction
+    completeAuction,
+    teamauction
 }

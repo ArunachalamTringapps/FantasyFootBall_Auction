@@ -7,7 +7,6 @@ import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './components/PrivateRouting/PrivateRoute';
 import { Cursor } from 'react-creative-cursor';
 import 'react-creative-cursor/dist/styles.css';
-import MyAuction from './components/Dashboard/MyAuction';
 import { useState } from 'react';
 
 function App() {
@@ -27,7 +26,7 @@ function App() {
         <Route path="dashboard/*"  element={<Dashboard email_id={email_id} />}></Route>
         
         </Route>
-        <Route path='/myauction' element={<MyAuction />}></Route>
+
       </Routes>
     </div>
   );
