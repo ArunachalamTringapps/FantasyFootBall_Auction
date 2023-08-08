@@ -8,7 +8,7 @@ import Setting from './Setting'
 import { AiOutlinePlus,AiOutlineFolderOpen,AiOutlineHistory,AiOutlineSetting } from "react-icons/ai";
 
 function Dashboard(email_id) {
-    console.log(email_id)
+
     const [changeComponents,setChangeComponent]=useState(1);
     const menuBarItems=[
         {
