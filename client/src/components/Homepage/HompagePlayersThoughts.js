@@ -1,8 +1,8 @@
 import React from 'react'
 import '../../css/Homepagecss/HomepagePlayersThoughts.css'
-import imageOne from '../../humanimg1.jpg'
-import imageTwo from '../../humanimg2.jpg'
-import imageThree from '../../humanimg3.avif'
+import imageOne from '../../Image/humanimg1.jpg'
+import imageTwo from '../../Image/humanimg2.jpg'
+import imageThree from '../../Image/humanimg3.avif'
 
 function HompagePlayersThoughts() {
   const icons=[

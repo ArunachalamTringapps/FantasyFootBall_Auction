@@ -133,6 +133,24 @@ const historyauction=async(req,res)=>{
     }
 }
 
+const completeAuction=async(req,res)=>{
+    try{
+        const {emailid,auctionname}=req.params;
+
+        const query=`Select * from auctions where email_id=$1 and auction_name ILIKE '%' || $2 || '%' `
+        const result=await pool.query(query,[emailid,auctionname]);
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Email does not exist' });
+
+        }
+        res.json(result.rows)
+
+    }catch(err){
+        res.status(500).json({error:"An error occured while user details is not found"})
+    }
+}
+
+
 module.exports={
     register,
     login,
@@ -140,5 +158,6 @@ module.exports={
     userdata,
     currentauction,
     upcomingauction,
-    historyauction
+    historyauction,
+    completeAuction
 }
