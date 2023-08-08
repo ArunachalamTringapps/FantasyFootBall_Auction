@@ -1,6 +1,6 @@
 const pool = require('../db/database')
 const {insertRegisterDetails,checkLoginDetails} =require("./query")
-
+const moment = require('moment-timezone');
 const register=async (req, res) => {
     const { email_id, password_user,username} = req.body;
 
@@ -67,7 +67,7 @@ const currentauction=async(req,res)=>{
     try{
         const emailId=req.params.email_id;
         console.log(emailId);
-        const query=`Select * from auctions where email_id=$1 and auction_date=$2`
+        const query=`Select auction_id,auction_name,auction_date::text,points_per_team,players_per_team,email_id from auctions where email_id=$1 and auction_date=$2`
         const result=await pool.query(query,[emailId,currentDate]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Email does not exist' });
@@ -84,13 +84,13 @@ const currentauction=async(req,res)=>{
 
 
 const upcomingauction=async(req,res)=>{
-    const currentDate = new Date();
-    console.log(currentDate);
+    const currentDate=new Date()
+
 
     try{
         const emailId=req.params.email_id;
         console.log(emailId);
-        const query=`Select * from auctions where email_id=$1 and auction_date>$2`
+        const query=`Select auction_id,auction_name,auction_date::text,points_per_team,players_per_team,email_id from auctions where email_id=$1 and auction_date>$2`
         const result=await pool.query(query,[emailId,currentDate]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Email does not exist' });
@@ -107,12 +107,16 @@ const upcomingauction=async(req,res)=>{
 
 
 const historyauction=async(req,res)=>{
-    const currentDate = new Date();
-
+    // const currenttimestamp = new Date();
+    // const currentDate=moment().tz('2023-07-31T18:30:00.000Z','America/New_York')
+  
+    // // const currentDate=currenttimestamp.toISOString().split('T')[0];
+    const currentDate=new Date()
+console.log(currentDate)
     try{
         const emailId=req.params.email_id;
         console.log(emailId);
-        const query=`Select * from auctions where email_id=$1 and auction_date<$2`
+        const query=`Select auction_id,auction_name,auction_date::text,points_per_team,players_per_team,email_id from auctions where email_id=$1 and auction_date<$2`
         const result=await pool.query(query,[emailId,currentDate]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Email does not exist' });
@@ -127,7 +131,7 @@ const historyauction=async(req,res)=>{
 const teamauction=async(req,res)=>{
     try{
         const auctionId=req.params.auction_id
-        const query='select team_image,team_name,team_owner_name,team_owner_email_id,auction_id from teams where auction_id=$1'
+        const query='select * from teams where auction_id=$1'
         const result=await pool.query(query,[auctionId])
         if (result.rows.length === 0) {
             res.status(404).json({ error: 'Team not found' });

@@ -10,7 +10,7 @@ function History(props) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/auction/historyauction/${email}`, {
+        const response = await fetch(`http://localhost:5000/api/historyauction/${email}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -35,8 +35,11 @@ function History(props) {
           <h4>Auction_name Auction_date Points_per_team Players_per_team</h4>
         </div>
         {user.map((val, index) => {
+          const date = new Date(val.auction_date); // Convert to Date object
+          const formattedDate = date.toISOString().split('T')[0];
+          console.log("hii",formattedDate)
           return <div key={val.auction_id} className='history-details'>
-            {val.auction_name} {val.auction_date} {val.points_per_team} {val.players_per_team}
+            {val.auction_name} {formattedDate} {val.points_per_team} {val.players_per_team}
           </div>
         })}
       </div>
