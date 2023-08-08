@@ -40,6 +40,7 @@ function Login(props) {
       
       if (response.ok) {
         localStorage.setItem("authentication","true")
+        localStorage.setItem("useremail",email_id)
         // console.log(email);
         setError('login successfully');
         navigate('/user/dashboard')

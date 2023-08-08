@@ -21,7 +21,7 @@
     display: flex;
     /* gap: 5px; */
     flex-direction: column;
-    border: 1px solid rgba(109, 109, 109, 0.112);
+    border: 2px solid rgba(129, 128, 128, 0.112);
     border-radius: 10% 0 0 10%;
 }
 
@@ -39,7 +39,7 @@
 .DashboardMenuHeader div{
     border: 2px solid rgba(120, 118, 118, 0.731);
     border-radius: 50%;
-    background-image: url(../../no-profile-img.gif);
+    background-image: url(../../Image/no-profile-img.gif);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
