@@ -1,10 +1,9 @@
 import React,{useState} from 'react'
 import '../../css/Dashboardcss/CreateAuction.css'
-
 function CreateAuction() {
   return (
     <div className='createAuction'>
-        <form className='form_createAuction'>  
+        <form className='form_createAuction'>
         <div className='inputbox'>
           <label>AUCTION NAME</label>
           <input type="text" name="Auction Name" placeholder='Auction Name'className='fields' ></input>
