@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import "../../css/Dashboardcss/History.css"
 function History(props) {
   const { email_id } = props
-  const email = email_id.email_id
+  const email=localStorage.getItem("useremail")
   console.log(email)
   const [user, setUser] = useState([]);
   useEffect(() => {
