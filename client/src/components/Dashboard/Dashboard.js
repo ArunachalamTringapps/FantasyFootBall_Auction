@@ -7,6 +7,7 @@ import MyAuction from './MyAuction'
 import CreateAuction from './CreateAuction'
 import History from './History'
 import Setting from './Setting'
+import HistoryDetails from './HistoryDetails'
 import { AiOutlinePlus,AiOutlineFolderOpen,AiOutlineHistory,AiOutlineSetting } from "react-icons/ai";
 
 
@@ -87,8 +88,9 @@ function Dashboard(email_id) {
         <Routes>
             <Route path='/' element={<MyAuction />}></Route>
             <Route path='/createauction' element={<CreateAuction />} />
-            <Route path='/history' element={<History email_id={email_id} />} />
-            <Route path='/team' element={<History teamhistory={teamhistory}/>}/>
+            <Route path='/history' element={<History email_id={email_id} />} ></Route>
+            <Route path='/auctiondetails' element={<HistoryDetails />} />
+            
             <Route path='/setting' element={<Setting />} />
         </Routes>
         </div>
