@@ -5,8 +5,8 @@
     display: flex;
 }
 .MyAuctionLeft{
-    flex-grow: 2.1;
-    /* border: 1px solid blue; */
+    flex-grow: 4;
+    border: 1px solid blue;
     display: flex;
     flex-direction: column;
 }
@@ -93,5 +93,20 @@
 
 .MyAuctionRight{
     flex-grow: 1;
-    /* border: 1px solid red; */
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+}
+.MyAuctionRight h5{
+    border: 1px solid red;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+.MyAuctionRight .playerlist{
+    flex-grow: 1;
+
 }
