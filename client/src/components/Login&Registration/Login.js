@@ -75,13 +75,13 @@ function Login(props) {
             <form className='form' onSubmit={handleLogin} autoComplete='off'>
             <div className='input-box'>
             <input type="text" name="email"value={email_id} className='all-fields' onChange={(e) => {setEmail_id(e.target.value)}}></input>
-            <label for="email" class="label-name">
+            <label htmlFor="email" className="label-name">
               <span className='content-name'>Email_id...</span>
             </label>
             </div>
             <div className='input-box'>
             <input type="password" name="password"  value={password_user} className='all-fields' onChange={(e) => setPassword_user(e.target.value)}></input>
-            <label for="password" class="label-name">
+            <label htmlFor="password" className="label-name">
               <span className='content-name'>Password...</span>
             </label>
             </div>

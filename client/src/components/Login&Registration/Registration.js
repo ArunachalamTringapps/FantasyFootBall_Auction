@@ -96,25 +96,25 @@ function Registration() {
           <form className='form-register' onSubmit={handleRegister} autoComplete='off'>
             <div className='input-fields'>
               <input type="text"  value={email_id} className='all-input' onChange={(e) => setEmail_id(e.target.value)}></input>
-              <label for="fields" className="label-fields">
+              <label htmlFor="fields" className="label-fields">
                 <span className='content-fields'>Email_id...</span>
               </label>
             </div>
             <div className='input-fields'>
             <input type="text"  className='all-input' onChange={(e) => setusername(e.target.value)}></input>
-            <label for="fields" className="label-fields">
+            <label htmlFor="fields" className="label-fields">
                 <span className='content-fields'>Username...</span>
               </label>
             </div>
             <div className='input-fields'>
             <input type="password"  value={password_user} className='all-input' onChange={(e) => setPassword_user(e.target.value)}></input>
-            <label for="fields" className="label-fields">
+            <label htmlFor="fields" className="label-fields">
                 <span className='content-fields'>Password...</span>
               </label>
             </div>
             <div className='input-fields'>
             <input type="password" className='all-input' onChange={(e) => setRetypePassword(e.target.value)}></input>
-            <label for="fields" className="label-fields">
+            <label htmlFor="fields" className="label-fields">
                 <span className='content-fields'>Retype_password...</span>
               </label>
             </div>

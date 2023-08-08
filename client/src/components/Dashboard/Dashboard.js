@@ -11,9 +11,8 @@ import { AiOutlinePlus,AiOutlineFolderOpen,AiOutlineHistory,AiOutlineSetting } f
 
 
 function Dashboard(email_id) {
-    // const userEmail=email_id.email_id;
-    // console.log(userEmail)
     const email=localStorage.getItem("useremail")
+    console.log(email_id)
     const [changeComponents,setChangeComponent]=useState(1);
     const menuBarItems=[
         {
