@@ -9,14 +9,12 @@ function Login(props) {
   const {email_id,setEmail_id}=props
 
   const navigate = useNavigate();
-  // const [email_id, setEmail_id] = useState('')
   const [password_user, setPassword_user] = useState('')
   const [error, setError] = useState('');
 
 
 
   const handleLogin = async (e) => {
-    // updateemail(email_id)
     e.preventDefault()
     if(!email_id){
       toast.error("Email is required")
@@ -41,7 +39,6 @@ function Login(props) {
       if (response.ok) {
         localStorage.setItem("authentication","true")
         localStorage.setItem("useremail",email_id)
-        // console.log(email);
         setError('login successfully');
         navigate('/user/dashboard')
         console.log(data.message);
@@ -60,10 +57,6 @@ function Login(props) {
     }
     e.target.reset();
   }
-
-  // useEffect(()=>{
-  //   updateemail(email_id)
-  // },[email_id])
 
   return (
     <div className='Login'>
