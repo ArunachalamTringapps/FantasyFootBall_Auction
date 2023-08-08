@@ -1,40 +1,97 @@
 .MyAuction{
-    background-color: aqua;
+    /* background-color: aqua; */
     width: 73vw;
     height: 90vh;
     display: flex;
 }
 .MyAuctionLeft{
-    flex-grow: 2.4;
-    border: 1px solid blue;
+    flex-grow: 2.1;
+    /* border: 1px solid blue; */
     display: flex;
     flex-direction: column;
 }
 .MyAuctionLeftBox{
     flex-grow: 0.7;
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
     display: flex;
     justify-content: center;
     align-items: center;
-
+    position: relative;
+    flex-direction: column;
 }
-.MyAuctionLeftBoxImage{
-    border: 1px solid black;
-    background-color:rgb(3, 183, 3);
+
+.MyAuctionLeftBox .image{
+    position: absolute;
+    /* border: 2px solid blue; */
+    background-image: url(../../Image/messidashboardwithoutbackground-removebg-preview.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    width: 25%;
+    height: 100%;
+    filter: url(#transparent-color)
+}
+.MyAuctionLeftBoxText{
+    /* border: 1px solid black; */
+    background-color:rgba(60, 172, 60, 0.845);
     border-radius: 10px;
     border: none;
-    width: 80%;
+    width: 90%;
     height:75%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.MyAuctionLeftBoxText .name{
+    /* border: 1px solid purple; */
+    font-size: 1.5rem;
+    text-align: center;
+    flex-grow: 2.3;
 }
 
+.MyAuctionLeftBoxText .bitpoints{
+    flex-grow: 1;
+    font-size: 1.5rem;
+    /* border: 1px solid red; */
+    text-align: center;
+    
+}
 
 .MyAuctionLeftAuctionContainer{
+    padding: 25px;
     flex-grow: 1;
-    border: 1px solid violet;
+    /* border: 1px solid violet; */
+    display: flex;
+    flex-direction: column;
+}
+.MyAuctionLeftAuctionContainer .chooseauction{
+    /* flex-grow: 1; */
+    /* border: 1px solid yellowgreen; */
+    background-color: rgba(155, 155, 155, 0.16);
+    display: flex;
+    gap: 5px;
+}
+.MyAuctionLeftAuctionContainer .chooseauction button{
+    padding: 10px;
+    border: none;
+    /* outline: none; */
+    border-right: 2px solid rgba(0, 0, 0, 0.119);
+    border-radius: 0 10% 10% 0;
+    font-size: 1em;
+    background-color: rgba(240, 248, 255, 0);
+}
+.MyAuctionLeftAuctionContainer .chooseauction button:hover{
+    cursor: pointer;
+    background-color: rgba(89, 89, 89, 0.126);
+    /* font-size: 1em; */
 }
 
+.MyAuctionLeftAuctionContainer .showauction{
+    flex-grow: 1;
+    border: 1px solid red;
+}
 
 .MyAuctionRight{
     flex-grow: 1;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }

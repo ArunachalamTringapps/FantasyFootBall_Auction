@@ -9,8 +9,7 @@ import HomepageHeader from './HomepageHeader';
 import HomepageTopPlayers from './HomepageTopPlayers';
 import Homepagequotes from './Homepagequotes';
 import HompagePlayersThoughts from './HompagePlayersThoughts';
-// import HomepageAbout from './HomepageAbout';
-// import footballimg from '../../football.jpg'
+
 
 
 

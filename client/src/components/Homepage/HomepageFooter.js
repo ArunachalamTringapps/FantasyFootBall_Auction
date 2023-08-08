@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import '../../css/Homepagecss/HomepageFooter.css'
 import {FaFacebook,FaTelegram,FaYoutube,FaInstagram,FaTiktok} from 'react-icons/fa';

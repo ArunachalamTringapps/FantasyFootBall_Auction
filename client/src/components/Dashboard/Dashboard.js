@@ -1,5 +1,5 @@
 /* eslint-disable no-template-curly-in-string */
-import {React,useState,useEffect} from 'react'
+import {React,useState,useEffect,useRef} from 'react'
 import { useNavigate,Link,Routes,Route } from 'react-router-dom'
 import axios from 'axios'
 import '../../css/Dashboardcss/Dashboard.css'
@@ -52,6 +52,7 @@ function Dashboard(email_id) {
     }
     const [userDetails,setuserDetails]=useState([])
     useEffect(()=>{
+        navigate("/user/dashboard/");
         axios.get(`http://localhost:5000/api/userdetails/${email}`)
         .then((response)=>{
             setuserDetails(response.data)
