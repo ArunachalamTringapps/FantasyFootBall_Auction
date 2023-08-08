@@ -12,6 +12,7 @@ import { AiOutlinePlus,AiOutlineFolderOpen,AiOutlineHistory,AiOutlineSetting } f
 
 function Dashboard(email_id) {
     const email=localStorage.getItem("useremail")
+    const[teamhistory,setteamhistory]=useState('')
     console.log(email_id)
     const [changeComponents,setChangeComponent]=useState(1);
     const menuBarItems=[
@@ -85,6 +86,7 @@ function Dashboard(email_id) {
             <Route path='/' element={<MyAuction />}></Route>
             <Route path='/createauction' element={<CreateAuction />} />
             <Route path='/history' element={<History email_id={email_id} />} />
+            <Route path='/team' element={<History teamhistory={teamhistory}/>}/>
             <Route path='/setting' element={<Setting />} />
         </Routes>
         </div>
