@@ -11,8 +11,8 @@ app.use('/api/login',loginroute)
 app.use('/api/register',registerroute)
 app.use('/api/createauction',auctionroute)
 app.use('/api',userdataroute)
-app.use('/api/auction',currentauctionroute,upcomingauctionroute,historyauctionroute,completeAuctionRoute,teamauctionroute)
-app.use("/api/details",playerdetailsRoute)
+app.use('/api/auction',currentauctionroute,upcomingauctionroute,historyauctionroute,completeAuctionRoute)
+app.use("/api/details",playerdetailsRoute,teamauctionroute)
 
 
   app.listen(port, () => {
