@@ -5,13 +5,17 @@
     display: flex;
 }
 .MyAuctionLeft{
-    flex-grow: 4.5;
-    /* border: 1px solid blue; */
+    width: 71vw;
+    height: 90vh;
+    /* flex-grow: 4.5; */
+    border: 1px solid blue;
     display: flex;
     flex-direction: column;
 }
 .MyAuctionLeftBox{
-    flex-grow: 0.7;
+    height: 70vh;
+    width: 100%;
+    /* flex-grow: 0.7; */
     /* border: 1px solid brown; */
     display: flex;
     justify-content: center;
@@ -28,7 +32,7 @@
     background-repeat: no-repeat;
     /* background-color: rgba(0, 0, 0, 0.5); */
     width: 25%;
-    height: 100%;
+    height: 50vh;
     filter: url(#transparent-color)
 }
 .MyAuctionLeftBoxText{
@@ -37,7 +41,7 @@
     border-radius: 10px;
     border: none;
     width: 90%;
-    height:75%;
+    height: 20vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -59,7 +63,9 @@
 
 .MyAuctionLeftAuctionContainer{
     padding: 25px;
-    flex-grow: 1;
+    height: 40vh;
+    width: 100%;
+    /* flex-grow: 1; */
     border: 1px solid violet;
     display: flex;
     flex-direction: column;
@@ -87,16 +93,29 @@
 }
 
 .MyAuctionLeftAuctionContainer .showauctionContainer{
+    overflow: scroll;
+    padding: 20px;
     flex-grow: 1;
     border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
 }
-.showauctionitems{
-    background-color: aquamarine;
+.showauctionContainerheader{
+    height: 8vh;
+    width: 90%;
+    background-color: cyan;
 }
 
+/* .showauctionitems{
+    background-color: aquamarine;
+} */
+
 .MyAuctionRight{
-    flex-grow: 1;
-    /* border: 2px solid green; */
+    width: 29vw;
+    /* flex-grow: 1; */
+    border: 2px solid green;
     padding: 10px;
     display: flex;
     flex-direction: column;

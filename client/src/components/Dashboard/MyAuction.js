@@ -55,17 +55,46 @@ useEffect(()=>{
                 <button onClick={()=>upcomingAuctionFun()} >Upcoming Auction</button>
               </div>
               <div className='showauctionContainer'>
-                {currentselectauction.map((val,index)=>{return(
-                  <div key={index} className='showauctionitems'>
-                    <h5>{val.auction_date}</h5>
-                    <h5>{val.auction_name}</h5>
-                    <h5>{val.players_per_team}</h5>
-                    <h5>{val.points_per_team}</h5>
-                  </div>
-                )})}
+                <div className='showauctionContainerheader'>
 
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
+                <div className='showauctionContainerheader'>
+                    
+                </div>
 
-
+                <div className='showauctionContainerheader'>
+                    
+                </div>
               </div>
           </div>
       </div>
