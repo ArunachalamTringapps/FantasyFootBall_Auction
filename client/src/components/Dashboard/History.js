@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import "../../css/Dashboardcss/History.css"
 import { useNavigate } from 'react-router-dom';
 function History(props) {
-  const { email_id ,setteamhistory} = props
+  const {setteamhistory} = props
   const email=localStorage.getItem("useremail")
   const navigate=useNavigate()
   console.log(email)
@@ -29,7 +29,7 @@ function History(props) {
     };
 
     fetchUser();
-  }, [email_id]);
+  }, []);
   const handleClick=(val)=>{
     console.log("5");
     setteamhistory(val)

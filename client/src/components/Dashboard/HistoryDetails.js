@@ -3,31 +3,22 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import "../../css/Dashboardcss/HistoryDetails.css"
 import profile from"../../Image/no-profile-img.gif"
+import axios from 'axios';
 function HistoryDetails(props) {
-  const{teamhistory,email_id}=props
+  const{teamhistory}=props
+  console.log("teamhistory",teamhistory);
   const email=localStorage.getItem("useremail")
   console.log(teamhistory)
   const [teamdetails, setteamdetails] = useState([]);
   const[playerdetails,setplayerdetails]=useState([])
   useEffect(() => {
-    const fetchTeamdetails = async () => {
-      try {
-        const response = await fetch(`http://localhost:5000/api/details/historyauction/auction/${teamhistory}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        const teamdata = await response.json();
-        console.log(teamdata)
-        setteamdetails(teamdata);
-      }
-      catch (error) {
-        console.error(error.message);
-      }
-    };
-
-    fetchTeamdetails();
+    axios.get(`http://localhost:5000/api/details/historyauction/auction/${teamhistory}`)
+    .then((response)=>{
+      setteamdetails(response.data)
+    })
+    .catch((err)=>{
+      console.error(err);
+    })
   }, [teamhistory]);
   useEffect(() => {
     const fetchallplayerdetails = async () => {
@@ -39,7 +30,7 @@ function HistoryDetails(props) {
           },
         });
         const playerdata = await response.json();
-        console.log(playerdata)
+        console.log("players",playerdata)
         setplayerdetails(playerdata);
       }
       catch (error) {
@@ -48,7 +39,7 @@ function HistoryDetails(props) {
     };
 
     fetchallplayerdetails();
-  }, [email_id]);
+  }, []);
   return (
     <div className='historydetails-container'>
       <div className='teamdetails'>
@@ -56,8 +47,9 @@ function HistoryDetails(props) {
       <div className='team-title'>
         Team Details
       </div>
-      {teamdetails.map((val,index)=>{
-        return <div key={index} className='teamlist'>
+      {
+      teamdetails.map((val,index)=>{
+        return( <div key={index} className='teamlist'>
         <div className='team-image'>
           {val.team_image ? (
             <img src={val.team_image} alt={`Team ${val.team_id}`} />
@@ -67,10 +59,11 @@ function HistoryDetails(props) {
         </div>
         <div className='team-id-details'>{val.team_name}</div>
         <div className='team-owner-details'>{val.team_owner_name}</div>
-        <div>{val.team_name}</div>
+        <div>{val.players}</div>
         </div>
-       
-      })}
+        )
+      })
+      }
      </div>
       <div className='player-container'>
         players
