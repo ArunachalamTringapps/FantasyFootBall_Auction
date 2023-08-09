@@ -1,139 +1,84 @@
 import React,{useState} from 'react'
 import '../../css/Dashboardcss/CreateAuction.css'
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
+import axios from "axios"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function CreateAuction() {
-  // const [date, setDate] = useState();
-    const [date, setDate] = useState(null); // Changed initial state to null
-  const [calendarOpen, setCalendarOpen] = useState(false);
+  const[auction_name,setAuctionName]=useState('');
+  const[auction_date,setAuctionDate]=useState('');
+  const[points_per_team,setpointsperteam]=useState('');
+  const[players_per_team,setPlayersperteam]=useState('');
+  const handleCreateauction = async (e) => {
+    e.preventDefault();
+    const email_id=localStorage.getItem("useremail")
+    const currentDate = new Date();
+    const inputDate = new Date(auction_date);
+    console.log("now date",currentDate.toISOString().split('T')[0]);
+    console.log("input date",inputDate);
+    if (!auction_name) {
+      toast.error("Auction Name is required");
+      return
+    }
+    if(!auction_date){
+      toast.error("Auction Date is required");
+      return 
+    }
+    if (inputDate.toISOString().split('T')[0] < currentDate.toISOString().split('T')[0]) {
+      toast.error("Auction Date should be current or upcoming date");
+      return
+    }
+    if (!points_per_team) {
+      toast.error("Points Per Team is required");
+      return
+    }
+    if (!players_per_team) {
+      toast.error("Players Per Team is required");
+      return
+    }
+    if(players_per_team>11){
+      toast.error("Players Per Team should be less than 12");
+      return
+    }
 
-  const handleDateInputClick = () => {
-    setCalendarOpen(true);
-  };
+
+    axios.post('http://localhost:5000/api/createauction',{auction_name,auction_date,points_per_team,players_per_team,email_id})
+    .then((auctionData)=>{
+      console.log(auctionData);
+    })
+    .catch((err)=>{
+      console.error('Error:', err);
+      toast.error('An error occurred during registration.');
+    })
+    e.target.reset();
+  }
+
+
   return (
     <div className='createAuction'>
-      <div className='Container'>
-         <form className='form_createAuction'>  
+        <form className='form_createAuction' onSubmit={handleCreateauction} autoComplete='off'>
+        <h2>Create Auction</h2>
         <div className='inputbox'>
-            <input type="text" name="Auction_id" className='all-fields' ></input>
-            <label for="email" class="label-name">
-              <span className='content-name'>Auction_id...</span>
-            </label>
-        </div>
-        <div className='inputbox'>
-            <input type="text" name="Auction Name" className='all-fields' ></input>
-            <label for="email" class="label-name">
-              <span className='content-name'>Auction Name...</span>
-            </label>
-        </div>
-        {/* <div className='inputbox Date'>
+          <label className='label'>AUCTION NAME</label>
+          <input type="text" name="Auction Name" placeholder='Auction Name'className='fields' onChange={(e) => setAuctionName(e.target.value)} ></input>
 
-            <input type="date" name="Auction Date" value="" className='all-fields'></input> 
-            <DatePicker placeholderText=""  className='all-fields' />
-            <DatePicker selected={date} className='all-fields' onChange={(date) => setDate(date)} />
-
-            <label for="email" class="label-name">
-              <span className='content-name'>Auction Date...</span>
-            </label>
-        </div> */}
-        <div className='inputbox Date'>
-  
-            <div
-              className='all-fields'
-              onClick={handleDateInputClick}
-            >
-              {date ? date.toDateString() : ''}
-            </div>
-            <label htmlFor="email" className="label-name">
-              <span className='content-name'>Auction Date...</span>
-            </label>
-            {calendarOpen && (
-              <DatePicker
-                selected={date}
-                onChange={newDate => {
-                  setDate(newDate);
-                  setCalendarOpen(false);
-                }}
-                onClickOutside={() => setCalendarOpen(false)}
-                className='date-picker-calendar'
-                inline
-              />
-            )}
-          </div>
-        <div className='inputbox'>
-            <input type="text" name="Points Per Team" className='all-fields' ></input>
-            <label for="email" class="label-name">
-              <span className='content-name'>Points Per Team...</span>
-            </label>
         </div>
         <div className='inputbox'>
-            <input type="text" name="Players Per Team" className='all-fields' ></input>
-            <label for="email" class="label-name">
-              <span className='content-name'>Players Per Team...</span>
-            </label>
+          <label className='label'>AUCTION DATE</label>
+          <input type="date" name="Auction Date" className='fields' onChange={(e) => setAuctionDate(e.target.value)}></input>
         </div>
         <div className='inputbox'>
-            <input type="email" name="Email" className='all-fields'></input>
-            <label for="email" class="label-name">
-              <span className='content-name'>Email_id...</span>
-            </label>
+          <label className='label'>POINTS PER TEAM</label>
+          <input type="text" name="Points Per Team" placeholder='Points Per Team'className='fields' onChange={(e) => setpointsperteam(e.target.value)}></input>
         </div>
-        </form>
-      </div>
-      <button className='bt'>Add Auction</button>
+        <div className='inputbox'>
+          <label className='label'>PLAYERS PER TEAM</label>
+            <input type="text" name="Players Per Team" defaultValue={11} placeholder='Players Per Team' className='fields' onChange={(e) => setPlayersperteam(e.target.value)}></input>
+        </div>
+        <button className='bt'>Submit</button>
+        </form> 
+        <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false}/>
     </div>
   )
 }
-
-// export default CreateAuction
-// import React, { useState } from 'react';
-// import '../../css/Dashboardcss/CreateAuction.css';
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-// function CreateAuction() {
-//   const [date, setDate] = useState(null); // Changed initial state to null
-//   const [calendarOpen, setCalendarOpen] = useState(false);
-
-//   const handleDateInputClick = () => {
-//     setCalendarOpen(true);
-//   };
-
-//   return (
-//     <div className='createAuction'>
-//       <div className='Container'>
-//         <form className='form_createAuction'>
-//           {/* ...Other input fields */}
-//           <div className='inputbox Date'>
-//             {/* Changed input field to div with click event */}
-//             <div
-//               className='all-fields'
-//               onClick={handleDateInputClick}
-//             >
-//               {date ? date.toDateString() : 'Select Auction Date'}
-//             </div>
-//             <label htmlFor="email" className="label-name">
-//               <span className='content-name'>Auction Date...</span>
-//             </label>
-//             {calendarOpen && (
-//               <DatePicker
-//                 selected={date}
-//                 onChange={newDate => {
-//                   setDate(newDate);
-//                   setCalendarOpen(false);
-//                 }}
-//                 onClickOutside={() => setCalendarOpen(false)}
-//                 className='date-picker-calendar'
-//                 inline // Display the calendar inline with the input
-//               />
-//             )}
-//           </div>
-//           {/* ...Other input fields */}
-//         </form>
-//       </div>
-//       <button className='bt'>Add Auction</button>
-//     </div>
-//   );
-// }
 
 export default CreateAuction;

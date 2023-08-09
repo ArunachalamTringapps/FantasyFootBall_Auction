@@ -31,15 +31,21 @@
     width: 90%;
     height: 20vh;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-between; */
     align-items: center;
+    /* border: 3px solid blue; */
 }
 .MyAuctionImageText .name{
-    border: 1px solid black;
+    flex-grow: 3;
+    /* margin-left: 10px; */
+    /* border: 1px solid black; */
+    text-align: center;
 }
 
-.MyAuctionImageText .name{
-    border: 1px solid black;
+.MyAuctionImageText .bitpoints{
+    /* border: 1px solid black; */
+    text-align: center;
+    flex-grow: 1;
 }
 
 .MyAuctionPlayers{
