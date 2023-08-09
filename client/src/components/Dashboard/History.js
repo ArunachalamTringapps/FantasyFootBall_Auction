@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import "../../css/Dashboardcss/History.css"
 import { useNavigate } from 'react-router-dom';
 function History(props) {
-  const { email_id } = props
+  const { email_id ,setteamhistory} = props
   const email=localStorage.getItem("useremail")
   const navigate=useNavigate()
   console.log(email)
@@ -30,15 +30,16 @@ function History(props) {
 
     fetchUser();
   }, [email_id]);
-  const handleClick=()=>{
+  const handleClick=(val)=>{
     console.log("5");
+    setteamhistory(val)
     navigate('/user/dashboard/auctiondetails')
   }
 
   return (
     <div className='history-container'>
       <h1>Auction Details</h1>
-      <div className='details'>
+    <div className='details'>
         <div className='heading-details'>
           <h4>Auction_name Auction_date Points_per_team Players_per_team</h4>
         </div>
@@ -47,16 +48,18 @@ function History(props) {
           const formattedDate = date.toISOString().split('T')[0];
           console.log("hii",formattedDate)
           return <div key={val.auction_id} className='history-details'>
-           {val.auction_name} {formattedDate} {val.points_per_team} {val.players_per_team}
+           <button className='auction-click' onClick={()=>{handleClick(val.auction_id)}}>
+            {val.auction_name}</button>
+            <div className='team-date'> {formattedDate}</div>
+            <div className='points-team'> {val.points_per_team} </div>
+            <div className='players-team'>{val.players_per_team}</div>
           
-           <button onClick={()=>{handleClick()}}>
+           {/* <button onClick={()=>{handleClick(val.auction_id)}}>
        wjdhsd
-            </button>
+            </button> */}
           </div>
         })}
-      </div>
-      <div className='team-details'>
-        <h2>Teams</h2>
+   
       </div>
     </div>
 
