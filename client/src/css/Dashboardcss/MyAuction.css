@@ -1,44 +1,32 @@
-.MyAuction{
-    /* background-color: aqua; */
+.MYAuction{
     width: 73vw;
     height: 90vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    grid-template-rows: 2fr 3fr;
+    /* background-color: aqua; */
+    /* border: 1px solid blue; */
 }
-.MyAuctionLeft{
-    width: 71vw;
-    height: 90vh;
-    /* flex-grow: 4.5; */
-    border: 1px solid blue;
-    display: flex;
-    flex-direction: column;
-}
-.MyAuctionLeftBox{
-    height: 70vh;
-    width: 100%;
-    /* flex-grow: 0.7; */
+.MyAuctionImage{
     /* border: 1px solid brown; */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    flex-direction: column;
 }
-
-.MyAuctionLeftBox .image{
+.MyAuctionImage .image{
     position: absolute;
-    /* border: 2px solid blue; */
     background-image: url(../../Image/messidashboardwithoutbackground-removebg-preview.png);
     background-size: contain;
     background-repeat: no-repeat;
-    /* background-color: rgba(0, 0, 0, 0.5); */
     width: 25%;
-    height: 50vh;
-    filter: url(#transparent-color)
+    height: 100%;
 }
-.MyAuctionLeftBoxText{
-    /* border: 1px solid black; */
+.MyAuctionImage .MyAuctionImageText{
     background-color:rgba(92, 165, 92, 0.845);
     border-radius: 10px;
+    font-size: 1.5rem;
+    /* text-align: center; */
     border: none;
     width: 90%;
     height: 20vh;
@@ -46,38 +34,85 @@
     justify-content: space-around;
     align-items: center;
 }
-.MyAuctionLeftBoxText .name{
-    /* border: 1px solid purple; */
-    font-size: 1.5rem;
-    text-align: center;
-    flex-grow: 2.3;
+.MyAuctionImageText .name{
+    border: 1px solid black;
 }
 
-.MyAuctionLeftBoxText .bitpoints{
-    flex-grow: 1;
-    font-size: 1.5rem;
-    /* border: 1px solid red; */
-    text-align: center;
-    
+.MyAuctionImageText .name{
+    border: 1px solid black;
 }
 
-.MyAuctionLeftAuctionContainer{
-    padding: 25px;
-    height: 40vh;
-    width: 100%;
-    /* flex-grow: 1; */
-    border: 1px solid violet;
+.MyAuctionPlayers{
+    position: relative;
+    /* border: 1px solid green; */
+    grid-row: 1/3;
+    grid-column: 2/3;
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
-.MyAuctionLeftAuctionContainer .chooseauction{
-    /* flex-grow: 1; */
-    border: 1px solid yellowgreen;
-    background-color: rgba(155, 155, 155, 0.16);
+.MyAuctionPlayers h5{
+    /* border: 1px solid black; */
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+}
+.MyAuctionPlayers .playerlist{
+    /* border: 1px solid orange; */
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;;
+}
+
+.playersitemscontainer{
+    /* border: 1px solid black; */
+    width: 100%;
+    padding: 10px;
+    height: 9vh;
+    background-color: rgb(255, 255, 255);;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 0 10% 10% 0;
+    border-left: 4px solid green;
+    box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.331);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    font-weight: 800;
+    align-items: center;
+}
+.playersitemscontainer .image{
+    background-image: url(../../Image/no-profile-img.gif);
+    background-position:   center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid rgb(146, 146, 146);
+    width: 18%;
+    height: 100%;
+    border-radius: 50% 50%;
+}
+
+
+
+.MyAuctionDetails{
+    /* border: 1px solid rgb(24, 10, 224); */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.MyAuctionDetails .chooseauction{
+    /* border: 1px solid yellowgreen; */
+    background-color: rgba(219, 217, 217, 0.418);
     display: flex;
     gap: 5px;
 }
-.MyAuctionLeftAuctionContainer .chooseauction button{
+.MyAuctionDetails .chooseauction button{
     padding: 10px;
     border: none;
     /* outline: none; */
@@ -86,81 +121,48 @@
     font-size: 1em;
     background-color: rgba(89, 89, 89, 0.041);
 }
-.MyAuctionLeftAuctionContainer .chooseauction button:hover{
+.MyAuctionDetails .chooseauction button:hover{
     cursor: pointer;
     background-color: rgba(89, 89, 89, 0.126);
-    /* font-size: 1em; */
 }
 
-.MyAuctionLeftAuctionContainer .showauctionContainer{
-    overflow: scroll;
+.MyAuctionDetails .showauctionContainer{
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /*IE or Edge*/
+    scrollbar-width: none; /*firefox*/
+    height: 40vh;
     padding: 20px;
-    flex-grow: 1;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap:20px;
 }
+.showauctionContainer::-webkit-scrollbar{  /*chrome, safari, opera*/
+    display: none;
+}
 .showauctionContainerheader{
+    display: flex;
+    /* justify-content: space-evenly; */
+    align-items: center;
+    font-size: 1.1rem;
     height: 8vh;
-    width: 90%;
-    background-color: cyan;
-}
-
-/* .showauctionitems{
-    background-color: aquamarine;
-} */
-
-.MyAuctionRight{
-    width: 29vw;
-    /* flex-grow: 1; */
-    border: 2px solid green;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-}
-.MyAuctionRight h5{
-    /* border: 1px solid red; */
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    font-size: 1.2em;
-    letter-spacing: 1px;
-}
-.MyAuctionRight .playerlist{
-    padding: 10px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-}
-
-.playersitemscontainer{
     width: 100%;
-    padding: 10px;
-    height: 9vh;
-    background-color: rgb(255, 255, 255);
-    /* background-color: aqua; */
-    display: flex;
-    justify-content: space-around;
-    border-radius: 0 10% 10% 0;
-    border-left: 4px solid green;
-    box-shadow: 3px 2px 5px black;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    font-weight: 800;
-    align-items: center;
+    background-color: rgba(255, 255, 255, 0.804);
+    border-left: 5px solid green;
+    /* border-radius: 0 8% 8% 0; */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
 }
-.playersitemscontainer .image{
-    background-image: url(../../Image/no-profile-img.gif);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 2px solid rgb(146, 146, 146);
-    width: 18%;
-    height: 90%;
-    border-radius: 52%;
+.showauctionContainerheader div{
+    width: 25%;
+    text-align: center;
+    
+}
+.routeToAuction{
+    font-weight: 900;
+    color: black;
+}
+.routeToAuction:hover{
+    cursor: pointer; 
+    color: rgb(1, 101, 1);
 }

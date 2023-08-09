@@ -8,6 +8,7 @@ import CreateAuction from './CreateAuction'
 import History from './History'
 import Setting from './Setting'
 import HistoryDetails from './HistoryDetails'
+import AuctionHome from './AuctionPanel/AuctionHome'
 import { AiOutlinePlus,AiOutlineFolderOpen,AiOutlineHistory,AiOutlineSetting } from "react-icons/ai";
 
 
@@ -15,6 +16,7 @@ import { AiOutlinePlus,AiOutlineFolderOpen,AiOutlineHistory,AiOutlineSetting } f
 function Dashboard(email_id) {
     const email=localStorage.getItem("useremail")
     const[teamhistory,setteamhistory]=useState('')
+    // const[auctionPanelId,setAuctionPanelId]=useState('');
     console.log(email_id)
     const [changeComponents,setChangeComponent]=useState(1);
     const menuBarItems=[
@@ -55,7 +57,7 @@ function Dashboard(email_id) {
     }
     const [userDetails,setuserDetails]=useState([])
     useEffect(()=>{
-        navigate("/user/dashboard/");
+        // navigate("/user/dashboard/");
         axios.get(`http://localhost:5000/api/userdetails/${email}`)
         .then((response)=>{
             setuserDetails(response.data)
@@ -86,11 +88,11 @@ function Dashboard(email_id) {
         <div className='DashboardContainer'>
             
         <Routes>
-            <Route path='/' element={<MyAuction />}></Route>
+            <Route path='/' element={<MyAuction/>}></Route>
             <Route path='/createauction' element={<CreateAuction />} />
             <Route path='/history' element={<History email_id={email_id} />} ></Route>
             <Route path='/auctiondetails' element={<HistoryDetails />} />
-            
+            <Route path='/auctionpanel' element={<AuctionHome/>} />
             <Route path='/setting' element={<Setting />} />
         </Routes>
         </div>
