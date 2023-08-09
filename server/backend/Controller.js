@@ -144,14 +144,14 @@ const teamauction=async(req,res)=>{
     }
 }
 
-const completeAuction=async(req,res)=>{
+const searchPlayers=async(req,res)=>{
     try{
-        const {emailid,auctionname}=req.params;
+        const {emailid,players_name}=req.params;
 
-        const query=`Select * from auctions where email_id=$1 and auction_name ILIKE '%' || $2 || '%' `
-        const result=await pool.query(query,[emailid,auctionname]);
+        const query=`Select * from players where email_id=$1 and player_name ILIKE $2 || '%' `
+        const result=await pool.query(query,[emailid,players_name]);
         if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'Email does not exist' });
+            return res.status(404).json({ error: 'given details or wrong' });
 
         }
         res.json(result.rows)
@@ -197,6 +197,25 @@ const teamjoinsplayers=async(req,res)=>{
 }
 
 
+
+const topfiveplayers=async(req,res)=>{
+    try{
+        const emailId=req.params.email_id;
+        console.log(emailId);
+        const query=`Select * from players where email_id=$1 order by minimum_bid desc limit 5`
+        const result=await pool.query(query,[emailId]);
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Email does not exist' });
+
+        }
+        res.json(result.rows)
+
+    }catch(err){
+        res.status(500).json({error:"An error occured while user details is not found"})
+    }
+}
+
+
 module.exports={
     register,
     login,
@@ -205,8 +224,9 @@ module.exports={
     currentauction,
     upcomingauction,
     historyauction,
-    completeAuction,
+    searchPlayers,
     teamauction,
     playerdetails,
-    teamjoinsplayers
+    teamjoinsplayers,
+    topfiveplayers
 }
