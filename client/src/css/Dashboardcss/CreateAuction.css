@@ -8,15 +8,18 @@
     position:relative;
     background-color:#ecf1f5;
     flex-direction: column;
+    gap:10px;
     justify-content: center;
     align-items: center;
 }
 .form_createAuction{
-    height:80%;
-    width:58%;
+    box-shadow: 5px 6px 7px rgba(178, 170, 170, 0.548);
+    height:85%;
+    width:50%;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+    position: relative;
     /* background-color: #ff0000; */
     background-color:white;
     gap:11px;
@@ -25,8 +28,15 @@
     align-items: center;
     justify-content: center;
 }
+h2{
+    position:absolute;
+    top:5%;
+    left:30%;
+   font-size:1.5rem;
+   font-family: 'Open Sans',sans-serif;
+}
 .inputbox{
-    height:16%;
+    height:15%;
     width:60%;
     display:flex;
     /* position:relative; */
@@ -42,38 +52,55 @@
     /* justify-content: center;
     align-items: center; */
 }
-input{
+.label{
+    font-size:0.8rem;
+    font-family: 'Open Sans',sans-serif;
+}
+.fields{
     /* position:absolute; */
-    width:70%;
-    height:50%;
+    width:80%;
+    height:44%;
     /* bottom:5px; */
     /* right:100px; */
     outline:none;
+    border:none;
+    background-color: #FBFBFB;
     font-size:1rem;
-    letter-spacing:0.1rem;
-    text-align: center;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: 'Open Sans',sans-serif;
+    border-radius: 20px;
+    /* letter-spacing:0.1rem; */
+    word-spacing:0.1rem;
+    text-align:start;
+    padding-left: 5px;
+    font-size:0.8rem;
+
     /* border:1px solid black; */
 }
-input:focus{
-    border:1px solid black;
-    font-size:1rem;
-    letter-spacing:0.1rem;
-}
-
-
 .bt{
-    position:absolute; 
-    bottom:14px;
-    height:5vh;
-    width:9vw;
-    right:21%;
-    border:1px solid black;
+    position:absolute;
+   
+    bottom:7%;
+    height:6vh;
+    width:10vw;
+    left:33%;
+    /* padding-left:30px; */
+    /* right:21%; */
+    /* border:1px solid black; */
     border-radius:20px;
-    background-color:#ecf5f1;
+    background-color:#a9a9a93c;
     font-size:1rem;
-    letter-spacing:0.1rem;
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    outline:none;
+    border:none;
+    font-family: 'Open Sans',sans-serif;
+    /* letter-spacing:0.1rem; */
+    /* font-weight: bolder; */
+    /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
 }
 .bt:hover{
-    background-color:grey; 
+    
+    cursor: pointer;
+    /* border:1px solid black;  */
+    /* outline:none;
+    border:none; */
 }
