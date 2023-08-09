@@ -1,0 +1,61 @@
+.historydetails-container{
+    display: flex;
+
+}
+.teamdetails{
+    display: flex;
+    flex-direction: row;
+gap:20px;
+
+}
+.teamview{
+    display: flex;
+    flex-direction:column;
+    width:80vh;
+    height:90vh;
+    border:2px solid black;
+  gap:20px;
+  align-items: center;
+}
+.teamlist{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+ gap:65px;
+    padding:25px;
+    width:500px;
+    height:75px;
+    background-color: rgba(186, 185, 182, 0.231);
+    border-left: 4px solid rgb(129, 182, 83);
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.player-container{
+    display: flex;
+    flex-direction:column;
+    width:68vh;
+    height:90vh;
+    border:2px solid black;
+}
+.team-image img{
+    width:50px;
+    height:50px;
+    border-radius: 30px;
+    border:3px solid rgba(126, 200, 126, 0.792);
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+
+
+}
+.team-id-details{
+    font-weight: bold;
+    font-size: 20px;
+}
+.team-owner-details{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 15px;
+    color: rgb(92, 130, 232);
+}
