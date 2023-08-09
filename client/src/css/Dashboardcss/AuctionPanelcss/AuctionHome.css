@@ -1,0 +1,19 @@
+.AuctionHome{
+    width: 73vw;
+    height: 90vh;
+    background-color: rgb(166, 255, 255);
+    display: grid;
+}
+
+.AuctionHeader{
+    border: 2px solid violet;
+}
+
+.AuctionMenu{
+    border: 2px solid blue;
+    /* width: 15vw; */
+}
+.AuctionContainer{
+    border: 2px solid red;
+    /* width: 58vw; */
+}

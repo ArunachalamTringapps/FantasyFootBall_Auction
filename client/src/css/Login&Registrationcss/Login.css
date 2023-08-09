@@ -5,6 +5,21 @@
     justify-content: center;
     align-items: center;
 }
+.Login .backButton{
+    /* border: 3px solid green; */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    /* font-weight: 500; */
+    /* padding: 20px; */
+}
+.Login .backButton:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .container{
     background-color: #7f7f7f38;
     border-radius: 10px;
