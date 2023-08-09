@@ -9,10 +9,10 @@ const userdataroute=router.get("/userdetails/:email_id",userdata)
 const currentauctionroute=router.get("/currentauction/:email_id",currentauction)
 const upcomingauctionroute=router.get("/upcomingauction/:email_id",upcomingauction)
 const historyauctionroute=router.get("/historyauction/:email_id",historyauction)
-const teamauctionroute=router.get("/historyauction/auction/:auction_id",teamauction)
+const teamauctionroute=router.get("/historyauction/auction/:auction_id/:email_id",teamauction)
 const searchPlayersRoute=router.get("/searchplayers/:emailid/:players_name",searchPlayers)
 const playerdetailsRoute=router.get("/players/:email_id",playerdetails)
-const teamsJoinsPlayersRoute=router.get("/teamjoinplayers/:team_id",teamjoinsplayers)
+const teamsJoinsPlayersRoute=router.get("/teamjoinplayers/:team_id/:email_id",teamjoinsplayers)
 const topfiveplayersRoute=router.get("/limitfive/:email_id",topfiveplayers)
 module.exports = {
     registerroute,
