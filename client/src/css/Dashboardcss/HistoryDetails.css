@@ -5,7 +5,7 @@
 .teamdetails{
     display: flex;
     flex-direction: row;
-gap:20px;
+    gap:20px;
 
 }
 .teamview{
@@ -14,28 +14,24 @@ gap:20px;
     width:80vh;
     height:90vh;
     border:2px solid black;
-  gap:20px;
-  align-items: center;
-}
-.teamlist{
-    display: flex;
-    flex-direction: row;
+     gap:20px;
     align-items: center;
-    justify-content: center;
- gap:65px;
-    padding:25px;
-    width:500px;
-    height:75px;
+}
+.team-list-details{
+    width:550px;
+    height:60px;
     background-color: rgba(186, 185, 182, 0.231);
     border-left: 4px solid rgb(129, 182, 83);
-    font-size: 15px;
     border-radius: 10px;
+    font-size:1.1rem;
+   display: flex;
+   align-items: center;
 }
 
 .player-container{
     display: flex;
     flex-direction:column;
-    width:68vh;
+    width:65vh;
     height:90vh;
     border:2px solid black;
 }
@@ -44,18 +40,38 @@ gap:20px;
     height:50px;
     border-radius: 30px;
     border:3px solid rgba(126, 200, 126, 0.792);
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-
-
 }
-.team-id-details{
+.team-title{
+    font-size: 30px;
     font-weight: bold;
-    font-size: 20px;
+    word-spacing: 2px;
 }
-.team-owner-details{
-    font-family:'Times New Roman', Times, serif;
-    font-size: 15px;
-    color: rgb(92, 130, 232);
+.team-heading{
+    width:550px;
+    height:60px;
+    background-color: rgba(186, 185, 182, 0.231);
+    border-left: 4px solid rgb(129, 182, 83);
+    border-radius: 10px;
+    font-size:1.1rem;
+    word-spacing:60px;
+   display: flex;
+   align-items: center;
+}
+.team-heading div{
+    width:25%;
+    text-align: center;
+}
+.team-list-details div{
+    width:25%;
+    text-align: center;
+}
+
+.team-list-details .team-player-count{
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.team-list-details .team-player-count:hover{
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
 }

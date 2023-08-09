@@ -131,8 +131,9 @@ console.log(currentDate)
 const teamauction=async(req,res)=>{
     try{
         const auctionId=req.params.auction_id
-        const query='SELECT t.team_image,t.team_id,t.team_name,t.team_owner_name,t.team_owner_email_id,t.auction_id,COUNT(p.player_id) AS player_count FROM teams t JOIN players p ON t.team_id = p.team_id WHERE t.auction_id = $1 GROUP BY t.team_image, t.team_id, t.team_name, t.team_owner_name, t.team_owner_email_id, t.auction_id;'
-        const result=await pool.query(query,[auctionId])
+        const emailId=req.params.email_id
+        const query='SELECT t.team_image,t.team_id,t.team_name,t.team_owner_name,t.team_owner_email_id,t.auction_id,t.email_id,COUNT(p.player_id) AS player_count FROM teams t JOIN players p ON t.team_id = p.team_id WHERE t.auction_id = $1 and p.email_id=$2 GROUP BY t.team_image,t.team_id,t.team_name,t.team_owner_name,t.team_owner_email_id,t.auction_id,t.email_id;'
+        const result=await pool.query(query,[auctionId,emailId])
         if (result.rows.length === 0) {
             res.status(404).json({ error: 'Team not found' });
             return;
@@ -182,9 +183,11 @@ const playerdetails=async(req,res)=>{
 const teamjoinsplayers=async(req,res)=>{
     try{
         const teamId=req.params.team_id;
+        const emailId=req.params.email_id;
+
         // console.log(emailId);
-        const query=`Select * from players join teams using(team_id) where team_id=$1`
-        const result=await pool.query(query,[teamId]);
+        const query=`Select * from players p join teams t on t.team_id=p.team_id where t.team_id=$1 and p.email_id=$2 `
+        const result=await pool.query(query,[teamId,emailId]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Email does not exist' });
 

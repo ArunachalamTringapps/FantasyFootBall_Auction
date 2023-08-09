@@ -17,7 +17,7 @@ function Dashboard(email_id) {
     const email=localStorage.getItem("useremail")
     // const[auctionPanelId,setAuctionPanelId]=useState('');
     console.log(email_id)
-    const [changeComponents,setChangeComponent]=useState(1);
+    const [changeComponents,setChangeComponent]=useState();
     const menuBarItems=[
         {
             index:1,
