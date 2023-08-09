@@ -30,7 +30,7 @@ function MyAuction() {
 console.log("auctionclicking",currentselectauction);
 
 useEffect(()=>{
-  axios.get(`http://localhost:5000/api/details/players/${email}`)
+  axios.get(`http://localhost:5000/api/topplayers/limitfive/${email}`)
   .then((response)=>{
     setTopTenPlayers(response.data)
   })
