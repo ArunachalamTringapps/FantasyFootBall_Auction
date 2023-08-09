@@ -1,9 +1,7 @@
 .createAuction{
     height:100%;
     width:100%;
-    /* border:1px solid blue; */
     border-radius: 0 10% 10% 0;
-    /* background-color:white; */
     display:flex;
     position:relative;
     background-color:#ecf1f5;
@@ -20,10 +18,8 @@
     flex-direction: column;
     border-radius: 10px;
     position: relative;
-    /* background-color: #ff0000; */
     background-color:white;
     gap:11px;
-    /* background-color:#ecf1f5; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,68 +35,42 @@ h2{
     height:15%;
     width:60%;
     display:flex;
-    /* position:relative; */
-    /* border:1px solid blue; */
-    padding-left: 20px;
     gap:10px;
-    /* border-radius:5px; */
-    /* flex-grow: 1; */
     display: flex;
-    /* border: 2px solid black; */
     flex-direction: column;
     background-color: white;
-    /* justify-content: center;
-    align-items: center; */
 }
 .label{
-    font-size:0.8rem;
+    font-size:1rem;
     font-family: 'Open Sans',sans-serif;
 }
 .fields{
-    /* position:absolute; */
-    width:80%;
-    height:44%;
-    /* bottom:5px; */
-    /* right:100px; */
+    width:90%;
+    height:40%;
     outline:none;
     border:none;
-    background-color: #FBFBFB;
+    background-color: #a9a9a93c;
     font-size:1rem;
-    /* font-family: 'Courier New', Courier, monospace; */
     font-family: 'Open Sans',sans-serif;
-    border-radius: 20px;
-    /* letter-spacing:0.1rem; */
+    border-radius: 10px;
     word-spacing:0.1rem;
     text-align:start;
     padding-left: 5px;
     font-size:0.8rem;
-
-    /* border:1px solid black; */
 }
 .bt{
     position:absolute;
-   
     bottom:7%;
-    height:6vh;
-    width:10vw;
-    left:33%;
-    /* padding-left:30px; */
-    /* right:21%; */
-    /* border:1px solid black; */
+    height:5vh;
+    width: 70px;
+    left:40%;
     border-radius:20px;
-    background-color:#a9a9a93c;
-    font-size:1rem;
+    background-color: #8c89894c;
+    font-size:0.8rem;
     outline:none;
     border:none;
     font-family: 'Open Sans',sans-serif;
-    /* letter-spacing:0.1rem; */
-    /* font-weight: bolder; */
-    /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
 }
 .bt:hover{
-    
     cursor: pointer;
-    /* border:1px solid black;  */
-    /* outline:none;
-    border:none; */
 }

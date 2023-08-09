@@ -38,6 +38,18 @@ const login= async (req, res) => {
     }
 }
 const createAuction=async(req,res)=>{
+    const {auction_name,auction_date,points_per_team,players_per_team,email_id}=req.body;
+    try{
+        const insert_auction=`insert into auctions (auction_name,auction_date,points_per_team,players_per_team,email_id) VALUES ($1, $2,$3,$4,$5)`
+        const result = await pool.query(insert_auction,
+            [auction_name,auction_date,points_per_team,players_per_team,email_id]
+        );
+        
+         res.status(201).json({ message: 'Auction registered successfully!'});
+    }
+    catch(err){
+        res.status(500).json({ error: 'An error occurred while registering the auction.'});
+    }
 }
 
 

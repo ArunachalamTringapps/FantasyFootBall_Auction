@@ -4,7 +4,7 @@ const {register,login,createAuction,userdata,currentauction,upcomingauction,hist
 
 const registerroute=router.post('/',register );
 const loginroute=router.post('/user', login);
-const auctionroute=router.post("/auction",createAuction)
+const createauctionroute=router.post("/createauction",createAuction)
 const userdataroute=router.get("/userdetails/:email_id",userdata)
 const currentauctionroute=router.get("/currentauction/:email_id",currentauction)
 const upcomingauctionroute=router.get("/upcomingauction/:email_id",upcomingauction)
@@ -17,7 +17,7 @@ const topfiveplayersRoute=router.get("/limitfive/:email_id",topfiveplayers)
 module.exports = {
     registerroute,
     loginroute,
-    auctionroute,
+    createauctionroute,
     userdataroute,
     currentauctionroute,
     upcomingauctionroute,
