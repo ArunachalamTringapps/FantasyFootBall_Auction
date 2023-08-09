@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
-const {registerroute,loginroute,auctionroute,userdataroute,currentauctionroute,upcomingauctionroute,historyauctionroute,completeAuctionRoute,teamauctionroute,playerdetailsRoute}=require('./backend/Route')
+const {registerroute,loginroute,auctionroute,userdataroute,currentauctionroute,upcomingauctionroute,historyauctionroute,completeAuctionRoute,teamauctionroute,playerdetailsRoute,teamsJoinsPlayersRoute}=require('./backend/Route')
 
 const app = express();
 const port = 5000;
@@ -13,6 +13,7 @@ app.use('/api/createauction',auctionroute)
 app.use('/api',userdataroute)
 app.use('/api/auction',currentauctionroute,upcomingauctionroute,historyauctionroute,completeAuctionRoute)
 app.use("/api/details",playerdetailsRoute,teamauctionroute)
+app.use("/api/joins",teamsJoinsPlayersRoute)
 
 
   app.listen(port, () => {
