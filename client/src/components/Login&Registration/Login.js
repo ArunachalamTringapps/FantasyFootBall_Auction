@@ -60,6 +60,7 @@ function Login(props) {
 
   return (
     <div className='Login'>
+      <div onClick={()=>navigate("/")} className='backButton'>Back</div>
       <div className='container'>
         <div className='left'>
         </div>

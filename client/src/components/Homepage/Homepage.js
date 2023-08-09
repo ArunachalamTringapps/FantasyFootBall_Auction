@@ -31,7 +31,6 @@ function Homepage() {
             control.start("hidden");
         }
         })
-
         return(
             <motion.div className='box' ref={ref} animate={control} initial="hidden" variants={boxVariant}>
                 <div>{arrTags[nums]}</div>

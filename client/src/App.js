@@ -16,7 +16,7 @@ function App() {
   localStorage.setItem("authentication","false");
   }
   return (
-    <div data-cursor-exclusion style={{backgroundColor: '#fff'}} data-cursor-size="30px"  className="App">
+    <div data-cursor-exclusion style={{backgroundColor: '#fff'}} data-cursor-size="20px"  className="App">
       <Cursor isGelly={true} />
       <Routes>
       <Route path='/' element={<Homepage/>}></Route>
