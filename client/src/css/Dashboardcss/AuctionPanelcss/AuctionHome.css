@@ -1,19 +1,81 @@
 .AuctionHome{
     width: 73vw;
     height: 90vh;
-    background-color: rgb(166, 255, 255);
+    /* background-color: rgb(166, 255, 255); */
     display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr 7fr;
 }
 
 .AuctionHeader{
-    border: 2px solid violet;
+    padding: 20px;
+    /* border-bottom: 3px dotted black; */
+    /* border-bottom: 2px solid rgb(0, 0, 0); */
+    grid-column: 1/5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.AuctionHeader .AuctionHeaderHeading{
+    /* border: 2px solid blue; */
+    font-size: 1.5em;
+    font-weight: 800;
+    color: black;
+    letter-spacing: 1px;
+    flex-grow: 1;
 }
 
-.AuctionMenu{
-    border: 2px solid blue;
-    /* width: 15vw; */
+
+
+.AuctionHeader .AuctionHeaderSearch{
+    text-align: center;
+    /* border: 3px solid red; */
+    flex-grow: 1;
 }
+.AuctionHeader .AuctionHeaderSearch input{
+    outline: none;
+    border: none;
+    border-radius:0 10px 10px 0;
+    box-shadow: 3px 3px 5px black;
+    width: 20vw;
+    height: 4vh;
+    font-size: 1.1em;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+.AuctionHeader .AuctionHeaderSearch input:focus{
+    border: none;
+}
+
+.Auctionmenu{
+    position: relative;
+    border-right: 2px solid rgba(53, 53, 53, 0.498);
+    /* box-shadow: 3px -3px 5px rgba(153, 153, 153, 0.466); */
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 20px; */
+    gap: 1px;
+
+}
+.Auctionmenu .menuItem{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    /* background-color: rgba(209, 209, 209, 0.212); */
+    border: 2px solid rgba(0, 0, 0, 0.242);
+    padding-left: 10px;
+    font-size: 1.2em;
+    /* text-align: center; */
+    width: 100%;
+    height: 6vh;
+}
+
+.Auctionmenu .menuItem:hover{
+    background-color: white;
+    border-left: 5px solid green;
+    cursor: pointer;
+}
+
 .AuctionContainer{
-    border: 2px solid red;
-    /* width: 58vw; */
+    /* border: 2px solid red; */
 }
