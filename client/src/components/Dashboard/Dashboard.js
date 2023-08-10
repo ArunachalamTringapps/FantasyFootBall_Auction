@@ -91,7 +91,7 @@ function Dashboard(email_id) {
             <Route path='/createauction' element={<CreateAuction />} />
             <Route path='/history' element={<History setteamhistory={setteamhistory} />} ></Route>
             <Route path='/auctiondetails' element={<HistoryDetails teamhistory={teamhistory} />} />
-            <Route path='/auctionpanel' element={<AuctionHome/>} />
+            <Route path='/auctionpanel/*' element={<AuctionHome/>} />
             <Route path='/setting' element={<Setting />} />
         </Routes>
         </div>
