@@ -66,7 +66,6 @@ function HistoryDetails(props) {
           {
             teamdetails.map((val, index) => {
               return (
-              // <div key={index}>
                 <div key={index} className='team-list-details'>
                   <div className='team-image'>
                     {val.team_image ? (
@@ -77,23 +76,37 @@ function HistoryDetails(props) {
                   </div>
                   <div className='team-name-details'>{val.team_name}</div>
                   <div className='team-owner-details'>{val.team_owner_name}</div>
-                  <button className='team-player-count' onClick={() => { handleplayer(val.team_id) }}>{val.player_count}</button>
+                  <div className='team-player-count'><button onClick={() => { handleplayer(val.team_id) }}>{val.player_count}</button></div>
                 </div>
-              // </div>
               )
             })
           }
         </div>
         <div className='player-container'>
-          players
-
+          <div className='player-title'>
+          Player Details
+          </div>
+          <div className='player-heading'>
+            <div>Image</div>
+            <div>Name</div>
+            <div>MinimumBid</div>
+            <div>Skills</div>
+            <div>Owner</div>
+            <div>Sold_or_Unsold</div>
+          </div>
           {
             playerdetails.map((val, index) => {
-              return <div key={index} className='playerlist'>
-                <img src={val.player_image} alt="i" />
+              return <div key={index} className='player-list'>
+                <div className='player-image'>
+                {val.player_image ? (
+                      <img src={val.player_image} alt={`Team ${val.player_id}`} />
+                    ) : (
+                      <img src={profile} alt='Default' />
+                    )}
+                </div>
                 <div> {val.player_name}</div>
-                <div> {val.Minimum_bid}</div>
-                <div> {val.Bit_Increase_by}</div>
+                <div> {val.minimum_bid}</div>
+                {/* <div> {val.Bit_Increase_by}</div> */}
                 <div>{val.skills}</div>
                 <div> {val.team_owner_name}</div>
                 <div> {val.sold_or_unsold}</div>
