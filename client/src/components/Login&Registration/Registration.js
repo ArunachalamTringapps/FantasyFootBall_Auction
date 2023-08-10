@@ -18,43 +18,46 @@ function Registration() {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email_id) {
       toast.error("Email is required")
-      setTimeout(() => setError(''), 3000);
       return
     }
     if (!emailPattern.test(email_id)) {
       toast.error('Email should be in the correct format.');
-      setTimeout(() => setError(''), 3000);
       return;
     }
 
     if (!password_user) {
       toast.error('Password is required')
-      setTimeout(() => setError(''), 3000);
       return
 
     }
-    const passwordPattern = /^(?=.*[A-Za-z0-9@])[A-Za-z0-9@]{6}$/;
+    if(!username){
+      toast.error("Username is required")
+      return
+    }
+    const usernamePattern = /^[A-Za-z0-9]+$/;
+    if(!usernamePattern.test(username)){
+      toast.error("Username should contain only letters and numbers")
+      return;
+    }
+    const passwordPattern = /^(?=.*[A-Za-z0-9])[A-Za-z0-9]{6}$/;
     if (!passwordPattern.test(password_user)) {
       toast.error('Password should have 6 alphanumeric characters.');
-      setTimeout(() => setError(''), 3000);
       return
     }
     if (password_user.length > 6) {
       toast.error('Password must not exceed 6 alphanumeric characters')
-      setTimeout(() => {
-        setError('')
-      }, 3000);
+      return
     }
     if (!retypePassword) {
       toast.error("Retype password is required");
-      setTimeout(() => setError(''), 3000);
+      // setTimeout(() => setError(''), 3000);
       return;
     }
     if (password_user !==retypePassword) {
     toast.error('Password do not match Retype the correct password')
-      setTimeout(() => {
-        setError('')
-      }, 3000)
+      // setTimeout(() => {
+      //   setError('')
+      // }, 3000)
       return;
     }
 
