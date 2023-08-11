@@ -14,7 +14,7 @@ const playerdetailsRoute=router.get("/players/:email_id",playerdetails)
 const teamsJoinsPlayersRoute=router.get("/teamjoinplayers/:team_id/:email_id",teamjoinsplayers)
 const topfiveplayersRoute=router.get("/limitfive/:email_id",topfiveplayers)
 const usereditroute=router.put("/editdetails/:email_id",usereditprofile)
-const userdeleteroute=router.delete("/deletedetails/:email_id",userdeleteprofile)
+
 module.exports = {
     registerroute,
     loginroute,
@@ -29,5 +29,4 @@ module.exports = {
     teamsJoinsPlayersRoute,
     topfiveplayersRoute,
     usereditroute,
-    userdeleteroute
 }
