@@ -1,6 +1,7 @@
 .historydetails-container{
     display: flex;
-
+    width:72vw;
+    height: 90vh;
 }
 .teamdetails{
     display: flex;
@@ -11,30 +12,25 @@
 .teamview{
     display: flex;
     flex-direction:column;
-    width:80vh;
+    width:30vw;
     height:90vh;
-    border:2px solid black;
+    /* border:2px solid black; */
      gap:20px;
     align-items: center;
 }
 .team-list-details{
-    width:550px;
+    width:420px;
     height:60px;
-    background-color: rgba(186, 185, 182, 0.231);
+    background-color:  rgba(255, 255, 255, 0.804);
     border-left: 4px solid rgb(129, 182, 83);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
     border-radius: 10px;
     font-size:1.1rem;
    display: flex;
    align-items: center;
 }
 
-.player-container{
-    display: flex;
-    flex-direction:column;
-    width:65vh;
-    height:90vh;
-    border:2px solid black;
-}
+
 .team-image img{
     width:50px;
     height:50px;
@@ -47,31 +43,79 @@
     word-spacing: 2px;
 }
 .team-heading{
-    width:550px;
+    width:420px;
     height:60px;
-    background-color: rgba(186, 185, 182, 0.231);
+    background-color: rgba(255, 255, 255, 0.804);
     border-left: 4px solid rgb(129, 182, 83);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
+    border-radius: 10px;
+    font-size:1.1rem;
+    display: flex;
+    align-items: center;
+}
+.team-heading div{
+    width:20%;
+    text-align: center;
+}
+.team-list-details div{
+    width:20%;
+    text-align: center;
+}
+.team-list-details .team-player-count button:hover{
+    cursor: pointer;
+color:red;
+}
+.team-list-details .team-player-count button{
+    border:none;
+}
+.player-container{
+    display: flex;
+    flex-direction:column;
+    width:39vw;
+    height:90vh;
+    /* border:2px solid black; */
+    align-items: center;
+    gap:20px;
+}
+.player-title{
+font-size: 30px;
+font-weight: bold;
+word-spacing: 2px;
+}
+.player-heading{
+    width:600px;
+    height:60px;
+    background-color: rgba(255, 255, 255, 0.804);
+    border-left: 4px solid rgb(129, 182, 83);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
     border-radius: 10px;
     font-size:1.1rem;
     word-spacing:60px;
    display: flex;
    align-items: center;
 }
-.team-heading div{
-    width:25%;
+.player-heading div{
+    width:16%;
     text-align: center;
 }
-.team-list-details div{
-    width:25%;
+.player-list{
+    width:600px;
+    height:60px;
+    background-color:  rgba(255, 255, 255, 0.804);
+    border-left: 4px solid rgb(129, 182, 83);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
+    border-radius: 10px;
+    font-size:1.1rem;
+   display: flex;
+   align-items: center;
+}
+.player-list div{
+    width:16%;
     text-align: center;
 }
-
-.team-list-details .team-player-count{
-    cursor: pointer;
-    background-color: aqua;
-}
-
-.team-list-details .team-player-count:hover{
-    cursor: pointer;
-    background-color: rgb(255, 0, 0);
+.player-image img{
+    width:50px;
+    height:50px;
+    border-radius: 30px;
+    border:3px solid rgba(126, 200, 126, 0.792);
 }

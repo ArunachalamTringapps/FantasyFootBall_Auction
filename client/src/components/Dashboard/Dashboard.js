@@ -10,14 +10,13 @@ import Setting from './Setting'
 import HistoryDetails from './HistoryDetails'
 import AuctionHome from './AuctionPanel/AuctionHome'
 import { AiOutlinePlus,AiOutlineFolderOpen,AiOutlineHistory,AiOutlineSetting } from "react-icons/ai";
-
-
+import UserEdit from './UserEdit'
+import UserDelete from './UserDelete'
 
 function Dashboard(email_id) {
     const email=localStorage.getItem("useremail")
     const [playersTeamsEdit,setplayersTeamsEdit]=useState(false);
 
-    // const[auctionPanelId,setAuctionPanelId]=useState('');
     console.log(email_id)
     const [changeComponents,setChangeComponent]=useState();
     const menuBarItems=[
@@ -95,6 +94,8 @@ function Dashboard(email_id) {
             <Route path='/history' element={<History setteamhistory={setteamhistory} />} ></Route>
             <Route path='/auctiondetails' element={<HistoryDetails teamhistory={teamhistory} />} />
             <Route path='/setting' element={<Setting />} />
+            <Route path='/useredit' element={<UserEdit/>} />
+            <Route path='/userdelete' element={<UserDelete/>}/>
         </Routes>
         </div>
     </div>

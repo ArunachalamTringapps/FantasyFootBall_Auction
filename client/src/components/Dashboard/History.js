@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import "../../css/Dashboardcss/History.css"
 import { useNavigate } from 'react-router-dom';
+// import { userdata } from '../../../../server/backend/Controller';
+import axios from 'axios';
 function History(props) {
   const {setteamhistory} = props
   const email=localStorage.getItem("useremail")
@@ -11,24 +13,30 @@ function History(props) {
   console.log(email)
   const [user, setUser] = useState([]);
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await fetch(`http://localhost:5000/api/historyauction/${email}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        const userData = await response.json();
-        console.log(userData)
-        setUser(userData);
-      }
-      catch (error) {
-        console.error(error.message);
-      }
-    };
-
-    fetchUser();
+    // const fetchUser = async () => {
+    //   try {
+    //     const response = await fetch(`http://localhost:5000/api/historyauction/${email}`, {
+    //       method: 'GET',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //     });
+    //     const userData = await response.json();
+    //     console.log(userData)
+    //     setUser(userData);
+    //   }
+    //   catch (error) {
+    //     console.error(error.message);
+    //   }
+    // };
+    axios.get(`http://localhost:5000/api/auction/historyauction/${email}`)
+    .then((response)=>{
+      setUser(response.data)
+    })
+    .catch((err) => {
+      console.error("Error fetching user data history:", err);
+    })
+ 
   }, []);
   const handleClick=(val)=>{
     console.log("5");
