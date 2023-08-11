@@ -30,9 +30,9 @@ function HompagePlayersThoughts() {
     <div className='straightline'></div>
     <div className='boxContainer'>
       {
-        icons.map((val)=>{
+        icons.map((val,index)=>{
           return(
-            <div style={{ alignSelf:`${val.position}`}} className='boxItems'>
+            <div key={index} style={{ alignSelf:`${val.position}`}} className='boxItems'>
             <div style={{backgroundImage:`url(${val.image})`}} className='imagefitting'></div>
               <h1>{val.naming}</h1>
               <p>{val.text}</p>

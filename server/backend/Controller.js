@@ -130,7 +130,7 @@ console.log(currentDate)
         const query=`Select auction_id,auction_name,auction_date::text,points_per_team,players_per_team,email_id from auctions where email_id=$1 and auction_date<$2`
         const result=await pool.query(query,[emailId,currentDate]);
         if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'Email does not exist' });
+            return res.status(404).json({ error: 'This user having current and upcoming auction'});
 
         }
         res.json(result.rows)
@@ -142,8 +142,9 @@ console.log(currentDate)
 const teamauction=async(req,res)=>{
     try{
         const auctionId=req.params.auction_id
-        const query='SELECT t.team_image,t.team_id,t.team_name,t.team_owner_name,t.team_owner_email_id,t.auction_id,COUNT(p.player_id) AS player_count FROM teams t JOIN players p ON t.team_id = p.team_id WHERE t.auction_id = $1 GROUP BY t.team_image, t.team_id, t.team_name, t.team_owner_name, t.team_owner_email_id, t.auction_id;'
-        const result=await pool.query(query,[auctionId])
+        const emailId=req.params.email_id
+        const query='SELECT t.team_image,t.team_id,t.team_name,t.team_owner_name,t.team_owner_email_id,t.auction_id,t.email_id,COUNT(p.player_id) AS player_count FROM teams t JOIN players p ON t.team_id = p.team_id WHERE t.auction_id = $1 and p.email_id=$2 GROUP BY t.team_image,t.team_id,t.team_name,t.team_owner_name,t.team_owner_email_id,t.auction_id,t.email_id;'
+        const result=await pool.query(query,[auctionId,emailId])
         if (result.rows.length === 0) {
             res.status(404).json({ error: 'Team not found' });
             return;
@@ -177,7 +178,7 @@ const playerdetails=async(req,res)=>{
     try{
         const emailId=req.params.email_id;
         console.log(emailId);
-        const query=`Select * from players where email_id=$1 order by minimum_bid desc`
+        const query=`Select * from players p join teams t on p.team_id=t.team_id where p.email_id=$1 order by p.minimum_bid desc `
         const result=await pool.query(query,[emailId]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Email does not exist' });
@@ -193,9 +194,11 @@ const playerdetails=async(req,res)=>{
 const teamjoinsplayers=async(req,res)=>{
     try{
         const teamId=req.params.team_id;
+        const emailId=req.params.email_id;
+
         // console.log(emailId);
-        const query=`Select * from players join teams using(team_id) where team_id=$1`
-        const result=await pool.query(query,[teamId]);
+        const query=`Select * from players p join teams t on t.team_id=p.team_id where t.team_id=$1 and p.email_id=$2 `
+        const result=await pool.query(query,[teamId,emailId]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Email does not exist' });
 
@@ -226,7 +229,35 @@ const topfiveplayers=async(req,res)=>{
     }
 }
 
+const usereditprofile=async(req,res)=>{
+    const  emailIduser  = req.params.email_id;
+    const { new_password,new_username} = req.body;
+    try {
+        await pool.query('BEGIN');
+        const updateuserQuery = 'update users set  password_user = $1,username=$2 where email_id = $3;';
+        await pool.query(updateuserQuery, [new_password,new_username,emailIduser]);
+        await pool.query('COMMIT');
+        res.json({ message: 'User settings updated successfully'});
+      } catch (error) {
+        await pool.query('ROLLBACK');
+        console.error('Error updating user settings:', error);
+        res.status(500).json({ error: 'Error updating user settings' });
+      }
+}
+const userdeleteprofile=async(req,res)=>{
+    const email_id  = req.params.email_id;
 
+    try {
+      const deleteQuery = 'DELETE FROM users WHERE email_id = $1';
+      await pool.query(deleteQuery, [email_id]);
+  
+      res.json({ message: 'User deleted successfully' });
+    } catch (error) {
+      console.error('Error deleting user:', error);
+      res.status(500).json({ error: 'Error deleting user' });
+    }
+  
+}
 module.exports={
     register,
     login,
@@ -239,5 +270,7 @@ module.exports={
     teamauction,
     playerdetails,
     teamjoinsplayers,
-    topfiveplayers
+    topfiveplayers,
+    usereditprofile,
+    userdeleteprofile
 }

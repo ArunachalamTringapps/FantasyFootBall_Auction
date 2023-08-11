@@ -1,61 +1,121 @@
 .historydetails-container{
     display: flex;
-
+    width:72vw;
+    height: 90vh;
 }
 .teamdetails{
     display: flex;
     flex-direction: row;
-gap:20px;
+    gap:20px;
 
 }
 .teamview{
     display: flex;
     flex-direction:column;
-    width:80vh;
+    width:30vw;
     height:90vh;
-    border:2px solid black;
-  gap:20px;
-  align-items: center;
-}
-.teamlist{
-    display: flex;
-    flex-direction: row;
+    /* border:2px solid black; */
+     gap:20px;
     align-items: center;
-    justify-content: center;
- gap:65px;
-    padding:25px;
-    width:500px;
-    height:75px;
-    background-color: rgba(186, 185, 182, 0.231);
+}
+.team-list-details{
+    width:420px;
+    height:60px;
+    background-color:  rgba(255, 255, 255, 0.804);
     border-left: 4px solid rgb(129, 182, 83);
-    font-size: 15px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
     border-radius: 10px;
+    font-size:1.1rem;
+   display: flex;
+   align-items: center;
 }
 
-.player-container{
-    display: flex;
-    flex-direction:column;
-    width:68vh;
-    height:90vh;
-    border:2px solid black;
-}
+
 .team-image img{
     width:50px;
     height:50px;
     border-radius: 30px;
     border:3px solid rgba(126, 200, 126, 0.792);
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-
-
 }
-.team-id-details{
+.team-title{
+    font-size: 30px;
     font-weight: bold;
-    font-size: 20px;
+    word-spacing: 2px;
 }
-.team-owner-details{
-    font-family:'Times New Roman', Times, serif;
-    font-size: 15px;
-    color: rgb(92, 130, 232);
+.team-heading{
+    width:420px;
+    height:60px;
+    background-color: rgba(255, 255, 255, 0.804);
+    border-left: 4px solid rgb(129, 182, 83);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
+    border-radius: 10px;
+    font-size:1.1rem;
+    display: flex;
+    align-items: center;
+}
+.team-heading div{
+    width:20%;
+    text-align: center;
+}
+.team-list-details div{
+    width:20%;
+    text-align: center;
+}
+.team-list-details .team-player-count button:hover{
+    cursor: pointer;
+color:red;
+}
+.team-list-details .team-player-count button{
+    border:none;
+}
+.player-container{
+    display: flex;
+    flex-direction:column;
+    width:39vw;
+    height:90vh;
+    /* border:2px solid black; */
+    align-items: center;
+    gap:20px;
+}
+.player-title{
+font-size: 30px;
+font-weight: bold;
+word-spacing: 2px;
+}
+.player-heading{
+    width:600px;
+    height:60px;
+    background-color: rgba(255, 255, 255, 0.804);
+    border-left: 4px solid rgb(129, 182, 83);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
+    border-radius: 10px;
+    font-size:1.1rem;
+    word-spacing:60px;
+   display: flex;
+   align-items: center;
+}
+.player-heading div{
+    width:16%;
+    text-align: center;
+}
+.player-list{
+    width:600px;
+    height:60px;
+    background-color:  rgba(255, 255, 255, 0.804);
+    border-left: 4px solid rgb(129, 182, 83);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
+    border-radius: 10px;
+    font-size:1.1rem;
+   display: flex;
+   align-items: center;
+}
+.player-list div{
+    width:16%;
+    text-align: center;
+}
+.player-image img{
+    width:50px;
+    height:50px;
+    border-radius: 30px;
+    border:3px solid rgba(126, 200, 126, 0.792);
 }
