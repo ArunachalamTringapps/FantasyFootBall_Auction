@@ -3,12 +3,13 @@ import { Link,useNavigate } from 'react-router-dom';
 import '../../css/Dashboardcss/MyAuction.css'
 import axios from 'axios'
 
-function MyAuction() {
+function MyAuction({setplayersTeamsEdit}) {
   // const chooseauction=[<CurrentAuction />,<UpcomingAuction />]
   const [currentselectauction,setCurrentSelectauction]=useState([]);
   const [topTenPlayers,setTopTenPlayers]=useState([])
   const email=localStorage.getItem("useremail")
   const currentAuctionFun=()=>{
+    setplayersTeamsEdit(false);
     axios.get(`http://localhost:5000/api/auction/currentauction/${email}`)
     .then((response)=>{
       setCurrentSelectauction(response.data)
@@ -18,6 +19,7 @@ function MyAuction() {
     })
   }
   const upcomingAuctionFun=()=>{
+    setplayersTeamsEdit(true);
     axios.get(`http://localhost:5000/api/auction/upcomingauction/${email}`)
     .then((response)=>{
       setCurrentSelectauction(response.data)

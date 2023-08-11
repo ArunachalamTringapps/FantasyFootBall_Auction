@@ -15,6 +15,8 @@ import { AiOutlinePlus,AiOutlineFolderOpen,AiOutlineHistory,AiOutlineSetting } f
 
 function Dashboard(email_id) {
     const email=localStorage.getItem("useremail")
+    const [playersTeamsEdit,setplayersTeamsEdit]=useState(false);
+
     // const[auctionPanelId,setAuctionPanelId]=useState('');
     console.log(email_id)
     const [changeComponents,setChangeComponent]=useState();
@@ -87,11 +89,11 @@ function Dashboard(email_id) {
         </div>
         <div className='DashboardContainer'>
         <Routes>
-            <Route path='/' element={<MyAuction/>}></Route>
+            <Route path='/' element={<MyAuction setplayersTeamsEdit={setplayersTeamsEdit} />}></Route>
+            <Route path='/auctionpanel/*' element={<AuctionHome playersTeamsEdit={playersTeamsEdit}/>} />
             <Route path='/createauction' element={<CreateAuction />} />
             <Route path='/history' element={<History setteamhistory={setteamhistory} />} ></Route>
             <Route path='/auctiondetails' element={<HistoryDetails teamhistory={teamhistory} />} />
-            <Route path='/auctionpanel/*' element={<AuctionHome/>} />
             <Route path='/setting' element={<Setting />} />
         </Routes>
         </div>
