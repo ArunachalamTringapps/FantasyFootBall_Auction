@@ -212,34 +212,19 @@ const usereditprofile=async(req,res)=>{
     const  emailIduser  = req.params.email_id;
     const { new_password,new_username} = req.body;
     try {
-        await pool.query('BEGIN');
+        const userExistsQuery = 'SELECT * FROM users WHERE email_id = $1';
         const userExistsResult = await pool.query(userExistsQuery, [emailIduser]);
         if (userExistsResult.rows.length === 0) {
-            await pool.query('ROLLBACK');
             return res.status(404).json({ error: 'User not found' });
         }
         await pool.query(updateuserQuery, [new_password,new_username,emailIduser]);
-        await pool.query('COMMIT');
         res.json({ message: 'User settings updated successfully'});
       } catch (error) {
-        await pool.query('ROLLBACK');
         console.error('Error updating user settings:', error);
         res.status(500).json({ error: 'Error updating user settings' });
       }
 }
-const userdeleteprofile=async(req,res)=>{
-    const email_id  = req.params.email_id;
-    try {
-      const deleteQuery = 'DELETE FROM users WHERE email_id = $1';
-      await pool.query(deleteQuery, [email_id]);
-  
-      res.json({ message: 'User deleted successfully' });
-    } catch (error) {
-      console.error('Error deleting user:', error);
-      res.status(500).json({ error: 'Error deleting user' });
-    }
-  
-}
+
 module.exports={
     register,
     login,
@@ -254,5 +239,5 @@ module.exports={
     teamjoinsplayers,
     topfiveplayers,
     usereditprofile,
-    userdeleteprofile
+  
 }
