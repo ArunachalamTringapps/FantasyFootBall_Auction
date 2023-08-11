@@ -1,0 +1,41 @@
+.user-edit-container{
+    display: flex;
+    width:70vw;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+}
+.user-edit{
+    display: flex;
+    flex-direction: column;
+    width:20vw;
+    height:50vh;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(172, 168, 168, 0.477);
+    box-shadow:7px 5px 7px 5px rgba(131, 114, 114, 0.189),-4px -4px 7px 5px  rgba(131, 114, 114, 0.189);
+    border-radius: 10px;
+    gap:30px;
+}
+.edit-title{
+    font-size: 30px;
+    font-weight: bold;
+    word-spacing: 2px;
+    text-align: center;
+}
+.user-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+.new-email{
+    width:250px;
+    height:27px;
+    background-color: rgba(253, 251, 251, 0.858);
+    border:none;
+    outline:none;
+    border-radius: 5px;
+}

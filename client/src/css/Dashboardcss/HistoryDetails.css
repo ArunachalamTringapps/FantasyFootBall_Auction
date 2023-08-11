@@ -1,6 +1,7 @@
 .historydetails-container{
     display: flex;
-
+    width:72vw;
+    height: 90vh;
 }
 .teamdetails{
     display: flex;
@@ -49,9 +50,8 @@
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
     border-radius: 10px;
     font-size:1.1rem;
-    word-spacing:60px;
-   display: flex;
-   align-items: center;
+    display: flex;
+    align-items: center;
 }
 .team-heading div{
     width:20%;
