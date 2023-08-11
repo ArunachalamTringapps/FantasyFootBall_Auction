@@ -14,7 +14,6 @@
     flex-direction:column;
     width:30vw;
     height:90vh;
-    /* border:2px solid black; */
      gap:20px;
     align-items: center;
 }
@@ -73,7 +72,6 @@ color:red;
     flex-direction:column;
     width:39vw;
     height:90vh;
-    /* border:2px solid black; */
     align-items: center;
     gap:20px;
 }

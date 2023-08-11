@@ -1,12 +1,12 @@
 import React from 'react'
-import { Outlet,Navigate } from 'react-router-dom'
+import { Outlet, Navigate } from 'react-router-dom'
 
 function PrivateRoute() {
-    const loggedIn=localStorage.getItem("authentication")
-    if(loggedIn==="true"){
-         return <Outlet />
+    const loggedIn = localStorage.getItem("authentication")
+    if (loggedIn === "true") {
+        return <Outlet />
     }
-    else{
+    else {
         return <Navigate to="/login" />
     }
 }

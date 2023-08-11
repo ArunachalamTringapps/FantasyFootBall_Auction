@@ -1,22 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import '../../css/Homepagecss/HomepageFooter.css'
-import {FaFacebook,FaTelegram,FaYoutube,FaInstagram,FaTiktok} from 'react-icons/fa';
+import { FaFacebook, FaTelegram, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa';
 function HomepageFooter() {
   return (
     <div className='HeaderFooter'>
       <div className='box-one'>
         <div className='box-one-container'>
-        <h1>LET'S TALK!</h1>
-        <form>
-          <input className='Fullname' type='text' name='fullname' placeholder='Full name...' required/>
-          <input className='Email' type='text' name='email' placeholder='Email...' required/>
-          <input className='Message' type='text' name='message' placeholder='Message...' required/>
-          <div>
-            <p>By submitting this form we agree to this <a href=''>Private Policy</a></p>
-            <button type='submit'>Submit</button>
+          <h1>LET'S TALK!</h1>
+          <form>
+            <input className='Fullname' type='text' name='fullname' placeholder='Full name...' required />
+            <input className='Email' type='text' name='email' placeholder='Email...' required />
+            <input className='Message' type='text' name='message' placeholder='Message...' required />
+            <div>
+              <p>By submitting this form we agree to this <a href=''>Private Policy</a></p>
+              <button type='submit'>Submit</button>
             </div>
-        </form>
+          </form>
         </div>
       </div>
       <div className='box-two'>
@@ -30,13 +30,13 @@ function HomepageFooter() {
         </div>
         <div className='box-two-containerthree'>
           <div className='icons-one'>
-          <FaFacebook className='Facebook-icon' />
-          <FaTelegram className='Telegram-icon' />
-          <FaYoutube className='Youtube-icon' />
+            <FaFacebook className='Facebook-icon' />
+            <FaTelegram className='Telegram-icon' />
+            <FaYoutube className='Youtube-icon' />
           </div>
           <div className='icons-two'>
             <div></div>
-            <FaInstagram className='Instagram-icon'/>
+            <FaInstagram className='Instagram-icon' />
             <FaTiktok className='Tiktok-icon' />
           </div>
         </div>

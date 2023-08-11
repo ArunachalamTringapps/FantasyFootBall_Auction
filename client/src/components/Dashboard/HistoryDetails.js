@@ -77,7 +77,7 @@ function HistoryDetails(props) {
         </div>
         <div className='player-container'>
           <div className='player-title'>
-          Player Details
+            Player Details
           </div>
           <div className='player-heading'>
             <div>Image</div>
@@ -91,11 +91,11 @@ function HistoryDetails(props) {
             playerdetails.map((val, index) => {
               return <div key={index} className='player-list'>
                 <div className='player-image'>
-                {val.player_image ? (
-                      <img src={val.player_image} alt={`Team ${val.player_id}`} />
-                    ) : (
-                      <img src={profile} alt='Default' />
-                    )}
+                  {val.player_image ? (
+                    <img src={val.player_image} alt={`Team ${val.player_id}`} />
+                  ) : (
+                    <img src={profile} alt='Default' />
+                  )}
                 </div>
                 <div> {val.player_name}</div>
                 <div> {val.minimum_bid}</div>
