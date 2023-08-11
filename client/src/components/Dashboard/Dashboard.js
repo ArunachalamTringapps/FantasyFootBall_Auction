@@ -56,7 +56,7 @@ function Dashboard(email_id) {
     }
     const [userDetails,setuserDetails]=useState([])
     useEffect(()=>{
-        // navigate("/user/dashboard/");
+        navigate("/user/dashboard/");
         axios.get(`http://localhost:5000/api/userdetails/${email}`)
         .then((response)=>{
             setuserDetails(response.data)
