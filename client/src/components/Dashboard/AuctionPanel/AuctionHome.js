@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import '../../../css/Dashboardcss/AuctionPanelcss/AuctionHome.css'
-import {Link, Route,Routes} from 'react-router-dom'
 import { BiBitcoin } from "react-icons/bi";
 import { GiThreeFriends } from "react-icons/gi";
 import { LiaUserPlusSolid } from "react-icons/lia";
@@ -14,19 +13,16 @@ function AuctionHome({playersTeamsEdit}) {
     {
       index:0,
       title:"Biting",
-      path:"",
       icons:<BiBitcoin/>
     },
     {
       index:1,
       title:"Teams",
-      path:"auctionteams",
       icons: <GiThreeFriends  />
     },
     {
       index:2,
       title:"Players",
-      path:"auctionplayers",
       icons:<LiaUserPlusSolid  />
     }
   ]
