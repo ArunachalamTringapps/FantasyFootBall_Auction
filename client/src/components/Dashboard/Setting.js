@@ -22,9 +22,6 @@ function Setting() {
   const handleedit = () => {
     navigate('/user/dashboard/useredit')
   }
-  const handledelte=()=>{
-    navigate('/user/dashboard/userdelete')
-  }
   return (
     <div className='settings-container'>
       <div className='settings-details-container'>
@@ -36,14 +33,12 @@ function Setting() {
           <div>Username</div>
           <div>Password</div>
           <div>Edit</div>
-          <div>Delete</div>
         </div>
         <div className='settings-show-details'>
           <div>{updateduserdetails.email_id}</div>
           <div>{updateduserdetails.username}</div>
           <div>{updateduserdetails.password_user}</div>
           <div><button className='edit' onClick={() => { handleedit() }}>Edit</button></div>
-          <div><button className='delete' onClick={()=>{handledelte()}}>Delete</button></div>
         </div>
       </div>
     </div>

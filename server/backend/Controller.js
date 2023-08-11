@@ -234,6 +234,13 @@ const usereditprofile=async(req,res)=>{
     const { new_password,new_username} = req.body;
     try {
         await pool.query('BEGIN');
+        const userExistsQuery = 'SELECT * FROM users WHERE email_id = $1';
+        const userExistsResult = await pool.query(userExistsQuery, [emailIduser]);
+
+        if (userExistsResult.rows.length === 0) {
+            await pool.query('ROLLBACK');
+            return res.status(404).json({ error: 'User not found' });
+        }
         const updateuserQuery = 'update users set  password_user = $1,username=$2 where email_id = $3;';
         await pool.query(updateuserQuery, [new_password,new_username,emailIduser]);
         await pool.query('COMMIT');
