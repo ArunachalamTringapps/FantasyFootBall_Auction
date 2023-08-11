@@ -36,7 +36,7 @@
     width:100%;
 }
 .HomepageComplaints .items .item-one{
-    height:80%;
+    height:95%;
     width:50%;
     /* border:1px solid blue; */
 }
@@ -45,12 +45,12 @@
     width:100%;
 }
 .HomepageComplaints .items .item-two{
-    height:80%;
+    height:95%;
     width:50%;
     /* border:1px solid rgb(0, 0, 0); */
     background-color: #e8e4e410;
     border-radius:10px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.226);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.363);
 }
 .HomepageComplaints .items .item-two form{
     height:100%;
@@ -58,8 +58,9 @@
 }
 .HomepageComplaints .items .item-two form input{
     height:13%;
-    width:45%;
-    margin-left:2%;
+    width:43%;
+    margin-left:4%;
+    margin-right:1%;
     margin-top:4%;
     border:none; 
     outline: none;
@@ -81,9 +82,9 @@
 }
 .HomepageComplaints .items .item-two form #message{
     height:30%;
-    width:96%;
-    margin-top:2%;
-    margin-left:2%;
+    width:95%;
+    margin-top:3%;
+    margin-left:4%;
     letter-spacing:0.1rem;
     background-color:#cdcdcd00;
     border:none; 
@@ -93,6 +94,7 @@
 .HomepageComplaints .items .item-two form #message:focus{
     /* border-bottom: 1px solid #0d0d0e8a; */
     color:black;
+    /* border:1px solid black; */
     letter-spacing:0.1rem;
 }
 .HomepageComplaints .items .item-two form button{
@@ -107,6 +109,9 @@
     color:rgb(255, 255, 255);
     border-radius:10px;
     background-color:rgb(0, 0, 0);
+}
+.HomepageComplaints .items .item-two form button:hover{
+    cursor: pointer;
 }
 
 

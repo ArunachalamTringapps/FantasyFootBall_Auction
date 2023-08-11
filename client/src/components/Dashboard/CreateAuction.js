@@ -39,8 +39,6 @@ function CreateAuction() {
       toast.error("Players Per Team should be less than 12");
       return
     }
-
-
     axios.post('http://localhost:5000/api/createauction',{auction_name,auction_date,points_per_team,players_per_team,email_id})
     .then((auctionData)=>{
       console.log(auctionData);
