@@ -9,7 +9,6 @@ function Registration() {
   const navigate = useNavigate()
   const [email_id, setEmail_id] = useState('')
   const [password_user, setPassword_user] = useState('')
-  const [error, setError] = useState(null);
   const [username, setusername] = useState('');
   const [retypePassword, setRetypePassword] = useState('');
 
@@ -30,12 +29,12 @@ function Registration() {
       return
 
     }
-    if(!username){
+    if (!username) {
       toast.error("Username is required")
       return
     }
     const usernamePattern = /^[A-Za-z0-9]+$/;
-    if(!usernamePattern.test(username)){
+    if (!usernamePattern.test(username)) {
       toast.error("Username should contain only letters and numbers")
       return;
     }
@@ -50,14 +49,10 @@ function Registration() {
     }
     if (!retypePassword) {
       toast.error("Retype password is required");
-      // setTimeout(() => setError(''), 3000);
       return;
     }
-    if (password_user !==retypePassword) {
-    toast.error('Password do not match Retype the correct password')
-      // setTimeout(() => {
-      //   setError('')
-      // }, 3000)
+    if (password_user !== retypePassword) {
+      toast.error('Password do not match Retype the correct password')
       return;
     }
 
@@ -68,25 +63,21 @@ function Registration() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email_id, password_user,username }),
+        body: JSON.stringify({ email_id, password_user, username }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setError('');
-        setTimeout(() => setError(''), 1000);
         console.log(data.message);
         navigate("/login")
       } else {
         toast.error(data.error);
-        setTimeout(() => setError(''), 5000);
       }
     }
     catch (error) {
       console.error('Error:', error);
       toast.error('An error occurred during registration.');
-      setTimeout(() => setError(''), 5000);
     }
     e.target.reset();
   };
@@ -95,43 +86,43 @@ function Registration() {
     <div className='Registration'>
       <div className='container-registration'>
         <div className='register-container'>
-        <h4> Registration</h4>
+          <h4> Registration</h4>
           <form className='form-register' onSubmit={handleRegister} autoComplete='off'>
             <div className='input-fields'>
-              <input type="text"  value={email_id} className='all-input' onChange={(e) => setEmail_id(e.target.value)}></input>
+              <input type="text" value={email_id} className='all-input' onChange={(e) => setEmail_id(e.target.value)}></input>
               <label htmlFor="fields" className="label-fields">
                 <span className='content-fields'>Email_id...</span>
               </label>
             </div>
             <div className='input-fields'>
-            <input type="text"  className='all-input' onChange={(e) => setusername(e.target.value)}></input>
-            <label htmlFor="fields" className="label-fields">
+              <input type="text" className='all-input' onChange={(e) => setusername(e.target.value)}></input>
+              <label htmlFor="fields" className="label-fields">
                 <span className='content-fields'>Username...</span>
               </label>
             </div>
             <div className='input-fields'>
-            <input type="password"  value={password_user} className='all-input' onChange={(e) => setPassword_user(e.target.value)}></input>
-            <label htmlFor="fields" className="label-fields">
+              <input type="password" value={password_user} className='all-input' onChange={(e) => setPassword_user(e.target.value)}></input>
+              <label htmlFor="fields" className="label-fields">
                 <span className='content-fields'>Password...</span>
               </label>
             </div>
             <div className='input-fields'>
-            <input type="password" className='all-input' onChange={(e) => setRetypePassword(e.target.value)}></input>
-            <label htmlFor="fields" className="label-fields">
+              <input type="password" className='all-input' onChange={(e) => setRetypePassword(e.target.value)}></input>
+              <label htmlFor="fields" className="label-fields">
                 <span className='content-fields'>Retype_password...</span>
               </label>
             </div>
             <div><button className='signup'>Sign up</button></div>
           </form>
           <div className='loginpageRoute'>
-          <div className='exist-account'>Already have an Account?</div>
-          <Link to="/login" className='link'>Login</Link>
+            <div className='exist-account'>Already have an Account?</div>
+            <Link to="/login" className='link'>Login</Link>
           </div>
         </div>
         <div className='header-register'>
         </div>
       </div>
-      <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false}/>
+      <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false} />
     </div>
 
   )

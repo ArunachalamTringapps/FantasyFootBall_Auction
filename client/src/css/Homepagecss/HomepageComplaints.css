@@ -1,7 +1,6 @@
 .HomepageComplaints{
     width: 80vw;
     height: 90vh;
-    /* border:1px solid blue; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +37,6 @@
 .HomepageComplaints .items .item-one{
     height:95%;
     width:50%;
-    /* border:1px solid blue; */
 }
 .HomepageComplaints .items .item-one img{
     height:100%;
@@ -47,7 +45,6 @@
 .HomepageComplaints .items .item-two{
     height:95%;
     width:50%;
-    /* border:1px solid rgb(0, 0, 0); */
     background-color: #e8e4e410;
     border-radius:10px;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.363);
@@ -92,9 +89,7 @@
     overflow: hidden;
 }
 .HomepageComplaints .items .item-two form #message:focus{
-    /* border-bottom: 1px solid #0d0d0e8a; */
     color:black;
-    /* border:1px solid black; */
     letter-spacing:0.1rem;
 }
 .HomepageComplaints .items .item-two form button{

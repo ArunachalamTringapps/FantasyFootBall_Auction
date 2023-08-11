@@ -1,32 +1,21 @@
 .Dashboard{
     width: 100vw;
     height: 100vh;
-    /* background-color: antiquewhite; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
-/* .logoutButton{
-    position: absolute;
-    right: 0;
-    top: 0;
-} */
-/* .logoutButton button:hover{
-    cursor: pointer;
-} */
 .DashboardMenu{
     width: 16vw;
     height: 90vh;
     background-color: rgb(255, 255, 255);
     display: flex;
-    /* gap: 5px; */
     flex-direction: column;
     border: 2px solid rgba(129, 128, 128, 0.112);
     border-radius: 10% 0 0 10%;
 }
 
 .DashboardMenuHeader{
-    /* border: 3px solid green; */
     flex-grow: 0.7;
     display: flex;
     gap: 15px;
@@ -49,20 +38,8 @@
     flex-grow: 0.4;
 }
 
-.DashboardMenuHeader h4{
-    /* border: 1px solid blue; */
 
-    /* flex-grow: 0.2; */
-}
-
-.DashboardMenuHeader h5{
-    /* border: 1px solid rgb(255, 38, 0); */
-    /* flex-grow: 0.3; */
-}
-
-.DashboardMenuHeader button{
-    /* flex-grow: 1px; */
-    
+.DashboardMenuHeader button{   
     border: 1px solid rgb(0, 255, 55);
     border: none;
     padding: 0.6vw;
@@ -76,14 +53,12 @@
 }
 
 .DashboardMenuItems{
-    /* border: 2px solid blue; */
     flex-grow: 2;
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 20px 0;
     font-size: large;
-
 }
 .DashboardMenuItemsListTrue{
     padding: 10px;
@@ -92,7 +67,6 @@
     align-items: center;
     gap: 1vw;
     color: black;
-    /* border: 1px solid gold; */
     background-color: rgb(147, 197, 169);
     height: 5vh;
     text-decoration: none;
@@ -106,7 +80,6 @@
     gap: 1vw;
     color: black;
     background-color: white;
-    /* border: 1px solid gold; */
     height: 5vh;
     text-decoration: none;
 }

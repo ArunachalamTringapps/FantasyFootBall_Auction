@@ -6,14 +6,11 @@
     align-items: center;
 }
 .Login .backButton{
-    /* border: 3px solid green; */
     position: absolute;
     top: 20px;
     left: 20px;
     font-size: 1.2rem;
     letter-spacing: 1px;
-    /* font-weight: 500; */
-    /* padding: 20px; */
 }
 .Login .backButton:hover{
     cursor: pointer;
@@ -129,14 +126,12 @@ transform: translateX(0%);
 .registerpageRoute{
     display: flex;
     column-gap: 10px;
-    /* border: 3px solid cyan; */
     justify-content: center;
 }
 
 .createaccount{
     font-size: 1.2rem;
     text-decoration: none;
-    /* border: 2px solid green; */
 }
 .link{
     text-decoration: none;

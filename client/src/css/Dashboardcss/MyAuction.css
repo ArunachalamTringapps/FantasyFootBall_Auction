@@ -4,11 +4,8 @@
     display: grid;
     grid-template-columns: 4fr 2fr;
     grid-template-rows: 2fr 3fr;
-    /* background-color: aqua; */
-    /* border: 1px solid blue; */
 }
 .MyAuctionImage{
-    /* border: 1px solid brown; */
     position: relative;
     display: flex;
     justify-content: center;
@@ -26,31 +23,24 @@
     background-color:rgba(92, 165, 92, 0.845);
     border-radius: 10px;
     font-size: 1.5rem;
-    /* text-align: center; */
     border: none;
     width: 90%;
     height: 20vh;
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
-    /* border: 3px solid blue; */
 }
 .MyAuctionImageText .name{
     flex-grow: 3;
-    /* margin-left: 10px; */
-    /* border: 1px solid black; */
     text-align: center;
 }
 
 .MyAuctionImageText .bitpoints{
-    /* border: 1px solid black; */
     text-align: center;
     flex-grow: 1;
 }
 
 .MyAuctionPlayers{
     position: relative;
-    /* border: 1px solid green; */
     grid-row: 1/3;
     grid-column: 2/3;
     display: flex;
@@ -58,7 +48,6 @@
     padding: 10px;
 }
 .MyAuctionPlayers h5{
-    /* border: 1px solid black; */
     height: 8vh;
     display: flex;
     align-items: center;
@@ -66,7 +55,6 @@
     letter-spacing: 1px;
 }
 .MyAuctionPlayers .playerlist{
-    /* border: 1px solid orange; */
     height: 100%;
     padding: 10px;
     display: flex;
@@ -75,7 +63,6 @@
 }
 
 .playersitemscontainer{
-    /* border: 1px solid black; */
     width: 100%;
     padding: 10px;
     height: 9vh;
@@ -104,7 +91,6 @@
 
 
 .MyAuctionDetails{
-    /* border: 1px solid rgb(24, 10, 224); */
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -113,7 +99,6 @@
 
 
 .MyAuctionDetails .chooseauction{
-    /* border: 1px solid yellowgreen; */
     background-color: rgba(219, 217, 217, 0.418);
     display: flex;
     gap: 5px;
@@ -149,14 +134,12 @@
 }
 .showauctionContainerheader{
     display: flex;
-    /* justify-content: space-evenly; */
     align-items: center;
     font-size: 1.1rem;
     height: 8vh;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.804);
     border-left: 5px solid green;
-    /* border-radius: 0 8% 8% 0; */
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
 }
 .showauctionContainerheader div{

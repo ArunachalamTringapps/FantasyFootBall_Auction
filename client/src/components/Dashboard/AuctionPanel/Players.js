@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Players({playersTeamsEdit}) {
+function Players({ playersTeamsEdit }) {
   console.log(playersTeamsEdit);
   return (
     <div>players</div>
