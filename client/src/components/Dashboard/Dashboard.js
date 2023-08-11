@@ -17,7 +17,7 @@ function Dashboard(email_id) {
     const email=localStorage.getItem("useremail")
     const [playersTeamsEdit,setplayersTeamsEdit]=useState(false);
     console.log(email_id)
-    const [changeComponents,setChangeComponent]=useState();
+    const [changeComponents,setChangeComponent]=useState(1);
     const menuBarItems=[
         {
             index:1,
