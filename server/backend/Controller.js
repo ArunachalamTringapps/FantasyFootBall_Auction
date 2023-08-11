@@ -130,7 +130,7 @@ console.log(currentDate)
         const query=`Select auction_id,auction_name,auction_date::text,points_per_team,players_per_team,email_id from auctions where email_id=$1 and auction_date<$2`
         const result=await pool.query(query,[emailId,currentDate]);
         if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'Email does not exist' });
+            return res.status(404).json({ error: 'This user having current and upcoming auction'});
 
         }
         res.json(result.rows)
@@ -178,7 +178,7 @@ const playerdetails=async(req,res)=>{
     try{
         const emailId=req.params.email_id;
         console.log(emailId);
-        const query=`Select * from players where email_id=$1 order by minimum_bid desc`
+        const query=`Select * from players p join teams t on p.team_id=t.team_id where p.email_id=$1 order by p.minimum_bid desc `
         const result=await pool.query(query,[emailId]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Email does not exist' });
@@ -229,7 +229,35 @@ const topfiveplayers=async(req,res)=>{
     }
 }
 
+const usereditprofile=async(req,res)=>{
+    const  emailIduser  = req.params.email_id;
+    const { new_password,new_username} = req.body;
+    try {
+        await pool.query('BEGIN');
+        const updateuserQuery = 'update users set  password_user = $1,username=$2 where email_id = $3;';
+        await pool.query(updateuserQuery, [new_password,new_username,emailIduser]);
+        await pool.query('COMMIT');
+        res.json({ message: 'User settings updated successfully'});
+      } catch (error) {
+        await pool.query('ROLLBACK');
+        console.error('Error updating user settings:', error);
+        res.status(500).json({ error: 'Error updating user settings' });
+      }
+}
+const userdeleteprofile=async(req,res)=>{
+    const email_id  = req.params.email_id;
 
+    try {
+      const deleteQuery = 'DELETE FROM users WHERE email_id = $1';
+      await pool.query(deleteQuery, [email_id]);
+  
+      res.json({ message: 'User deleted successfully' });
+    } catch (error) {
+      console.error('Error deleting user:', error);
+      res.status(500).json({ error: 'Error deleting user' });
+    }
+  
+}
 module.exports={
     register,
     login,
@@ -242,5 +270,7 @@ module.exports={
     teamauction,
     playerdetails,
     teamjoinsplayers,
-    topfiveplayers
+    topfiveplayers,
+    usereditprofile,
+    userdeleteprofile
 }

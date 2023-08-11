@@ -32,23 +32,16 @@ function HistoryDetails(props) {
       })
   }
   const fetchplayer = (val) => {
-    // setplayerdetails([])
     axios.get(`http://localhost:5000/api/joins/teamjoinplayers/${val}/${email}`)
       .then((response) => {
-        // if(response.data==''){
-        //   setplayerdetails([]);
-        // }
         setplayerdetails(response.data)
-        console.log('subhi',playerdetails)
       })
       .catch((err) => {
-        // setplayerdetails([])
         console.error(err);
       })
   }
   const handleplayer = (val) => {
     fetchplayer(val);
-    
   }
   return (
     <div className='historydetails-container'>
@@ -106,9 +99,8 @@ function HistoryDetails(props) {
                 </div>
                 <div> {val.player_name}</div>
                 <div> {val.minimum_bid}</div>
-                {/* <div> {val.Bit_Increase_by}</div> */}
                 <div>{val.skills}</div>
-                <div> {val.team_owner_name}</div>
+                <div>{val.team_owner_name}</div>
                 <div> {val.sold_or_unsold}</div>
               </div>
             })
