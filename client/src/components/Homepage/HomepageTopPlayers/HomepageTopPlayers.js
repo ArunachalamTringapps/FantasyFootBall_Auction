@@ -1,8 +1,8 @@
 import React from 'react'
-import '../../css/Homepagecss/HomepageTopPlayers.css'
-import messi from '../../Image/lionel-messi.jpg'
-import ronaldo from '../../Image/ronaldo.jpg'
-import neymar from '../../Image/neymarr.jpg'
+import './HomepageTopPlayers.css'
+import messi from '../../../Image/lionel-messi.jpg'
+import ronaldo from '../../../Image/ronaldo.jpg'
+import neymar from '../../../Image/neymarr.jpg'
 
 function HomepageTopPlayers() {
   const image = [

@@ -31,7 +31,7 @@
 .left{
     width:70%;
     height:70vh;
-    background-image: url("../../Image/login.png");
+    background-image: url("../../../Image/login.png");
     background-size:cover;
     background-position: center center;
     background-repeat: no-repeat;

@@ -1,14 +1,14 @@
 import React from 'react'
-import '../../css/Homepagecss/Homepage.css'
+import './Homepage.css'
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import HomepageComplaints from './HomepageComplaints';
-import HomepageFooter from './HomepageFooter';
-import HomepageHeader from './HomepageHeader';
-import HomepageTopPlayers from './HomepageTopPlayers';
-import Homepagequotes from './Homepagequotes';
-import HompagePlayersThoughts from './HompagePlayersThoughts';
+import HomepageComplaints from './HomepageComplaints/HomepageComplaints';
+import HomepageFooter from './HomepageFooter/HomepageFooter';
+import HomepageHeader from './HomepageHeader/HomepageHeader';
+import HomepageTopPlayers from './HomepageTopPlayers/HomepageTopPlayers';
+import Homepagequotes from './Homepagequotes/Homepagequotes';
+import HompagePlayersThoughts from './HomepagePlayersThoughts/HompagePlayersThoughts';
 
 
 
