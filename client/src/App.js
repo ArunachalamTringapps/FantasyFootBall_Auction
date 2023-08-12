@@ -1,8 +1,8 @@
 import './App.css'
 import { Route,Routes } from "react-router-dom";
 import Homepage from "./components/Homepage/Homepage";
-import Login from "./components/Login&Registration/Login"
-import Register from "./components/Login&Registration/Registration"
+import Login from "./components/Login&Registration/Login/Login"
+import Register from "./components/Login&Registration/Registration/Registration"
 import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './components/PrivateRouting/PrivateRoute';
 import { Cursor } from 'react-creative-cursor';

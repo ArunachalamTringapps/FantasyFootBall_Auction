@@ -1,7 +1,7 @@
 import React from 'react'
-import '../../css/Homepagecss/Homepagequotes.css'
-import imgOne from '../../Image/Homepagequotesimage1.jpg';
-import imgTwo from '../../Image/Homepagequotesimage2.jpg';
+import './Homepagequotes.css'
+import imgOne from '../../../Image/Homepagequotesimage1.jpg';
+import imgTwo from '../../../Image/Homepagequotesimage2.jpg';
 
 
 function Homepagequotes() {
