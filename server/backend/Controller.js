@@ -1,5 +1,5 @@
 const pool = require('../db/database')
-const { insertRegisterDetails, checkLoginDetails, insert_auctionquery, userdataquery, currentauctionquery, upcomingauctionquery, historyauctionquery, teamauctionquery, searchPlayersquery, playerdetailsquery, teamjoinsplayersquery, topfiveplayersquery, userExistsQuery, updateuserQuery } = require("./query")
+const { insertRegisterDetails, checkLoginDetails, insert_auctionquery, userdataquery, currentauctionquery, upcomingauctionquery, historyauctionquery, teamauctionquery, searchPlayersquery, playerdetailsquery, teamjoinsplayersquery, topfiveplayersquery, userExistsQuery, updateuserQuery,teamButtonQuery } = require("./query")
 const register = async (req, res) => {
     const { email_id, password_user, username } = req.body;
 
@@ -144,8 +144,8 @@ const teamauction = async (req, res) => {
 
 const searchPlayers = async (req, res) => {
     try {
-        const { emailid, players_name } = req.params;
-        const result = await pool.query(searchPlayersquery, [emailid, players_name]);
+        const { email_id,auction_id,players_name } = req.params;
+        const result = await pool.query(searchPlayersquery, [email_id,auction_id,players_name]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'given details or wrong' });
 
@@ -212,7 +212,7 @@ const usereditprofile = async (req, res) => {
     const emailIduser = req.params.email_id;
     const { new_password, new_username } = req.body;
     try {
-        const userExistsQuery = 'SELECT * FROM users WHERE email_id = $1';
+        // const userExistsQuery = 'SELECT * FROM users WHERE email_id = $1';
         const userExistsResult = await pool.query(userExistsQuery, [emailIduser]);
         if (userExistsResult.rows.length === 0) {
             return res.status(404).json({ error: 'User not found' });
@@ -224,6 +224,34 @@ const usereditprofile = async (req, res) => {
         res.status(500).json({ error: 'Error updating user settings' });
     }
 }
+
+const teamButton= async (req,res)=>{
+    const { email_id,auction_id }=req.params;
+    try{
+        const teamButtonResult=await pool.query(teamButtonQuery,[email_id,auction_id]);
+        if(teamButtonResult.rows.length===0){
+            return res.status(404).json({error: 'teams not found'});
+        }
+        res.json(teamButtonResult.rows)
+    }
+    catch(error){
+        res.status(500).json({error:'error occurs while fetching teams in auction'})
+    }
+}
+
+const playeraddteam= async (req,res)=>{
+    try{
+        const {email_id,player_id}=req.params
+        const {team_id,sold_or_unsold,sold_amount} =req.body;
+        const playeraddteamQuery=`update players set team_id=$1,sold_or_unsold=$2,sold_amount=$3 where email_id=$4 and player_id=$5 `
+        await pool.query(playeraddteamQuery,[team_id,sold_or_unsold,sold_amount,email_id,player_id])
+        res.json({message: 'players add to team successfully'})
+    }
+    catch(error){
+        res.status(500).json({error: 'error occured while adding players to teams'})
+    }
+}
+
 
 module.exports = {
     register,
@@ -239,5 +267,7 @@ module.exports = {
     teamjoinsplayers,
     topfiveplayers,
     usereditprofile,
+    teamButton,
+    playeraddteam
 
 }

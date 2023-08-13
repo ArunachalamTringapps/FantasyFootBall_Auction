@@ -8,7 +8,7 @@ import Players from './Players'
 import Teams from './Teams'
 
 function AuctionHome({ playersTeamsEdit }) {
-  const [searchInput, setSearchInput] = useState('a');
+  const [searchInput, setSearchInput] = useState('');
   const auctionSwitchComponent = [
     {
       index: 0,
