@@ -5,7 +5,7 @@ import { GiThreeFriends } from "react-icons/gi";
 import { LiaUserPlusSolid } from "react-icons/lia";
 import Biting from './Biting/Biting'
 import Players from './Players'
-import Teams from './Teams'
+import Teams from './Teams/Teams'
 
 function AuctionHome({ playersTeamsEdit }) {
   const [searchInput, setSearchInput] = useState('a');
