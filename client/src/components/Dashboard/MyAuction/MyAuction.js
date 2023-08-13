@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import '../../css/Dashboardcss/MyAuction.css'
+import './MyAuction.css'
 import axios from 'axios'
 
 function MyAuction({ setplayersTeamsEdit }) {
@@ -27,9 +27,6 @@ function MyAuction({ setplayersTeamsEdit }) {
         console.log("Error fetching user data:", error.code);
       })
   }
-
-  console.log("auctionclicking", currentselectauction);
-
   useEffect(() => {
     axios.get(`http://localhost:5000/api/topplayers/limitfive/${email}`)
       .then((response) => {

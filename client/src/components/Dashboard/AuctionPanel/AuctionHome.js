@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import '../../../css/Dashboardcss/AuctionPanelcss/AuctionHome.css'
+import './AuctionHome.css'
 import { BiBitcoin } from "react-icons/bi";
 import { GiThreeFriends } from "react-icons/gi";
 import { LiaUserPlusSolid } from "react-icons/lia";
-import Biting from './Biting'
+import Biting from './Biting/Biting'
 import Players from './Players'
 import Teams from './Teams'
 
@@ -29,7 +29,6 @@ function AuctionHome({ playersTeamsEdit }) {
   const switchingpanel = [<Biting searchinput={searchInput} />, <Teams playersTeamsEdit={playersTeamsEdit} />, <Players playersTeamsEdit={playersTeamsEdit} />]
   const [colorMenu, setColorMenu] = useState(0);
   const [switchpanelcount, setSwitchpanlecount] = useState(0);
-  const auction_id = localStorage.getItem("AuctionId")
   return (
     <div className='AuctionHome'>
       <div className='AuctionHeader'>

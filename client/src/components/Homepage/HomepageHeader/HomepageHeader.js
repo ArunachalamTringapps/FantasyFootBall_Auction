@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoArrowRedoOutline } from "react-icons/io5";
 import { GiThreeBurningBalls } from "react-icons/gi";
-import '../../css/Homepagecss/HomepageHeader.css'
+import './HomepageHeader.css'
 import { Link } from 'react-router-dom';
 
 function HomepageHeader() {

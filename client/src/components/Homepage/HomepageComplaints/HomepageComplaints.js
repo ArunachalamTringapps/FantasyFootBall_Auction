@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-import '../../css/Homepagecss/HomepageComplaints.css'
-import img from '../../Image/HomeComplaintsimage.jpg'
+import './HomepageComplaints.css'
+import img from '../../../Image/HomeComplaintsimage.jpg'
 import emailjs from '@emailjs/browser';
 function HomepageComplaints() {
   const form = useRef();

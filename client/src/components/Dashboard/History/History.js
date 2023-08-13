@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import "../../css/Dashboardcss/History.css"
+import "./History.css"
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 function History(props) {

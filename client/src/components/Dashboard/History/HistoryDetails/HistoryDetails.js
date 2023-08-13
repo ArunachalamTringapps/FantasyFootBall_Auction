@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import "../../css/Dashboardcss/HistoryDetails.css"
-import profile from "../../Image/no-profile-img.gif"
+import "./HistoryDetails.css"
+import profile from "../../../../Image/no-profile-img.gif"
 import axios from 'axios';
 function HistoryDetails(props) {
   const { teamhistory } = props

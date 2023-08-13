@@ -37,7 +37,7 @@
     padding: 20px;
 }
 .HomepagePlayersThoughts .boxContainer .boxItems .imagefitting{
-    background-image: url(../../Image/humanimg1.jpg);
+    background-image: url(../../../Image/humanimg1.jpg);
     background-size: cover;
     height: 10%;
     width: 80%;

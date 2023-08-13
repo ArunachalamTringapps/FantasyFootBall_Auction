@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../css/Login&Registrationcss/Registration.css"
+import "./Registration.css"
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
