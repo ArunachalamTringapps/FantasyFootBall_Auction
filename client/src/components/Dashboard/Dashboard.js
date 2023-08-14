@@ -17,6 +17,7 @@ import Teamdetails from './AuctionPanel/Teams/Teamdetails'
 function Dashboard(email_id) {
     const email = localStorage.getItem("useremail")
     const [playersTeamsEdit, setplayersTeamsEdit] = useState(false);
+    const [bidingPanelView,setBidingPanelView]=useState(true);
     console.log(email_id)
     const [changeComponents, setChangeComponent] = useState(1);
     const menuBarItems = [
@@ -88,8 +89,8 @@ function Dashboard(email_id) {
             </div>
             <div className='DashboardContainer'>
                 <Routes>
-                    <Route path='/' element={<MyAuction setplayersTeamsEdit={setplayersTeamsEdit} />}></Route>
-                    <Route path='/auctionpanel/*' element={<AuctionHome playersTeamsEdit={playersTeamsEdit} />} />
+                    <Route path='/' element={<MyAuction setplayersTeamsEdit={setplayersTeamsEdit} setBidingPanelView={setBidingPanelView} />}></Route>
+                    <Route path='/auctionpanel/*' element={<AuctionHome playersTeamsEdit={playersTeamsEdit} bidingPanelView={bidingPanelView} />} />
                     <Route path='/createauction' element={<CreateAuction />} />
                     <Route path='/history' element={<History setteamhistory={setteamhistory} />} ></Route>
                     <Route path='/auctiondetails' element={<HistoryDetails teamhistory={teamhistory} />} />

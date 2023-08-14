@@ -1,5 +1,6 @@
 const pool = require('../db/database')
-const { insertRegisterDetails, checkLoginDetails, insert_auctionquery, userdataquery, currentauctionquery, upcomingauctionquery, historyauctionquery, teamauctionquery, searchPlayersquery, playerdetailsquery, teamjoinsplayersquery, topfiveplayersquery, userExistsQuery, updateuserQuery,teamButtonQuery } = require("./query")
+const { insertRegisterDetails, checkLoginDetails, insert_auctionquery, userdataquery, currentauctionquery, upcomingauctionquery, historyauctionquery, teamauctionquery, searchPlayersquery, playerdetailsquery, teamjoinsplayersquery,
+     topfiveplayersquery, userExistsQuery, updateuserQuery,teamButtonQuery,insertTeamQuery } = require("./query")
 const register = async (req, res) => {
     const { email_id, password_user, username } = req.body;
 
@@ -256,7 +257,7 @@ const teamdetails= async (req, res)=>{
     const teamImage = req.file.filename;
     const { team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount } = req.body;
   try {
-    const insertTeamQuery = 'INSERT INTO teams (team_image, team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount) VALUES ($1, $2, $3, $4,$5,$6,$7)';
+    
     await pool.query(insertTeamQuery, [teamImage, team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount]);
     res.json({ message: 'Team created successfully' });
   } catch (error) {
@@ -295,6 +296,31 @@ catch (error) {
     res.status(500).json({ error: 'Error retrieving team data' });
 }
 }
+
+const updateteambalanceSold= async(req,res)=>{
+    const {player_id,team_id}=req.body;
+    try {
+        const updateteambalanceSoldQuery=`update teams t set balance_amount=t.balance_amount-p.sold_amount from players p where p.player_id=$1 and t.team_id=$2`
+        await pool.query(updateteambalanceSoldQuery, [player_id,team_id]);
+        res.json({ message: 'Team updated successfully' });
+      } catch (error) {
+        console.error('Error updating team:', error);
+        res.status(500).json({ error: 'Error updating team' });
+      }
+}
+
+const updateteambalanceUnsold=async(req,res)=>{
+    const {player_id}=req.body;
+    try {
+        const updateteambalanceUnsoldQuery=`update teams t set balance_amount=t.balance_amount+p.sold_amount from players p where p.player_id=$1 and t.team_id =(select team_id from players where player_id=$1)`
+        await pool.query(updateteambalanceUnsoldQuery, [player_id]);
+        res.json({ message: 'Team updated successfully' });
+      } catch (error) {
+        console.error('Error updating team:', error);
+        res.status(500).json({ error: 'Error updating team' });
+      }
+}
+
 module.exports = {
     register,
     login,
@@ -313,6 +339,8 @@ module.exports = {
     playeraddteam,
     teamdetails,
     auctionpoints,
-    teams
+    teams,
+    updateteambalanceSold,
+    updateteambalanceUnsold
 
 }

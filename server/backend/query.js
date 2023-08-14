@@ -13,8 +13,8 @@ const teamjoinsplayersquery = `Select * from players p join teams t on t.team_id
 const topfiveplayersquery = `Select * from players where email_id=$1 order by minimum_bid desc limit 5`
 const userExistsQuery = 'SELECT * FROM users WHERE email_id = $1';
 const updateuserQuery = 'update users set  password_user = $1,username=$2 where email_id = $3;';
-const teamButtonQuery=`select team_name,team_id from teams where email_id=$1 and auction_id=$2`
-
+const teamButtonQuery=`select team_name,team_id,balance_amount from teams where email_id=$1 and auction_id=$2`
+const insertTeamQuery = 'INSERT INTO teams (team_image, team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount) VALUES ($1, $2, $3, $4,$5,$6,$7)';
 module.exports = {
     insertRegisterDetails,
     checkLoginDetails,
@@ -30,5 +30,6 @@ module.exports = {
     topfiveplayersquery,
     userExistsQuery,
     updateuserQuery,
-    teamButtonQuery
+    teamButtonQuery,
+    insertTeamQuery
 }
