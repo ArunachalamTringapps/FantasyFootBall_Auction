@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 
-const { registerroute, loginroute, createauctionroute, userdataroute, currentauctionroute, upcomingauctionroute, historyauctionroute, searchPlayersRoute, teamauctionroute, playerdetailsRoute, teamsJoinsPlayersRoute, topfiveplayersRoute, usereditroute,teambuttonRoute,playeraddteamRoute,teamdetailsroute, auctionpointsroute,teamroute} = require('./backend/Route')
+const { registerroute, loginroute, createauctionroute, userdataroute, currentauctionroute, upcomingauctionroute, historyauctionroute, searchPlayersRoute, teamauctionroute, playerdetailsRoute, teamsJoinsPlayersRoute, topfiveplayersRoute, usereditroute,teambuttonRoute,playeraddteamRoute,teamdetailsroute, auctionpointsroute,teamroute,
+  updateteambalanceSoldRoute,updateteambalanceUnsoldRoute} = require('./backend/Route')
 
 const app = express();
 const port = 5000;
@@ -22,6 +23,8 @@ app.use('/uploads', express.static('uploads'));
 app.use('/api/teams',teamdetailsroute)
 app.use('/api/auctionpoints',auctionpointsroute)
 app.use('/api/teamlist',teamroute)
+app.use('/api/teambalance',updateteambalanceSoldRoute)
+app.use('/api/unsold',updateteambalanceUnsoldRoute)
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });

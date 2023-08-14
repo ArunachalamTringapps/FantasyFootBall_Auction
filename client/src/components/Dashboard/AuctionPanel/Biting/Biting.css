@@ -130,9 +130,9 @@
 .BitingControls .displaysTeams{
     /* border: 3px solid black; */
     overflow: scroll;
-    scroll-behavior: smooth;  /*IE or Edge*/
+    scroll-behavior: smooth;  
     scrollbar-width: none;  /*firefox*/
-    -ms-overflow-style: none;
+    -ms-overflow-style: none;  /*IE or Edge*/
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;

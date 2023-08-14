@@ -132,6 +132,12 @@
 .showauctionContainer::-webkit-scrollbar{  /*chrome, safari, opera*/
     display: none;
 }
+
+.showauctionContainerNoAuction{
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
 .showauctionContainerheader{
     display: flex;
     align-items: center;
