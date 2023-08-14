@@ -1,4 +1,4 @@
-.settings-container{
+/* .settings-container{
     display: flex;
     width:70vw;
     height: 90vh;
@@ -31,26 +31,130 @@
     text-align: center;
 }
 .settings-show-details{
-    width:650px;
-    height:60px;
+    width:300px;
+    height:350px;
     background-color:  rgba(255, 255, 255, 0.804);
     border-left: 4px solid rgb(129, 182, 83);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
     font-size:1.1rem;
    display: flex;
+   flex-direction: column;
    align-items: center;
+   justify-content:center ;
+   gap:20px;
+   border-radius: 10px;
+   
 }
 .settings-show-details div{
     width:33%;
     text-align: center;
+  
 }
-.edit,.delete{
+.edit{
     border:none;
     background-color:  rgba(255, 255, 255, 0.804);
     font-size: 1.1rem;
+
 }
-.edit:hover,.delete:hover{
+.edit:hover{
     cursor: pointer;
-    color: rgba(230, 63, 63, 0.562);
+    color: rgba(230, 63, 63, 0.562); 
+
+}*/
+.setting{
+    display: flex;
+    /* width:70vw;
+    height: 90vh; */
+    height:100%;
+    width:100%;
+    position:relative;
+    border-radius: 0 10% 10% 0;
+    justify-content: center;
+    align-items: center;
+    /* border:1px solid blue; */
+}
+.Header{
+    position:absolute;
+    top:0;
+}
+.edit-button{
+    position:absolute;
+    height:4vh;
+    border:none;
+    background-color:rgba(210, 205, 205, 0.479);
+    border-radius:10px;
+    width:15vh;
+    top:2%;
+    right:3%;
+}
+.edit-button:hover{
+    cursor:pointer;
+}
+.settingcontainer{
+    height:75%;
+    width:40%; 
+    border: 2px solid rgba(172, 168, 168, 0.477);
+    box-shadow:7px 5px 7px 5px rgba(131, 114, 114, 0.189),-4px -4px 7px 5px  rgba(131, 114, 114, 0.189);
+    position:relative;
+    /* border:1px solid blue; */
+    display:flex;
+    justify-content:flex-start;
+    flex-direction: column;
+}
+/* .settingcontainer .image{
+    width:100%;
+    height:40%;
+    background-image: url('https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png');
+    border:1px solid blue;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+} */
+.imagecontainer{
+    width:100%;
+    height:43%;
+    margin-top:1%;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    /* background-color:white; */
+    /* border:1px solid blue; */
+}
+.image{
+    height:93%;
+    width:40%;
+    border-radius:100%;
+}
+.imagefield{
+    display:none;
+}
+.settingcontainer .userdetails{
+    height:13%;
+    padding-top: 25px;
+    padding-left:24%;
+    /* border:1px solid blue; */
+}
+.label{
+    font-size:1.1rem;
+}
+.Details{
+    padding-left:3%;
+}
+.dot{
+    font-family: 'Courier New', Courier, monospace; 
+}
+.namedot{
+    padding-left: 4%;
+}
+.passdot{
+    padding-left:4%;
+}
+.phonedot{
+    padding-left:6%;
+}
+.emaildot{
+    padding-left:15%;
 }
 
