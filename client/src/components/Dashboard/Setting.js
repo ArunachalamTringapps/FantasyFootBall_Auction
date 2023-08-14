@@ -30,7 +30,8 @@ function Setting() {
       <button className='edit-button'onClick={handleedit}>EDIT</button>
         <div className='imagecontainer'>
         {/* <img src='https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png' className='image' /> */}
-        <img src={img} className='image' />
+        {/* <img src={img} className='image' /> */}
+        {updateduserdetails.user_image ?  <img src={`http://localhost:5000/uploads/${updateduserdetails.user_image}`} className='image' />:(<img src={img} className='image' />)}
         <input className='imagefield' type='file' />
         </div>
         <div className='userdetails'>
