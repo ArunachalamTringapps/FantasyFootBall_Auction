@@ -1,0 +1,20 @@
+.teams-edit-container{
+    display: flex;
+    width:72vw;
+    height: 85vh;
+    border:2px solid black;
+    justify-content: center;
+    align-items: center;
+}
+.teams-edit-whole{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:50vw;
+    height: 75vh;
+    gap:20px;
+    border-radius: 10px;
+    box-shadow:7px 5px 7px 5px rgba(131, 114, 114, 0.189),-4px -4px 7px 5px  rgba(131, 114, 114, 0.189);
+
+}

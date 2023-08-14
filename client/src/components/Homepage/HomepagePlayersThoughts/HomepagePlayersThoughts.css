@@ -1,0 +1,69 @@
+.HomepagePlayersThoughts{
+    padding: 10px;
+    width: 98vw;
+    height: 140vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    position: relative;
+}
+.HomepagePlayersThoughts .straightline{
+    background-color: #59504c71;
+    width: 98vw;
+    height: 30vh;
+}
+.HomepagePlayersThoughts .boxContainer {
+    position: absolute;
+    width: 98vw;
+    height: 130vh;
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+    padding: 10px;
+}
+
+.HomepagePlayersThoughts .boxContainer div{
+    background-color: #6d6b6b1c;
+    border-radius: 2em;
+    width: 22vw;
+    height: 80vh;
+}
+.HomepagePlayersThoughts .boxContainer .boxItems{
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.HomepagePlayersThoughts .boxContainer .boxItems .imagefitting{
+    background-image: url(../../../Image/humanimg1.jpg);
+    background-size: cover;
+    height: 10%;
+    width: 80%;
+    flex-grow: 1;
+    transform: perspective(400px) rotate3d(1, -1, 0, 8deg);
+    transition: 3s;
+}
+
+.HomepagePlayersThoughts .boxContainer .boxItems:hover .imagefitting{
+    transform: perspective(500px) rotate3d(1, -1, 0, -8deg);
+
+}
+
+.HomepagePlayersThoughts .boxContainer .boxItems  h1{
+    display: flex;
+    padding-top: 20px;
+    letter-spacing: 3px;
+    font-weight: 800;
+}
+
+.HomepagePlayersThoughts .boxContainer .boxItems  p{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    word-spacing: 1px;
+    font-weight: 800;
+    text-align: justify;
+    font-size: 1.1rem;
+}

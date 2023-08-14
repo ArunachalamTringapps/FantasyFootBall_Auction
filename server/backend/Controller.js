@@ -1,5 +1,6 @@
 const pool = require('../db/database')
-const { insertRegisterDetails, checkLoginDetails, insert_auctionquery, userdataquery, currentauctionquery, upcomingauctionquery, historyauctionquery, teamauctionquery, searchPlayersquery, playerdetailsquery, teamjoinsplayersquery, topfiveplayersquery, userExistsQuery, updateuserQuery } = require("./query")
+const { insertRegisterDetails, checkLoginDetails, insert_auctionquery, userdataquery, currentauctionquery, upcomingauctionquery, historyauctionquery, teamauctionquery, searchPlayersquery, playerdetailsquery, teamjoinsplayersquery,
+     topfiveplayersquery, userExistsQuery, updateuserQuery,teamButtonQuery,insertTeamQuery } = require("./query")
 const register = async (req, res) => {
     const { email_id, password_user, username } = req.body;
 
@@ -144,8 +145,8 @@ const teamauction = async (req, res) => {
 
 const searchPlayers = async (req, res) => {
     try {
-        const { emailid, players_name } = req.params;
-        const result = await pool.query(searchPlayersquery, [emailid, players_name]);
+        const { email_id,auction_id,players_name } = req.params;
+        const result = await pool.query(searchPlayersquery, [email_id,auction_id,players_name]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'given details or wrong' });
 
@@ -212,7 +213,7 @@ const usereditprofile = async (req, res) => {
     const emailIduser = req.params.email_id;
     const { new_password, new_username } = req.body;
     try {
-        const userExistsQuery = 'SELECT * FROM users WHERE email_id = $1';
+        // const userExistsQuery = 'SELECT * FROM users WHERE email_id = $1';
         const userExistsResult = await pool.query(userExistsQuery, [emailIduser]);
         if (userExistsResult.rows.length === 0) {
             return res.status(404).json({ error: 'User not found' });
@@ -223,6 +224,101 @@ const usereditprofile = async (req, res) => {
         console.error('Error updating user settings:', error);
         res.status(500).json({ error: 'Error updating user settings' });
     }
+}
+
+const teamButton= async (req,res)=>{
+    const { email_id,auction_id }=req.params;
+    try{
+        const teamButtonResult=await pool.query(teamButtonQuery,[email_id,auction_id]);
+        if(teamButtonResult.rows.length===0){
+            return res.status(404).json({error: 'teams not found'});
+        }
+        res.json(teamButtonResult.rows)
+    }
+    catch(error){
+        res.status(500).json({error:'error occurs while fetching teams in auction'})
+    }
+}
+
+const playeraddteam= async (req,res)=>{
+    try{
+        const {email_id,player_id}=req.params
+        const {team_id,sold_or_unsold,sold_amount} =req.body;
+        const playeraddteamQuery=`update players set team_id=$1,sold_or_unsold=$2,sold_amount=$3 where email_id=$4 and player_id=$5 `
+        await pool.query(playeraddteamQuery,[team_id,sold_or_unsold,sold_amount,email_id,player_id])
+        res.json({message: 'players add to team successfully'})
+    }
+    catch(error){
+        res.status(500).json({error: 'error occured while adding players to teams'})
+    }
+}
+
+const teamdetails= async (req, res)=>{
+    const teamImage = req.file.filename;
+    const { team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount } = req.body;
+  try {
+    
+    await pool.query(insertTeamQuery, [teamImage, team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount]);
+    res.json({ message: 'Team created successfully' });
+  } catch (error) {
+    console.error('Error creating team:', error);
+    res.status(500).json({ error: 'Error creating team' });
+  }
+} 
+const auctionpoints=async(req,res)=>{
+    const auction_id=req.params.auction_id;
+    try{
+    const auctionpointsquery=`select points_per_team from auctions join teams using (auction_id) where auction_id=$1`;
+    const result = await pool.query(auctionpointsquery, [auction_id])
+    if (result.rows.length === 0) {
+        res.status(404).json({ error: 'auction points not found' });
+        return;
+    }
+    res.send(result.rows[0]);
+}
+catch (error) {
+    res.status(500).json({ error: 'Error retrieving auction data' });
+}
+}
+const teams=async(req,res)=>{
+    const auction_id=req.params.auction_id;
+    const email_id=req.params.email_id;
+    try{
+    const teamquery=`select * from teams where auction_id=$1 and email_id=$2`;
+    const result = await pool.query(teamquery, [auction_id,email_id])
+    if (result.rows.length === 0) {
+        res.status(404).json({ error: 'team details not found' });
+        return;
+    }
+    res.send(result.rows);
+}
+catch (error) {
+    res.status(500).json({ error: 'Error retrieving team data' });
+}
+}
+
+const updateteambalanceSold= async(req,res)=>{
+    const {player_id,team_id}=req.body;
+    try {
+        const updateteambalanceSoldQuery=`update teams t set balance_amount=t.balance_amount-p.sold_amount from players p where p.player_id=$1 and t.team_id=$2`
+        await pool.query(updateteambalanceSoldQuery, [player_id,team_id]);
+        res.json({ message: 'Team updated successfully' });
+      } catch (error) {
+        console.error('Error updating team:', error);
+        res.status(500).json({ error: 'Error updating team' });
+      }
+}
+
+const updateteambalanceUnsold=async(req,res)=>{
+    const {player_id}=req.body;
+    try {
+        const updateteambalanceUnsoldQuery=`update teams t set balance_amount=t.balance_amount+p.sold_amount from players p where p.player_id=$1 and t.team_id =(select team_id from players where player_id=$1)`
+        await pool.query(updateteambalanceUnsoldQuery, [player_id]);
+        res.json({ message: 'Team updated successfully' });
+      } catch (error) {
+        console.error('Error updating team:', error);
+        res.status(500).json({ error: 'Error updating team' });
+      }
 }
 
 module.exports = {
@@ -239,5 +335,12 @@ module.exports = {
     teamjoinsplayers,
     topfiveplayers,
     usereditprofile,
+    teamButton,
+    playeraddteam,
+    teamdetails,
+    auctionpoints,
+    teams,
+    updateteambalanceSold,
+    updateteambalanceUnsold
 
 }

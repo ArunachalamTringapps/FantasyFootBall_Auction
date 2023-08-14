@@ -1,0 +1,112 @@
+.teamdetails-container-list{
+    display: flex;
+    width:60vw;
+    height: 75vh;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid rgb(197, 17, 17); */
+}
+.teamdetails-whole{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    width:60vw;
+    height: 75vh;
+    gap:20px;
+    border-radius: 10px;
+    box-shadow:7px 5px 7px 5px rgba(131, 114, 114, 0.189),-4px -4px 7px 5px  rgba(131, 114, 114, 0.189);
+
+}
+.teamdetails-title{
+    font-size: 35px;
+    display: flex;
+    flex-direction: row;
+   justify-content: center;
+   align-items: center;
+    gap:400px;
+}
+.teamdetails-title button{
+    width:90px;
+    height:40px;
+    font-size: 15px;
+    border: none;
+    font-weight: bold;
+    outline: none;
+    background-color: rgba(125, 174, 125, 0.477);
+    border-radius: 10px;
+}
+.teamdetails-title button:hover{
+    cursor: pointer;
+}
+.teamdetails-view{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width:60vw;
+    height: 65vh;
+    /* border: 2px solid black; */
+    gap:20px;
+    flex-wrap:wrap;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* display: grid;
+    grid-template-columns: auto auto; */
+}
+
+.teamdetails-view::-webkit-scrollbar{
+    display: none;
+}
+.team-listview-details{
+    width:270px;
+    height:340px;
+    background-color:  rgba(255, 255, 255, 0.804);
+    border-left: 4px solid rgb(129, 182, 83);
+    border-right:4px solid rgb(129, 182, 83);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
+    border-radius: 10px;
+    font-size:1.1rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap:20px;
+}
+.team-auction-image img{
+    width:130px;
+    height:130px;
+    border-radius: 200px;
+    border:3px solid  rgba(89, 93, 89, 0.167);
+    
+}
+.team-edit-delete{
+    
+    display: flex;
+    flex-direction: row;
+    gap:100px;
+}
+.team-edit{
+    background-color: rgba(211, 122, 122, 0.594);
+}
+.team-delete{
+    background-color: rgb(161, 213, 161);
+}
+.team-edit,.team-delete{
+    width:60px;
+    height:30px;
+    border:none;
+    outline:none;
+    font-weight: bold;
+    /* background-color: rgba(89, 93, 89, 0.167); */
+    border-radius: 20px;
+}
+.team-name-details{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap:10px;
+}
+.team-edit,.team-delete:hover{
+    cursor: pointer;
+}

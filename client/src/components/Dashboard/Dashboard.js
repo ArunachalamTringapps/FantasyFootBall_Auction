@@ -2,20 +2,22 @@
 import { React, useState, useEffect } from 'react'
 import { useNavigate, Link, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
-import '../../css/Dashboardcss/Dashboard.css'
-import MyAuction from './MyAuction'
-import CreateAuction from './CreateAuction'
-import History from './History'
+import './Dashboard.css'
+import MyAuction from './MyAuction/MyAuction'
+import CreateAuction from './CreateAuction/CreateAuction'
+import History from './History/History'
 import Setting from './Setting'
-import HistoryDetails from './HistoryDetails'
+import HistoryDetails from './History/HistoryDetails/HistoryDetails'
 import AuctionHome from './AuctionPanel/AuctionHome'
 import { AiOutlinePlus, AiOutlineFolderOpen, AiOutlineHistory, AiOutlineSetting } from "react-icons/ai";
 import UserEdit from './UserEdit'
-
+import Teamdetails from './AuctionPanel/Teams/Teamdetails'
+import Teamsedit from './AuctionPanel/Teams/Teamsedit'
 
 function Dashboard(email_id) {
     const email = localStorage.getItem("useremail")
     const [playersTeamsEdit, setplayersTeamsEdit] = useState(false);
+    const [bidingPanelView,setBidingPanelView]=useState(true);
     console.log(email_id)
     const [changeComponents, setChangeComponent] = useState(1);
     const menuBarItems = [
@@ -87,13 +89,15 @@ function Dashboard(email_id) {
             </div>
             <div className='DashboardContainer'>
                 <Routes>
-                    <Route path='/' element={<MyAuction setplayersTeamsEdit={setplayersTeamsEdit} />}></Route>
-                    <Route path='/auctionpanel/*' element={<AuctionHome playersTeamsEdit={playersTeamsEdit} />} />
+                    <Route path='/' element={<MyAuction setplayersTeamsEdit={setplayersTeamsEdit} setBidingPanelView={setBidingPanelView} />}></Route>
+                    <Route path='/auctionpanel/*' element={<AuctionHome playersTeamsEdit={playersTeamsEdit} bidingPanelView={bidingPanelView} />} />
                     <Route path='/createauction' element={<CreateAuction />} />
                     <Route path='/history' element={<History setteamhistory={setteamhistory} />} ></Route>
                     <Route path='/auctiondetails' element={<HistoryDetails teamhistory={teamhistory} />} />
                     <Route path='/setting' element={<Setting />} />
                     <Route path='/useredit' element={<UserEdit />} />
+                    <Route path='/teamlist' element={<Teamdetails/>}/>
+                    <Route path='/teamsedit' element={<Teamsedit/>}/>
                 </Routes>
             </div>
         </div>
