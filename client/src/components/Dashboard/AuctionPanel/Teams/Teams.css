@@ -14,9 +14,16 @@
     width:60vw;
     height: 75vh;
     gap:20px;
-    border-radius: 10px;
-    box-shadow:7px 5px 7px 5px rgba(131, 114, 114, 0.189),-4px -4px 7px 5px  rgba(131, 114, 114, 0.189);
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* border-radius: 10px;  */
+    /* box-shadow:7px 5px 7px 5px rgba(131, 114, 114, 0.189),-4px -4px 7px 5px  rgba(131, 114, 114, 0.189); */
 
+}
+
+.teamdetails-whole::-webkit-scrollbar{
+    display: none;
 }
 .teamdetails-title{
     font-size: 35px;
@@ -27,13 +34,15 @@
     gap:400px;
 }
 .teamdetails-title button{
-    width:90px;
+    padding: 5px;
+    letter-spacing: 1px;
+    /* width:90px; */
     height:40px;
     font-size: 15px;
     border: none;
     font-weight: bold;
     outline: none;
-    background-color: rgba(125, 174, 125, 0.477);
+    background-color: rgba(105, 105, 105, 0.155);
     border-radius: 10px;
 }
 .teamdetails-title button:hover{
@@ -48,23 +57,19 @@
     /* border: 2px solid black; */
     gap:20px;
     flex-wrap:wrap;
-    overflow: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+
     /* display: grid;
     grid-template-columns: auto auto; */
 }
 
-.teamdetails-view::-webkit-scrollbar{
-    display: none;
-}
+
 .team-listview-details{
     width:270px;
     height:340px;
     background-color:  rgba(255, 255, 255, 0.804);
-    border-left: 4px solid rgb(129, 182, 83);
-    border-right:4px solid rgb(129, 182, 83);
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
+    /* border-left: 4px solid rgb(129, 182, 83);
+    border-right:4px solid rgb(129, 182, 83); */
+    box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.363);
     border-radius: 10px;
     font-size:1.1rem;
    display: flex;
@@ -77,7 +82,7 @@
     width:130px;
     height:130px;
     border-radius: 200px;
-    border:3px solid  rgba(89, 93, 89, 0.167);
+    border:3px solid  rgba(65, 66, 65, 0.349);
     
 }
 .team-edit-delete{
@@ -87,10 +92,13 @@
     gap:100px;
 }
 .team-edit{
-    background-color: rgba(211, 122, 122, 0.594);
+    background-color: rgba(5, 108, 45, 0.628);
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
 }
 .team-delete{
-    background-color: rgb(161, 213, 161);
+    background-color: rgba(98, 98, 98, 0.258);
+    letter-spacing: 1px;
 }
 .team-edit,.team-delete{
     width:60px;
