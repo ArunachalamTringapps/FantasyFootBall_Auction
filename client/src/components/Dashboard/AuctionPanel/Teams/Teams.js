@@ -1,74 +1,59 @@
-import React from 'react'
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import "../Teams/Teams.css"
-function Teams({ playersTeamsEdit }) {
-  const [teamImage, setTeamImage] = useState(null);
-  const [teamName, setTeamName] = useState('');
-  const [teamOwnerName, setTeamOwnerName] = useState('');
-  const [teamOwnerEmail, setTeamOwnerEmail] = useState('');
-  console.log("team", playersTeamsEdit);
-  const handleImageChange = (e) => {
-    setTeamImage(e.target.files[0]);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('team_image', teamImage);
-    formData.append('team_name', teamName);
-    formData.append('team_owner_name', teamOwnerName);
-    formData.append('team_owner_email_id', teamOwnerEmail);
-
-    try {
-      const response = await axios.post('http://localhost:7000/api/teams', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      console.log(response.data.message);
-      // Redirect or perform other actions on successful submission
-    } catch (error) {
-      console.error('Error submitting team:', error);
-    }
-    e.target.reset();
-
-  };
+import React, { useEffect, useState } from 'react'
+import "../Teams/Teamdetails.css"
+import axios from 'axios'
+import profile from "../../../../Image/no-profile-img.gif"
+import { useNavigate } from 'react-router-dom'
+const Teams = () => {
+const [teamlistdetails,setteamlistdetails]=useState([])
+const email = localStorage.getItem("useremail")
+const auction_id = localStorage.getItem("AuctionId")
+const navigate=useNavigate();
+   useEffect(()=> {
+        axios.get(`http://localhost:5000/api/teamlist/view/${auction_id}/${email}`)
+          .then((response) => {
+            setteamlistdetails(response.data)
+          })
+          .catch((err) => {
+            console.error(err);
+          })
+      },[])
+      const handleclickgoteam=()=>{
+navigate('/user/dashboard/teamlist')
+      }
   return (
-    <div className='team-container'>
-      <div className='team-whole'>
-        <div className='team-title'>
-        Create a New Team
-        </div>
-        <form onSubmit={handleSubmit} autoComplete='off'>
-        <div className='team-form'>
-          <div className='team-inputs'>
-            <label className='team-image-label'>Team Image:</label>
-            <div className='team-image'>
-            <input type="file" onChange={handleImageChange} className='team-image-inputs'/>
+    <div className='teamdetails-container-list'>
+        <div className='teamdetails-whole'>
+            <div className='teamdetails-title'>
+                <div>TeamList Details</div>
+                <div><button onClick={()=>{handleclickgoteam()}}>Create team</button></div>
             </div>
-          </div>
-          <div className='team-inputs'>
-            <label>Team Name:</label>
-            <input type="text" value={teamName} onChange={(e) => setTeamName(e.target.value)} className='inputs' />
-          </div>
-          <div  className='team-inputs'>
-            <label>Team Owner Name:</label>
-            <input type="text" value={teamOwnerName} onChange={(e) => setTeamOwnerName(e.target.value)} className='inputs'/>
-          </div>
-          <div  className='team-inputs'>
-            <label>Team Owner Email:</label>
-            <input type="email" value={teamOwnerEmail} onChange={(e) => setTeamOwnerEmail(e.target.value)} className='inputs' />
-          </div>
-          <button type="submit" className='team-created'>Create Team</button>
-          </div>
-        </form>
-      
-      </div>
+            <div className='teamdetails-view'>
+            {
+            teamlistdetails.map((val, index) => {
+              return (
+              
+                <div key={index} className='team-listview-details'>
+                  <div className='team-auction-image'>
+                    {val.team_image ? (
+                      <img src={`http://localhost:5000/uploads/${val.team_image}`} alt={`Team ${val.team_id}`} />
+                    ) : (
+                      <img src={profile} alt='Default' />
+                    )}
+                   
+                  </div>
+                  <div className='team-name-details'>{val.team_name}</div>
+                  <div className='team-owner-details'>{val.team_owner_name}</div>
+                  <div>{val.balance_amount}</div>
+                  <button className='team-edit'>edit</button> 
+                </div>
+              )
+            })
+          }
+            </div>
+        </div>
+    
     </div>
-  );
+  )
 }
 
 export default Teams

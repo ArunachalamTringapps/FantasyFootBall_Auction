@@ -252,7 +252,49 @@ const playeraddteam= async (req,res)=>{
     }
 }
 
-
+const teamdetails= async (req, res)=>{
+    const teamImage = req.file.filename;
+    const { team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount } = req.body;
+  try {
+    const insertTeamQuery = 'INSERT INTO teams (team_image, team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount) VALUES ($1, $2, $3, $4,$5,$6,$7)';
+    await pool.query(insertTeamQuery, [teamImage, team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount]);
+    res.json({ message: 'Team created successfully' });
+  } catch (error) {
+    console.error('Error creating team:', error);
+    res.status(500).json({ error: 'Error creating team' });
+  }
+} 
+const auctionpoints=async(req,res)=>{
+    const auction_id=req.params.auction_id;
+    try{
+    const auctionpointsquery=`select points_per_team from auctions join teams using (auction_id) where auction_id=$1`;
+    const result = await pool.query(auctionpointsquery, [auction_id])
+    if (result.rows.length === 0) {
+        res.status(404).json({ error: 'auction points not found' });
+        return;
+    }
+    res.send(result.rows[0]);
+}
+catch (error) {
+    res.status(500).json({ error: 'Error retrieving auction data' });
+}
+}
+const teams=async(req,res)=>{
+    const auction_id=req.params.auction_id;
+    const email_id=req.params.email_id;
+    try{
+    const teamquery=`select * from teams where auction_id=$1 and email_id=$2`;
+    const result = await pool.query(teamquery, [auction_id,email_id])
+    if (result.rows.length === 0) {
+        res.status(404).json({ error: 'team details not found' });
+        return;
+    }
+    res.send(result.rows);
+}
+catch (error) {
+    res.status(500).json({ error: 'Error retrieving team data' });
+}
+}
 module.exports = {
     register,
     login,
@@ -268,6 +310,9 @@ module.exports = {
     topfiveplayers,
     usereditprofile,
     teamButton,
-    playeraddteam
+    playeraddteam,
+    teamdetails,
+    auctionpoints,
+    teams
 
 }

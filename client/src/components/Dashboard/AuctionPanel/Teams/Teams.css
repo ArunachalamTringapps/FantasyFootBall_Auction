@@ -1,20 +1,19 @@
 .team-container{
     display: flex;
     width:60vw;
-    height: 75vh;
+    height: 78vh;
     justify-content: center;
-   
 }
 .team-whole{
     display: flex;
     flex-direction: column;
- align-items: center;
- justify-content: center;
- width:30vw;
- height: 75vh;
- gap:20px;
- border-radius: 10px;
- box-shadow:7px 5px 7px 5px rgba(131, 114, 114, 0.189),-4px -4px 7px 5px  rgba(131, 114, 114, 0.189);
+    align-items: center;
+    justify-content: center;
+    width:30vw;
+    height: 75vh;
+    gap:20px;
+    border-radius: 10px;
+    box-shadow:7px 5px 7px 5px rgba(131, 114, 114, 0.189),-4px -4px 7px 5px  rgba(131, 114, 114, 0.189);
 
 }
 
@@ -22,7 +21,7 @@
     display: flex;
     flex-direction:column;
     align-items: center;
-gap:10px;
+    gap:10px;
 }
 .team-inputs{
     display: flex;
@@ -30,14 +29,13 @@ gap:10px;
     gap:10px;
 }
 
-.team-image{
-    background-image: url('https://png.pngtree.com/element_our/png_detail/20181229/vector-upload-icon-png_302639.jpg');
+.team-image-upload{
+  background-image: url('https://png.pngtree.com/element_our/png_detail/20181229/vector-upload-icon-png_302639.jpg');
   background-size: contain;
   background-position:left center;
   background-repeat: no-repeat;
-  width: 800px;
-  height: 450px;
-  border: 2px solid #aaa;
+  width: 280px;
+  height: 150px;
   cursor: pointer;
   text-decoration: none;
   position: relative;
@@ -45,10 +43,10 @@ gap:10px;
   outline:none;
 }
 .team-image-inputs{
-    position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 800px; /* Match the width of the .team-image */
+  width: 280px; /* Match the width of the .team-image */
   height: 100%;
   opacity: 0;
   cursor: pointer;
