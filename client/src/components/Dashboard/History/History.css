@@ -1,5 +1,4 @@
 .history-container{
-    
     display: flex;
     flex-direction: column;
     width:63vw;
@@ -24,6 +23,7 @@
     font-size: 15px;
     border-radius: 10px;
     gap:120px;
+    
 }
 .heading-details{
     display: flex;
@@ -51,4 +51,19 @@ border-radius: 10px;
 .auction-click:hover{
     cursor: pointer;
     background-color: rgba(159, 233, 170, 0.806);
+}
+.history-auction{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    width:46vw;
+    height:65vh;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+}
+.history-auction::-webkit-scrollbar{
+display: none;
 }

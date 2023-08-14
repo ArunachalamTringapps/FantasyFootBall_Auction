@@ -1,10 +1,7 @@
-
-
-
 import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import "../Teams/Teams.css"
+import "../Teams/Teamdetails.css"
 import { useNavigate } from 'react-router-dom';
 function Teamdetails({ playersTeamsEdit }) {
   const [teamImage, setTeamImage] = useState(null);
@@ -35,7 +32,6 @@ function Teamdetails({ playersTeamsEdit }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const formData = new FormData();
     formData.append('team_image', teamImage);
     formData.append('team_name', teamName);
@@ -54,18 +50,18 @@ function Teamdetails({ playersTeamsEdit }) {
 
       console.log(response.data.message);
       navigate("/user/dashboard/teamlist")
-      // Redirect or perform other actions on successful submission
     } catch (error) {
       console.error('Error submitting team:', error);
     }
     e.target.reset();
   };
-  // const handleclickteam=()=>{
-    
-  // }
+  const handleBack=()=>{
+    navigate('/user/dashboard/auctionpanel')
+  }
   return (
     <div className='team-container'>
       <div className='team-whole'>
+       
         <div className='team-title'>
         Create a New Team
         </div>
@@ -89,7 +85,10 @@ function Teamdetails({ playersTeamsEdit }) {
             <label>Team Owner Email:</label>
             <input type="email" value={teamOwnerEmail} onChange={(e) => setTeamOwnerEmail(e.target.value)} className='inputs' required/>
           </div>
-          <button type="submit" className='team-created'>Create Team</button>
+          <div className='team-created'>
+          <button type="submit">Create Team</button>
+          <button onClick={()=>{handleBack()}}>Back</button>
+          </div>
           </div>
         </form>
       

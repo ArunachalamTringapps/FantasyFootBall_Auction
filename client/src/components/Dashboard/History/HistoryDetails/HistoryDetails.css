@@ -62,10 +62,15 @@
 }
 .team-list-details .team-player-count button:hover{
     cursor: pointer;
-color:red;
+    background-color:rgba(125, 174, 125, 0.477)
+
 }
 .team-list-details .team-player-count button{
     border:none;
+    background-color:  rgba(89, 93, 89, 0.167);    
+    width:20px;
+    height:30px;
+    border-radius: 20px;
 }
 .player-container{
     display: flex;
