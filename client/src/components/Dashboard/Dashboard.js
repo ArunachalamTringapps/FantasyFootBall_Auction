@@ -11,6 +11,7 @@ import HistoryDetails from './History/HistoryDetails/HistoryDetails'
 import AuctionHome from './AuctionPanel/AuctionHome'
 import { AiOutlinePlus, AiOutlineFolderOpen, AiOutlineHistory, AiOutlineSetting } from "react-icons/ai";
 import UserEdit from './UserEdit'
+import Teamdetails from './AuctionPanel/Teams/Teamdetails'
 
 
 function Dashboard(email_id) {
@@ -94,6 +95,7 @@ function Dashboard(email_id) {
                     <Route path='/auctiondetails' element={<HistoryDetails teamhistory={teamhistory} />} />
                     <Route path='/setting' element={<Setting />} />
                     <Route path='/useredit' element={<UserEdit />} />
+                    <Route path='/teamlist' element={<Teamdetails/>}/>
                 </Routes>
             </div>
         </div>
