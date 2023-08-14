@@ -3,22 +3,25 @@ import { useNavigate } from 'react-router-dom';
 import './MyAuction.css'
 import axios from 'axios'
 
-function MyAuction({ setplayersTeamsEdit }) {
+function MyAuction({ setplayersTeamsEdit,setBidingPanelView }) {
   const [currentselectauction, setCurrentSelectauction] = useState([]);
   const [topTenPlayers, setTopTenPlayers] = useState([])
   const email = localStorage.getItem("useremail")
   const currentAuctionFun = () => {
     setplayersTeamsEdit(false);
+    setBidingPanelView(true);
     axios.get(`http://localhost:5000/api/auction/currentauction/${email}`)
       .then((response) => {
         setCurrentSelectauction(response.data)
       })
       .catch((err) => {
         console.error("Error fetching user data:", err);
+        setCurrentSelectauction(null);
       })
   }
   const upcomingAuctionFun = () => {
     setplayersTeamsEdit(true);
+    setBidingPanelView(false);
     axios.get(`http://localhost:5000/api/auction/upcomingauction/${email}`)
       .then((response) => {
         setCurrentSelectauction(response.data)
@@ -43,7 +46,7 @@ function MyAuction({ setplayersTeamsEdit }) {
     naviagte('/user/dashboard/auctionpanel');
 
   }
-
+// console.log(currentselectauction);
   return (
     <div className='MYAuction'>
       <div className='MyAuctionImage'>
@@ -81,14 +84,21 @@ function MyAuction({ setplayersTeamsEdit }) {
             <div>Points_Per_Team</div>
             <div>Players_Per_Teams</div>
           </div>
-          {currentselectauction.map((val, index) => {
+          {
+          currentselectauction===null?(<div className='showauctionContainerNoAuction'>No Today Auction</div>):(
+          
+          
+          currentselectauction.map((val, index) => {
             return (<div key={index} className='showauctionContainerheader'>
               <div className='routeToAuction' onClick={() => { navigateFun(val.auction_id) }} >{val.auction_name}</div>
               <div>{val.auction_date}</div>
               <div>{val.points_per_team}</div>
               <div>{val.players_per_team}</div>
             </div>)
-          })}
+          })
+          
+          )
+          }
 
 
 

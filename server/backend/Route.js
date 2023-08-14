@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 const path = require('path');
-const { register, login, createAuction, userdata, currentauction, upcomingauction, historyauction, searchPlayers, teamauction, playerdetails, teamjoinsplayers, topfiveplayers, usereditprofile,teamButton,playeraddteam,teamdetails,auctionpoints ,teams} = require("./Controller")
+const { register, login, createAuction, userdata, currentauction, upcomingauction, historyauction, searchPlayers, teamauction, playerdetails, teamjoinsplayers, topfiveplayers, usereditprofile,teamButton,playeraddteam,teamdetails,auctionpoints ,teams,updateteambalanceSold,updateteambalanceUnsold} = require("./Controller")
 const registerroute = router.post('/', register);
 const loginroute = router.post('/user', login);
 const createauctionroute = router.post("/createauction", createAuction)
@@ -18,6 +18,8 @@ const topfiveplayersRoute = router.get("/limitfive/:email_id", topfiveplayers)
 const usereditroute = router.put("/editdetails/:email_id", usereditprofile)
 const teambuttonRoute=router.get("/button/:email_id/:auction_id",teamButton)
 const playeraddteamRoute=router.put("/joining/:email_id/:player_id",playeraddteam)
+const updateteambalanceSoldRoute=router.put("/updatebalance",updateteambalanceSold)
+const updateteambalanceUnsoldRoute=router.put("/addamounttoteam",updateteambalanceUnsold)
 const storage = multer.diskStorage({
     destination: './uploads/', 
     filename: (req, file, cb) => {
@@ -46,5 +48,7 @@ module.exports = {
     playeraddteamRoute,
     teamdetailsroute,
     auctionpointsroute,
-    teamroute
+    teamroute,
+    updateteambalanceSoldRoute,
+    updateteambalanceUnsoldRoute
 }
