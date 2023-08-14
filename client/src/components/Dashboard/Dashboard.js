@@ -12,7 +12,7 @@ import AuctionHome from './AuctionPanel/AuctionHome'
 import { AiOutlinePlus, AiOutlineFolderOpen, AiOutlineHistory, AiOutlineSetting } from "react-icons/ai";
 import UserEdit from './UserEdit'
 import Teamdetails from './AuctionPanel/Teams/Teamdetails'
-
+import Teamsedit from './AuctionPanel/Teams/Teamsedit'
 
 function Dashboard(email_id) {
     const email = localStorage.getItem("useremail")
@@ -97,6 +97,7 @@ function Dashboard(email_id) {
                     <Route path='/setting' element={<Setting />} />
                     <Route path='/useredit' element={<UserEdit />} />
                     <Route path='/teamlist' element={<Teamdetails/>}/>
+                    <Route path='/teamsedit' element={<Teamsedit/>}/>
                 </Routes>
             </div>
         </div>

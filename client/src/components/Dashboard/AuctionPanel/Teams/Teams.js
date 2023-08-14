@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "../Teams/Teamdetails.css"
+ import "../Teams/Teams.css"
 import axios from 'axios'
 import profile from "../../../../Image/no-profile-img.gif"
 import { useNavigate } from 'react-router-dom'
@@ -19,6 +19,9 @@ const navigate=useNavigate();
       },[])
       const handleclickgoteam=()=>{
 navigate('/user/dashboard/teamlist')
+      }
+      const handleedit=()=>{
+        navigate('/user/dashboard/teamsedit')
       }
   return (
     <div className='teamdetails-container-list'>
@@ -41,10 +44,13 @@ navigate('/user/dashboard/teamlist')
                     )}
                    
                   </div>
-                  <div className='team-name-details'>{val.team_name}</div>
-                  <div className='team-owner-details'>{val.team_owner_name}</div>
-                  <div>{val.balance_amount}</div>
-                  <button className='team-edit'>edit</button> 
+                  <div className='team-name-details'><div>Name:</div><div>{val.team_name}</div></div>
+                  <div className='team-name-details'><div>Ownername:</div><div>{val.team_owner_name}</div></div>
+                  <div className='team-name-details'><div>Balance:</div><div>{val.balance_amount}</div></div>
+                  <div className='team-edit-delete'>
+                  <button className='team-edit' onClick={()=>{handleedit()}}>Edit</button> 
+                  <button className='team-delete'>Delete</button>
+                  </div>
                 </div>
               )
             })
