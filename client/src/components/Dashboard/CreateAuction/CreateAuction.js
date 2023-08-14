@@ -75,7 +75,7 @@ function CreateAuction() {
         </div>
         <button className='bt'>Submit</button>
       </form>
-      <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false} />
+      {/* <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false} /> */}
     </div>
   )
 }

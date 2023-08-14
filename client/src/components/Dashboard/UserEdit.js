@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import "../../css/Dashboardcss/UserEdit.css"
 import image from '../../Image/no-profile-img.gif';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const UserEdit = () => {
     const navigate = useNavigate()
     const useref=useRef();
@@ -45,10 +47,12 @@ const UserEdit = () => {
         e.preventDefault();
         try {
             await axios.put(`http://localhost:5000/api/settings/editdetails/${email}`,formdata)
-            navigate('/user/dashboard/setting');
+            // toast.success('user edit sucess');
+            navigate('/user/dashboard');
         }
         catch (err) {
             console.log(err.message);
+            toast.error('An error occurred during updating user');
         }
         e.target.reset();
     }
@@ -72,12 +76,13 @@ const UserEdit = () => {
                         <label className='input-label'>Password</label>
                         <input type="password"  placeholder="********"  onChange={(e) => setnewpassword(e.target.value)} />
                         <label className='input-label'>Username</label>
-                        <input type="text" value={updateduserdetails.username} onChange={(e) => setnewusername(e.target.value)} />
+                        <input type="text" placeholder='username' onChange={(e) => setnewusername(e.target.value)} />
                         <label className='input-label'>Phone Number</label>
-                        <input type="text"  value={updateduserdetails.phone_no ? updateduserdetails.phone_no : 'phone number is null'} onChange={(e) =>setnewphoneno(e.target.value)} />
+                        <input type="text"  placeholder="phoneno" onChange={(e) =>setnewphoneno(e.target.value)} />
                         <button className='update-bt'type="submit">Update Settings</button>
                         </div>
                 </form>
+                <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false} />
             </div>
     )
 }

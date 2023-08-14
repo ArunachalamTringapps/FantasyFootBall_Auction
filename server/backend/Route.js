@@ -1,6 +1,6 @@
 const express = require('express');
-const multer = require('multer');
 const router = express.Router();
+const multer=require('multer');
 const path = require('path');
 const { register, login, createAuction, userdata, currentauction, upcomingauction, historyauction, searchPlayers, teamauction, playerdetails, teamjoinsplayers, topfiveplayers, usereditprofile,teamButton,playeraddteam,teamdetails,auctionpoints ,teams,updateteambalanceSold,updateteambalanceUnsold} = require("./Controller")
 const registerroute = router.post('/', register);
@@ -15,7 +15,7 @@ const searchPlayersRoute = router.get("/searchplayers/:email_id/:auction_id/:pla
 const playerdetailsRoute = router.get("/players/:email_id", playerdetails)
 const teamsJoinsPlayersRoute = router.get("/teamjoinplayers/:team_id/:email_id", teamjoinsplayers)
 const topfiveplayersRoute = router.get("/limitfive/:email_id", topfiveplayers)
-const usereditroute = router.put("/editdetails/:email_id", usereditprofile)
+// const usereditroute = router.put("/editdetails/:email_id", usereditprofile)
 const teambuttonRoute=router.get("/button/:email_id/:auction_id",teamButton)
 const playeraddteamRoute=router.put("/joining/:email_id/:player_id",playeraddteam)
 const updateteambalanceSoldRoute=router.put("/updatebalance",updateteambalanceSold)
@@ -26,8 +26,18 @@ const storage = multer.diskStorage({
       cb(null, file.fieldname + path.extname(file.originalname));
     },
   }); 
-  const upload = multer({ storage });
+const upload = multer({ storage });
 const teamdetailsroute=router.post("/teamslist",upload.single('team_image'),teamdetails)
+// const storage1=multer.diskStorage({
+//         destination: (req,file,cb)=>{
+//             cb(null, 'Images')
+//         },
+//         filename: (req,file,cb)=>{
+//             cb(null,Date.now()+file.originalname);
+//         },
+//     })
+// const upload1 = multer({ storage1 });
+const usereditroute = router.put("/editdetails/:email_id",upload.single('Image'), usereditprofile)
 const auctionpointsroute=router.get("/pointsperteam/:auction_id",auctionpoints)
 const teamroute=router.get("/view/:auction_id/:email_id",teams)
 module.exports = {
