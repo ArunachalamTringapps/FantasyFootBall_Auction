@@ -1,4 +1,5 @@
 const pool = require('../db/database')
+const multer = require('multer');
 const { insertRegisterDetails, checkLoginDetails, insert_auctionquery, userdataquery, currentauctionquery, upcomingauctionquery, historyauctionquery, teamauctionquery, searchPlayersquery, playerdetailsquery, teamjoinsplayersquery,
      topfiveplayersquery, userExistsQuery, updateuserQuery,teamButtonQuery,insertTeamQuery } = require("./query")
 const register = async (req, res) => {
@@ -211,14 +212,17 @@ const topfiveplayers = async (req, res) => {
 
 const usereditprofile = async (req, res) => {
     const emailIduser = req.params.email_id;
-    const { new_password, new_username } = req.body;
+    console.log(req.file);
+    const { newPassword,newUsername,newPhoneno} = req.body;
+    const image=req.file.filename;
+
     try {
         // const userExistsQuery = 'SELECT * FROM users WHERE email_id = $1';
         const userExistsResult = await pool.query(userExistsQuery, [emailIduser]);
         if (userExistsResult.rows.length === 0) {
             return res.status(404).json({ error: 'User not found' });
         }
-        await pool.query(updateuserQuery, [new_password, new_username, emailIduser]);
+        await pool.query(updateuserQuery, [newPassword, newUsername,newPhoneno,image, emailIduser]);
         res.json({ message: 'User settings updated successfully' });
     } catch (error) {
         console.error('Error updating user settings:', error);
