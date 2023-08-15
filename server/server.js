@@ -7,6 +7,7 @@ const { registerroute, loginroute, createauctionroute, userdataroute, currentauc
 const app = express();
 const port = 5000;
 app.use(cors());
+// app.use('/Images',express.static("./Images"));
 app.use(express.json());
 app.use('/api/login', loginroute)
 app.use('/api/register', registerroute)

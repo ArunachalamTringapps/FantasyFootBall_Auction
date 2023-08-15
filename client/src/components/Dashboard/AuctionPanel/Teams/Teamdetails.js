@@ -8,8 +8,8 @@ function Teamdetails({ playersTeamsEdit }) {
   const [teamName, setTeamName] = useState('');
   const [teamOwnerName, setTeamOwnerName] = useState('');
   const [teamOwnerEmail, setTeamOwnerEmail] = useState('');
-  const[auctionpoints,setauctionpoints]=useState('')
-  const navigate=useNavigate();
+  const [auctionpoints, setauctionpoints] = useState('')
+  const navigate = useNavigate();
   console.log("team", playersTeamsEdit);
   const email = localStorage.getItem("useremail")
   const auction_id = localStorage.getItem("AuctionId")
@@ -23,8 +23,8 @@ function Teamdetails({ playersTeamsEdit }) {
         console.error("Error fetching user data:", err);
       })
   }, [])
- 
-  const balance_amount=auctionpoints.points_per_team;
+
+  const balance_amount = auctionpoints.points_per_team;
   console.log("auction points l", balance_amount)
   const handleImageChange = (e) => {
     setTeamImage(e.target.files[0]);
@@ -37,9 +37,9 @@ function Teamdetails({ playersTeamsEdit }) {
     formData.append('team_name', teamName);
     formData.append('team_owner_name', teamOwnerName);
     formData.append('team_owner_email_id', teamOwnerEmail);
-    formData.append('auction_id',auction_id)
-    formData.append('email_id',email)
-    formData.append('balance_amount',balance_amount)
+    formData.append('auction_id', auction_id)
+    formData.append('email_id', email)
+    formData.append('balance_amount', balance_amount)
 
     try {
       const response = await axios.post('http://localhost:5000/api/teams/teamslist', formData, {
@@ -55,43 +55,42 @@ function Teamdetails({ playersTeamsEdit }) {
     }
     e.target.reset();
   };
-  const handleBack=()=>{
+  const handleBack = () => {
     navigate('/user/dashboard/auctionpanel')
   }
   return (
     <div className='team-container'>
       <div className='team-whole'>
-       
         <div className='team-title'>
-        Create a New Team
+          Create a New Team
         </div>
         <form onSubmit={handleSubmit} autoComplete='off'>
-        <div className='team-form'>
-          <div className='team-inputs'>
-            <label className='team-image-label'>Team Image:</label>
-            <div className='team-image-upload'>
-            <input type="file" onChange={handleImageChange} className='team-image-inputs' required/>
+          <div className='team-form'>
+            <div className='team-inputs'>
+              <label className='team-image-label'>Team Image:</label>
+              <div className='team-image-upload'>
+                <input type="file" onChange={handleImageChange} className='team-image-inputs' required />
+              </div>
+            </div>
+            <div className='team-inputs'>
+              <label>Team Name:</label>
+              <input type="text" value={teamName} onChange={(e) => setTeamName(e.target.value)} className='inputs' required />
+            </div>
+            <div className='team-inputs'>
+              <label>Team Owner Name:</label>
+              <input type="text" value={teamOwnerName} onChange={(e) => setTeamOwnerName(e.target.value)} className='inputs' required />
+            </div>
+            <div className='team-inputs'>
+              <label>Team Owner Email:</label>
+              <input type="email" value={teamOwnerEmail} onChange={(e) => setTeamOwnerEmail(e.target.value)} className='inputs' required />
+            </div>
+            <div className='team-created'>
+              <button type="submit">Create Team</button>
+              <button onClick={() => { handleBack() }}>Back</button>
             </div>
           </div>
-          <div className='team-inputs'>
-            <label>Team Name:</label>
-            <input type="text" value={teamName} onChange={(e) => setTeamName(e.target.value)} className='inputs' required/>
-          </div>
-          <div  className='team-inputs'>
-            <label>Team Owner Name:</label>
-            <input type="text" value={teamOwnerName} onChange={(e) => setTeamOwnerName(e.target.value)} className='inputs' required/>
-          </div>
-          <div  className='team-inputs'>
-            <label>Team Owner Email:</label>
-            <input type="email" value={teamOwnerEmail} onChange={(e) => setTeamOwnerEmail(e.target.value)} className='inputs' required/>
-          </div>
-          <div className='team-created'>
-          <button type="submit">Create Team</button>
-          <button onClick={()=>{handleBack()}}>Back</button>
-          </div>
-          </div>
         </form>
-      
+
       </div>
     </div>
   );
