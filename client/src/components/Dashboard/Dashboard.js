@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { React, useState, useEffect } from 'react'
+import { React, useState, useEffect, useRef } from 'react'
 import { useNavigate, Link, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
 import './Dashboard.css'
@@ -14,10 +14,13 @@ import UserEdit from './UserEdit'
 import Teamdetails from './AuctionPanel/Teams/Teamdetails'
 import Teamsedit from './AuctionPanel/Teams/Teamsedit'
 
+
+
 function Dashboard(email_id) {
     const email = localStorage.getItem("useremail")
     const [playersTeamsEdit, setplayersTeamsEdit] = useState(false);
-    const [bidingPanelView,setBidingPanelView]=useState(true);
+    // const [bidingPanelView,setBidingPanelView]=useState(true);
+    const bidingPanelView=useRef(false)
     console.log(email_id)
     const [changeComponents, setChangeComponent] = useState(1);
     const menuBarItems = [
@@ -89,7 +92,7 @@ function Dashboard(email_id) {
             </div>
             <div className='DashboardContainer'>
                 <Routes>
-                    <Route path='/' element={<MyAuction setplayersTeamsEdit={setplayersTeamsEdit} setBidingPanelView={setBidingPanelView} />}></Route>
+                    <Route path='/' element={<MyAuction setplayersTeamsEdit={setplayersTeamsEdit} bidingPanelView={bidingPanelView} />}></Route>
                     <Route path='/auctionpanel/*' element={<AuctionHome playersTeamsEdit={playersTeamsEdit} bidingPanelView={bidingPanelView} />} />
                     <Route path='/createauction' element={<CreateAuction />} />
                     <Route path='/history' element={<History setteamhistory={setteamhistory} />} ></Route>
