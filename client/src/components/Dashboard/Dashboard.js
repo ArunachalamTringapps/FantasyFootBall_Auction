@@ -20,6 +20,12 @@ function Dashboard(email_id) {
     const [bidingPanelView,setBidingPanelView]=useState(true);
     console.log(email_id)
     const [changeComponents, setChangeComponent] = useState(1);
+    const[teamsedit,setteamsedit]=useState('')
+    const[defaulteamname,setdefaultteamname]=useState('')
+    const[defaulteamownername,setdefaultteamownername]=useState('')
+    const[defaulteamowneremail,setdefaultteamowneremail]=useState('')
+
+
     const menuBarItems = [
         {
             index: 1,
@@ -90,14 +96,14 @@ function Dashboard(email_id) {
             <div className='DashboardContainer'>
                 <Routes>
                     <Route path='/' element={<MyAuction setplayersTeamsEdit={setplayersTeamsEdit} setBidingPanelView={setBidingPanelView} />}></Route>
-                    <Route path='/auctionpanel/*' element={<AuctionHome playersTeamsEdit={playersTeamsEdit} bidingPanelView={bidingPanelView} />} />
+                    <Route path='/auctionpanel/*' element={<AuctionHome playersTeamsEdit={playersTeamsEdit} bidingPanelView={bidingPanelView} setteamsedit={setteamsedit} setdefaultteamname={setdefaultteamname} setdefaultteamownername={setdefaultteamownername} setdefaultteamowneremail={setdefaultteamowneremail} defaulteamownername={defaulteamownername} defaulteamowneremail={defaulteamowneremail}/>} />
                     <Route path='/createauction' element={<CreateAuction />} />
                     <Route path='/history' element={<History setteamhistory={setteamhistory} />} ></Route>
                     <Route path='/auctiondetails' element={<HistoryDetails teamhistory={teamhistory} />} />
                     <Route path='/setting' element={<Setting />} />
                     <Route path='/useredit' element={<UserEdit />} />
-                    <Route path='/teamlist' element={<Teamdetails/>}/>
-                    <Route path='/teamsedit' element={<Teamsedit/>}/>
+                    <Route path='/teamlist' element={<Teamdetails />}/>
+                    <Route path='/teamsedit' element={<Teamsedit teamsedit={teamsedit} defaulteamname={defaulteamname} defaulteamownername={defaulteamownername} defaulteamowneremail={defaulteamowneremail}/>}/>
                 </Routes>
             </div>
         </div>

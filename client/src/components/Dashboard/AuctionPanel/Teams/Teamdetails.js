@@ -3,24 +3,25 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import "../Teams/Teamdetails.css"
 import { useNavigate } from 'react-router-dom';
-function Teamdetails({ playersTeamsEdit }) {
+import image from "../../../../Image/upload-image.jpg"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+function Teamdetails() {
   const [teamImage, setTeamImage] = useState(null);
   const [teamName, setTeamName] = useState('');
   const [teamOwnerName, setTeamOwnerName] = useState('');
   const [teamOwnerEmail, setTeamOwnerEmail] = useState('');
   const [auctionpoints, setauctionpoints] = useState('')
   const navigate = useNavigate();
-  console.log("team", playersTeamsEdit);
-  const email = localStorage.getItem("useremail")
-  const auction_id = localStorage.getItem("AuctionId")
+  const email = localStorage.getItem("useremail");
+  const auction_id = localStorage.getItem("AuctionId");
   useEffect(() => {
     axios.get(`http://localhost:5000/api/auctionpoints/pointsperteam/${auction_id}`)
       .then((response) => {
         setauctionpoints(response.data)
-        console.log("auction points", auctionpoints)
-      })
+     })
       .catch((err) => {
-        console.error("Error fetching user data:", err);
+        console.error("Error fetching auction data:", err);
       })
   }, [])
 
@@ -40,20 +41,23 @@ function Teamdetails({ playersTeamsEdit }) {
     formData.append('auction_id', auction_id)
     formData.append('email_id', email)
     formData.append('balance_amount', balance_amount)
-
+console.log("formdata",formData)
     try {
       const response = await axios.post('http://localhost:5000/api/teams/teamslist', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-
+      toast.success('Team created successfully');
       console.log(response.data.message);
-      navigate("/user/dashboard/teamlist")
+      setTeamImage(null)
+      e.target.reset();
+      navigate("/user/dashboard/auctionpanel")
+
     } catch (error) {
       console.error('Error submitting team:', error);
     }
-    e.target.reset();
+   
   };
   const handleBack = () => {
     navigate('/user/dashboard/auctionpanel')
@@ -69,20 +73,21 @@ function Teamdetails({ playersTeamsEdit }) {
             <div className='team-inputs'>
               <label className='team-image-label'>Team Image:</label>
               <div className='team-image-upload'>
-                <input type="file" onChange={handleImageChange} className='team-image-inputs' required />
+              {teamImage ? <img src={URL.createObjectURL(teamImage)} className='team-image-upload' /> :(<img src={image} className='team-image-upload' />)}
+                <input type="file" onChange={handleImageChange} className='team-image-inputs'  />
               </div>
             </div>
             <div className='team-inputs'>
               <label>Team Name:</label>
-              <input type="text" value={teamName} onChange={(e) => setTeamName(e.target.value)} className='inputs' required />
+              <input type="text"  onChange={(e) => setTeamName(e.target.value)} className='inputs' required />
             </div>
             <div className='team-inputs'>
               <label>Team Owner Name:</label>
-              <input type="text" value={teamOwnerName} onChange={(e) => setTeamOwnerName(e.target.value)} className='inputs' required />
+              <input type="text"  onChange={(e) => setTeamOwnerName(e.target.value)} className='inputs' required />
             </div>
             <div className='team-inputs'>
               <label>Team Owner Email:</label>
-              <input type="email" value={teamOwnerEmail} onChange={(e) => setTeamOwnerEmail(e.target.value)} className='inputs' required />
+              <input type="email"  onChange={(e) => setTeamOwnerEmail(e.target.value)} className='inputs' required />
             </div>
             <div className='team-created'>
               <button type="submit">Create Team</button>
@@ -92,6 +97,7 @@ function Teamdetails({ playersTeamsEdit }) {
         </form>
 
       </div>
+      <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false} />
     </div>
   );
 }
