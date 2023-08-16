@@ -28,8 +28,7 @@
 .DashboardMenuHeader div{
     border: 2px solid rgba(120, 118, 118, 0.731);
     border-radius: 50%;
-    background-image: url(../../Image/no-profile-img.gif);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 5vw;

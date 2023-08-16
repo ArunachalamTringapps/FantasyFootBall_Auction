@@ -1,16 +1,17 @@
 .Biting{
     /* border: 3px solid black; */
     padding: 20px;
-    width: 100%;
-    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    width: 63vw;
+    height: 75vh;
+    
 }
 .BitingPlayerImage{
-    border-left: 2px solid black;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    border-left: 2px solid rgba(120, 120, 120, 0.63);
+    border-top: 2px solid rgba(120, 120, 120, 0.63);
+    border-bottom: 2px solid rgba(120, 120, 120, 0.63);
     border-radius: 10px 0 0 10px;
     /* box-shadow: 0px 3px 5px rgb(0, 0, 0); */
     grid-column: 1/3;
@@ -31,9 +32,9 @@
 }
 
 .BitingPlayerDetails{
-    border-right: 2px solid rgb(0, 0, 0);
-    border-top: 2px solid rgb(0, 0, 0);
-    border-bottom: 2px solid black;
+    border-right: 2px solid rgba(120, 120, 120, 0.63);
+    border-top: 2px solid rgba(120, 120, 120, 0.63);
+    border-bottom: 2px solid rgba(120, 120, 120, 0.63);
     border-radius: 0 10px 10px 0;
     /* border-radius:  10px 0 0 10px; */
     /* border-left:1px solid rgba(185, 185, 185, 0.18); */
@@ -92,11 +93,22 @@
 
 
 .BitingControls{
-    /* border-top: 3px solid rgb(70, 70, 70); */
+    position: relative;
+    height: 27vh;
+    padding-top: 20px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;  
+    scrollbar-width: none;  /*firefox*/
+    -ms-overflow-style: none;  /*IE or Edge*/
     grid-column: 1/6;
     display: flex;
     flex-direction: column;
+    /* justify-content: ; */
 }
+.BitingControls::-webkit-scrollbar{     /* chrome,safari,opera */
+    display: none;
+}
+
 .BitingControls .minimumBitField{
     display: flex;
     justify-content: center;
@@ -106,7 +118,7 @@
     height: 5vh;
 }
 .BitingControls .minimumBitField input{
-    height: 60%;
+    height: 3.5vh;
     width: 20vw;
     border: none;
     box-shadow: 3px 3px 5px black;
@@ -129,21 +141,23 @@
 
 .BitingControls .displaysTeams{
     /* border: 3px solid black; */
-    overflow: scroll;
-    scroll-behavior: smooth;  
-    scrollbar-width: none;  /*firefox*/
-    -ms-overflow-style: none;  /*IE or Edge*/
+    /* overflow: scroll; */
+
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
     justify-content: space-evenly;
     align-items: center;
 }
-.BitingControls .displaysTeams::-webkit-scrollbar{   /*chrome, safari, opera*/
-    display: none;
-}
+/* .BitingControls .displaysTeams::-webkit-scrollbar{   chrome, safari, opera */
+    /* display: none; */
+/* } */
 
 .BitingControls .displaysTeams button{
+    /* flex-grow: 1; */
+    width: 10vw;
     box-shadow: 3px 3px 5px black;
     border-radius: 10px;
     background-color: rgba(107, 109, 108, 0.137);
@@ -156,4 +170,30 @@
 }
 .BitingControls .displaysTeams button:hover{
     cursor: pointer;
+}
+.BidingWarning{
+    /* background-color: rgba(203, 200, 200, 0.192); */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    width: 58vw;
+    height: 75vh;
+}
+.BidingWarningText{
+    
+    text-align: center;
+    word-break: break-word;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    line-height: 8vh;
+    font-size: 1.5em;
+    font-weight: 600;
+    /* border: 2px solid blue; */
+    width: 70%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
