@@ -2,6 +2,7 @@
 import { React, useState, useEffect, useRef } from 'react'
 import { useNavigate, Link, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
+import NoProfile from '../../Image/no-profile-img.gif'
 import './Dashboard.css'
 import MyAuction from './MyAuction/MyAuction'
 import CreateAuction from './CreateAuction/CreateAuction'
@@ -77,7 +78,7 @@ function Dashboard(email_id) {
         <div className='Dashboard'>
             <div className='DashboardMenu'>
                 <div className='DashboardMenuHeader'>
-                    <div></div>
+                    <div style={userDetails.user_image?{ backgroundImage:`url(http://localhost:5000/uploads/${userDetails.user_image})`}:{backgroundImage:`url(${NoProfile})`}}></div>
                     <h4>{userDetails.username}</h4>
                     <h5>{userDetails.email_id}</h5>
                     <button onClick={logout}>Log Out</button>
