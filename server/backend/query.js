@@ -1,4 +1,4 @@
-const insertRegisterDetails = 'INSERT INTO users (email_id, password_user,username) VALUES ($1, $2,$3)';
+const insertRegisterDetails = 'INSERT INTO users (email_id, password_user) VALUES ($1, $2)';
 const checkLoginDetails = 'SELECT * FROM users WHERE email_id = $1';
 const insert_auctionquery = `insert into auctions (auction_name,auction_date,points_per_team,players_per_team,email_id) VALUES ($1, $2,$3,$4,$5)`
 const userdataquery = `Select * from users where email_id=$1`
