@@ -9,7 +9,7 @@ function Registration() {
   const navigate = useNavigate()
   const [email_id, setEmail_id] = useState('')
   const [password_user, setPassword_user] = useState('')
-  const [username, setusername] = useState('');
+  // const [username, setusername] = useState('');
   const [retypePassword, setRetypePassword] = useState('');
 
   const handleRegister = async (e) => {
@@ -29,15 +29,15 @@ function Registration() {
       return
 
     }
-    if (!username) {
-      toast.error("Username is required")
-      return
-    }
-    const usernamePattern = /^[A-Za-z0-9]+$/;
-    if (!usernamePattern.test(username)) {
-      toast.error("Username should contain only letters and numbers")
-      return;
-    }
+    // if (!username) {
+    //   toast.error("Username is required")
+    //   return
+    // }
+    // const usernamePattern = /^[A-Za-z0-9]+$/;
+    // if (!usernamePattern.test(username)) {
+    //   toast.error("Username should contain only letters and numbers")
+    //   return;
+    // }
     const passwordPattern = /^(?=.*[A-Za-z0-9])[A-Za-z0-9]{6}$/;
     if (!passwordPattern.test(password_user)) {
       toast.error('Password should have 6 alphanumeric characters.');
@@ -63,7 +63,7 @@ function Registration() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email_id, password_user, username }),
+        body: JSON.stringify({ email_id, password_user }),
       });
 
       const data = await response.json();
@@ -94,12 +94,12 @@ function Registration() {
                 <span className='content-fields'>Email_id...</span>
               </label>
             </div>
-            <div className='input-fields'>
+            {/* <div className='input-fields'>
               <input type="text" className='all-input' onChange={(e) => setusername(e.target.value)}></input>
               <label className="label-fields">
                 <span className='content-fields'>Username...</span>
               </label>
-            </div>
+            </div> */}
             <div className='input-fields'>
               <input type="password" value={password_user} className='all-input' onChange={(e) => setPassword_user(e.target.value)}></input>
               <label className="label-fields">

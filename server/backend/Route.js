@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer=require('multer');
 const path = require('path');
-const { register, login, createAuction, userdata, currentauction, upcomingauction, historyauction, searchPlayers, teamauction, playerdetails, teamjoinsplayers, topfiveplayers, usereditprofile,teamButton,playeraddteam,teamdetails,auctionpoints ,teams,updateteambalanceSold,updateteambalanceUnsold} = require("./Controller")
+const { register, login, createAuction, userdata, currentauction, upcomingauction, historyauction, searchPlayers, teamauction, playerdetails, teamjoinsplayers, topfiveplayers, usereditprofile,teamButton,playeraddteam,teamdetails,auctionpoints ,teams,updateteambalanceSold,updateteambalanceUnsold,teamseditsettings,teamsdelete} = require("./Controller")
 const registerroute = router.post('/', register);
 const loginroute = router.post('/user', login);
 const createauctionroute = router.post("/createauction", createAuction)
@@ -23,8 +23,9 @@ const updateteambalanceUnsoldRoute=router.put("/addamounttoteam",updateteambalan
 const storage = multer.diskStorage({
     destination: './uploads/', 
     filename: (req, file, cb) => {
-      cb(null, file.fieldname + path.extname(file.originalname));
+      cb(null, file.fieldname + '_' + Date.now() +path.extname(file.originalname));
     },
+    
   }); 
 const upload = multer({ storage });
 const teamdetailsroute=router.post("/teamslist",upload.single('team_image'),teamdetails)
@@ -40,6 +41,8 @@ const teamdetailsroute=router.post("/teamslist",upload.single('team_image'),team
 const usereditroute = router.put("/editdetails/:email_id",upload.single('Image'), usereditprofile)
 const auctionpointsroute=router.get("/pointsperteam/:auction_id",auctionpoints)
 const teamroute=router.get("/view/:auction_id/:email_id",teams)
+const teamseditroute=router.put("/settings/:team_id",upload.single('team_image'),teamseditsettings)
+const teamsdeleteroute=router.delete('/settings/:team_id',teamsdelete)
 module.exports = {
     registerroute,
     loginroute,
@@ -60,5 +63,7 @@ module.exports = {
     auctionpointsroute,
     teamroute,
     updateteambalanceSoldRoute,
-    updateteambalanceUnsoldRoute
+    updateteambalanceUnsoldRoute,
+    teamseditroute,
+    teamsdeleteroute
 }

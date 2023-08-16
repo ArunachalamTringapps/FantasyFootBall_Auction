@@ -3,12 +3,12 @@ const multer = require('multer');
 const { insertRegisterDetails, checkLoginDetails, insert_auctionquery, userdataquery, currentauctionquery, upcomingauctionquery, historyauctionquery, teamauctionquery, searchPlayersquery, playerdetailsquery, teamjoinsplayersquery,
      topfiveplayersquery, userExistsQuery, updateuserQuery,teamButtonQuery,insertTeamQuery } = require("./query")
 const register = async (req, res) => {
-    const { email_id, password_user, username } = req.body;
+    const { email_id, password_user} = req.body;
 
     try {
         await pool.query(
             insertRegisterDetails,
-            [email_id, password_user, username]
+            [email_id, password_user]
         );
         res.status(201).json({ message: 'User registered successfully!' });
     } catch (err) {
@@ -256,19 +256,6 @@ const playeraddteam= async (req,res)=>{
         res.status(500).json({error: 'error occured while adding players to teams'})
     }
 }
-
-const teamdetails= async (req, res)=>{
-    const teamImage = req.file.filename;
-    const { team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount } = req.body;
-  try {
-    
-    await pool.query(insertTeamQuery, [teamImage, team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount]);
-    res.json({ message: 'Team created successfully' });
-  } catch (error) {
-    console.error('Error creating team:', error);
-    res.status(500).json({ error: 'Error creating team' });
-  }
-} 
 const auctionpoints=async(req,res)=>{
     const auction_id=req.params.auction_id;
     try{
@@ -284,6 +271,21 @@ catch (error) {
     res.status(500).json({ error: 'Error retrieving auction data' });
 }
 }
+
+const teamdetails= async (req, res)=>{
+    const teamImage = req.file.filename;
+    const { team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount } = req.body;
+    console.log("Variables:", team_name, team_owner_name, team_owner_email_id, auction_id, email_id, balance_amount);
+  try {
+    
+    await pool.query(insertTeamQuery, [teamImage, team_name, team_owner_name, team_owner_email_id,auction_id,email_id,balance_amount]);
+    res.json({ message: 'Team created successfully' });
+  } catch (error) {
+    console.error('Error creating team:', error);
+    res.status(500).json({ error: 'Error creating team' });
+  }
+} 
+
 const teams=async(req,res)=>{
     const auction_id=req.params.auction_id;
     const email_id=req.params.email_id;
@@ -324,7 +326,40 @@ const updateteambalanceUnsold=async(req,res)=>{
         res.status(500).json({ error: 'Error updating team' });
       }
 }
-
+const teamseditsettings=async(req,res)=>{
+    const teamId=req.params.team_id;
+    const { newteamname,newteamownername,newteamemailid} = req.body;
+    const team_image=req.file.filename;
+    try {
+        const teamexistsquery=`select * from teams where team_id=$1`
+        const teamExistsResult = await pool.query(teamexistsquery, [teamId]);
+        if (teamExistsResult.rows.length === 0) {
+            return res.status(404).json({ error: 'Team not found for editing' });
+        }
+        const updateTeamQuery = 'update teams set  team_image = $1,team_name=$2,team_owner_name=$3,team_owner_email_id=$4 where team_id=$5';
+        await pool.query(updateTeamQuery, [team_image, newteamname,newteamownername,newteamemailid,teamId]);
+        res.json({ message: 'Team edit updated successfully' });
+    } catch (error) {
+        console.error('Error updating Team settings:', error);
+        res.status(500).json({ error: 'Error updating Team settings' });
+    }
+}
+const teamsdelete=async(req,res)=>{
+    const teamId=req.params.team_id;
+    try {
+        const teamexistsdeletequery=`select * from teams where team_id=$1`
+        const teamResult = await pool.query(teamexistsdeletequery, [teamId]);
+        if (teamResult.rows.length === 0) {
+            return res.status(404).json({ error: 'Team not found for deleting' });
+        }
+        const DeleteTeamQuery = 'delete from teams where team_id=$1';
+        await pool.query(DeleteTeamQuery, [teamId]);
+        res.json({ message: 'Team deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting team settings:', error);
+        res.status(500).json({ error: 'Error deleting team settings' });
+    }
+}
 module.exports = {
     register,
     login,
@@ -345,6 +380,9 @@ module.exports = {
     auctionpoints,
     teams,
     updateteambalanceSold,
-    updateteambalanceUnsold
+    updateteambalanceUnsold,
+    teamdetails,
+    teamseditsettings,
+    teamsdelete
 
 }

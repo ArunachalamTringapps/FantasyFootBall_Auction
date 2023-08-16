@@ -7,7 +7,7 @@ import Biting from './Biting/Biting'
 import Players from './Players'
 import Teams from './Teams/Teams'
 
-function AuctionHome({ playersTeamsEdit,bidingPanelView }) {
+function AuctionHome({ playersTeamsEdit,bidingPanelView,setteamsedit,setdefaultteamname,setdefaultteamownername,setdefaultteamowneremail}) {
   const [searchInput, setSearchInput] = useState('');
   const auctionSwitchComponent = [
     {
@@ -26,7 +26,8 @@ function AuctionHome({ playersTeamsEdit,bidingPanelView }) {
       icons: <LiaUserPlusSolid />
     }
   ]
-  const switchingpanel = [<Biting searchinput={searchInput} bidingPanelView={bidingPanelView} />, <Teams playersTeamsEdit={playersTeamsEdit} />, <Players playersTeamsEdit={playersTeamsEdit} />]
+  const switchingpanel = [<Biting searchinput={searchInput} bidingPanelView={bidingPanelView} />, <Teams playersTeamsEdit={playersTeamsEdit} setteamsedit={setteamsedit} setdefaultteamname={setdefaultteamname}   setdefaultteamownername={setdefaultteamownername} setdefaultteamowneremail={setdefaultteamowneremail}
+  />, <Players playersTeamsEdit={playersTeamsEdit} />]
   const [colorMenu, setColorMenu] = useState(0);
   const [switchpanelcount, setSwitchpanlecount] = useState(0);
   return (
