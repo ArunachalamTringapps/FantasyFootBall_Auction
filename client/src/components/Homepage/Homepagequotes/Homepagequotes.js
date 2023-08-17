@@ -11,7 +11,7 @@ function Homepagequotes() {
       <h1><img src={imgTwo} alt="image2" />WITHOUT</h1>
       <h1>GOALS</h1>
     </div>
-  )
+  ) 
 }
 
 export default Homepagequotes

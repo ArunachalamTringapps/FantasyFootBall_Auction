@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './HomepageFooter.css'
 import { FaFacebook, FaTelegram, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa';
 function HomepageFooter() {
   return (
     <div className='HeaderFooter'>
       <div className='box-one'>
-        <div className='box-one-container'>
+        {/* <div className='box-one-container'> */}
           <h1>LET'S TALK!</h1>
           <form>
             <input className='Fullname' type='text' name='fullname' placeholder='Full name...' required />
@@ -17,7 +18,7 @@ function HomepageFooter() {
               <button type='submit'>Submit</button>
             </div>
           </form>
-        </div>
+        {/* </div> */}
       </div>
       <div className='box-two'>
         <div className='box-two-containerone'>
@@ -30,14 +31,15 @@ function HomepageFooter() {
         </div>
         <div className='box-two-containerthree'>
           <div className='icons-one'>
-            <FaFacebook className='Facebook-icon' />
-            <FaTelegram className='Telegram-icon' />
-            <FaYoutube className='Youtube-icon' />
+            <Link  to='https://stackoverflow.com/questions/48924672/can-i-use-href-tag-in-reactjs'><FaFacebook /></Link>
+            <Link   to='https://stackoverflow.com/questions/48924672/can-i-use-href-tag-in-reactjs'><FaTelegram /></Link>
+            <Link  to='https://stackoverflow.com/questions/48924672/can-i-use-href-tag-in-reactjs'><FaYoutube /></Link>
+
           </div>
           <div className='icons-two'>
-            <div></div>
-            <FaInstagram className='Instagram-icon' />
-            <FaTiktok className='Tiktok-icon' />
+            {/* <div></div> */}
+            <Link  to='https://stackoverflow.com/questions/48924672/can-i-use-href-tag-in-reactjs'><FaInstagram /></Link>
+            <Link  to='https://stackoverflow.com/questions/48924672/can-i-use-href-tag-in-reactjs'><FaTiktok /></Link>
           </div>
         </div>
       </div>
