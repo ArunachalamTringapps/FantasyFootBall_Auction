@@ -42,7 +42,7 @@ function CreateAuction() {
     axios.post('http://localhost:5000/api/createauction', { auction_name, auction_date, points_per_team, players_per_team, email_id })
       .then((auctionData) => {
         console.log(auctionData);
-        toast.success('Auction Created')
+        // toast.success('Auction Created')
       })
       .catch((err) => {
         console.error('Error:', err);
@@ -75,7 +75,7 @@ function CreateAuction() {
         </div>
         <button className='bt'>Submit</button>
       </form>
-      {/* <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false} /> */}
+      <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false} />
     </div>
   )
 }

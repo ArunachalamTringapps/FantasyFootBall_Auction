@@ -3,9 +3,13 @@ import React, { useEffect, useState, useRef } from 'react'
 import './Biting.css'
 import SoldImage from '../../../../Image/soldout-removebg-preview.png'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function Biting({ searchinput,bidingPanelView }) {
-  console.log("playerteamedit",bidingPanelView);
+  console.log("Bitingcomponent:",bidingPanelView);
   console.log(new Date());
   const email = localStorage.getItem("useremail")
   const auction_id = localStorage.getItem("AuctionId")
@@ -85,13 +89,16 @@ function Biting({ searchinput,bidingPanelView }) {
       setSoldTeamBalanceAmount(val.balance_amount)
       setPlayerBititedAmount(playerBititedAmount + playersView.bit_increase_by)
     }
-
+    else{
+      toast.error("Insufficient Balance")
+    }
   }
 
   return (
     <div className='Biting'>
       {
-        (bidingPanelView && teamButtons.length>=4)?(<><div className='BitingPlayerImage'>
+        // bidingPanelView.current && 
+        ( teamButtons.length>=4)?(<><div className='BitingPlayerImage'>
           <div className='image'></div>
         </div><div className='BitingPlayerDetails'>
             <div><label>Name</label><h5>{playersView.player_name}</h5></div>
@@ -119,7 +126,7 @@ function Biting({ searchinput,bidingPanelView }) {
             {playersView.sold_or_unsold === 'sold' ? (
               <button onClick={() => soldPlayersToTeams(null, 'unsold', 0)}>unsold</button>
             ) : (
-              <button onClick={() => { soldto !== null ? (soldPlayersToTeams(soldto, 'sold', playerBititedAmount)) : (console.log('not able to sold')); } }>sold</button>
+              <button onClick={() => { soldto !== null ? (soldPlayersToTeams(soldto, 'sold', playerBititedAmount)) : (toast.error("Team is not selected to sold the player")); } }>sold</button>
             )}
 
           </div><div className='BitingControls'>
@@ -131,12 +138,14 @@ function Biting({ searchinput,bidingPanelView }) {
               })}
 
             </div>
-          </div></>):(<div>Biding start on Current Date and Need Minimum Four Teams to Start the Biding</div>)
+          </div></>):(<div className='BidingWarning'><div className='BidingWarningText'>
+            Biding start on Current Date and Need Minimum Four Teams to Start the Biding</div></div>)
           
         
 
 
       }
+      <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false} />
     </div>
   )
 }

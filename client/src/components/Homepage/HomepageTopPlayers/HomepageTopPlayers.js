@@ -31,11 +31,10 @@ function HomepageTopPlayers() {
   ]
   return (
     <div className='HomepageTopPlayers'>
-      <div className='temp'>
         {
           image.map((val, index) => {
             return (<div key={index} className='HomepageTopPlayersContainer'>
-              <div style={{ backgroundImage: `url(${val.img})`, backgroundPosition: 'center top', backgroundSize: 'cover' }} className='HomepageTopPlayersItems'>
+              <div style={{ backgroundImage: `url(${val.img})`, backgroundPosition: 'center top', backgroundSize: '100% 100%' }} className='HomepageTopPlayersItems'>
               </div>
               <div className='HomepageTopPlayersItemsText'>
                 <h1 className='name'>{val.name}
@@ -50,7 +49,6 @@ function HomepageTopPlayers() {
           })
         }
 
-      </div>
     </div>
   )
 }

@@ -2,24 +2,21 @@
     width: 90vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.temp{
-    width: 90vw;
-    height: 75%;
-    display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    row-gap: 10px;
+    column-gap: 30px;
 }
+
 .HomepageTopPlayersContainer{
     overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 25%;
-    height: 75%;
+    width: 250px;
+    height: 50vh;
 }
 
 .HomepageTopPlayersItems{
@@ -50,6 +47,7 @@
 }
 
 .HomepageTopPlayersItemsText h1{
+    font-size: 2vw;
     letter-spacing:2px;
     flex-grow: 0.5;
     font-weight: 900;
@@ -62,7 +60,7 @@
 }
 .HomepageTopPlayersItemsText  button{
     padding: 7px;
-    font-size: 0.4em;
+    font-size: 1.3vw;
     font-weight: 900;
     outline: none;
     color: #000000;
@@ -74,11 +72,61 @@
 
 .HomepageTopPlayersItemsText  button:hover{
     cursor: pointer;
-    font-size: 0.5em;
+    font-size: 1.5vw;
     background-color: rgba(0, 0, 0, 0.306);
     color: rgb(240, 248, 255);
 }
 .HomepageTopPlayersItemsText div h1{
-    font-size: 2rem;
+    font-size: 1.5vw;
     flex-grow: 0.5;
+}
+@media(max-width:1000px){
+    .HomepageTopPlayersItemsText h1{
+        font-size: 3vw;
+        font-weight: 600;
+    }
+    .HomepageTopPlayersItemsText  button{
+        font-size: 1.6vw;
+    }
+    .HomepageTopPlayersItemsText div h1{
+        font-size: 2vw;
+    }
+
+}
+
+@media(max-width:600px){
+    .HomepageTopPlayers{
+        margin-top: 290px;
+        /* margin-bottom: 50px; */
+        flex-direction: column;
+        height: 200vh;
+    } 
+    .HomepageTopPlayersContainer{
+        width: 50vw;
+    }
+    .HomepageTopPlayersItemsText h1{
+        font-size: 5vw;
+        font-weight: 900;
+    }
+    .HomepageTopPlayersItemsText  button{
+        font-size: 3vw;
+    }
+    .HomepageTopPlayersItemsText div h1{
+        font-size: 4vw;
+    }
+}
+@media(max-width:400px){
+    .HomepageTopPlayersContainer{
+        width: 70vw;
+    }
+    .HomepageTopPlayersItemsText h1{
+        font-size: 6vw;
+        font-weight: 900;
+    }
+    .HomepageTopPlayersItemsText  button{
+        font-size: 3.5vw;
+    }
+    .HomepageTopPlayersItemsText div h1{
+        font-size: 5vw;
+    }
 }

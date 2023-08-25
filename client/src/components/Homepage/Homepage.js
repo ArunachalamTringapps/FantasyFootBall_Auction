@@ -8,7 +8,7 @@ import HomepageFooter from './HomepageFooter/HomepageFooter';
 import HomepageHeader from './HomepageHeader/HomepageHeader';
 import HomepageTopPlayers from './HomepageTopPlayers/HomepageTopPlayers';
 import Homepagequotes from './Homepagequotes/Homepagequotes';
-import HompagePlayersThoughts from './HomepagePlayersThoughts/HompagePlayersThoughts';
+import HompagePlayersThoughts from './HomepagePlayersReview/HompagePlayersReview';
 
 
 
