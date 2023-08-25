@@ -1,5 +1,5 @@
 import React from 'react'
-import './HomepagePlayersThoughts.css'
+import './HomepagePlayersReview.css'
 import imageOne from '../../../Image/humanimg1.jpg'
 import imageTwo from '../../../Image/humanimg2.jpg'
 import imageThree from '../../../Image/humanimg3.avif'

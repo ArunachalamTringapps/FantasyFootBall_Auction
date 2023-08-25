@@ -1,68 +1,7 @@
-/* .settings-container{
-    display: flex;
-    width:70vw;
-    height: 90vh;
-    justify-content: center;
-}
-.settings-details-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap:20px;
-}
-.settings-title{
-    font-size: 30px;
-    font-weight: bold;
-    word-spacing: 2px;
-}
-.settings-heading{
-    width:650px;
-    height:60px;
-    background-color: rgba(255, 255, 255, 0.804);
-    border-left: 4px solid rgb(129, 182, 83);
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
-    font-weight: bold;
-    font-size:1.1rem;
-   display: flex;
-   align-items: center;
-}
-.settings-heading div{
-    width:30%;
-    text-align: center;
-}
-.settings-show-details{
-    width:300px;
-    height:350px;
-    background-color:  rgba(255, 255, 255, 0.804);
-    border-left: 4px solid rgb(129, 182, 83);
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
-    font-size:1.1rem;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content:center ;
-   gap:20px;
-   border-radius: 10px;
-   
-}
-.settings-show-details div{
-    width:33%;
-    text-align: center;
-  
-}
-.edit{
-    border:none;
-    background-color:  rgba(255, 255, 255, 0.804);
-    font-size: 1.1rem;
-
-}
-.edit:hover{
-    cursor: pointer;
-    color: rgba(230, 63, 63, 0.562); 
-
-}*/
 .setting{
+    /* border: 2px solid blue; */
     display: flex;
+    /* letter-spacing: 1px; */
     /* width:70vw;
     height: 90vh; */
     height:100%;
@@ -74,25 +13,15 @@
     /* border:1px solid blue; */
 }
 .Header{
+    font-size: 3vw;
     position:absolute;
     top:0;
-}
-.edit-button{
-    position:absolute;
-    height:4vh;
-    border:none;
-    background-color:rgba(210, 205, 205, 0.479);
-    border-radius:10px;
-    width:15vh;
-    top:2%;
-    right:3%;
-}
-.edit-button:hover{
-    cursor:pointer;
+    color: rgba(53, 52, 52, 0.573);
 }
 .settingcontainer{
+    /* border: 2px solid black !important; */
     height:75%;
-    width:40%; 
+    width:27vw; 
     border: 2px solid rgba(172, 168, 168, 0.477);
     box-shadow:7px 5px 7px 5px rgba(131, 114, 114, 0.189),-4px -4px 7px 5px  rgba(131, 114, 114, 0.189);
     position:relative;
@@ -101,16 +30,21 @@
     justify-content:flex-start;
     flex-direction: column;
 }
-/* .settingcontainer .image{
-    width:100%;
-    height:40%;
-    background-image: url('https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png');
-    border:1px solid blue;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    
-} */
+.edit-button{
+    position:absolute;
+    height:4vh;
+    border:none;
+    background-color:rgba(210, 205, 205, 0.479);
+    border-radius:10px;
+    letter-spacing: 1px;
+    width:5vw;
+    top:2%;
+    right:3%;
+}
+.edit-button:hover{
+    cursor:pointer;
+}
+
 .imagecontainer{
     width:100%;
     height:43%;
@@ -123,8 +57,8 @@
     /* border:1px solid blue; */
 }
 .image{
-    height:93%;
-    width:40%;
+    height:90%;
+    width:12vw;
     border-radius:100%;
 }
 .imagefield{
@@ -133,14 +67,20 @@
 .settingcontainer .userdetails{
     height:13%;
     padding-top: 25px;
-    padding-left:24%;
+    padding-left:15%;
+    font-size: 1.3vw;
+    letter-spacing: 0.5px;
     /* border:1px solid blue; */
 }
 .label{
-    font-size:1.1rem;
+    font-weight: 600;
+    color: rgba(53, 52, 52, 0.573);
+    /* border:1px solid blue; */
+    /* font-size:1.1rem; */
 }
 .Details{
     padding-left:3%;
+    /* font-size: 1.2vw; */
 }
 .dot{
     font-family: 'Courier New', Courier, monospace; 
@@ -158,3 +98,141 @@
     padding-left:15%;
 }
 
+@media(max-width:1200px){
+    .image{
+        height:85%;
+        width:15vw;
+    }
+    .settingcontainer{  
+        width: 35vw;
+    }
+    .settingcontainer .userdetails{
+        font-size: 1.7vw;
+    }
+}
+@media(max-width:1000px){
+    .settingcontainer .userdetails{
+        font-size: 2vw;
+    }
+}
+
+@media(max-width:900px){
+    .Header{
+        font-size: 4vw;
+    }
+    .edit-button{
+        width: 6vw;
+    }
+    .settingcontainer{  
+        width: 45vw;
+    }
+    .image{
+        height:80%;
+        width:20vw;
+    }
+    .settingcontainer .userdetails{
+        font-size: 2.5vw;
+    }
+}
+
+@media(max-width:800px){
+    .Header{
+        font-size: 5vw;
+    }
+    .edit-button{
+        width: 7vw;
+    }
+    .settingcontainer{  
+        width: 50vw;
+    }
+    .image{
+        width:23vw;
+    }
+    .settingcontainer .userdetails{
+        font-size: 3vw;
+    }
+}
+
+@media(max-width:650px){
+    .Header{
+        font-size: 6vw;
+    }
+    .edit-button{
+        width: 8vw;
+    }
+    .settingcontainer{  
+        width: 60vw;
+    }
+    .image{
+        width:27vw;
+    }
+    .settingcontainer .userdetails{
+        font-size: 3.5vw;
+    }
+}
+
+@media(max-width:550px){
+    .Header{
+        font-size: 7vw;
+    }
+    .edit-button{
+        width: 9vw;
+    }
+    .settingcontainer{  
+        width: 65vw;
+    }
+    .image{
+        width:34vw;
+    }
+    .settingcontainer .userdetails{
+        font-size: 4vw;
+    }
+}
+
+@media(max-width:450px){
+    .Header{
+        font-size: 8vw;
+    }
+    .edit-button{
+        width: 10vw;
+    }
+    .settingcontainer{  
+        width: 70vw;
+    }
+    .image{
+        width:39vw;
+    }
+    .settingcontainer .userdetails{
+        font-size: 4.5vw;
+    }
+}
+
+@media(max-width:390px){
+    .Header{
+        font-size: 9vw;
+    }
+    .edit-button{
+        width: 11vw;
+    }
+    .settingcontainer{  
+        width: 75vw;
+    }
+    .image{
+        width:42vw;
+    }
+    .settingcontainer .userdetails{
+        font-size: 5vw;
+    }
+}
+
+@media(max-height:400px){
+    .Header{
+        font-size: 5vw ;
+    }
+    .edit-button{
+        width: 12vw;
+    }
+    .settingcontainer{  
+        height:85%;
+    }
+}

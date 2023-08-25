@@ -56,6 +56,25 @@ function HistoryDetails(props) {
             <div>Owner</div>
             <div>No_of_players</div>
           </div>
+          
+          <div className='team-heading'>
+            <div>Image</div>
+            <div> Name</div>
+            <div>Owner</div>
+            <div>No_of_players</div>
+          </div>
+          <div className='team-heading'>
+            <div>Image</div>
+            <div> Name</div>
+            <div>Owner</div>
+            <div>No_of_players</div>
+          </div>
+          <div className='team-heading'>
+            <div>Image</div>
+            <div> Name</div>
+            <div>Owner</div>
+            <div>No_of_players</div>
+          </div>
           {
             teamdetails.map((val, index) => {
               return (

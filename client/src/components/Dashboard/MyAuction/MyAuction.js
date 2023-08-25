@@ -3,13 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import './MyAuction.css'
 import axios from 'axios'
 
-function MyAuction({ setplayersTeamsEdit,setBidingPanelView }) {
+function MyAuction({ setplayersTeamsEdit,bidingPanelView }) {
+  const [currentShowingAuction,setCurrentShowingAuction]=useState(true);
   const [currentselectauction, setCurrentSelectauction] = useState([]);
   const [topTenPlayers, setTopTenPlayers] = useState([])
   const email = localStorage.getItem("useremail")
   const currentAuctionFun = () => {
     setplayersTeamsEdit(false);
-    setBidingPanelView(true);
+    setCurrentShowingAuction(true);
+    // setBidingPanelView(true);
     axios.get(`http://localhost:5000/api/auction/currentauction/${email}`)
       .then((response) => {
         setCurrentSelectauction(response.data)
@@ -21,7 +23,8 @@ function MyAuction({ setplayersTeamsEdit,setBidingPanelView }) {
   }
   const upcomingAuctionFun = () => {
     setplayersTeamsEdit(true);
-    setBidingPanelView(false);
+    setCurrentShowingAuction(false);
+    // setBidingPanelView(false);
     axios.get(`http://localhost:5000/api/auction/upcomingauction/${email}`)
       .then((response) => {
         setCurrentSelectauction(response.data)
@@ -46,6 +49,13 @@ function MyAuction({ setplayersTeamsEdit,setBidingPanelView }) {
     naviagte('/user/dashboard/auctionpanel');
 
   }
+  useEffect(()=>{
+    if(currentselectauction.auction_date===new Date())
+    bidingPanelView.current=true;
+    else
+    bidingPanelView.current=false;
+  },[setCurrentSelectauction])
+
 // console.log(currentselectauction);
   return (
     <div className='MYAuction'>
@@ -85,7 +95,7 @@ function MyAuction({ setplayersTeamsEdit,setBidingPanelView }) {
             <div>Players_Per_Teams</div>
           </div>
           {
-          currentselectauction===null?(<div className='showauctionContainerNoAuction'>No Today Auction</div>):(
+          currentselectauction===null?(<div className='showauctionContainerNoAuction'>{currentShowingAuction?'No Today Auction':'No UpComingAuction'}</div>):(
           
           
           currentselectauction.map((val, index) => {

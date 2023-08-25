@@ -2,24 +2,31 @@
     width: 73vw;
     height: 90vh;
     display: grid;
-    grid-template-columns: 4fr 2fr;
+    /* grid-template-columns: 4fr 2fr; */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr 1fr));
     grid-template-rows: 2fr 3fr;
 }
 .MyAuctionImage{
+    /* border: 2px solid blue; */
+    width: 50vw;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .MyAuctionImage .image{
+    /* display: none; */
     position: absolute;
     background-image: url(../../../Image/messidashboardwithoutbackground-removebg-preview.png);
-    background-size: contain;
+    background-size: 100% 100%;
+    background-position: center center;
     background-repeat: no-repeat;
     width: 25%;
+    /* border: 2px solid black; */
     height: 100%;
 }
 .MyAuctionImage .MyAuctionImageText{
+    padding: 20px;
     background-color:rgba(92, 165, 92, 0.845);
     border-radius: 10px;
     font-size: 1.5rem;
@@ -28,33 +35,45 @@
     height: 20vh;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .MyAuctionImageText .name{
-    flex-grow: 3;
+    /* border: 2px solid blue; */
+    font-weight: 800;
+    font-size: 1.5vw;
+    /* flex-grow: 1; */
     text-align: center;
 }
 
 .MyAuctionImageText .bitpoints{
+    /* border: 2px solid blue; */
+    font-weight: 800;
+    font-size: 1.5vw;
     text-align: center;
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    
 }
 
 .MyAuctionPlayers{
+    width: 22vw;
+    /* border: 2px solid green; */
     position: relative;
     grid-row: 1/3;
     grid-column: 2/3;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    /* padding: 10px; */
 }
 .MyAuctionPlayers h5{
+    /* border: 2px solid black; */
     height: 8vh;
     display: flex;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 1.4vw;
     letter-spacing: 1px;
 }
 .MyAuctionPlayers .playerlist{
+    /* border: 2px solid black; */
     height: 100%;
     padding: 10px;
     display: flex;
@@ -62,7 +81,8 @@
     gap: 20px;;
 }
 
-.playersitemscontainer{
+.playersitemscontainer{    
+    /* border: 2px solid rgb(255, 6, 6); */
     width: 100%;
     padding: 10px;
     height: 9vh;
@@ -72,8 +92,10 @@
     border-radius: 0 10px 10px 0;
     border-left: 4px solid green;
     box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.331);
-    font-size: 0.9rem;
+    font-size: 1.1vw;
+    gap: 15px;
     letter-spacing: 1px;
+    word-wrap: none;
     font-weight: 800;
     align-items: center;
 }
@@ -81,9 +103,9 @@
     background-image: url(../../../Image/no-profile-img.gif);
     background-position:   center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100% ;
     border: 2px solid rgb(146, 146, 146);
-    width: 18%;
+    width: 50px !important;
     height: 100%;
     border-radius: 50% 50%;
 }
@@ -91,6 +113,8 @@
 
 
 .MyAuctionDetails{
+    /* border: 2px solid green; */
+    width: 50vw;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -99,6 +123,7 @@
 
 
 .MyAuctionDetails .chooseauction{
+    /* border: 2px solid black; */
     background-color: rgba(219, 217, 217, 0.418);
     display: flex;
     gap: 5px;
@@ -109,7 +134,7 @@
     /* outline: none; */
     border-right: 2px solid rgba(0, 0, 0, 0.119);
     border-radius: 0 10px 10px 0;
-    font-size: 1em;
+    font-size: 1.2vw;
     background-color: rgba(89, 89, 89, 0.041);
 }
 .MyAuctionDetails .chooseauction button:hover{
@@ -118,6 +143,7 @@
 }
 
 .MyAuctionDetails .showauctionContainer{
+    /* border: 2px solid black; */
     overflow-y: scroll;
     -ms-overflow-style: none;  /*IE or Edge*/
     scrollbar-width: none; /*firefox*/
@@ -141,7 +167,7 @@
 .showauctionContainerheader{
     display: flex;
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 1.2vw;
     height: 8vh;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.804);
@@ -160,4 +186,111 @@
 .routeToAuction:hover{
     cursor: pointer; 
     color: rgb(1, 101, 1);
+}
+@media(max-width:1100px){
+    .playersitemscontainer{    
+        font-size: 1.3vw;
+    }
+    .playersitemscontainer .image{
+        width: 30%;
+    }
+}
+
+@media(max-width:1000px){
+    .MyAuctionPlayers h5{
+        font-size: 1.8vw;
+    }
+    .playersitemscontainer{    
+        font-size: 1.3vw;
+    }
+    .playersitemscontainer .image{
+        width: 40%;
+    }
+}
+
+@media (max-width:900px){
+    .MyAuctionImage{
+        width: 90vw;
+    }
+    .MyAuctionImageText .name{
+        font-size: 2.7vw;
+    }
+
+    .MyAuctionImageText .bitpoints{
+        font-size: 2.2vw;
+    }
+    .playersitemscontainer{    
+        font-size: 1.2vw;
+    }
+    .playersitemscontainer .image{
+        width: 50%;
+    }.MyAuctionPlayers{
+        display: none;
+    }
+    
+    .MyAuctionDetails{
+        width: 90vw;
+    }
+    .MyAuctionDetails .chooseauction button{
+        font-size: 1.8vw;
+    }
+    .showauctionContainerheader{
+        font-size: 1.7vw;
+    }
+
+}
+@media(max-width:800px){
+    .MyAuctionImage{
+        width: 90vw;
+    }
+    
+    .MyAuctionDetails{
+        width: 90vw;
+    }
+    .MyAuctionDetails .chooseauction button{
+        font-size: 2vw;
+    }
+    .showauctionContainerheader{
+        font-size: 2vw;
+    }
+}
+@media (max-width:600px){
+    .MyAuctionDetails .chooseauction button{
+        font-size: 2.4vw;
+    }
+}
+
+@media (max-width:440px) {
+    .MyAuctionImage .image{
+        width: 40%;
+    }
+    .MyAuctionDetails .chooseauction button{
+        font-size: 2.9vw;
+    }
+    .MyAuctionDetails .showauctionContainer{
+        padding: 7px;
+    }
+    .showauctionContainerheader{
+        font-size: 2.2vw;
+        font-weight: 900;
+    }
+}
+@media(max-width: 420px){
+    .MyAuctionImage .MyAuctionImageText{
+        padding: 5px;
+    }
+    .MyAuctionImageText .name{
+        font-size: 3vw;
+    }
+
+    .MyAuctionImageText .bitpoints{
+        font-size: 2.6vw;
+    }
+}
+
+
+@media(min-height:600px){
+    .MyAuctionDetails .showauctionContainer{
+        height: 50vh;
+    }
 }

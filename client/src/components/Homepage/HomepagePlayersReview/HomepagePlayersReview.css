@@ -1,0 +1,110 @@
+.HomepagePlayersThoughts{
+    /* border: 2px solid black; */
+    padding: 10px;
+    width: 98vw;
+    height: 140vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    position: relative;
+}
+.HomepagePlayersThoughts .straightline{
+    position: absolute;
+    background-color: #59504c71;
+    width: 98vw;
+    height: 30vh;
+}
+.HomepagePlayersThoughts .boxContainer {
+    /* border: 2px solid black; */
+    width: 98vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 20px;
+    /* padding: 10px; */
+}
+
+.HomepagePlayersThoughts .boxContainer div{
+    /* border: 2px solid black; */
+    background-color: #6d6b6b1c;
+    border-radius: 2em;
+    width: 22vw;
+    height: 80vh;
+}
+.HomepagePlayersThoughts .boxContainer .boxItems{
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* gap: 10px; */
+    align-items: center;
+    padding: 20px;
+    width: 300px;
+}
+.HomepagePlayersThoughts .boxContainer .boxItems .imagefitting{
+    background-image: url(../../../Image/humanimg1.jpg);
+    background-size: 100% 100%;
+    width:60%;
+    height: 30vh;
+    /* flex-grow: 1; */
+    transform: perspective(400px) rotate3d(1, -1, 0, 8deg);
+    transition: 3s;
+}
+
+.HomepagePlayersThoughts .boxContainer .boxItems:hover .imagefitting{
+    transform: perspective(500px) rotate3d(1, -1, 0, -8deg);
+
+}
+
+.HomepagePlayersThoughts .boxContainer .boxItems  h1{
+    font-size: 2vw;
+    /* border: 1px solid red; */
+    display: flex;
+    /* padding-top: 20px; */
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.HomepagePlayersThoughts .boxContainer .boxItems  p{
+    /* border: 2px solid green; */
+    /* flex-grow: 1; */
+    display: flex;
+    align-items: center;
+    word-spacing: 0.5px;
+    text-indent: 50px;
+    /* font-weight:600; */
+    text-align: justify;
+    font-size: 3vh;
+}
+@media(max-width:700px){
+    .HomepagePlayersThoughts .boxContainer {
+        /* margin: 10px; */
+        flex-direction: column;
+        row-gap: 10px;
+    }
+    .HomepagePlayersThoughts .boxContainer .boxItems{
+        align-self: center !important;
+    }
+    .HomepagePlayersThoughts .boxContainer .boxItems  h1{
+    font-size: 3vw;
+    }
+}
+@media(max-width:600px){
+    .HomepagePlayersThoughts{
+    margin-top: 250px;
+    }
+    .HomepagePlayersThoughts .boxContainer .boxItems{
+    /* height: 0vh; */
+    }
+    .HomepagePlayersThoughts .boxContainer .boxItems  h1{
+        font-size: 4vw;
+    }
+}
+
+@media(max-width:450px){
+    .HomepagePlayersThoughts .boxContainer .boxItems  h1{
+        font-size: 6vw;
+    }
+}

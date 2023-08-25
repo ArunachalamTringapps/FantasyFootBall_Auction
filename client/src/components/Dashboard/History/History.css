@@ -1,50 +1,79 @@
 .history-container{
+    /* border: 2px solid blue; */
     display: flex;
     flex-direction: column;
-    width:63vw;
+    width:70vw;
     height: 90vh;
     gap:20px;
 }
+h1{
+    /* border: 2px solid black; */
+    text-align: center;
+    font-size: 3.5vw;
+}
 .details{
+    /* border: 2px solid rgb(255, 0, 0); */
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* justify-content: center; */
+    padding: 10px;
     gap:20px;
+    height: 80vh;
+    position: relative;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
-.history-details{
+.details::-webkit-scrollbar{
+display: none;
+}
+
+
+.heading-details{
+    /* border: 2px solid rgb(0, 0, 0); */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width:47vw;
+    height:7vh;
+    font-size: 1.2vw;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.804);
+    border-left: 5px solid green;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
+}
+.heading-details div{
+    flex-grow: 1;
+    /* border: 2px solid green; */
+    text-align: center;
+}
+
+/* .history-details{
+    border: 2px solid black;
     display: flex;
     flex-direction: row;
-    padding:20px;
-    width:700px;
-    height:50px;
+    justify-content: center;
+    align-items: center;
+    width:47vw;
+    height:7vh;
+    font-size: 1.2vw;
     background-color: rgba(255, 255, 255, 0.804);
     border-left: 5px solid green;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
-    font-size: 15px;
-    border-radius: 10px;
-    gap:120px;
-    
-}
-.heading-details{
+    border-radius: 10px;    
+} */
+/* .history-details div{
+    border: 2px solid black;
+    flex-grow: 1;
+    padding-left: 15px;
     display: flex;
     flex-direction: column;
-    padding:20px;
-    width:700px;
-    height:50px;
-    font-size: 15px;
-    word-spacing:70px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.804);
-    border-left: 5px solid green;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
-}
-h1{
-    text-align: center;
-    font-size: 50px;
-}
+    align-items: start;
+} */
+
 .auction-click{
-width:70px;
-height:20px;
+align-self: center;
 border: none;
 border-radius: 10px;
 }
@@ -52,18 +81,96 @@ border-radius: 10px;
     cursor: pointer;
     background-color: rgba(159, 233, 170, 0.806);
 }
-.history-auction{
+.team-date{
+    display: flex;
+}
+.points-team{
+    display: flex;
+}
+.players-team{
+    display: flex;
+}
+/* .history-auction{
+    width:49vw;
+    height: 59vh;
+    padding-bottom: 5px;
+    border: 2px solid black;
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap:15px;
-    width:46vw;
-    height:65vh;
     overflow: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
-
 }
 .history-auction::-webkit-scrollbar{
 display: none;
+} */
+
+@media (max-width:1000px){
+    .heading-details,.history-details{
+        font-size: 1.5vw;
+    }
+}
+
+@media(max-width:900px){
+    h1{
+        font-size: 4vw;
+    }
+    .history-container{
+        width: 90vw;
+    }
+    .heading-details,.history-details{
+        font-size: 2vw;
+        width:70vw;
+        height:8vh;
+    }
+    .history-auction{
+        width:70vw;
+    }
+}
+@media(max-width:750px){
+    h1{
+        font-size: 5vw;
+    }
+}
+
+@media( max-width:650px){
+    h1{
+        font-size: 6vw;
+    }
+    .heading-details,.history-details{
+        font-size: 2.2vw;
+    }
+}
+
+@media( max-width:500px){
+    h1{
+        font-size: 7vw;
+    }
+    .heading-details,.history-details,.history-auction{
+        width: 80vw;
+        font-size: 2.5vw;
+    }
+}
+@media( max-width:400px){
+    h1{
+        font-size: 8vw;
+    }
+    .heading-details,.history-details{
+        font-size: 2.7vw;
+    }
+}
+
+
+@media(min-height:500px) and (max-width:900px){
+    .history-container{
+    height: 98vh;
+    }
+    /* .details{
+        background-color: red;
+        height: 90vh;
+    } */
 }

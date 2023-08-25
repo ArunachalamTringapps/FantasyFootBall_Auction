@@ -14,20 +14,6 @@ const UserEdit = ({defaultusername,defaultphonenumber}) => {
     const [newUsername, setnewusername] = useState('')
     const [newPhoneno,setnewphoneno]=useState('');
     const[Image,setnewimage]=useState('');
-    // const handleclickedit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const response = await axios.put(`http://localhost:5000/api/settings/editdetails/${email}`, {
-    //             new_password: newPassword,
-    //             new_username: newUsername
-    //         })
-    //         navigate('/user/dashboard/setting');
-    //     }
-    //     catch (err) {
-    //         console.log(err.message);
-    //     }
-    //     e.target.reset();
-    // }
     const [updateduserdetails, setupdateduserdetails] = useState('')
   useEffect(() => {
     axios.get(`http://localhost:5000/api/userdetails/${email}`)
