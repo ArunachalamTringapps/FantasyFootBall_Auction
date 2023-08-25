@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const { registerroute, loginroute, createauctionroute, userdataroute, currentauctionroute, upcomingauctionroute, historyauctionroute, searchPlayersRoute, teamauctionroute, playerdetailsRoute, teamsJoinsPlayersRoute, topfiveplayersRoute, usereditroute,teambuttonRoute,playeraddteamRoute,teamdetailsroute, auctionpointsroute,teamroute,
-  updateteambalanceSoldRoute,updateteambalanceUnsoldRoute,teamseditroute,teamsdeleteroute} = require('./backend/Route')
+  updateteambalanceSoldRoute,updateteambalanceUnsoldRoute,teamseditroute,teamsdeleteroute,playerroute,playersaddroute} = require('./backend/Route')
 
 const app = express();
 const port = 5000;
@@ -24,6 +24,8 @@ app.use('/uploads', express.static('uploads'));
 app.use('/api/teams',teamdetailsroute)
 app.use('/api/auctionpoints',auctionpointsroute)
 app.use('/api/teamlist',teamroute)
+app.use('/api/playerslist',playerroute)
+// app.use('/api/addplayers',playersaddroute)
 app.use('/api/teambalance',updateteambalanceSoldRoute)
 app.use('/api/unsold',updateteambalanceUnsoldRoute)
 app.use('/api/teamsedit',teamseditroute)

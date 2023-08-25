@@ -5,7 +5,7 @@ import { useState } from 'react';
 import "../../css/Dashboardcss/Settings.css"
 import { useNavigate } from 'react-router-dom';
 import img from '../../Image/no-profile-img.gif';
-function Setting() {
+function Setting({setdefaultusername,setdefaultphonenumber}) {
   const [updateduserdetails, setupdateduserdetails] = useState('')
   const email = localStorage.getItem("useremail")
   const navigate = useNavigate();
@@ -20,14 +20,18 @@ function Setting() {
         console.error("Error fetching user data:", err);
       })
   }, [])
-  const handleedit = () => {
+  const handleedit = (UserName,UserPhoneno) => {
+    setdefaultusername(UserName)
+    // setdefaultpassword(UserPassword)
+    setdefaultphonenumber(UserPhoneno)
+    // setdefaultImage(UserImage)
     navigate('/user/dashboard/useredit')
   }
   return (
     <div className='setting'>
       <h1 className='Header'>User Settings</h1>
       <div className='settingcontainer'>
-        <button className='edit-button' onClick={handleedit}>EDIT</button>
+      <button className='edit-button'onClick={()=>{handleedit(updateduserdetails.username,updateduserdetails.phone_no)}}>EDIT</button>
         <div className='imagecontainer'>
           {/* <img src='https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png' className='image' /> */}
           {/* <img src={img} className='image' /> */}

@@ -5,7 +5,8 @@ import "../../css/Dashboardcss/UserEdit.css"
 import image from '../../Image/no-profile-img.gif';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const UserEdit = () => {
+const UserEdit = ({defaultusername,defaultphonenumber}) => {
+  // console.log("default phone no",defaultphonenumber)
     const navigate = useNavigate()
     const useref=useRef();
     const email = localStorage.getItem("useremail")
@@ -18,6 +19,7 @@ const UserEdit = () => {
     axios.get(`http://localhost:5000/api/userdetails/${email}`)
       .then((response) => {
         setupdateduserdetails(response.data)
+        // setnewusername(updateduserdetails.username)
         console.log("upadted user", updateduserdetails)
       })
       .catch((err) => {
@@ -60,11 +62,11 @@ const UserEdit = () => {
                         </div>
                         <div className='update-details'>
                         <label className='input-label'>Password</label>
-                        <input type="password"  placeholder="********"  onChange={(e) => setnewpassword(e.target.value)} />
+                        <input type="password"  placeholder="********" onChange={(e) => setnewpassword(e.target.value)} />
                         <label className='input-label'>Username</label>
-                        <input type="text" placeholder='username' onChange={(e) => setnewusername(e.target.value)} />
+                        <input type="text"   defaultValue={defaultusername} onChange={(e) => setnewusername(e.target.value)} />
                         <label className='input-label'>Phone Number</label>
-                        <input type="text"  placeholder="phoneno" onChange={(e) =>setnewphoneno(e.target.value)} />
+                        <input type="text"  defaultValue={defaultphonenumber} onChange={(e) =>setnewphoneno(e.target.value)} />
                         <button className='update-bt'type="submit">Update Settings</button>
                         </div>
                 </form>

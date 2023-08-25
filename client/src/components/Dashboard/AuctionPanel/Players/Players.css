@@ -1,4 +1,4 @@
-.teamdetails-container-list{
+.playerlist-container-list{
     display: flex;
     width:60vw;
     height: 75vh;
@@ -6,7 +6,7 @@
     align-items: center;
     /* border: 2px solid rgb(197, 17, 17); */
 }
-.teamdetails-whole{
+.playerlist-whole{
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -22,19 +22,19 @@
 
 }
 
-.teamdetails-whole::-webkit-scrollbar{
+.playerlist-whole::-webkit-scrollbar{
     display: none;
 }
-.teamdetails-title{
+.playerlist-title{
     font-size: 35px;
     display: flex;
+    margin-top:20px;
     flex-direction: row;
    justify-content: center;
-   margin-top:20px;
    align-items: center;
     gap:400px;
 }
-.teamdetails-title button{
+.playerlist-title button{
     padding: 5px;
     letter-spacing: 1px;
     /* width:90px; */
@@ -46,15 +46,15 @@
     background-color: rgba(105, 105, 105, 0.155);
     border-radius: 10px;
 }
-.teamdetails-title button:hover{
+.playerlist-title button:hover{
     cursor: pointer;
 }
-.teamdetails-view{
+.playerlist-view{
     position: relative;
     display: flex;
     flex-direction: row;
     width:60vw;
-    height: 65vh;
+    height: 76vh;
     /* border: 2px solid black; */
     gap:20px;
     flex-wrap:wrap;
@@ -64,9 +64,11 @@
 }
 
 
-.team-listview-details{
-    width:270px;
-    height:340px;
+.player-listview-details{
+    /* width:270px;
+    height:340px; */
+    width:40%;
+    height:100%;
     background-color:  rgba(255, 255, 255, 0.804);
     /* border-left: 4px solid rgb(129, 182, 83);
     border-right:4px solid rgb(129, 182, 83); */
@@ -77,31 +79,31 @@
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   gap:20px;
+   gap:6px;
 }
-.team-auction-image img{
-    width:130px;
-    height:130px;
+.player-auction-image img{
+    width:150px;
+    height:150px;
     border-radius: 200px;
     border:3px solid  rgba(65, 66, 65, 0.349);
     
 }
-.team-edit-delete{
+.player-edit-delete{
     
     display: flex;
     flex-direction: row;
     gap:100px;
 }
-.team-edit{
+.player-edit{
     background-color: rgba(5, 108, 45, 0.628);
     color: rgb(255, 255, 255);
     letter-spacing: 1px;
 }
-.team-delete{
+.player-delete{
     background-color: rgba(98, 98, 98, 0.258);
     letter-spacing: 1px;
 }
-.team-edit,.team-delete{
+.player-edit,.player-delete{
     width:60px;
     height:30px;
     border:none;
@@ -110,12 +112,31 @@
     /* background-color: rgba(89, 93, 89, 0.167); */
     border-radius: 20px;
 }
-.team-name-details{
+.player-name-details{
+    /* display: flex;
+    flex-direction:row; */
+    /* margin-left:10px; */
+    /* height:9%; */
+    /* padding-top: 25px; */
+    /* padding-top:5px; */
+    /* padding-left:24%; */
+    /* border:1px solid blue; */
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap:10px;
+    width:90%;
+    padding-left:18%;
+    /* padding-left:10px; */
+    /* align-items: flex-start; */
+    /* gap:10px; */
 }
-.team-edit,.team-delete:hover{
+.player-edit,.player-delete:hover{
     cursor: pointer;
+}
+.playerlabel{
+    font-size:1.1rem;
+}
+/* .Details{
+    padding-left:3%;
+} */
+.dot{
+    font-family: 'Courier New', Courier, monospace; 
 }

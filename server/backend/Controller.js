@@ -301,6 +301,22 @@ catch (error) {
     res.status(500).json({ error: 'Error retrieving team data' });
 }
 }
+const players=async(req,res)=>{
+    const auction_id=req.params.auction_id;
+    const email_id=req.params.email_id;
+    try{
+        const playersquery=`select p.player_name,p.player_image,p.minimum_bid,p.bit_increase_by,p.age,p.skills,p.team_id,p.email_id,p.sold_or_unsold,p.sold_amount,t.team_name from players p left join teams t using(team_id) where p.email_id=$1 and p.player_id in(select player_id from auctionplayers where auction_id=$2)`;
+        const result = await pool.query(playersquery, [email_id,auction_id])
+        if (result.rows.length === 0) {
+            res.status(404).json({ error: 'player details not found' });
+            return;
+        }
+        res.send(result.rows);
+    }
+    catch (error) {
+        res.status(500).json({ error: 'Error retrieving player data' });
+    }
+}
 
 const updateteambalanceSold= async(req,res)=>{
     const {player_id,team_id}=req.body;
@@ -382,6 +398,7 @@ module.exports = {
     updateteambalanceUnsold,
     teamdetails,
     teamseditsettings,
-    teamsdelete
+    teamsdelete,
+    players
 
 }
