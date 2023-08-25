@@ -18,7 +18,6 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     const { email_id, password_user } = req.body;
-
     try {
         const result = await pool.query(
             checkLoginDetails,

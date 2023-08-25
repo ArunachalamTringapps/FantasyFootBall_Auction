@@ -4,11 +4,13 @@ import './MyAuction.css'
 import axios from 'axios'
 
 function MyAuction({ setplayersTeamsEdit,bidingPanelView }) {
+  const [currentShowingAuction,setCurrentShowingAuction]=useState(true);
   const [currentselectauction, setCurrentSelectauction] = useState([]);
   const [topTenPlayers, setTopTenPlayers] = useState([])
   const email = localStorage.getItem("useremail")
   const currentAuctionFun = () => {
     setplayersTeamsEdit(false);
+    setCurrentShowingAuction(true);
     // setBidingPanelView(true);
     axios.get(`http://localhost:5000/api/auction/currentauction/${email}`)
       .then((response) => {
@@ -21,6 +23,7 @@ function MyAuction({ setplayersTeamsEdit,bidingPanelView }) {
   }
   const upcomingAuctionFun = () => {
     setplayersTeamsEdit(true);
+    setCurrentShowingAuction(false);
     // setBidingPanelView(false);
     axios.get(`http://localhost:5000/api/auction/upcomingauction/${email}`)
       .then((response) => {
@@ -92,7 +95,7 @@ function MyAuction({ setplayersTeamsEdit,bidingPanelView }) {
             <div>Players_Per_Teams</div>
           </div>
           {
-          currentselectauction===null?(<div className='showauctionContainerNoAuction'>No Today Auction</div>):(
+          currentselectauction===null?(<div className='showauctionContainerNoAuction'>{currentShowingAuction?'No Today Auction':'No UpComingAuction'}</div>):(
           
           
           currentselectauction.map((val, index) => {

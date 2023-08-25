@@ -31,20 +31,36 @@ function History(props) {
       <h1>Auction Details</h1>
       <div className='details'>
         <div className='heading-details'>
-          <h4>Auction_name Auction_date Points_per_team Players_per_team</h4>
+            <div>Auction_name</div>
+            <div>Auction_date</div>
+            <div>Points_per_team</div>
+            <div>Players_per_team</div>
         </div>
-        <div className='history-auction'>
+        {
+          user.map((val,index)=>{
+            return(
+              <div key={val.auction_id}  className='heading-details centerAlignHeadingDetails '>
+              <div><button className='auction-click' onClick={() => { handleClick(val.auction_id) }}>
+                {val.auction_name}</button></div>
+              <div className='team-date'> {val.auction_date}</div>
+              <div className='points-team'> {val.points_per_team} </div>
+              <div className='players-team'>{val.players_per_team}</div>
+              </div>
+            )
+          })
+        }
+        {/* <div className='history-auction'>
           {user.map((val, index) => {
             return <div key={val.auction_id} className='history-details'>
-              <button className='auction-click' onClick={() => { handleClick(val.auction_id) }}>
-                {val.auction_name}</button>
+              <div><button className='auction-click' onClick={() => { handleClick(val.auction_id) }}>
+                {val.auction_name}</button></div>
               <div className='team-date'> {val.auction_date}</div>
               <div className='points-team'> {val.points_per_team} </div>
               <div className='players-team'>{val.players_per_team}</div>
 
             </div>
           })}
-        </div>
+        </div> */}
       </div>
     </div>
 
