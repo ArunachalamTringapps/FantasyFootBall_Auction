@@ -27,32 +27,32 @@ function Setting() {
     <div className='setting'>
       <h1 className='Header'>User Settings</h1>
       <div className='settingcontainer'>
-      <button className='edit-button'onClick={handleedit}>EDIT</button>
+        <button className='edit-button' onClick={handleedit}>EDIT</button>
         <div className='imagecontainer'>
-        {/* <img src='https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png' className='image' /> */}
-        {/* <img src={img} className='image' /> */}
-        {updateduserdetails.user_image ?  <img src={`http://localhost:5000/uploads/${updateduserdetails.user_image}`} className='image' />:(<img src={img} className='image' />)}
-        <input className='imagefield' type='file' />
+          {/* <img src='https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png' className='image' /> */}
+          {/* <img src={img} className='image' /> */}
+          {updateduserdetails.user_image ? <img src={`http://localhost:5000/uploads/${updateduserdetails.user_image}`} className='image' /> : (<img src={img} className='image' />)}
+          <input className='imagefield' type='file' />
         </div>
         <div className='userdetails'>
-        <label className='label'>Username</label>
-        <span className='dot namedot'>:</span>
-        <span className='Details'>{updateduserdetails.username}</span>
+          <label className='label'>Username</label>
+          <span className='dot namedot'>:</span>
+          <span className='Details'>{updateduserdetails.username}</span>
         </div>
         <div className='userdetails'>
-        <label className='label'>Password</label>
-        <span className='dot passdot'>:</span>
-        <span className='Details'>{updateduserdetails.password_user}</span>
+          <label className='label'>Password</label>
+          <span className='dot passdot'>:</span>
+          <span className='Details'>{updateduserdetails.password_user}</span>
         </div>
         <div className='userdetails'>
-        <label className='label'>Phoneno</label>
-        <span className='dot phonedot'>:</span>
-        <span className='Details'>{updateduserdetails.phone_no}</span>
+          <label className='label'>Phoneno</label>
+          <span className='dot phonedot'>:</span>
+          <span className='Details'>{updateduserdetails.phone_no}</span>
         </div>
         <div className='userdetails'>
-        <label className='label'>Email</label>
-        <span className='dot emaildot'>:</span>
-        <span className='Details'>{updateduserdetails.email_id}</span>
+          <label className='label'>Email</label>
+          <span className='dot emaildot'>:</span>
+          <span className='Details'>{updateduserdetails.email_id}</span>
         </div>
       </div>
     </div>
