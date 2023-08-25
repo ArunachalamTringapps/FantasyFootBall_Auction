@@ -56,6 +56,7 @@ function HistoryDetails(props) {
             <div>Owner</div>
             <div>No_of_players</div>
           </div>
+          
           <div className='team-heading'>
             <div>Image</div>
             <div> Name</div>
