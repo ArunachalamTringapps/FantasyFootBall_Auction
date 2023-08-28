@@ -1,3 +1,4 @@
+
 const pool = require('../db/database')
 const multer = require('multer');
 const { insertRegisterDetails, checkLoginDetails, insert_auctionquery, userdataquery, currentauctionquery, upcomingauctionquery, historyauctionquery, teamauctionquery, searchPlayersquery, playerdetailsquery, teamjoinsplayersquery,
@@ -211,10 +212,18 @@ const topfiveplayers = async (req, res) => {
 
 const usereditprofile = async (req, res) => {
     const emailIduser = req.params.email_id;
-    console.log(req.file);
     const { newPassword,newUsername,newPhoneno} = req.body;
+    console.log("bvvfb",req.file);
+    // console.log(newPassword)
+    // console.log(newUsername)
+    // console.log(newPhoneno)
+    // console.log(req.file);
+    // console.log(req.file.filename);
+    if (!req.file) {
+        return res.status(400).json({ error: 'No file provided' });
+        console.log("file error");
+    }
     const image=req.file.filename;
-
     try {
         // const userExistsQuery = 'SELECT * FROM users WHERE email_id = $1';
         const userExistsResult = await pool.query(userExistsQuery, [emailIduser]);
@@ -342,9 +351,11 @@ const updateteambalanceUnsold=async(req,res)=>{
       }
 }
 const teamseditsettings=async(req,res)=>{
+    console.log(req.file);
     const teamId=req.params.team_id;
     const { newteamname,newteamownername,newteamemailid} = req.body;
-    const team_image=req.file.filename;
+    const team_image = req.file.filename;
+
     try {
         const teamexistsquery=`select * from teams where team_id=$1`
         const teamExistsResult = await pool.query(teamexistsquery, [teamId]);
