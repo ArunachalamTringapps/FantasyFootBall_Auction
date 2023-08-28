@@ -68,7 +68,7 @@ function Login(props) {
       });
 
       const { login } = response.data;
-console.log("response",response.data.email_id)
+console.log("response",email_id)
       if (login && login.token) {
         localStorage.setItem('authentication', 'true');
         localStorage.setItem('useremail', email_id);

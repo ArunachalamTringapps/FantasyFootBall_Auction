@@ -16,15 +16,28 @@ import Teamdetails from './AuctionPanel/Teams/Teamdetails'
 import Teamsedit from './AuctionPanel/Teams/Teamsedit'
 import PlayerEdit from './AuctionPanel/Players/PlayerEdit'
 import CreatePlayers from './AuctionPanel/Players/CreatePlayers'
+import { useQuery, gql } from '@apollo/client';
 
+
+const GET_USER_DETAILS_QUERY=gql `
+query getuser($email: String!) {
+    getuser(email_id: $email) {
+      username
+      email_id
+    }
+  }
+`;
 
 function Dashboard(email_id) {
     const email = localStorage.getItem("useremail")
+    const token=localStorage.getItem("token")
+   
+
     const [playersTeamsEdit, setplayersTeamsEdit] = useState(false);
     const [menuOpen,setMenuOpen]=useState(true);
     // const [bidingPanelView,setBidingPanelView]=useState(true);
     const bidingPanelView=useRef(false)
-    console.log(email_id)
+    console.log("useremail",email)
     const [changeComponents, setChangeComponent] = useState(1);
     const[teamsedit,setteamsedit]=useState('')
     const[defaulteamname,setdefaultteamname]=useState('')
@@ -74,21 +87,20 @@ function Dashboard(email_id) {
         localStorage.setItem("useremail", "")
         navigate("/login")
     }
-    const [userDetails, setuserDetails] = useState([])
-    useEffect(() => {
-        // navigate("/user/dashboard/");
-        axios.get(`http://localhost:5000/api/userdetails/${email}`)
-            .then((response) => {
-                setuserDetails(response.data)
-            })
-            .catch((err) => {
-                console.error("Error fetching user data:", err);
-            })
-            // setplayerName('name');
+    // const [userDetails, setuserDetails] = useState([])
+    // useEffect(() => {
+    //     // navigate("/user/dashboard/");
+    //     axios.get(`http://localhost:5000/api/userdetails/${email}`)
+    //         .then((response) => {
+    //             setuserDetails(response.data)
+    //         })
+    //         .catch((err) => {
+    //             console.error("Error fetching user data:", err);
+    //         })
+    //         // setplayerName('name');
             
 
-    }, [])
-    console.log(userDetails);
+    // }, [])
     const [teamhistory, setteamhistory] = useState(1)
     const updateMenuOpen = () => {
         console.log(window.innerWidth,"width");
@@ -106,16 +118,39 @@ function Dashboard(email_id) {
         };
     },[]);
 
+    const { loading, error, data } = useQuery(GET_USER_DETAILS_QUERY, {
+        variables: { email },
+        context: {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      });
+    
+      if (loading) {
+        return <p>Loading...</p>;
+      }
+    
+      if (error) {
+        return <p>Error: {error.message}</p>;
+      }
+    
+      const user = data?.getuser;
+      console.log("userssubi",user);
+    //   if(user){
+    //     navigate("/user/dashboard/");
+    //   }
 
+console.log("user details",user.email_id)
 
     return (
         <div className='Dashboard'>
             <div style={menuOpen?{width:'16vw'}:{width:'5vw',rowGap:'100px'}} className='DashboardMenu'>
                 <div className='DashboardMenuHeader'>
                     <button onClick={()=>{menuOpen?setMenuOpen(false):setMenuOpen(true)}} className='MenuButton'><AiOutlineMenuUnfold className='button' /></button>
-                    <div style={{display: menuOpen ? 'block' : 'none',backgroundImage: userDetails.user_image? `url(http://localhost:5000/uploads/${userDetails.user_image})`: `url(${NoProfile})`,}}></div>
-                    <h4 style={{display: menuOpen? 'block':'none'}}>{userDetails.username}</h4>
-                    <h5 style={{display: menuOpen? 'block':'none'}}>{userDetails.email_id}</h5>
+                    <div style={{display: menuOpen ? 'block' : 'none',backgroundImage: user.user_image? `url(http://localhost:5000/graphqlq)`: `url(${NoProfile})`,}}></div>
+                    <h4 style={{display: menuOpen? 'block':'none'}}>{user.username}</h4>
+                    <h5 style={{display: menuOpen? 'block':'none'}}>{user.email_id}</h5>
                     <button style={{display: menuOpen? 'block':'none'}} className='logout' onClick={logout}>Log Out</button>
                 </div>
                 <div className='DashboardMenuItems'>
