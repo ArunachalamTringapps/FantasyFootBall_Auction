@@ -1,45 +1,57 @@
-.Biting{
-    /* border: 3px solid black; */
-    padding: 20px;
+.Biting {
+    border: 3px solid black;
+    position: relative;
+    padding: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    width: 63vw;
-    height: 75vh;
-    
+    width: 62.5vw;
+    height: 80vh;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    /*IE or Edge*/
+    scrollbar-width: none;
+    /*firefox*/
 }
-.BitingPlayerImage{
-    border-left: 2px solid rgba(120, 120, 120, 0.63);
+
+.Biting::-webkit-scrollbar {
+    /*chrome, safari, opera*/
+    display: none;
+}
+
+.BitingPlayerImage {
+    border: 1px solid black;
+    /* border-left: 2px solid rgba(120, 120, 120, 0.63);
     border-top: 2px solid rgba(120, 120, 120, 0.63);
-    border-bottom: 2px solid rgba(120, 120, 120, 0.63);
+    border-bottom: 2px solid rgba(120, 120, 120, 0.63); */
     border-radius: 10px 0 0 10px;
-    /* box-shadow: 0px 3px 5px rgb(0, 0, 0); */
+    padding: 10px;
+    /* height: 40vh; */
     grid-column: 1/3;
     grid-row: 1/3;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.BitingPlayerImage .image{
+
+.BitingPlayerImage .image {
     border: 3px solid rgba(62, 62, 62, 0.712);
     border-radius: 50%;
     width: 20vw;
-    height: 40vh;
-    background-image:url(../../../../Image/no-profile-img.gif);
-    background-size: cover;
+    /* height: 40vh; */
+    background-image: url(../../../../Image/no-profile-img.gif);
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: left left;
 }
 
-.BitingPlayerDetails{
-    border-right: 2px solid rgba(120, 120, 120, 0.63);
+.BitingPlayerDetails {
+    border: 1px solid rgb(245, 0, 0);
+    /* border-right: 2px solid rgba(120, 120, 120, 0.63);
     border-top: 2px solid rgba(120, 120, 120, 0.63);
-    border-bottom: 2px solid rgba(120, 120, 120, 0.63);
+    border-bottom: 2px solid rgba(120, 120, 120, 0.63); */
     border-radius: 0 10px 10px 0;
-    /* border-radius:  10px 0 0 10px; */
-    /* border-left:1px solid rgba(185, 185, 185, 0.18); */
-    /* box-shadow: ; */
-    /* box-shadow: 3px 3px 5px rgb(0, 0, 0); */
+
     position: relative;
     padding: 10px;
     grid-row: 1/3;
@@ -49,75 +61,95 @@
     justify-content: space-around;
 
 }
-.soldorunsold{
+
+.soldorunsold {
     z-index: 0;
-    width: 100%;
+    width: 90%;
     height: 100%;
     position: absolute;
     /* background-image: none; */
     /* background-image: url(../../../Image/soldout-removebg-preview.png); */
-    background-position: right center ;
-    background-size: contain;
+    background-position: right center;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-.BitingPlayerDetails div{
+
+.BitingPlayerDetails div {
+    justify-content: start;
+    letter-spacing: 0.5px;
+    border: 1px solid blue;
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 
 }
-.BitingPlayerDetails div label{
-    font-size: 1.2em;
-    font-weight: 800;
-    width: 9vw;
+
+.BitingPlayerDetails div label {
+    border: 1px solid rgb(0, 0, 0);
+    color: rgba(49, 49, 49, 0.74);
+    font-size: 1.2vw;
+    font-weight: 900;
+    width: 15vw;
 }
 
-.BitingPlayerDetails div h5{
-    font-size: 1em;
+.BitingPlayerDetails div h5 {
+    border: 1px solid rgb(255, 0, 0);
+    font-size: 1vw;
 }
-.BitingPlayerDetails button{
-    border: none;
+
+.BitingPlayerDetails button {
+    /* border: none; */
+    /* border: 1px solid blue; */
     border-radius: 10%;
     background-color: #93C5A9;
     box-shadow: 3px 3px 5px black;
     font-weight: 700;
     letter-spacing: 1px;
-    font-size: 1.2em;
+    text-align: center;
     /* align-self: center; */
+    font-size: 1.2vw;
     width: 5.5vw;
     height: 5vh;
 }
-.BitingPlayerDetails button:hover{
+
+.BitingPlayerDetails button:hover {
     cursor: pointer;
 }
 
 
-.BitingControls{
+.BitingControls {
+    border: 2px solid black;
     position: relative;
+    gap: 10px;
     height: 27vh;
     padding-top: 20px;
-    overflow-y: scroll;
-    scroll-behavior: smooth;  
-    scrollbar-width: none;  /*firefox*/
-    -ms-overflow-style: none;  /*IE or Edge*/
+    /* overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none; */
+    /*firefox*/
+    /* -ms-overflow-style: none; */
+    /*IE or Edge*/
     grid-column: 1/6;
     display: flex;
     flex-direction: column;
     /* justify-content: ; */
 }
-.BitingControls::-webkit-scrollbar{     /* chrome,safari,opera */
-    display: none;
-}
 
-.BitingControls .minimumBitField{
+/* .BitingControls::-webkit-scrollbar {
+    chrome,safari,opera
+    display: none;
+} */
+
+.BitingControls .minimumBitField {
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: center;
-    /* border: 1px solid blue; */
-    height: 5vh;
+    border: 1px solid blue;
+    /* height: 5vh; */
 }
-.BitingControls .minimumBitField input{
+
+.BitingControls .minimumBitField input {
     height: 3.5vh;
     width: 20vw;
     border: none;
@@ -126,23 +158,24 @@
     border-radius: 10px;
     letter-spacing: 1px;
 }
-.BitingControls .minimumBitField input:focus{
+
+.BitingControls .minimumBitField input:focus {
     border: none;
     outline: none;
 }
 
-.BitingControls h3{
+.BitingControls h3 {
     color: rgb(72, 72, 72);
-    /* border: 2px solid black; */
+    border: 2px solid rgb(255, 196, 0);
     letter-spacing: 1px;
-    font-size: 1.8em;
+    font-size: 2.3vw;
     text-align: center;
 }
 
-.BitingControls .displaysTeams{
-    /* border: 3px solid black; */
+.BitingControls .displaysTeams {
+    /* height: 40vh; */
+    border: 3px solid blue;
     /* overflow: scroll; */
-
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
@@ -151,29 +184,35 @@
     justify-content: space-evenly;
     align-items: center;
 }
+
 /* .BitingControls .displaysTeams::-webkit-scrollbar{   chrome, safari, opera */
-    /* display: none; */
+/* display: none; */
 /* } */
 
-.BitingControls .displaysTeams button{
-    /* flex-grow: 1; */
+.BitingControls .displaysTeams div {
+    border: 3px solid green;
     width: 10vw;
-    box-shadow: 3px 3px 5px black;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2px;
+    /* box-shadow: 3px 3px 5px black;
     border-radius: 10px;
     background-color: rgba(107, 109, 108, 0.137);
-    height: 5vh;
     letter-spacing: 1px;
     font-weight: 800;
-    /* width: 8vw; */
     padding: 6px;
-    border: none;
+    border: none; */
 }
-.BitingControls .displaysTeams button:hover{
+
+.BitingControls .displaysTeams button:hover {
     cursor: pointer;
 }
-.BidingWarning{
-    /* background-color: rgba(203, 200, 200, 0.192); */
 
+.BidingWarning {
+    /* background-color: rgba(203, 200, 200, 0.192); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,8 +220,9 @@
     width: 58vw;
     height: 75vh;
 }
-.BidingWarningText{
-    
+
+.BidingWarningText {
+
     text-align: center;
     word-break: break-word;
     word-spacing: 3px;
@@ -197,3 +237,299 @@
     justify-content: center;
     align-items: center;
 }
+
+@media(max-width:1200px) {
+    .BitingPlayerDetails div label {
+        font-size: 1.3vw;
+    }
+
+    .BitingPlayerDetails div h5 {
+        font-size: 1.1vw;
+    }
+}
+
+@media(max-width:1100px) {
+    .BitingPlayerImage {
+        width: 25vw;
+    }
+
+    .BitingPlayerImage .image {
+        width: 23vw;
+        /* height: 38vh; */
+    }
+
+    .BitingPlayerDetails div label {
+        font-size: 1.4vw;
+    }
+
+    .BitingPlayerDetails div h5 {
+        font-size: 1.2vw;
+    }
+
+    .BitingPlayerDetails button {
+        font-size: 1.3vw;
+        width: 5.7vw;
+        height: 5vh;
+    }
+}
+
+@media(max-width:900px) {
+    .Biting {
+        width: 79.5vw;
+        height: 86.5vh;
+    }
+
+    .BitingPlayerImage {
+        width: 30vw;
+    }
+
+    .BitingPlayerImage .image {
+        width: 25vw;
+        height: 38vh;
+    }
+
+    .BitingPlayerDetails div label {
+        font-size: 1.8vw;
+    }
+
+    .BitingPlayerDetails div h5 {
+        font-size: 1.7vw;
+    }
+
+    .BitingPlayerDetails button {
+        font-size: 1.8vw;
+        width: 8vw;
+        height: 5vh;
+    }
+    .BitingControls .minimumBitField input {
+        height: 3.5vh;
+        width: 30vw;
+    }
+    .BitingControls h3 {
+        font-size: 3vw;
+    }
+    }
+
+    @media(max-width:800px) {
+        .BitingPlayerImage .image {
+            width: 28vw;
+            height: 33vh;
+        }
+
+        .BitingPlayerDetails div label {
+            font-size: 2vw;
+            width: 18vw;
+        }
+
+        .BitingPlayerDetails button {
+            font-size: 2vw;
+            width: 8.4vw;
+            height: 5vh;
+        }
+        .BitingControls h3 {
+            font-size: 3.5vw;
+        }
+    }
+
+    @media(max-width:700px) {
+        .Biting {
+            width: 77vw;
+            height: 86.5vh;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            row-gap: 15px;
+        }
+
+        .BitingPlayerImage {
+            width: 73vw;
+            grid-column: 1/6;
+            grid-row: 1/2;
+        }
+
+        .BitingPlayerImage .image {
+            width: 30vw;
+            height: 30vh;
+        }
+
+        .BitingPlayerDetails {
+            grid-row: 2/3;
+            grid-column: 1/6;
+            row-gap: 1vh;
+        }
+
+        .BitingPlayerDetails div label {
+            font-size: 2.5vw;
+            width: 30vw;
+        }
+
+        .BitingPlayerDetails div h5 {
+            font-size: 2vw;
+        }
+
+        .BitingPlayerDetails button {
+            font-size: 2.2vw;
+            width: 10vw;
+            height: 5vh;
+        }
+
+        .BitingControls {
+            grid-column: 1/6;
+        }
+        .BitingControls .minimumBitField input {
+            height: 3.5vh;
+            width: 35vw;
+        }
+    }
+
+    @media(max-width:620px) {
+        .Biting {
+            width: 73vw;
+        }
+
+        .BitingPlayerImage {
+            width: 69vw;
+        }
+
+        .BitingPlayerDetails {
+            row-gap: 12px;
+        }
+
+        .BitingPlayerDetails div label {
+            font-size: 2.6vw;
+            width: 29vw;
+        }
+
+        .BitingPlayerDetails div h5 {
+            font-size: 2.1vw;
+        }
+    }
+
+    @media(max-width:600px) {
+        .Biting {
+            width: 70vw;
+        }
+
+        .BitingPlayerImage {
+            width: 65vw;
+        }
+
+        .BitingPlayerImage .image {
+            width: 32vw;
+            height: 28vh;
+        }
+
+        .BitingPlayerDetails div label {
+            color: rgba(28, 28, 28, 0.861);
+        }
+
+        .BitingPlayerDetails button {
+            font-size: 2.5vw;
+            width: 11vw;
+            height: 5vh;
+        }
+        .BitingControls h3 {
+            font-size: 3.8vw;
+        }
+    }
+
+    @media(max-width:550px) {
+        .Biting {
+            width: 68vw;
+        }
+
+        .BitingPlayerImage {
+            width: 63vw;
+        }
+
+        .BitingPlayerDetails div label {
+            font-size: 3vw;
+            width: 28vw;
+        }
+
+        .BitingPlayerDetails div h5 {
+            font-size: 2.5vw;
+        }
+        .BitingControls .minimumBitField input {
+            height: 3.5vh;
+            width: 33vw;
+        }
+        .BitingControls h3 {
+            font-size: 4vw;
+        }
+    }
+
+    @media(max-width:450px) {
+        .BitingPlayerDetails {
+            row-gap: 11px;
+        }
+
+        .BitingPlayerDetails div label {
+            font-size: 3.5vw;
+        }
+
+        .BitingPlayerDetails div h5 {
+            font-size: 2.8vw;
+        }
+
+        .BitingPlayerDetails button {
+            font-size: 3vw;
+            width: 13vw;
+            height: 5vh;
+        }
+        .BitingControls .minimumBitField input {
+            height: 3.5vh;
+            width: 45vw;
+        }
+        .BitingControls h3 {
+            font-size: 4.5vw;
+        }
+    }
+
+    @media(max-width:380px) {
+        .BitingPlayerDetails div label {
+            font-size: 4vw;
+        }
+
+        .BitingPlayerDetails div h5 {
+            font-size: 3.3vw;
+        }
+
+        .BitingPlayerDetails button {
+            font-size: 4vw;
+            width: 16vw;
+            height: 5vh;
+        }
+        .BitingControls .minimumBitField input {
+            height: 3.5vh;
+            width: 45vw;
+        }
+        .BitingControls h3 {
+            font-size: 5vw;
+        }
+    }
+
+    @media(max-height:520px) {
+        .Biting {
+            height: 85vh;
+        }
+    }
+
+    @media(max-height:450px) {
+        .Biting {
+            height: 82vh;
+        }
+        .BitingControls .minimumBitField input {
+            height: 4vh;
+            width: 45vw;
+        }
+    }
+
+    @media(max-height:380px) {
+        .Biting {
+            height: 78vh;
+        }
+        .BitingControls .minimumBitField input {
+            height: 5vh;
+            width: 45vw;
+        }
+    }
