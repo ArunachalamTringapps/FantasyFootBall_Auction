@@ -28,7 +28,7 @@
 .playerlist-title{
     font-size: 35px;
     display: flex;
-    margin-top:20px;
+    margin-top:38px;
     flex-direction: row;
    justify-content: center;
    align-items: center;
@@ -53,7 +53,7 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    width:60vw;
+    width:54vw;
     height: 76vh;
     /* border: 2px solid black; */
     gap:20px;

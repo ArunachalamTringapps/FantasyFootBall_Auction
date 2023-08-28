@@ -375,6 +375,21 @@ const teamsdelete=async(req,res)=>{
         res.status(500).json({ error: 'Error deleting team settings' });
     }
 }
+const searchplayer = async (req, res) => {
+    try {
+        const { email_id,auction_id,players_name } = req.params;
+        const playerQuery=`select * from players  p join auctionplayers a using(player_id) where p.email_id=$1 and a.auction_id=$2 and p.player_name ILIKE $3 || '%' limit 1`;
+        const result = await pool.query(playerQuery, [email_id,auction_id,players_name]);
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'given details or wrong' });
+
+        }
+        res.json(result.rows)
+
+    } catch (err) {
+        res.status(500).json({ error: "An error occured while user details is not found" })
+    }
+}
 module.exports = {
     register,
     login,
@@ -399,6 +414,6 @@ module.exports = {
     teamdetails,
     teamseditsettings,
     teamsdelete,
-    players
-
+    players,
+    searchplayer
 }
