@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './MyAuction.css'
 import axios from 'axios'
 
-function MyAuction({ setplayersTeamsEdit,bidingPanelView }) {
+function MyAuction({setplayersTeamsEdit,bidingPanelView }) {
   const [currentShowingAuction,setCurrentShowingAuction]=useState(true);
   const [currentselectauction, setCurrentSelectauction] = useState([]);
   const [topTenPlayers, setTopTenPlayers] = useState([])
@@ -43,6 +43,7 @@ function MyAuction({ setplayersTeamsEdit,bidingPanelView }) {
       })
     currentAuctionFun()
   }, [])
+  // console.log(auctionName,"auctionName");
   const naviagte = useNavigate()
   const navigateFun = (val) => {
     localStorage.setItem("AuctionId", val)
@@ -100,7 +101,7 @@ function MyAuction({ setplayersTeamsEdit,bidingPanelView }) {
           
           currentselectauction.map((val, index) => {
             return (<div key={index} className='showauctionContainerheader'>
-              <div className='routeToAuction' onClick={() => { navigateFun(val.auction_id) }} >{val.auction_name}</div>
+              <div className='routeToAuction' onClick={() => {navigateFun(val.auction_id) }} >{val.auction_name}</div>
               <div>{val.auction_date}</div>
               <div>{val.points_per_team}</div>
               <div>{val.players_per_team}</div>

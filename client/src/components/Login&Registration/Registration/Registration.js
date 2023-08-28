@@ -4,6 +4,18 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useMutation, gql } from '@apollo/client';
+
+
+
+const REGISTER_USER = gql`
+  mutation RegisterUser($email_id: String!, $password_user: String!) {
+    RegisterUser(createUserInput: { email_id: $email_id, password_user: $password_user }) {
+      email_id
+    }
+  }
+`;
+
 
 function Registration() {
   const navigate = useNavigate()
@@ -11,6 +23,7 @@ function Registration() {
   const [password_user, setPassword_user] = useState('')
   // const [username, setusername] = useState('');
   const [retypePassword, setRetypePassword] = useState('');
+  const [registerUser] = useMutation(REGISTER_USER);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -56,29 +69,47 @@ function Registration() {
       return;
     }
 
-
     try {
-      const response = await fetch('http://localhost:5000/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email_id, password_user }),
+      const response = await registerUser({
+        variables: { email_id, password_user },
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log(data.message);
-        navigate("/login")
+      if (response.data.RegisterUser) {
+        console.log('User registered successfully.');
+        navigate('/login');
       } else {
-        toast.error(data.error);
+        toast.error('Registration failed.');
+      }
+    } catch (error) {
+      console.error('Error during registration:', error.message);
+      if (error.graphQLErrors && error.graphQLErrors.length > 0) {
+        toast.error(error.graphQLErrors[0].message);
+      } else {
+        toast.error('An error occurred during registration.');
       }
     }
-    catch (error) {
-      console.error('Error:', error);
-      toast.error('An error occurred during registration.');
-    }
+    // try {
+    //   const response = await fetch('http://localhost:5000/api/register', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ email_id, password_user }),
+    //   });
+
+    //   const data = await response.json();
+
+    //   if (response.ok) {
+    //     console.log(data.message);
+    //     navigate("/login")
+    //   } else {
+    //     toast.error(data.error);
+    //   }
+    // }
+    // catch (error) {
+    //   console.error('Error:', error);
+    //   toast.error('An error occurred during registration.');
+    // }
     e.target.reset();
   };
 

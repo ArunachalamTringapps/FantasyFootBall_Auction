@@ -1,20 +1,43 @@
 .historydetails-container{
+    border: 2px solid blue;
     display: flex;
     width:72vw;
     height: 90vh;
 }
 .teamdetails{
+    border: 2px solid blue;
     display: flex;
     flex-direction: row;
-    gap:20px;
+    flex-wrap: wrap;
+    column-gap:20px;
 
 }
 .teamview{
     display: flex;
+    width: 30vw;
+    border: 2px solid rgb(255, 136, 0);
     flex-direction:column;
-    width:30vw;
-    height:90vh;
-     gap:20px;
+    /* width:30vw;
+    height:90vh; */
+    gap:20px;
+    align-items: center;
+}
+.team-title{
+    border: 2px solid black;
+    font-size: 30px;
+    font-weight: bold;
+    word-spacing: 2px;
+}
+.team-heading{
+    border: 2px solid black;
+    width:420px;
+    height:60px;
+    background-color: rgba(255, 255, 255, 0.804);
+    border-left: 4px solid rgb(129, 182, 83);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
+    border-radius: 10px;
+    font-size:1.1rem;
+    display: flex;
     align-items: center;
 }
 .team-list-details{
@@ -36,22 +59,8 @@
     border-radius: 30px;
     border:3px solid rgba(126, 200, 126, 0.792);
 }
-.team-title{
-    font-size: 30px;
-    font-weight: bold;
-    word-spacing: 2px;
-}
-.team-heading{
-    width:420px;
-    height:60px;
-    background-color: rgba(255, 255, 255, 0.804);
-    border-left: 4px solid rgb(129, 182, 83);
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
-    border-radius: 10px;
-    font-size:1.1rem;
-    display: flex;
-    align-items: center;
-}
+
+
 .team-heading div{
     width:20%;
     text-align: center;
@@ -73,10 +82,12 @@
     border-radius: 20px;
 }
 .player-container{
+    border: 2px solid green;
+    width: 40vw;
     display: flex;
     flex-direction:column;
-    width:39vw;
-    height:90vh;
+    /* width:39vw;
+    height:90vh; */
     align-items: center;
     gap:20px;
 }
@@ -121,4 +132,14 @@ word-spacing: 2px;
     height:50px;
     border-radius: 30px;
     border:3px solid rgba(126, 200, 126, 0.792);
+}
+
+
+@media(max-width:900px){
+    .historydetails-container{
+        width: 100%;
+    }
+    .teamdetails{
+        width: 100%;
+    }
 }
