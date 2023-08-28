@@ -4,12 +4,25 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useMutation, gql } from '@apollo/client';
+
+const LOGIN_USER = gql`
+  mutation loginUser($email_id: String!, $password_user: String!) {
+    login(createUserInput: { email_id: $email_id, password_user: $password_user }) {
+      token
+      user {
+        userId
+        email_id
+      }
+    }
+  }
+`;
 
 function Login(props) {
   const { email_id, setEmail_id } = props
   const navigate = useNavigate();
   const [password_user, setPassword_user] = useState('')
-
+  const [loginUserMutation] = useMutation(LOGIN_USER);
   const handleLogin = async (e) => {
     e.preventDefault()
     if (!email_id) {
@@ -21,29 +34,60 @@ function Login(props) {
       return
     }
 
+    // try {
+      // const response = await fetch('http://localhost:5000/api/login/user', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({ email_id, password_user }),
+      // });
+      // const data = await response.json();
+    //   const response = await loginUser({
+    //     variables: { email_id: email_id, password_user: password_user},
+    //   });
+    //   if (response.ok) {
+    //     localStorage.setItem("authentication", "true")
+    //     localStorage.setItem("useremail", email_id)
+    //     navigate('/user/dashboard')
+    //     console.log(data.message);
+    //   }
+    //   else {
+    //     toast.error(data.error);
+    //   }
+    // }
+    // catch (error) {
+    //   console.error('Error:', error);
+    //   toast.error('Invalid Credentials');
+    // }
+
+    
     try {
-      const response = await fetch('http://localhost:5000/api/login/user', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email_id, password_user }),
+      const response = await loginUserMutation({
+        variables: { email_id: email_id, password_user: password_user },
       });
-      const data = await response.json();
-      if (response.ok) {
-        localStorage.setItem("authentication", "true")
-        localStorage.setItem("useremail", email_id)
-        navigate('/user/dashboard')
-        console.log(data.message);
+
+      const { login } = response.data;
+console.log("response",response.data.email_id)
+      if (login && login.token) {
+        localStorage.setItem('authentication', 'true');
+        localStorage.setItem('useremail', email_id);
+        localStorage.setItem('token',login.token)
+        navigate('/user/dashboard');
+        console.log('User logged in successfully.');
+      } else {
+        toast.error('Error during login');
       }
-      else {
-        toast.error(data.error);
-      }
-    }
-    catch (error) {
+    } catch (error) {
       console.error('Error:', error);
-      toast.error('Invalid Credentials');
+    
+    
+    if (error.graphQLErrors && error.graphQLErrors.length > 0) {
+      toast.error(error.graphQLErrors[0].message);
+    } else {
+      toast.error('Invalid user credentials');
     }
+  }
     e.target.reset();
   }
 
