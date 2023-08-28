@@ -20,8 +20,7 @@ import { useQuery, gql } from '@apollo/client';
 
 
 const GET_USER_DETAILS_QUERY=gql `
-query getuser($
-    : String!) {
+query getuser($email: String!) {
     getuser(email_id: $email) {
       username
       email_id
