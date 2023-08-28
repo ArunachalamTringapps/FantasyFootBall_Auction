@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer=require('multer');
 const path = require('path');
-const { register, login, createAuction, userdata, currentauction, upcomingauction, historyauction, searchPlayers, teamauction, playerdetails, teamjoinsplayers, topfiveplayers, usereditprofile,teamButton,playeraddteam,teamdetails,auctionpoints ,teams,updateteambalanceSold,updateteambalanceUnsold,teamseditsettings,teamsdelete,players} = require("./Controller")
+const { register, login, createAuction, userdata, currentauction, upcomingauction, historyauction, searchPlayers, teamauction, playerdetails, teamjoinsplayers, topfiveplayers, usereditprofile,teamButton,playeraddteam,teamdetails,auctionpoints ,teams,updateteambalanceSold,updateteambalanceUnsold,teamseditsettings,teamsdelete,players,searchplayer} = require("./Controller")
 const registerroute = router.post('/', register);
 const loginroute = router.post('/user', login);
 const createauctionroute = router.post("/createauction", createAuction)
@@ -42,7 +42,7 @@ const usereditroute = router.put("/editdetails/:email_id",upload.single('Image')
 const auctionpointsroute=router.get("/pointsperteam/:auction_id",auctionpoints)
 const teamroute=router.get("/view/:auction_id/:email_id",teams)
 const playerroute=router.get("/playersview/:auction_id/:email_id",players)
-// const playersaddroute=router.post("/playersadd/:auction_id/:email_id",players)
+const searchplayersroute = router.get("/searchplayers/:email_id/:auction_id/:players_name",searchplayer)
 const teamseditroute=router.put("/settings/:team_id",upload.single('team_image'),teamseditsettings)
 const teamsdeleteroute=router.delete('/settings/:team_id',teamsdelete)
 module.exports = {
@@ -65,6 +65,7 @@ module.exports = {
     auctionpointsroute,
     teamroute,
     playerroute,
+    searchplayersroute,
     updateteambalanceSoldRoute,
     updateteambalanceUnsoldRoute,
     teamseditroute,

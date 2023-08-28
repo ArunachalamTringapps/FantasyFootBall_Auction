@@ -122,11 +122,11 @@
 .box-two-containertwo div{
     color:grey;
 }
-.box-two-containerthree{
-    /* border: 3px solid rgb(68, 0, 255); */
-    /* width:100%; */
-    /* height:50%; */
-}
+/* .box-two-containerthree{
+    border: 3px solid rgb(68, 0, 255);
+    width:100%;
+    height:50%;
+} */
 .icons-one{
     /* border: 3px solid white; */
     display:flex;

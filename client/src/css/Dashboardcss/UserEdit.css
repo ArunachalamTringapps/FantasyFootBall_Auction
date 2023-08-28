@@ -47,6 +47,9 @@
     width:12vw;
     border-radius:100%;
 }
+.updateimage:hover{
+    cursor:pointer;
+}
 .Imagefield{
     display:none;
 }
@@ -89,6 +92,21 @@
     background-color:rgba(210, 205, 205, 0.505);
 }
 .update-bt:hover{
+    cursor: pointer;
+}
+.log-button{
+    position:absolute;
+    top:5%;
+    height:6%;
+    width:7%;
+    right:4%;
+    font-size:0.7rem;
+    font-weight: bold;
+    border:none;
+    background-color:rgba(52, 47, 47, 0.116);
+    border-radius: 10px;
+}
+.log-button:hover{
     cursor: pointer;
 }
 @media(max-width:1200px){
@@ -157,6 +175,9 @@
         width:65vw; 
 
     }
+    .log-button{
+        font-size:0.6rem;
+    }
 }
 
 @media (max-width:400px){
@@ -170,6 +191,9 @@
     .updateimage{
         height:90%;
         width:40vw;
+    }
+    .log-button{
+        font-size:0.5rem;
     }
 }
 
