@@ -1,4 +1,5 @@
 .Dashboard{
+    /* border: 2px solid blue; */
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -114,6 +115,7 @@ cursor: pointer;
 }
 
 .DashboardContainer{
+    /* border: 2px solid green; */
     width: 73vw;
     height: 90vh;
     background-color: rgba(166, 166, 166, 0.171);
@@ -124,10 +126,10 @@ cursor: pointer;
 
 
 @media (max-width:900px){
-    .DashboardMenu{
+    /* .DashboardMenu{
         width: 100vw;
         height: 100vh;
-    }
+    } */
     .MenuButton .button{
         font-size: 4vw;    
     }  
@@ -136,24 +138,25 @@ cursor: pointer;
         height: 100vh;
         border-radius: 0 0 0 0;
     }
+    .DashboardMenu{
+        height: 99vh;
+    }
     .DashboardMenuItemsListTrue{
         font-size: xx-large;
-        /* width: 5vw; */
     }
     .DashboardMenuItemsListFalse{
         font-size: xx-large;
-        /* width: 5vw; */
     }
-    /* .DashboardMenuItemsLogo{
-        font-size: 10vw;
-    } */
-    /* .DashboardMenuHeader div, h4, h5,button {
-        display: none;
-    } */
     .MenuButton{
         pointer-events: none!important;
     } 
     
+}
+
+@media(max-width:720px){
+   .DashboardMenu{
+    width: 6vw !important;
+   }
 }
 @media(max-width:600px){
     .DashboardMenu{
@@ -162,51 +165,29 @@ cursor: pointer;
     .MenuButton .button{
         font-size: 4.9vw;    
     } 
-    .DashboardMenuItemsListTrue{
-        /* width: 7vw; */
-    }
-    .DashboardMenuItemsListFalse{
-        /* width: 7vw; */
-    }
 }
 @media(max-width:550px){
     .MenuButton .button{
         font-size: 6vw;    
     } 
    .DashboardMenu{
-    /* background-color: red; */
-    width: 10vw !important;
+    width: 8vw !important;
    }
 }
 
-@media(max-width:430px){
+@media(max-width:435px){
     .MenuButton .button{
-        font-size: 8vw;    
-    } 
+        font-size: 7vw;    
+    }
     .DashboardMenu{
-        /* width: 11vw!important; */
-    }
-    .DashboardMenuItemsListTrue{
-        /* width: 8vw; */
-    }
-    .DashboardMenuItemsListFalse{
-        /* width: 8vw; */
-    }
+        width:10vw!important;
+    } 
 }
 
 
 @media(max-width:400px){
     .DashboardMenu{
         width:11vw!important;
-    }
-    .MenuButton .button{
-        /* font-size: 10vw;     */
-    } 
-    .DashboardMenuItemsListTrue{
-        /* width: 9vw; */
-    }
-    .DashboardMenuItemsListFalse{
-        /* width: 9vw; */
     }
 }
 
@@ -215,10 +196,5 @@ cursor: pointer;
     .DashboardMenu{
         width: 12vw!important;
     }
-    .DashboardMenuItemsListTrue{
-        /* width: 10vw; */
-    }
-    .DashboardMenuItemsListFalse{
-        /* width: 10vw; */
-    }
 }
+

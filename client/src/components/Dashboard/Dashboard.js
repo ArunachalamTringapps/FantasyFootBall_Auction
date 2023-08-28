@@ -108,7 +108,6 @@ function Dashboard(email_id) {
 
 
 
-
     return (
         <div className='Dashboard'>
             <div style={menuOpen?{width:'16vw'}:{width:'5vw',rowGap:'100px'}} className='DashboardMenu'>
@@ -138,8 +137,6 @@ function Dashboard(email_id) {
                     <Route path='/useredit' element={<UserEdit defaultusername={defaultusername} defaultphonenumber={defaultphonenumber} />} />
                     <Route path='/teamlist' element={<Teamdetails />}/>
                     <Route path='/teamsedit' element={<Teamsedit teamsedit={teamsedit} defaulteamname={defaulteamname} defaulteamownername={defaulteamownername} defaulteamowneremail={defaulteamowneremail}/>}/>
-                    {/* <Route path='/playerslist' element={<Players setplayerName={setplayerName}/>}/>  */}
-                    {/* setplayerName={setplayerName} setplayerage={setplayerage} setplayerskills={setplayerskills} */}
                     <Route path='/playersedit' element={<PlayerEdit playername={playername} playerage={playerage} playerskills={playerskills}/>} />
                     <Route path='/createplayers' element={<CreatePlayers />} />
                 </Routes>

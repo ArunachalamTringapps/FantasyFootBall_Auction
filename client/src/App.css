@@ -9,10 +9,13 @@
 *::selection{
   background-color: rgba(91, 91, 91, 0.413);
 }
-.root{
+.body{
+  background-color: red;
+}
+/* #root{
   height: 100vh;
   width: 100vw;
-}
+} */
 
 .App{
   display: flex;
