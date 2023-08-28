@@ -4,6 +4,7 @@
     /* letter-spacing: 1px; */
     /* width:70vw;
     height: 90vh; */
+    position:fixed;
     height:100%;
     width:100%;
     position:relative;

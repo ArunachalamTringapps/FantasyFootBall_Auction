@@ -5,7 +5,7 @@ import profile from "../../../../Image/no-profile-img.gif"
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const Teams = ({ playersTeamsEdit,teamsedit,setteamsedit,setdefaultteamname,setdefaultteamownername,setdefaultteamowneremail}) => {
+const Teams = ({ playersTeamsEdit,teamsedit,setteamsedit,setdefaultteamname,setdefaultteamownername,setdefaultteamowneremail,setdefaultImage}) => {
   const [teamlistdetails, setteamlistdetails] = useState([])
   const email = localStorage.getItem("useremail")
   const auction_id = localStorage.getItem("AuctionId")
@@ -26,11 +26,12 @@ const Teams = ({ playersTeamsEdit,teamsedit,setteamsedit,setdefaultteamname,setd
   const handleclickgoteam = () => {
     navigate('/user/dashboard/teamlist')
   }
-  const handleedit = (teamid,teamname,teamownername,teamowneremailid) => {
+  const handleedit = (teamid,teamname,teamownername,teamowneremailid,teamimage) => {
     setteamsedit(teamid)
     setdefaultteamname(teamname)
     setdefaultteamownername(teamownername)
     setdefaultteamowneremail(teamowneremailid)
+    setdefaultImage(teamimage)
     navigate('/user/dashboard/teamsedit')
   }
   const handledelete=(val)=>{
@@ -71,7 +72,7 @@ const Teams = ({ playersTeamsEdit,teamsedit,setteamsedit,setdefaultteamname,setd
                   <div className='team-name-details'><div>Ownername:</div><div>{val.team_owner_name}</div></div>
                   <div className='team-name-details'><div>Balance:</div><div>{val.balance_amount}</div></div>
                   <div className='team-edit-delete'>
-                    <button className='team-edit' onClick={() => { handleedit(val.team_id,val.team_name,val.team_owner_name,val.team_owner_email_id) }}>Edit</button>
+                    <button className='team-edit' onClick={() => { handleedit(val.team_id,val.team_name,val.team_owner_name,val.team_owner_email_id,val.team_image) }}>Edit</button>
                     <button className='team-delete' onClick={() => { handledelete(val.team_id) }}>Delete</button>
                   </div>
                 </div>

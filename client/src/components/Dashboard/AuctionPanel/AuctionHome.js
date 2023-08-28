@@ -8,7 +8,7 @@ import Players from './Players/Players'
 import Teams from './Teams/Teams'
 // import Searchplayer from './Players/Searchplayer';
 
-function AuctionHome({playersTeamsEdit,bidingPanelView,setteamsedit,setdefaultteamname,setdefaultteamownername,setdefaultteamowneremail,setplayerName,setplayerage,setplayerskills}) {
+function AuctionHome({playersTeamsEdit,bidingPanelView,setteamsedit,setdefaultteamname,setdefaultteamownername,setdefaultteamowneremail,setplayerName,setplayerage,setplayerskills,setdefaultImage}) {
   const auctionId=localStorage.getItem('AuctionId')
   const [searchInput, setSearchInput] = useState('');
   const auctionSwitchComponent = [
@@ -29,7 +29,7 @@ function AuctionHome({playersTeamsEdit,bidingPanelView,setteamsedit,setdefaultte
     }
   ]
   const switchingpanel = [<Biting  searchinput={searchInput} bidingPanelView={bidingPanelView} />, <Teams playersTeamsEdit={playersTeamsEdit} setteamsedit={setteamsedit} setdefaultteamname={setdefaultteamname}   setdefaultteamownername={setdefaultteamownername} setdefaultteamowneremail={setdefaultteamowneremail}
-  />, <Players playersTeamsEdit={playersTeamsEdit} setplayerName={setplayerName} setplayerage={setplayerage} setplayerskills={setplayerskills} />]
+  setdefaultImage={setdefaultImage}/>, <Players playersTeamsEdit={playersTeamsEdit} setplayerName={setplayerName} setplayerage={setplayerage} setplayerskills={setplayerskills} />]
   const [colorMenu, setColorMenu] = useState(0);
   const [switchpanelcount, setSwitchpanlecount] = useState(0);
   return (
