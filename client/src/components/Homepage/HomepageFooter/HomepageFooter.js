@@ -1,17 +1,33 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React,{useRef} from 'react'
 import {Link} from 'react-router-dom'
 import './HomepageFooter.css'
+import emailjs from '@emailjs/browser';
 import { FaFacebook, FaTelegram, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa';
 function HomepageFooter() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_xl7co6r', 'template_rf9srcr', form.current, 'LPNdnnFs1Aea3hW_p')
+      .then((result) => {
+        console.log(form.current);
+        console.log(result.text);
+        console.log('message sent');
+      }, (error) => {
+        console.log(error.text);
+      });
+    e.target.reset();
+  };
   return (
     <div className='HeaderFooter'>
       <div className='box-one'>
         {/* <div className='box-one-container'> */}
           <h1>LET'S TALK!</h1>
-          <form>
-            <input className='Fullname' type='text' name='fullname' placeholder='Full name...' required />
-            <input className='Email' type='text' name='email' placeholder='Email...' required />
+          <form ref={form} onSubmit={sendEmail} autoComplete='off'>
+            <input className='Fullname' type='text' name='user_name' placeholder='Full name...' required />
+            <input className='Email' type='text' name='user_email' placeholder='Email...' required />
             <input className='Message' type='text' name='message' placeholder='Message...' required />
             <div>
               <p>By submitting this form we agree to this <a href=''>Private Policy</a></p>

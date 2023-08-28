@@ -46,7 +46,7 @@ function Dashboard(email_id) {
     const [defaultusername,setdefaultusername]=useState('')
     // const [defaultpassword,setdefaultpassword]=useState('')
     const [defaultphonenumber,setdefaultphonenumber]=useState('8765453')
-    // const [defaultImage,setdefaultImage]=useState('')
+     const [defaultImage,setdefaultImage]=useState('')
     // const [playeredit,setplayerEdit]=useState('');
     const [playername,setplayerName]=useState('');
     const [playerage,setplayerage]=useState('');
@@ -164,14 +164,14 @@ console.log("user details",user.email_id)
             <div className='DashboardContainer'>
                 <Routes>
                 <Route path='/' element={<MyAuction setplayersTeamsEdit={setplayersTeamsEdit} bidingPanelView={bidingPanelView} />}></Route>
-                    <Route path='/auctionpanel/*' element={<AuctionHome playersTeamsEdit={playersTeamsEdit} bidingPanelView={bidingPanelView} setteamsedit={setteamsedit} setdefaultteamname={setdefaultteamname} setdefaultteamownername={setdefaultteamownername} setdefaultteamowneremail={setdefaultteamowneremail} defaulteamownername={defaulteamownername} defaulteamowneremail={defaulteamowneremail}/>} />
+                    <Route path='/auctionpanel/*' element={<AuctionHome playersTeamsEdit={playersTeamsEdit} bidingPanelView={bidingPanelView} setteamsedit={setteamsedit} setdefaultteamname={setdefaultteamname} setdefaultteamownername={setdefaultteamownername} setdefaultteamowneremail={setdefaultteamowneremail} defaulteamownername={defaulteamownername} defaulteamowneremail={defaulteamowneremail} setplayerName={setplayerName} setplayerage={setplayerage} setplayerskills={setplayerskills} setdefaultImage={setdefaultImage}/>} />
                     <Route path='/createauction' element={<CreateAuction />} />
                     <Route path='/history' element={<History setteamhistory={setteamhistory} />} ></Route>
                     <Route path='/auctiondetails' element={<HistoryDetails teamhistory={teamhistory} />} />
                     <Route path='/setting' element={<Setting setdefaultusername={setdefaultusername}  setdefaultphonenumber={setdefaultphonenumber} />} />
                     <Route path='/useredit' element={<UserEdit defaultusername={defaultusername} defaultphonenumber={defaultphonenumber} />} />
                     <Route path='/teamlist' element={<Teamdetails />}/>
-                    <Route path='/teamsedit' element={<Teamsedit teamsedit={teamsedit} defaulteamname={defaulteamname} defaulteamownername={defaulteamownername} defaulteamowneremail={defaulteamowneremail}/>}/>
+                    <Route path='/teamsedit' element={<Teamsedit teamsedit={teamsedit} defaulteamname={defaulteamname} defaulteamownername={defaulteamownername} defaulteamowneremail={defaulteamowneremail} defaultImage={defaultImage}/>}/>
                     <Route path='/playersedit' element={<PlayerEdit playername={playername} playerage={playerage} playerskills={playerskills}/>} />
                     <Route path='/createplayers' element={<CreatePlayers />} />
                 </Routes>
