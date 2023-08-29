@@ -117,6 +117,7 @@ console.log("response",email_id)
           <div className='registerpageRoute'>
             <div className='createaccount'>Dont have an Account?</div>
             <Link to="/register" className='link'>Register</Link>
+            
           </div>
         </div>
       </div>

@@ -21,9 +21,17 @@
     height:90vh; */
     gap:20px;
     align-items: center;
+    height: 86vh;
+    position: relative;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.teamview::-webkit-scrollbar{
+    display: none;
 }
 .team-title{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     font-size: 30px;
     font-weight: bold;
     word-spacing: 2px;
@@ -135,11 +143,14 @@ word-spacing: 2px;
 }
 
 
-@media(max-width:900px){
+@media(min-width:700px) and (max-width:978px){
     .historydetails-container{
         width: 100%;
     }
     .teamdetails{
         width: 100%;
+    }
+    .team-title{
+        font-size: 20px;
     }
 }

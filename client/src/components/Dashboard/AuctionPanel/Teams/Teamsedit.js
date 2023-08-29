@@ -27,7 +27,14 @@ const Teamsedit = ({teamsedit,defaulteamname,defaulteamownername,defaulteamowner
         
       e.preventDefault();
       const formData = new FormData();
-      formData.append('team_image', team_image);
+      if (team_image) {
+        formData.append('team_image', team_image);
+      } else {
+        setnewTeamImage(defaultImage)
+        formData.append('defaultImage',defaultImage); // Pass the default image URL
+      }
+    
+      // formData.append('team_image', team_image);
       formData.append('newteamname', newteamname);
       formData.append('newteamownername', newteamownername);
       formData.append('newteamemailid', newteamemailid);
@@ -37,7 +44,7 @@ const Teamsedit = ({teamsedit,defaulteamname,defaulteamownername,defaulteamowner
         const response = await axios.put(`http://localhost:5000/api/teamsedit/settings/${teamsedit}`, formData);
         toast.success('Team created successfully');
         console.log(response.data.message);
-        setnewTeamImage(null)
+        setnewTeamImage(defaultImage)
         e.target.reset();
         navigate("/user/dashboard/auctionpanel")
   
@@ -61,9 +68,9 @@ const Teamsedit = ({teamsedit,defaulteamname,defaulteamownername,defaulteamowner
                 <label className='team-image-label'>Team Image:</label>   
                 <div className='team-image-upload'>
                 {fileName ? 
-                <img src={URL.createObjectURL(fileName)} className='team-image-upload' /> :
-                (<img src={`http://localhost:5000/uploads/${team_image}`} className='team-image-upload' />)}
-                  <input type="file" onChange={handleImageChange} className='team-image-inputs' />
+                <img src={URL.createObjectURL(team_image)} className='team-image-upload' /> :
+                (<img src={`http://localhost:5000/uploads/${defaultImage}`} className='team-image-upload' />)}
+                  <input type="file" onChange={handleImageChange} className='team-image-inputs'/>
                 </div>
               </div>
               <div className='team-inputs'>

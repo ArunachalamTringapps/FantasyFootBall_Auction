@@ -43,6 +43,8 @@ function HistoryDetails(props) {
   const handleplayer = (val) => {
     fetchplayer(val);
   }
+  console.log("teams name",teamdetails)
+
   return (
     <div className='historydetails-container'>
       <div className='teamdetails'>
@@ -56,7 +58,6 @@ function HistoryDetails(props) {
             <div>Owner</div>
             <div>No_of_players</div>
           </div>
-
           <div className='team-heading'>
             <div>Image</div>
             <div> Name</div>
@@ -77,6 +78,7 @@ function HistoryDetails(props) {
           </div>
           {
             teamdetails.map((val, index) => {
+             
               return (
                 <div key={index} className='team-list-details'>
                   <div className='team-image'>
