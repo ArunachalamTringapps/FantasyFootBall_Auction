@@ -31,7 +31,7 @@
     width:70%;
     height:70vh;
     background-image: url("../../../Image/login.png");
-    background-size:cover;
+    background-size:100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 10px;
@@ -112,10 +112,10 @@ transform: translateX(0%);
     cursor: pointer;
 }
 .loginpageRoute{
-    font-size: 1.2rem;
+    font-size: 17px;
     display: flex;
     justify-content: center;
-    column-gap: 10px;
+    gap: 10px;
 }
 
 .exist-account{
@@ -124,4 +124,108 @@ transform: translateX(0%);
 }
 .link{
     text-decoration: none;
+}
+@media(min-width:735px) and (max-width:980px) {
+    .container-registration{
+        width:90vw;
+        height:70vh;
+  
+    }
+    .register-container{
+        height: 70vh;
+        width:45%;
+        font-size: 30px;
+    }
+    
+}
+ @media (min-width:669px) and (max-width:735px){
+    .container-registration{
+        width:95vw;
+        height:70vh;
+       
+    }
+    .register-container{
+        height: 70vh;
+        width:45%;
+        font-size: 30px;
+    }
+}
+@media(min-width:507px) and (max-width:669px){
+    .container-registration{
+        width:90vw;
+        height:70vh;
+       
+    }
+    .register-container{
+        height: 70vh;
+        width:50%;
+        font-size: 30px;
+    }
+    .loginpageRoute{
+        gap:3px;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    .link{
+        font-size: 14px;
+    }
+}
+@media(min-width:470px) and (max-width:507px){
+    .container-registration{
+       
+        width:70vw;
+        height:87vh;
+        display: flex;
+        flex-direction:column;
+    
+    }
+    .register-container{
+        height: 70vh;
+        width:100%;
+    
+        font-size: 30px;
+        
+    }
+    .header-register{
+        width:100%;
+        height:70vh;
+    }
+    .loginpageRoute{
+        gap:5px;
+        /* font-size: 15px; */
+        margin-bottom: 20px;
+    }
+    .link{
+        font-size: 16px;
+    }
+}
+@media (min-width:251px) and (max-width:470px){
+    .container-registration{
+       
+        width:85vw;
+        height:87vh;
+        display: flex;
+        flex-direction:column;
+  
+    
+    }
+    .register-container{
+        height: 70vh;
+        width:100%;
+    
+        font-size: 30px;
+        
+    }
+    .header-register{
+        width:100%;
+        height:70vh;
+    }
+    .loginpageRoute{
+        gap:5px;
+        /* font-size: 15px; */
+        margin-bottom: 20px;
+    }
+    .link{
+        font-size: 16px;
+    }
 }
