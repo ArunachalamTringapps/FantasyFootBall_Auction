@@ -5,7 +5,7 @@ const { registerroute, loginroute, createauctionroute, userdataroute, currentauc
   updateteambalanceSoldRoute,updateteambalanceUnsoldRoute,teamseditroute,teamsdeleteroute,playerroute,playersaddroute,searchplayersroute} = require('./backend/Route')
 
 const app = express();
-const port = 5000;
+const port = 6000;
 app.use(cors());
 // app.use('/Images',express.static("./Images"));
 app.use(express.json());

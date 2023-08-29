@@ -132,6 +132,7 @@ const teamauction = async (req, res) => {
     try {
         const auctionId = req.params.auction_id
         const emailId = req.params.email_id
+        console.log(auctionId,emailId)
         const result = await pool.query(teamauctionquery, [auctionId, emailId])
         if (result.rows.length === 0) {
             res.status(404).json({ error: 'Team not found' });
@@ -351,11 +352,15 @@ const updateteambalanceUnsold=async(req,res)=>{
       }
 }
 const teamseditsettings=async(req,res)=>{
-    console.log(req.file);
+  
     const teamId=req.params.team_id;
     const { newteamname,newteamownername,newteamemailid} = req.body;
-    const team_image = req.file.filename;
-
+    const team_image =req.file && req.file.filename;
+    
+    if (!team_image && req.body.defaultImage) {
+        console.log("hii",req.body)
+        team_image = req.body.defaultImage;
+      }
     try {
         const teamexistsquery=`select * from teams where team_id=$1`
         const teamExistsResult = await pool.query(teamexistsquery, [teamId]);

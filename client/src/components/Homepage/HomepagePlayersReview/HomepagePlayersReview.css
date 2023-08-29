@@ -1,23 +1,29 @@
 .HomepagePlayersThoughts{
-    /* border: 2px solid black; */
-    padding: 10px;
+    border: 2px solid black;
+    /* padding: 5px; */
     width: 98vw;
-    height: 140vh;
+    height: 130vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content:space-evenly;
     position: relative;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /*IE or Edge*/
+    scrollbar-width: none; /*firefox*/
+}
+.HomepagePlayersThoughts::-webkit-scrollbar{  /*chrome, safari, opera*/
+    display: none;
 }
 .HomepagePlayersThoughts .straightline{
     position: absolute;
     background-color: #59504c71;
-    width: 98vw;
+    width: 96vw;
     height: 30vh;
 }
 .HomepagePlayersThoughts .boxContainer {
-    /* border: 2px solid black; */
-    width: 98vw;
+    border: 2px solid black;
+    width: 96vw;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -27,11 +33,12 @@
 }
 
 .HomepagePlayersThoughts .boxContainer div{
-    /* border: 2px solid black; */
+    border: 2px solid black;
     background-color: #6d6b6b1c;
     border-radius: 2em;
     width: 22vw;
     height: 80vh;
+    /* position: absolute; */
 }
 .HomepagePlayersThoughts .boxContainer .boxItems{
     align-self: start;
@@ -59,7 +66,7 @@
 }
 
 .HomepagePlayersThoughts .boxContainer .boxItems  h1{
-    font-size: 2vw;
+    font-size: 30px;
     /* border: 1px solid red; */
     display: flex;
     /* padding-top: 20px; */
@@ -76,35 +83,58 @@
     text-indent: 50px;
     /* font-weight:600; */
     text-align: justify;
-    font-size: 3vh;
+    font-size: 1.4vw;
 }
+@media(max-width:1100px){
+    .HomepagePlayersThoughts .boxContainer .boxItems  p{
+        font-size: 1.7vw;
+    }
+}
+
+@media(max-width:1000px){
+    .HomepagePlayersThoughts .boxContainer .boxItems  p{
+        font-size: 2vw;
+    }
+}
+
+@media(max-width:870px){
+    .HomepagePlayersThoughts .boxContainer .boxItems  p{
+        font-size: 2.3vw;
+    }
+}
+
 @media(max-width:700px){
     .HomepagePlayersThoughts .boxContainer {
         /* margin: 10px; */
         flex-direction: column;
         row-gap: 10px;
+        /* position: relative; */
+        padding-top: 250px;
     }
     .HomepagePlayersThoughts .boxContainer .boxItems{
         align-self: center !important;
     }
     .HomepagePlayersThoughts .boxContainer .boxItems  h1{
-    font-size: 3vw;
+    font-size: 25px;
+    }
+    .HomepagePlayersThoughts .boxContainer .boxItems  p{
+        font-size: 20px;
     }
 }
 @media(max-width:600px){
     .HomepagePlayersThoughts{
-    margin-top: 250px;
+    /* margin-top: 250px; */
     }
     .HomepagePlayersThoughts .boxContainer .boxItems{
     /* height: 0vh; */
     }
     .HomepagePlayersThoughts .boxContainer .boxItems  h1{
-        font-size: 4vw;
+        /* font-size: 4vw; */
     }
 }
 
 @media(max-width:450px){
     .HomepagePlayersThoughts .boxContainer .boxItems  h1{
-        font-size: 6vw;
+        /* font-size: 6vw; */
     }
 }
