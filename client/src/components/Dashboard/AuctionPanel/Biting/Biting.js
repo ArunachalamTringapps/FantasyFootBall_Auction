@@ -143,7 +143,7 @@ function Biting({ searchinput, bidingPanelView }) {
             <h3>Teams</h3>
             <div className='displaysTeams'>
               {teamButtons.map((val, index) => {
-                return (<div  key={index}><label>{val.balance_amount}</label><button onClick={() => { teamBitingButtonFun(val); }}>{val.team_name}</button></div>)
+                return (<div  key={index}><label>Balance</label><label>{val.balance_amount}</label><button onClick={() => { teamBitingButtonFun(val); }}>{val.team_name}</button></div>)
               })}
 
             </div>
