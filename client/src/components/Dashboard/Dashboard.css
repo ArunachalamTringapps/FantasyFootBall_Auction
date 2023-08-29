@@ -25,6 +25,7 @@ cursor: pointer;
   }
   
 .DashboardMenu{
+    /* border: 2px solid blue !important; */
     /* display: none; */
     /* width: 16vw; */
     height: 90vh;

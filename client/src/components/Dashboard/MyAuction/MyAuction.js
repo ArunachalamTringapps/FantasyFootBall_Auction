@@ -1,49 +1,68 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './MyAuction.css'
-import axios from 'axios'
+import { useQuery,gql } from '@apollo/client';
+
+const GET_DETAILS=gql`
+query getdetails($email: String!){
+  currentAuction(email_id: { user_email_id: $email }) {
+    auction_id
+    auction_name
+    auction_date
+    points_per_team
+    players_per_team
+  }
+  UpComingAuction(email_id: { user_email_id: $email }) {
+    auction_id
+    auction_name
+    auction_date
+    points_per_team
+    players_per_team
+  }
+  topFivePlayers(user_email_id:{email_id:$email}){
+    player_id
+    player_image
+    player_name
+    minimum_bid
+  }
+}
+`;
+
 
 function MyAuction({setplayersTeamsEdit,bidingPanelView }) {
+
   const [currentShowingAuction,setCurrentShowingAuction]=useState(true);
   const [currentselectauction, setCurrentSelectauction] = useState([]);
   const [topTenPlayers, setTopTenPlayers] = useState([])
   const email = localStorage.getItem("useremail")
-  const currentAuctionFun = () => {
+
+  const {loading,error,data}=useQuery(GET_DETAILS,{
+    variables:{email}
+  });
+  
+useEffect(() => {
+  if (loading) { return; }
+  if (error) {
+    console.error('Error fetching data:', error);
+  } else {
+    if (currentShowingAuction) {
+      setCurrentSelectauction(data.currentAuction);
+    } else {
+      setCurrentSelectauction(data.UpComingAuction);
+    }
+    setTopTenPlayers(data.topFivePlayers)
+  }
+}, [loading, error, data, currentShowingAuction]);
+
+  const CurrentAuctionFun = async () => {
     setplayersTeamsEdit(false);
     setCurrentShowingAuction(true);
-    // setBidingPanelView(true);
-    axios.get(`http://localhost:5000/api/auction/currentauction/${email}`)
-      .then((response) => {
-        setCurrentSelectauction(response.data)
-      })
-      .catch((err) => {
-        console.error("Error fetching user data:", err);
-        setCurrentSelectauction(null);
-      })
   }
   const upcomingAuctionFun = () => {
     setplayersTeamsEdit(true);
     setCurrentShowingAuction(false);
-    // setBidingPanelView(false);
-    axios.get(`http://localhost:5000/api/auction/upcomingauction/${email}`)
-      .then((response) => {
-        setCurrentSelectauction(response.data)
-      })
-      .catch((error) => {
-        console.log("Error fetching user data:", error.code);
-      })
   }
-  useEffect(() => {
-    axios.get(`http://localhost:5000/api/topplayers/limitfive/${email}`)
-      .then((response) => {
-        setTopTenPlayers(response.data)
-      })
-      .catch((err) => {
-        console.error("Error fetching user data:", err);
-      })
-    currentAuctionFun()
-  }, [])
-  // console.log(auctionName,"auctionName");
   const naviagte = useNavigate()
   const navigateFun = (val) => {
     localStorage.setItem("AuctionId", val)
@@ -57,7 +76,7 @@ function MyAuction({setplayersTeamsEdit,bidingPanelView }) {
     bidingPanelView.current=false;
   },[setCurrentSelectauction])
 
-// console.log(currentselectauction);
+console.log("currentselectauction",currentselectauction);
   return (
     <div className='MYAuction'>
       <div className='MyAuctionImage'>
@@ -85,7 +104,7 @@ function MyAuction({setplayersTeamsEdit,bidingPanelView }) {
       </div>
       <div className='MyAuctionDetails'>
         <div className='chooseauction'>
-          <button onClick={() => currentAuctionFun()} >Current Auction</button>
+          <button onClick={() => CurrentAuctionFun()} >Current Auction</button>
           <button onClick={() => upcomingAuctionFun()} >Upcoming Auction</button>
         </div>
         <div className='showauctionContainer'>
