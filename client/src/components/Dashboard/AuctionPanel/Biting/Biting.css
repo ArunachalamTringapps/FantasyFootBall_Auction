@@ -6,7 +6,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     width: 62.5vw;
-    height: 80vh;
+    height: 75vh;
     overflow: scroll;
     -ms-overflow-style: none;
     /*IE or Edge*/
@@ -173,6 +173,7 @@
 }
 
 .BitingControls .displaysTeams {
+    /* padding: 10px; */
     /* height: 40vh; */
     /* border: 3px solid blue; */
     /* overflow: scroll; */
@@ -190,12 +191,14 @@
 /* } */
 
 .BitingControls .displaysTeams div {
+    position: relative;
     background-color: rgb(255, 255, 255);
     border-radius:10% ;
-    /* border-left: 5px solid green; */
+    box-shadow: 1px 1px rgba(117, 117, 117, 0.555);
+    /* border: 1px solid rgba(177, 177, 177, 0.158); */
     letter-spacing: 0.5px;
     width: 200px;
-    height: 120px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -208,11 +211,30 @@
     font-weight: 800;
     padding: 6px;
     border: none; */
+    /* overflow:hidden; */
 }
+
+.BitingControls .displaysTeams div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 50px solid rgb(75, 132, 75); /* Top border height and color */
+    border-left: 50px solid rgb(75, 132, 75);  /* Right border width and transparent color */
+    clip-path: polygon(0 0, 0 100%, 100% 0)  
+}
+
+
 .BitingControls .displaysTeams button{
+    color: rgba(7, 7, 7, 0.799);
+    border: none;
     font-weight: 800;
     border-radius: 10px;
-     padding: 4px;
+     padding: 5px;
+     background-color: rgba(185, 183, 183, 0.176);
+     box-shadow: 2px 2px rgba(128, 128, 128, 0.532);
 }
 
 .BitingControls .displaysTeams button:hover {
@@ -288,7 +310,7 @@
     }
 
     .BitingPlayerImage {
-        width: 30vw;
+        width: 32vw;
     }
 
     .BitingPlayerImage .image {
@@ -349,6 +371,7 @@
         }
 
         .BitingPlayerImage {
+            border-right: 2px solid rgba(120, 120, 120, 0.63);
             width: 73vw;
             grid-column: 1/6;
             grid-row: 1/2;
@@ -360,6 +383,7 @@
         }
 
         .BitingPlayerDetails {
+            border-left: 2px solid rgba(120, 120, 120, 0.63);
             grid-row: 2/3;
             grid-column: 1/6;
             row-gap: 1vh;

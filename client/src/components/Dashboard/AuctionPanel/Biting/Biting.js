@@ -5,12 +5,67 @@ import SoldImage from '../../../../Image/soldout-removebg-preview.png'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useQuery, gql } from '@apollo/client';
+import { useMutation } from "@apollo/client";
 
+
+
+const GET_TEAM_QUERY = gql`
+query findAuctionById($auction_id: String!){
+  findAuctionById(auction_id:$auction_id){
+    team{
+      team_name
+      balance_amount
+      team_id
+    }
+  }
+}
+`;
+const GET_SEARCH_QUERY = gql`
+  query SearchPlayers($playerName: String!, $emailId: String!, $auctionId: String!) {
+    searchplayer(searchPlayer: {
+      player_name: $playerName
+      email_id: $emailId
+      auction_id: $auctionId
+    }) {
+      player_name
+      player_image
+      player_id
+      minimum_bid
+      bit_increase_by
+      age
+      skills
+      sold_amount
+      sold_or_unsold
+    }
+  }
+`;
+const SOLD_PLAYERS_MUTATION = gql`
+  mutation SoldPlayers($player_id: String!,$team_id: String,$sold_or_unsold: String!,$sold_amount: Int!) {
+    soldPlayers(soldorUnsoldInput:{
+      player_id:$player_id
+      team_id:$team_id
+      sold_or_unsold:$sold_or_unsold
+      sold_amount:$sold_amount
+    })
+  }
+`;
+
+const UNSOLD_PLAYERS_MUTATION = gql`
+  mutation UnsoldPlayers($player_id: String!){
+  unSoldPlayers(soldorUnsold : {
+    player_id:$player_id
+  })
+}
+`;
 
 
 function Biting({ searchinput, bidingPanelView }) {
-  console.log("Bitingcomponent:", bidingPanelView);
-  console.log(new Date());
+  // console.log("Bitingcomponent:", searchinput);
+  // console.log(new Date());
+  const [soldPlayersMutation, { soldloading, solderror }] = useMutation(SOLD_PLAYERS_MUTATION);
+  const [unsoldPlayersMutation, { unsoldloading, unsolderror }] = useMutation(UNSOLD_PLAYERS_MUTATION);
+
   const email = localStorage.getItem("useremail")
   const auction_id = localStorage.getItem("AuctionId")
   const [playersView, setPlayersView] = useState([])
@@ -18,34 +73,68 @@ function Biting({ searchinput, bidingPanelView }) {
   const [teamButtons, setTeamButtons] = useState([])
   // const [soldTeamBalanceAmount,setSoldTeamBalanceAmount]=useState(0);
   const [soldto, setSoldto] = useState(null);
-  const searchPlayersFun = () => {
-    axios.get(`http://localhost:5000/api/search/searchplayers/${email}/${auction_id}/${searchinput}`)
-      .then((response) => {
-        setPlayersView(response.data[0])
-        setPlayerBititedAmount(response.data[0].minimum_bid);
+  const { loading: loadingTeamButton, error: errorTeamButton, data: dataTeamButton, refetch: refetchTeamButton } = useQuery(GET_TEAM_QUERY, {
+    variables: {
+      auction_id: auction_id
+    }
+  })
+
+  const { loading: loadingSearchPlayer, error: errorSearchPlayer, data: dataSearchPlayer, refetch: refetchSearchPlayer } = useQuery(GET_SEARCH_QUERY, {
+    variables: {
+      playerName: searchinput,
+      emailId: email,
+      auctionId: auction_id
+    }
+  })
+
+  useEffect(() => {
+    if (loadingTeamButton || loadingSearchPlayer) { return; }
+    if (errorTeamButton || errorSearchPlayer) {
+      console.error('Error fetching data:', errorTeamButton, errorSearchPlayer);
+    }
+    else {
+      if (dataTeamButton) {
+        setTeamButtons(dataTeamButton.findAuctionById.team)
+      }
+      if (dataSearchPlayer) {
+        setPlayersView(dataSearchPlayer.searchplayer)
+        setPlayerBititedAmount(dataSearchPlayer.searchplayer.minimum_bid)
         setSoldto(null);
-      })
-      .catch((err) => {
-        console.error("Error fetching players data:", err);
-      })
-  }
+      }
+    }
 
 
-  useEffect(() => {
-    searchPlayersFun()
-  }, [searchinput])
-  const teamButtonBalanceAmount=()=>{
-    axios.get(`http://localhost:5000/api/teambitingbutton/button/${email}/${auction_id}`)
-    .then((response) => {
-      setTeamButtons(response.data)
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-  }
-  useEffect(() => {
-   teamButtonBalanceAmount()
-  }, []);
+  }, [loadingTeamButton, errorTeamButton, dataTeamButton, loadingSearchPlayer, errorSearchPlayer, dataSearchPlayer, searchinput])
+  console.log(playerBititedAmount, "playerBititedAmount");
+  console.log(soldto, "soldto");
+  // const searchPlayersFun = () => {
+  //   axios.get(`http://localhost:5000/api/search/searchplayers/${email}/${auction_id}/${searchinput}`)
+  //     .then((response) => {
+  //       setPlayersView(response.data[0])
+  //       setPlayerBititedAmount(response.data[0].minimum_bid);
+  //       setSoldto(null);
+  //     })
+  //     .catch((err) => {
+  //       console.error("Error fetching players data:", err);
+  //     })
+  // }
+
+
+  // useEffect(() => {
+  //   searchPlayersFun()
+  // }, [searchinput])
+  // const teamButtonBalanceAmount=()=>{
+  //   axios.get(`http://localhost:5000/api/teambitingbutton/button/${email}/${auction_id}`)
+  //   .then((response) => {
+  //     setTeamButtons(response.data)
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //   })
+  // }
+  // useEffect(() => {
+  //  teamButtonBalanceAmount()
+  // }, []);
   const reduceTeamBalanceAmount = async (player_id_Params, soldPersonId) => {
     await axios.put(`http://localhost:5000/api/teambalance/updatebalance`, {
       player_id: player_id_Params,
@@ -77,16 +166,16 @@ function Biting({ searchinput, bidingPanelView }) {
       sold_amount: soldPlayersAmount
     })
       .then(res => {
-        teamButtonBalanceAmount()
+        refetchTeamButton()
         if (soldOrUnsold === 'sold')
           reduceTeamBalanceAmount(playersView.player_id, soldPersonId);
       })
       .catch((err) => {
         console.error(err);
       })
-    searchPlayersFun()
+    // searchPlayersFun()
+    refetchSearchPlayer()
   }
-  console.log("length", teamButtons.length);
 
   const teamBitingButtonFun = (val) => {
     if (playerBititedAmount < val.balance_amount) {
@@ -96,6 +185,48 @@ function Biting({ searchinput, bidingPanelView }) {
     }
     else {
       toast.error("Insufficient Balance")
+    }
+  }
+
+  const unSoldPlayer = async () => {
+    try {
+      const { data } = await unsoldPlayersMutation({
+        variables: {
+          player_id: playersView.player_id,
+        },
+      });
+
+      // Handle successful response
+      console.log("data", data);
+      refetchTeamButton()
+      refetchSearchPlayer()
+
+    } catch (error) {
+      // Handle error
+      console.error("Error : ", error);
+    }
+
+  }
+  const soldPlayer = async (teamidSold, sold_amount) => {
+    console.log("inputs:", playersView.player_id, teamidSold, "sold", sold_amount);
+    try {
+      const { data } = await soldPlayersMutation({
+        variables: {
+          player_id: playersView.player_id,
+          team_id: teamidSold,
+          sold_or_unsold: "sold",
+          sold_amount: sold_amount,
+        },
+      });
+
+      // Handle successful response
+      console.log("data", data);
+      refetchTeamButton()
+      refetchSearchPlayer()
+
+    } catch (error) {
+      // Handle error
+      console.error("Error : ", error);
     }
   }
 
@@ -110,15 +241,15 @@ function Biting({ searchinput, bidingPanelView }) {
             <div><label>Name</label><h5>{playersView.player_name}</h5></div>
             <div><label>Age</label><h5>{playersView.age}</h5></div>
             <div><label>Skills</label>
-            <h5>
-              {Array.isArray(playersView.skills) ? (
-                playersView.skills.map((skill, index) => (
-                  <span key={index}>{skill}{index !== playersView.skills.length - 1 ? ', ' : ''}</span>
-                ))
-              ) : (
-                <span>No skills available</span>
-              )}
-            </h5>
+              <h5>
+                {Array.isArray(playersView.skills) ? (
+                  playersView.skills.map((skill, index) => (
+                    <span key={index}>{skill}{index !== playersView.skills.length - 1 ? ', ' : ''}</span>
+                  ))
+                ) : (
+                  <span>No skills available</span>
+                )}
+              </h5>
             </div>
             <div><label>Minimum Bit</label><h5>{playersView.minimum_bid}</h5></div>
             <div><label>Bit Increase By</label><h5>{playersView.bit_increase_by}</h5></div>
@@ -132,9 +263,9 @@ function Biting({ searchinput, bidingPanelView }) {
 
             )}
             {playersView.sold_or_unsold === 'sold' ? (
-              <button onClick={() => soldPlayersToTeams(null, 'unsold', 0)}>Unsold</button>
+              <button onClick={() => unSoldPlayer()}>Unsold</button>
             ) : (
-              <button onClick={() => { soldto !== null ? (soldPlayersToTeams(soldto, 'sold', playerBititedAmount)) : (toast.error("Team is not selected to sold the player")); }}>Sold</button>
+              <button onClick={() => { soldto !== null ? (soldPlayer(soldto, playerBititedAmount)) : (toast.error("Team is not selected to sold the player")); }}>Sold</button>
             )}
 
           </div>
@@ -143,12 +274,12 @@ function Biting({ searchinput, bidingPanelView }) {
             <h3>Teams</h3>
             <div className='displaysTeams'>
               {teamButtons.map((val, index) => {
-                return (<div  key={index}><label>Balance</label><label>{val.balance_amount}</label><button onClick={() => { teamBitingButtonFun(val); }}>{val.team_name}</button></div>)
+                return (<div key={index}><label>Balance</label><label>{val.balance_amount}</label><button onClick={() => { teamBitingButtonFun(val); }}>{val.team_name}</button></div>)
               })}
 
             </div>
           </div></>) : (<div className='BidingWarning'><div className='BidingWarningText'>
-            Biding start on Current Date and Need Minimum Four Teams to Start the Biding</div></div>)
+            Biding start on Current Date and Need Minimum Four Teams and Minimum One Player to Start the Biding</div></div>)
 
 
 
