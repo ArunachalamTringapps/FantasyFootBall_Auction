@@ -2,9 +2,9 @@ import React from 'react'
 import axios from 'axios'
 import { useEffect } from 'react'
 import { useState } from 'react';
-import "../../css/Dashboardcss/Settings.css"
+import "./Settings.css"
 import { useNavigate } from 'react-router-dom';
-import img from '../../Image/no-profile-img.gif';
+import img from '../../../Image/no-profile-img.gif';
 function Setting({setdefaultusername,setdefaultphonenumber}) {
   const [updateduserdetails, setupdateduserdetails] = useState('')
   const email = localStorage.getItem("useremail")
