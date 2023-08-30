@@ -4,7 +4,7 @@ import "../Players/Player.css"
 import profile from "../../../../Image/no-profile-img.gif"
 import { useNavigate } from 'react-router-dom'
 // function Players({ playersTeamsEdit }) {
-import SearchPlayer from './Searchplayer';
+// import SearchPlayer from './Searchplayer';
 //   console.log(playersTeamsEdit);
 //   return (
 //     <div>players</div>
