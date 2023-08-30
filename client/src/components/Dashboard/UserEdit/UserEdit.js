@@ -1,8 +1,8 @@
 import React, { useState,useRef,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import "../../css/Dashboardcss/UserEdit.css"
-import image from '../../Image/no-profile-img.gif';
+import "./UserEdit.css"
+import image from '../../../Image/no-profile-img.gif';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const UserEdit = ({defaultusername,defaultphonenumber}) => {
