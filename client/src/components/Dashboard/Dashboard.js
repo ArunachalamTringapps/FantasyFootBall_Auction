@@ -7,11 +7,11 @@ import './Dashboard.css'
 import MyAuction from './MyAuction/MyAuction'
 import CreateAuction from './CreateAuction/CreateAuction'
 import History from './History/History'
-import Setting from './Setting'
+import Setting from './Setting/Setting'
 import HistoryDetails from './History/HistoryDetails/HistoryDetails'
 import AuctionHome from './AuctionPanel/AuctionHome'
 import { AiOutlinePlus, AiOutlineFolderOpen, AiOutlineHistory, AiOutlineSetting, AiOutlineMenuUnfold } from "react-icons/ai";
-import UserEdit from './UserEdit'
+import UserEdit from './UserEdit/UserEdit'
 import Teamdetails from './AuctionPanel/Teams/Teamdetails'
 import Teamsedit from './AuctionPanel/Teams/Teamsedit'
 import PlayerEdit from './AuctionPanel/Players/PlayerEdit'
@@ -123,18 +123,17 @@ function Dashboard(email_id) {
                 Authorization: `Bearer ${token}`,
             },
         },
-    });
-
-    if (loading) {
+      });
+    
+      if (loading) {
         return <p>Loading...</p>;
     }
 
     if (error) {
         return <p>Error: {error.message}</p>;
-    }
-
-    const user = data?.getuser;
-    console.log("userssubi", user);
+      }
+      const user = data?.getuser;
+      console.log("userssubi",user);
     //   if(user){
     //     navigate("/user/dashboard/");
     //   }

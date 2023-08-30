@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import "../Players/PlayersEdit.css"
+import "../Players/Playeredit.css"
 import { useNavigate } from 'react-router-dom';
 // import image from "../../../../Image/upload-image.jpg"
 import img from '../../../../Image/no-profile-img.gif';
@@ -54,15 +54,11 @@ const PlayersEdit = ({playername,playerage,playerskills}) => {
         <div className='playeredit-title'>
            Player Edit Settings
           </div>
-        <div className='playeredit-whole'>
-          <form onSubmit={handleSubmit} autoComplete='off'>
-            <div className='playeredit-form'>
-              <div className='playeredit-inputs'>
+          <div className='playeredit-form'>
+              <div className='playeredit-image-inputs'>
                 <label className='playeredit-image-label'>Player Image:</label>
-                <div className='playeredit-image-upload'>
-                {player_image ? <img src={URL.createObjectURL(player_image)} className='playeredit-image-upload' /> :(<img src={img} className='playeredit-image-upload' />)}
-                  <input type="file" onChange={handleImageChange} className='playeredit-image-inputs' required />
-                </div>
+                {player_image ? <img src={URL.createObjectURL(player_image)} className='playeredit-image' /> :(<img src={img} className='playeredit-image' />)}
+                  <input type="file" onChange={handleImageChange}  style={{display:"none"}}required />
               </div>
               <div className='playeredit-inputs'>
                 <label>Player Name:</label>
@@ -77,13 +73,10 @@ const PlayersEdit = ({playername,playerage,playerskills}) => {
                 <input type="email"   defaultValue={playerskills} className='inputs' required />
               </div>
             </div>
-          </form>
-  
-        </div>
         <div className='playeredit-created'>
                 <button type="submit">Update Player</button>
                 <button onClick={() => { handleBack() }}>Back</button>
-              </div>
+          </div>
         <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false} />
       </div>
     );
