@@ -393,9 +393,13 @@ const teamsdelete=async(req,res)=>{
 }
 const searchplayer = async (req, res) => {
     try {
-        const { email_id,auction_id,players_name } = req.params;
-        const playerQuery=`select * from players  p join auctionplayers a using(player_id) where p.email_id=$1 and a.auction_id=$2 and p.player_name ILIKE $3 || '%' limit 1`;
-        const result = await pool.query(playerQuery, [email_id,auction_id,players_name]);
+        const { email_id,players_name } = req.params;
+        console.log(email_id);
+        console.log(players_name);
+        // const playerQuery=`select * from players where email_id=$1 and player_name ILIKE $2'`;
+        // const playerQuery = `SELECT * FROM players WHERE email_id = $1 AND player_name ILIKE $2 || '%' LIMIT 1`;
+        // console.log('Generated Query:', playerQuery);
+        const result = await pool.query(`SELECT * FROM players WHERE email_id = $1 AND player_name ILIKE $2 || '%'`,[email_id,players_name]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'given details or wrong' });
 
