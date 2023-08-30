@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './AuctionHome.css'
 import { BiBitcoin } from "react-icons/bi";
 import { GiThreeFriends } from "react-icons/gi";
@@ -6,7 +6,16 @@ import { LiaUserPlusSolid } from "react-icons/lia";
 import Biting from './Biting/Biting'
 import Players from './Players/Players'
 import Teams from './Teams/Teams'
-// import Searchplayer from './Players/Searchplayer';
+import { useQuery, gql } from '@apollo/client';
+
+
+const GET_DETAILS_QUERY=gql`
+query findAuctionById($auctionId: String!){
+  findAuctionById(auction_id:$auctionId){
+    auction_name  
+  }
+}
+`;
 
 function AuctionHome({playersTeamsEdit,bidingPanelView,setteamsedit,setdefaultteamname,setdefaultteamownername,setdefaultteamowneremail,setplayerName,setplayerage,setplayerskills,setdefaultImage}) {
   const auctionId=localStorage.getItem('AuctionId')
@@ -32,10 +41,24 @@ function AuctionHome({playersTeamsEdit,bidingPanelView,setteamsedit,setdefaultte
   setdefaultImage={setdefaultImage}/>, <Players searchInput={searchInput} playersTeamsEdit={playersTeamsEdit} setplayerName={setplayerName} setplayerage={setplayerage} setplayerskills={setplayerskills} />]
   const [colorMenu, setColorMenu] = useState(0);
   const [switchpanelcount, setSwitchpanlecount] = useState(0);
+  const [auctionName,setAuctionName]=useState('');
+  const {loading,error,data}=useQuery(GET_DETAILS_QUERY,{
+    variables:{auctionId:auctionId}
+  });
+
+  useEffect(()=>{
+    if(loading){return;}
+    if(error){
+      console.error('Error fetching data:', error);
+    }
+    else{
+      setAuctionName(data.findAuctionById)
+    }
+  },[loading, error, data])
   return (
     <div className='AuctionHome'>
       <div className='AuctionHeader'>
-        <div className='AuctionHeaderHeading'><h6>Auction Name API{auctionId}</h6></div>
+        <div className='AuctionHeaderHeading'><h6>{auctionName.auction_name}</h6></div>
         <div className='AuctionHeaderSearch'><input onChange={(e) => setSearchInput(e.target.value)} placeholder=' Search Players ...' type='text'></input></div>
       </div>
       {/* <Searchplayer searchInput={searchInput}/> */}
