@@ -123,18 +123,17 @@ function Dashboard(email_id) {
                 Authorization: `Bearer ${token}`,
             },
         },
-    });
-
-    if (loading) {
+      });
+    
+      if (loading) {
         return <p>Loading...</p>;
     }
 
     if (error) {
         return <p>Error: {error.message}</p>;
-    }
-
-    const user = data?.getuser;
-    console.log("userssubi", user);
+      }
+      const user = data?.getuser;
+      console.log("userssubi",user);
     //   if(user){
     //     navigate("/user/dashboard/");
     //   }

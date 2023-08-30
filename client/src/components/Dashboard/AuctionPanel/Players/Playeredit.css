@@ -1,0 +1,102 @@
+.playeredit-container{
+    width: 70vw;
+    height: 88vh;
+    border:1px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+.playeredit-title{
+  display:flex;
+  height:10%;
+  /* border:1px solid blue; */
+  justify-content: center;
+  font-size:2.5vw;
+  font-weight: bold;
+  word-spacing: 2px;
+}
+.playeredit-form{
+    box-shadow: 7px 5px 7px 5px rgba(131, 114, 114, 0.189), -4px -4px 7px 5px rgba(131, 114, 114, 0.189);
+    height:78%;
+    width:38%;
+    display: flex;
+    flex-direction: column;
+    gap:3%;
+    border-radius: 10px;
+}
+.playeredit-image-inputs{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    height:35%;
+    padding-left:5%;
+    border:1px solid blue;
+}
+.playeredit-image{
+    height:80%;
+    width:53%;
+    margin-left: 20%;
+    border:1px solid yellow;
+    border-radius: 100%; 
+     border:2px solid grey;
+}
+.playeredit-image-label{
+    font-size:1.3vw;
+    margin-left:2%;
+}
+.playeredit-inputs{
+    width:100%;
+    height:17%;
+    display:flex;
+    position:relative;
+    flex-direction: column;
+    border:1px solid blue;
+    gap:10%;
+    padding-left:5%;
+}
+.playeredit-inputs label{
+    font-size:1.3vw;
+    /* position: absolute;
+    left:0;
+    top:0; */
+    /* margin-left: 0%; */
+}
+.playeredit-inputs .inputs{
+    height:45%;
+    width:95%;
+    font-weight:bold;
+    letter-spacing: 1px;
+    font-size: 1vw;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding-left:5%;
+    /* border:1px solid green; */
+    background-color: rgba(89, 93, 89, 0.167);
+    /* width: */
+}
+.playeredit-created{
+    height:10%;
+    width:40%;
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    border:1px solid blue;
+}
+.playeredit-created button {
+    letter-spacing: 1px;
+    /* padding: 5px; */
+    /* box-shadow: 1px 1px 3px black; */
+    /* border: 1px solid rgba(84, 84, 84, 0.119); */
+    border: none;
+    outline: none;
+    height:5vh;
+    width:8vw;
+    height: 30px;
+    background-color: rgba(214, 214, 214, 0.642);
+    color: rgb(0, 0, 0);
+    font-size:1.1vw;
+    border-radius: 10px;
+}
+

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import "../Players/Players.css"
+import "../Players/Player.css"
 import profile from "../../../../Image/no-profile-img.gif"
 import { useNavigate } from 'react-router-dom'
 // function Players({ playersTeamsEdit }) {
+// import SearchPlayer from './Searchplayer';
 //   console.log(playersTeamsEdit);
 //   return (
 //     <div>players</div>
 //   )
 // }
-function Players({setplayerName,setplayerage,setplayerskills}) { 
+function Players({searchInput,setplayerName,setplayerage,setplayerskills}) { 
 
   // console.log(setplayername);
   // console.log(setplayerage);
@@ -48,6 +49,11 @@ const displayPlayers = () =>{
       <div className='playerlist-title'>
         <div>PlayersList Details</div>
         <div><button onClick={() => { handleclickgoplayer() }}>Create Player</button></div>
+      </div>
+      <div className='filter-buttons'>
+      <button>Sold</button>
+      <button>UnSold</button>
+      <button>Skills</button>
       </div>
       <div className='playerlist-view'>
         {
@@ -91,8 +97,10 @@ const displayPlayers = () =>{
           })
         }
       </div>
-    </div>
+
     {/* <ToastContainer limit={1} position={'top-right'} pauseOnHover={false} pauseOnFocusLoss={false} draggable={false} closeOnClick={false} /> */}
+    {/* <SearchPlayer searchInput={searchInput}/> */}
+    </div>
   </div>
   )
 }
