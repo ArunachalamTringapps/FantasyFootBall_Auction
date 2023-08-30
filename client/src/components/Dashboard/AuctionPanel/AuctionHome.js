@@ -29,7 +29,7 @@ function AuctionHome({playersTeamsEdit,bidingPanelView,setteamsedit,setdefaultte
     }
   ]
   const switchingpanel = [<Biting  searchinput={searchInput} bidingPanelView={bidingPanelView} />, <Teams playersTeamsEdit={playersTeamsEdit} setteamsedit={setteamsedit} setdefaultteamname={setdefaultteamname}   setdefaultteamownername={setdefaultteamownername} setdefaultteamowneremail={setdefaultteamowneremail}
-  setdefaultImage={setdefaultImage}/>, <Players playersTeamsEdit={playersTeamsEdit} setplayerName={setplayerName} setplayerage={setplayerage} setplayerskills={setplayerskills} />]
+  setdefaultImage={setdefaultImage}/>, <Players searchInput={searchInput} playersTeamsEdit={playersTeamsEdit} setplayerName={setplayerName} setplayerage={setplayerage} setplayerskills={setplayerskills} />]
   const [colorMenu, setColorMenu] = useState(0);
   const [switchpanelcount, setSwitchpanlecount] = useState(0);
   return (

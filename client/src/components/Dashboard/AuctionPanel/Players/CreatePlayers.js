@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import "../Players/CreatePlayers.css"
+import "../Players/CreatePlayer.css"
 import { useNavigate } from 'react-router-dom';
 // import image from "../../../../Image/upload-image.jpg"
 import img from '../../../../Image/no-profile-img.gif';
@@ -42,18 +42,14 @@ const CreatePlayers = () => {
     }
     return (
       <div className='playercreate-container'>
-        <div className='playercreate-whole'>
           <div className='playercreate-title'>
            Create a New Player
           </div>
-          <form onSubmit={handleSubmit} autoComplete='off'>
             <div className='playercreate-form'>
-              <div className='playercreate-inputs'>
+              <div className='playercreate-image-inputs'>
                 <label className='playercreate-image-label'>Player Image:</label>
-                <div className='playercreate-image-upload'>
-                {player_image ? <img src={URL.createObjectURL(player_image)} className='playercreate-image-upload' /> :(<img src={img} className='playercreate-image-upload' />)}
-                  <input type="file" onChange={handleImageChange} className='playercreate-image-inputs' required />
-                </div>
+                {player_image ? <img src={URL.createObjectURL(player_image)} className='playercreate-image' /> :(<img src={img} className='playercreate-image' />)}
+                  <input type="file" onChange={handleImageChange} style={{display:"none"}} required />
               </div>
               <div className='playercreate-inputs'>
                 <label>Player Name:</label>
@@ -84,8 +80,6 @@ const CreatePlayers = () => {
                 <input type="email"   className='inputs' defaultValue={soldAmount} onChange={(e)=>{setsoldAmount(e.target.value)}}  required />
               </div>
             </div>
-          </form>
-        </div>
         <div className='playercreate-created'>
                 <button type="submit">Create Player</button>
                 <button onClick={() => { handleBack() }}>Back</button>

@@ -126,6 +126,8 @@ function Dashboard(email_id) {
           },
         },
       });
+      const user = data?.getuser;
+      console.log("userssubi",user);
     
       if (loading) {
         return <p>Loading...</p>;
@@ -135,8 +137,7 @@ function Dashboard(email_id) {
         return <p>Error: {error.message}</p>;
       }
     
-      const user = data?.getuser;
-      console.log("userssubi",user);
+    
     //   if(user){
     //     navigate("/user/dashboard/");
     //   }

@@ -13,10 +13,10 @@ function Searchplayer(props) {
 
   const displayPlayers = () => {
     axios
-      .get(`http://localhost:5000/api/searchplayers/searchplayers/${email}/${auction_id}/${searchInput}`)
+      .get(`http://localhost:5000/api/searchplayers/searchplayers/${email}/${searchInput}`)
       .then((response) => {
-        console.log(response.data[0]);
-        setFilterItem(response.data[0]);
+        console.log(response.data);
+        setFilterItem(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -32,21 +32,24 @@ function Searchplayer(props) {
   };
   console.log(filteritem);
   return (
-    <>
-      {filteritem.length!=0 ? (
+    <div className='Whole-Container'>
+      {filteritem.map((item) =>(
         <div className="searchContainer">
-          <div className="playerdetails">{filteritem.player_name}</div>
-          <div className="playerdetails">{filteritem.skills}</div>
-          {filteritem.sold_or_unsold === 'unsold' ? (
+           <img 
+            src={item.player_image ? item.player_image : profile}
+            alt="Profile"
+            className='playerdetails player-image'
+          />
+          <div className="playerdetails">{item.player_name}</div>
+          <div className="playerdetails">{item.skills}</div>
+          {item.sold_or_unsold === 'unsold' ? (
             <button className="playerdetails sold-bt" onClick={handleclicksold}>Sold</button>
           ) : (
-            <div className="playerdetails">{filteritem.sold_or_unsold}</div>
+            <div className="playerdetails">{item.sold_or_unsold}</div>
           )}
         </div>
-      ) : (
-        ""
-      )}
-    </>
+      ))}
+    </div>
   );
 }
 
